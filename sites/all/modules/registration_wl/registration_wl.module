@@ -1,0 +1,92 @@
+<?php
+/**
+ * @file
+ * Module file for the Registration Waiting List module.
+ * 
+ * This module adds a simple waiting list functionality to the Registration module.
+ * 
+ */
+ 
+/**
+ * Implements hook_registration_entity_settings
+ * 
+ */
+function registration_wl_registration_entity_settings($settings) {
+  $wl_settings = array();
+  
+  // Check there are some states defined, otherwise we can't do
+  // waiting list.
+  $states_a = registration_states();
+  if (count($states_a) == 0) {
+    // we cannot provide this facility if there are not states
+    drupal_set_message(t('Registration Waiting List cannot be used if there are no '.
+                         'registration states defined'), 'warning');
+    return;
+  }
+  
+  // Text field for the size of the waiting list
+  $wl_settings['registration_wl_list_size'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Waiting list size'),
+    '#description' => t('The size of the waiting list, as part of the total capacity.' .
+                        ' Leave at zero to cancel this functionality.'),
+    '#default_value' => isset($settings['settings']['registration_wl_list_size']) ?
+      $settings['settings']['registration_wl_list_size'] : 0,
+    '#element_validate' => array('element_validate_integer_positive'),
+  );
+  
+
+  // Work out existing states, and select default
+  $pending = 0;
+  foreach ($states_a as $id => $state) {
+    $states[$id] = $state->label;
+    // 'pending' is a default state in Registration. We use that
+    // as the default pending state.
+    if ($state->name == 'pending') {
+      $pending = $id;
+    }
+  }
+  if (isset($settings['settings']['registration_wl_state'])) {
+    $default = $settings['settings']['registration_wl_state'];
+  } else if ($pending) {
+    $default = $pending;
+  } else {
+    $default = array_shift(array_keys($states));
+  }
+  
+  // Select option to select the waiting list state
+  $wl_settings['registration_wl_state'] = array(
+    '#type' => 'select',
+    '#title' => 'Waiting list state',
+    '#description' => t('The state to use for registrations on the waiting list'),
+    '#options' => $states,
+    '#default_value' => $default,
+  );
+  
+  return $wl_settings;
+}
+
+/**
+ * Implements hook_entity_presave
+ * 
+ * Set the status of the registration to the waiting list status if
+ * the initial capacity has been reached.
+ * 
+ */
+function registration_wl_entity_presave($entity, $type) {
+  if ($type != 'registration') {
+    return;
+  }
+
+  $settings = registration_entity_settings($entity->entity_type, $entity->entity_id);
+  $capacity = intval($settings['capacity']);
+  $wl_size = intval($settings['settings']['registration_wl_list_size']);
+  $wl_state = intval($settings['settings']['registration_wl_state']);
+  
+  if ($capacity) {
+    $total = registration_event_count($entity->entity_type, $entity->entity_id) + $entity->count;
+    if ($total > $capacity - $wl_size) {
+      $entity->state = $wl_state;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+name = Registration Waiting List
+description = Waiting list add-on for the Registration module
+package = Registration
+core = 7.x
+
+dependencies[] = registration
