@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Scratchpads.eu Site Structure feature.
+ */
+
+include_once 'spads_site_structure.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Scratchpads.eu section contexts & layouts feature.
+ */
+
+include_once 'spads_context_layout.features.inc';

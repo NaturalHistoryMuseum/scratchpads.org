@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Scratchpads.eu Event Manager feature.
+ */
+
+include_once 'spads_event_manager.features.inc';
