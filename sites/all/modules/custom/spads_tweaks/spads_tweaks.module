@@ -1,0 +1,123 @@
+<?php
+/**
+ * @file
+ * 
+ * Implements various small module-level tweaks for the Scratchpads.eu site
+ */
+
+/**
+ * Implementation of hook_theme().
+ */
+function spads_tweaks_theme(){
+  return array(
+      'spads_tweaks_search_results' => array(
+          'variables' => array(
+              'results' => NULL,
+              'module' => NULL
+          ),
+          'template' => 'news_search_results',
+      )
+  );
+}
+
+/**
+ * Implementation of hook_page_alter
+ */
+function spads_tweaks_page_alter(&$page) {  
+  if(isset($page['content']['system_main']['search_results']['#theme'])) {
+    $sr = $page['content']['system_main']['search_results']['#search_page'];
+    if ($sr['page_id'] == 'news') {
+      $page['content']['system_main']['search_results']['#theme'] = 'spads_tweaks_search_results';
+    }
+  }
+}
+
+/**
+ * Implementatiof of hook_block_info
+ */
+function spads_tweaks_block_info() {
+  return array(
+      '0' => array(
+          'info' => 'Scratchpads.eu search block',
+          'cache' => DRUPAL_NO_CACHE,
+      ),
+  );
+}
+
+/**
+ * Implementation of hook_block_view
+ */
+function spads_tweaks_block_view($delta = 0) {
+
+  return array(
+      'subject' => '',
+      'content' => drupal_get_form('_spads_tweaks_search_form'),
+  );
+}
+
+/**
+ * The search form
+ * 
+ */
+function _spads_tweaks_search_form($form_state) {
+  $type_default = 'this-site';
+  $text_default = '';
+  
+  // If we're on a search page, pre-populate with the current search terms/options
+  $path = current_path();
+  if (preg_match("/search\/(site|scratchpads)(\/(.+))?/", $path, $matches)) {
+    if ($matches[1] == 'scratchpads') {
+      $type_default = 'scratchpads';
+    }
+    if ($matches[3]) {
+      $text_default = urldecode($matches[3]);
+    }
+  }
+  
+  
+  $form = array();
+  $form['search-text'] = array(
+      '#type' => 'textfield',
+      '#title' => '',
+      '#default_value' => $text_default,
+      '#size' => 30,
+      '#required' => TRUE,
+  );
+  
+  $form['search-submit'] = array(
+      '#type' => 'submit',
+      '#value' => '',
+  );
+  
+  $form['search-type'] = array(
+      '#type' => 'radios',
+      '#title' => '',
+      '#default_value' => $type_default,
+      '#options' => array(
+          'this-site' => 'Search this site',
+          'scratchpads' => t('Search across Scratchpads')
+      ),
+  );
+  
+  return $form;
+}
+
+/**
+ * The callback for the search form
+ * 
+ */
+function _spads_tweaks_search_form_submit($form, &$form_state) {
+  $term = $form_state['values']['search-text'];
+  $type = $form_state['values']['search-type'];
+  
+  $url = '';
+  if ($type == 'this-site') {
+    $url = $url . 'search/site/';
+  } else {
+    $url = $url . 'search/scratchpads/';
+  }
+  
+  $url = $url . urlencode($term);
+  drupal_goto($url);
+}
+

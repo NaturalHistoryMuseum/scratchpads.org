@@ -4,21 +4,153 @@
 
 @import "settings.css.less";
 
-/* Temporary settings */
-#zone-header {
-  div.block-main-menu li {
-    float: left;
+/*
+ * General Styling
+ */
+body {
+  font-size: @base_font_size;
+  font-family: @base_font_family;
+}
+
+/*
+ * General layout
+ */
+body {
+  margin-top: @top_margin;
+}
+
+/*
+ * Header themeing
+ */
+#region-logo {
+  div.block {
+    width: @logo_width;
+    height: @logo_height;
+    background: url("../@{green_logo}") no-repeat 0 0; /* Gets overridden per context */
   }
 }
+
+#region-search {
+  position:relative;
+
+  #block-spads-tweaks-0 {
+    position: absolute;
+    right: 0;
+
+    form {
+      div.form-type-textfield {
+        label {
+          display: none;
+        }
+        border:0;
+        margin: 0;
+        width: 100%;        
+      }
+      
+      input.form-submit {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        border: 0;
+        background: url("../@{search_icon}") no-repeat 0 0;
+        width: @search_icon_width;
+        height: @search_icon_height;
+      }
+      
+      div.form-type-radios {
+        margin: 0;
+        
+        div.form-type-radio {
+          float: left;
+          margin-left: 10px;
+          font-size: 0.75em;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  
+  #contact-link {
+    margin-bottom: 10px;
+    float: right;
+  }
+  #contact-link a, #contact-link a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: @green_light; /* Gets overriden per context */
+  }
+  #contact-link a:hover {
+    color: @green_main; /* Gets overriden per context */
+  }
+
+}
+
+
+/*
+ * Menu themeing
+ */
+#region-menu {
+  margin-top: @space_above_menu;
+  border: 0;
+  border-top: solid @separator_width @separator_color;
+  border-bottom: solid @separator_width @separator_color;
+
+  ul.menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+  }
+  
+  ul.menu li {
+    float: left;
+    list-style-image: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul.menu a, ul.menu a:visited {
+    display: block;
+    padding: e(@menu_elem_padding);
+    color: black;
+    text-decoration: none;
+    background: transparent;
+    font-weight: bold;
+  }
+  
+  ul.menu a.active, ul.menu a:hover {
+    background: @green_main; /* Gets overriden per context */
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  
+  // We hide submenus in CSS, so they're still in the markup.
+  ul.menu li ul {
+    display: none;
+  }
+}
+
 
 /*
  * Provide the distinguishing theme elements for the home page
  * (green theme)
  */
 body.context-home {
-  #zone-header #region-logo {
-    width: @logo_width;
-    height: @logo_height;
+  #zone-header #region-logo div.block {
     background: url("../@{green_logo}") no-repeat 0 0;
+  }
+  
+  #region-menu ul.menu a.active, #region-menu ul.menu a:hover {
+    background: @green_main;
+  }
+  
+  #region-search #contact-link a, #region-search #contact-link a:visited {
+    color: @green_light;
+  }
+  #region-search #contact-link a:hover {
+    color: @green_main;
   }
 }

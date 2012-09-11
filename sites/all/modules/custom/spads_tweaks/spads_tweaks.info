@@ -1,0 +1,4 @@
+name = Scratchpads.eu Tweaks
+description = Various tweaks for scratchpads.eu site
+package = Scratchpads
+core = 7.x
