@@ -18,7 +18,7 @@ function spads_site_structure_menu_default_menu_links() {
     'link_title' => 'Home',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'id' => 'menu-item-home',
       ),
     ),
     'module' => 'menu',
@@ -26,7 +26,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
+    'weight' => '-49',
   );
   // Exported menu link: main-menu:about/resources
   $menu_links['main-menu:about/resources'] = array(
@@ -41,7 +41,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-44',
-    'parent_path' => 'node/4',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:about/team
   $menu_links['main-menu:about/team'] = array(
@@ -55,8 +55,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/4',
+    'weight' => '-45',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:http://scratchpads.eu
   $menu_links['main-menu:http://scratchpads.eu'] = array(
@@ -65,17 +65,15 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Help Wiki',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/2',
+    'weight' => '-48',
+    'parent_path' => 'node/14',
   );
   // Exported menu link: main-menu:https://git.scratchpads.eu/v
   $menu_links['main-menu:https://git.scratchpads.eu/v'] = array(
@@ -84,17 +82,15 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Git repository',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
-    'parent_path' => 'node/3',
+    'weight' => '-48',
+    'parent_path' => 'node/26',
   );
   // Exported menu link: main-menu:news
   $menu_links['main-menu:news'] = array(
@@ -102,42 +98,35 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'news',
     'router_path' => 'news',
     'link_title' => 'News',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-news',
+      ),
+    ),
     'module' => 'system',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
-  );
-  // Exported menu link: main-menu:node/1
-  $menu_links['main-menu:node/1'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/1',
-    'router_path' => 'node/%',
-    'link_title' => 'Explore',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:node/12
   $menu_links['main-menu:node/12'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/12',
     'router_path' => 'node/%',
-    'link_title' => 'Summary Statistics',
-    'options' => array(),
+    'link_title' => 'Explore',
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-explore',
+      ),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/1',
+    'weight' => '-48',
   );
   // Exported menu link: main-menu:node/13
   $menu_links['main-menu:node/13'] = array(
@@ -152,7 +141,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '10',
-    'parent_path' => 'node/1',
+    'parent_path' => 'node/12',
   );
   // Exported menu link: main-menu:node/14
   $menu_links['main-menu:node/14'] = array(
@@ -160,14 +149,16 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/14',
     'router_path' => 'node/%',
     'link_title' => 'Training',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/2',
+    'weight' => '-50',
+    'parent_path' => 'node/14',
   );
   // Exported menu link: main-menu:node/15
   $menu_links['main-menu:node/15'] = array(
@@ -214,20 +205,6 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '50',
     'parent_path' => 'node/14',
   );
-  // Exported menu link: main-menu:node/2
-  $menu_links['main-menu:node/2'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/2',
-    'router_path' => 'node/%',
-    'link_title' => 'Support',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-47',
-  );
   // Exported menu link: main-menu:node/20
   $menu_links['main-menu:node/20'] = array(
     'menu_name' => 'main-menu',
@@ -240,8 +217,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '49',
-    'parent_path' => 'node/2',
+    'weight' => '-49',
+    'parent_path' => 'node/14',
   );
   // Exported menu link: main-menu:node/21
   $menu_links['main-menu:node/21'] = array(
@@ -285,8 +262,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/3',
+    'weight' => '-49',
+    'parent_path' => 'node/26',
   );
   // Exported menu link: main-menu:node/25
   $menu_links['main-menu:node/25'] = array(
@@ -300,23 +277,26 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/3',
+    'weight' => '-47',
+    'parent_path' => 'node/26',
   );
   // Exported menu link: main-menu:node/26
   $menu_links['main-menu:node/26'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/26',
     'router_path' => 'node/%',
-    'link_title' => 'Hosting a SP2 node',
-    'options' => array(),
+    'link_title' => 'Develop',
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-develop',
+      ),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/3',
+    'weight' => '-44',
   );
   // Exported menu link: main-menu:node/27
   $menu_links['main-menu:node/27'] = array(
@@ -331,7 +311,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'parent_path' => 'node/4',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:node/28
   $menu_links['main-menu:node/28'] = array(
@@ -345,8 +325,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/4',
+    'weight' => '-43',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:node/29
   $menu_links['main-menu:node/29'] = array(
@@ -361,21 +341,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-47',
-    'parent_path' => 'node/4',
-  );
-  // Exported menu link: main-menu:node/3
-  $menu_links['main-menu:node/3'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/3',
-    'router_path' => 'node/%',
-    'link_title' => 'Develop',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-46',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:node/30
   $menu_links['main-menu:node/30'] = array(
@@ -389,8 +355,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-46',
-    'parent_path' => 'node/4',
+    'weight' => '-48',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:node/31
   $menu_links['main-menu:node/31'] = array(
@@ -404,23 +370,26 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-45',
-    'parent_path' => 'node/4',
+    'weight' => '-46',
+    'parent_path' => 'node/34',
   );
   // Exported menu link: main-menu:node/34
   $menu_links['main-menu:node/34'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/34',
     'router_path' => 'node/%',
-    'link_title' => 'Why Choose Spads',
-    'options' => array(),
+    'link_title' => 'About us',
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-about',
+      ),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
     'weight' => '-43',
-    'parent_path' => 'node/4',
   );
   // Exported menu link: main-menu:node/39
   $menu_links['main-menu:node/39'] = array(
@@ -436,20 +405,6 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-50',
     'parent_path' => 'node/34',
-  );
-  // Exported menu link: main-menu:node/4
-  $menu_links['main-menu:node/4'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/4',
-    'router_path' => 'node/%',
-    'link_title' => 'About us',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-45',
   );
   // Exported menu link: main-menu:node/40
   $menu_links['main-menu:node/40'] = array(
@@ -561,7 +516,6 @@ function spads_site_structure_menu_default_menu_links() {
   t('Git repository');
   t('Help Wiki');
   t('Home');
-  t('Hosting a SP2 node');
   t('Info / Duties');
   t('News');
   t('Partner projects');
@@ -571,12 +525,9 @@ function spads_site_structure_menu_default_menu_links() {
   t('Resources');
   t('Sites list');
   t('Sponsors');
-  t('Summary Statistics');
-  t('Support');
   t('Team');
   t('Training');
   t('Training material');
-  t('Why Choose Spads');
   t('Writting modules');
 
 

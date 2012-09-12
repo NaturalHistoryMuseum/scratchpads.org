@@ -38,9 +38,8 @@ function spads_site_structure_apachesolr_environments() {
       0 => 'article',
       1 => 'case_study',
       2 => 'event',
-      3 => 'feature',
-      4 => 'page',
-      5 => 'resource',
+      3 => 'page',
+      4 => 'resource',
     ),
   );
   $export['solr'] = $environment;
