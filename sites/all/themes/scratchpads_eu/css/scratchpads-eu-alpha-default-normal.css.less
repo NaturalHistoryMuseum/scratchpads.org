@@ -18,6 +18,15 @@ div.zone {
   background: #FFF;
 }
 
+a:link, a:visited {
+  color: @green_main; /* Gets overriden per context */
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 /*
  * General layout
  */
@@ -53,7 +62,10 @@ body {
         label {
           display: none;
         }
-        border:0;
+        input {
+          border: 0;
+        }
+        border: solid @separator_width @separator_color;
         margin: 0;
         width: 100%;        
       }
@@ -61,9 +73,9 @@ body {
       input.form-submit {
         position: absolute;
         right: 1px;
-        top: 1px;
+        top: 4px;
         border: 0;
-        background: url("../@{search_icon}") no-repeat 0 0;
+        background: transparent url("../@{search_icon}") no-repeat 0 0;
         width: @search_icon_width;
         height: @search_icon_height;
       }
@@ -180,9 +192,23 @@ body {
   }
   
   #region-sidebar-first {
-    div.region-inner {
+    div.twitter_link {
+      background: url("../@{twitter_icon}") no-repeat 0 50%;
+      padding-left: @twitter_icon_width + 6px;
+      margin: 8px 0;
+    }
+    
+    div.region-inner-wrapper {
       border: 0;
       border-right: solid @separator_width @separator_color;
+      padding-right: 16px;
+    }
+    
+    div.region-inner {
+      border: solid @sidebar_marker_width @green_main; /* Gets overriden per context */      
+      border-right: 0;
+      border-left: 0;
+      background: url("../@{green_side_image}") no-repeat 0 100%; /* Gets override per context */
     }
   }
 }
@@ -191,14 +217,9 @@ body {
  * Sidebar menu theming
  */
 #region-sidebar-first div.block-menu-block {
-  padding-right: 16px;
     
-  ul.menu {
-    border: solid @sidebar_marker_width @green_main; /* Gets overriden per context */      
-    border-right: 0;
-    border-left: 0;
+  ul.menu {   
     list-style: none;
-    background: url("../@{green_side_image}") no-repeat 0 100%; /* Gets override per context */
 
     li {
       list-style-type: none;
@@ -239,46 +260,53 @@ body {
 /*
  * Sidebar facet themening (news page)
  */
-body.context-news #region-sidebar-first div.block-facetapi {
-  h2 {
-    display: none;
-  }  
-  
-  ul.facetapi-facetapi-links {
-    border: solid @sidebar_marker_width @green_main; /* Gets overriden per context */      
-    border-right: 0;
-    border-left: 0;
-    list-style: none;
-    background: url("../@{green_side_image}") no-repeat 0 100%; /* Gets override per context */
 
+body.context-news #region-sidebar-first div.block-facetapi {
+  border: 0;
+  border-top: solid @separator_width @separator_color;
+  
+  h2 {
+    color: @grey_font_color;
+    font-size: @base_font_size;
+    font-family: @base_font_family;
+    font-weight: @base_font_weight;     
+  }  
+
+  ul.facetapi-facetapi-links {
+    list-style: none;
     li {
       list-style-type: none;
       list-style-image: none;
       margin: 0;
       padding: 0;
     }
-      
-    a, a:visited {
-      color: @green_main; /* Gets overriden per context */
-      text-decoration: none;
+    
+    a {
       display: block;
-      font-size: @facet_font_size;
-      font-family: @sidebar_font_family;
-      padding: 0 0 0 0.5em;
-      background: white;      
     }
-      
-    a.active-trail, a.active, a:hover {
+    a:hover {
       background: @grey_highlight;
+    }
+    
+    a.facetapi-active {
+      background: @grey_highlight url("../@{active_facet_symbol}") 98% 50% no-repeat;
     }
   }
 }
 
 /*
  * Mixin to provide all the overidable elements per theme. This gets
- * instanced for each section with the appropriate parameters
+ * instanced for each section with the appropriate parameters.
+ *
+ * The CSS here is extracted from the main CSS for each of the relevant
+ * section. Theme the relevant section first, then copy the needed CSS
+ * extracts here.
  */
 .context_mixin(@c_dark, @c_main, @c_light, @i_logo, @i_side_image) {
+  a:link, a:visited {
+    color: @c_main;
+  }  
+  
   #zone-header #region-logo div.block {
     background: url("../@{i_logo}") no-repeat 0 0;
   }
@@ -300,34 +328,22 @@ body.context-news #region-sidebar-first div.block-facetapi {
     color: @c_main;
   }
   
-  #zone-content #region-sidebar-first ul.menu {
-    border: solid @sidebar_marker_width @c_main;        
-    border-right: 0;
-    border-left: 0;
-    background: url("../@{i_side_image}") no-repeat 0 100%;
+  #zone-content #region-sidebar-first div.region-inner {
+      border: solid @sidebar_marker_width @c_main;
+      border-right: 0;
+      border-left: 0;
+      background: url("../@{i_side_image}") no-repeat 0 100%;
   }
-  
+    
   #zone-content #region-sidebar-first ul.menu li ul.menu {  
     border: 0;
     border-top: solid @sidebar_marker_width/2 @c_main;
     background: transparent;
   }
 
-  #zone-content #region-sidebar-first ul.menu a, a:visited {
+  #zone-content #region-sidebar-first ul.menu a, 
+  #zone-content #region-sidebar-first ul.menu a:visited {
     color: @c_dark;
-  }  
-}
-
-.context_facet_mixin(@c_main, @i_side_image) {
-  #region-sidebar-first div.block-facetapi ul.facetapi-facetapi-links {
-    border: solid @sidebar_marker_width @c_main;      
-    border-right: 0;
-    border-left: 0;
-    background: url("../@{i_side_image}") no-repeat 0 100%;
-      
-    a, a:visited {
-      color: @c_main;
-    }
   }  
 }
 
@@ -349,6 +365,5 @@ body.context-explore {
 }
 body.context-news {
   .context_mixin(@red_dark, @red_main, @red_light, @red_logo, @red_side_image);
-  .context_facet_mixin(@red_main, @red_side_image);
 }
 
