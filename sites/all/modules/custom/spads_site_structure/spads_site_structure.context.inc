@@ -26,11 +26,17 @@ function spads_site_structure_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => '3',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
         'facetapi-4Zh0ggJMBgeeYbrLPJCe8EML3A6PLE0J' => array(
           'module' => 'facetapi',
           'delta' => '4Zh0ggJMBgeeYbrLPJCe8EML3A6PLE0J',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),

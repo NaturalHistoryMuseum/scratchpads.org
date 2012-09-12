@@ -15,7 +15,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'about_us';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -33,6 +33,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['about_us'] = $context;
 
   $context = new stdClass();
@@ -40,7 +44,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'defaults';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'context' => array(
       'values' => array(
@@ -143,6 +147,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['defaults'] = $context;
 
   $context = new stdClass();
@@ -150,7 +158,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'develop';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -168,6 +176,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['develop'] = $context;
 
   $context = new stdClass();
@@ -175,7 +187,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'explore';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -193,6 +205,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['explore'] = $context;
 
   $context = new stdClass();
@@ -200,7 +216,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'home';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -217,6 +233,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['home'] = $context;
 
   $context = new stdClass();
@@ -224,7 +244,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'news';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -242,6 +262,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['news'] = $context;
 
   $context = new stdClass();
@@ -249,7 +273,7 @@ function spads_context_layout_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'support';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'theme';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -267,6 +291,10 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
   $export['support'] = $context;
 
   return $export;

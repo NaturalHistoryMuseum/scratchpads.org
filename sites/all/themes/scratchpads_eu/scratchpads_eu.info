@@ -6,6 +6,11 @@ screenshot = 'screenshot.png'
 base theme = 'omega'
 
 ;
+; scripts
+;
+scripts[] = js/tweaks.js
+
+;
 ; The zones we use
 ;
 zones[header] = 'Header'

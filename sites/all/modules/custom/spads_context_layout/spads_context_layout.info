@@ -1,6 +1,7 @@
 name = Scratchpads.eu section contexts & layouts
 core = 7.x
 package = Scratchpads
+php = 5.2.4
 version = 7.x-0.1
 project = spads_context_layout
 dependencies[] = context

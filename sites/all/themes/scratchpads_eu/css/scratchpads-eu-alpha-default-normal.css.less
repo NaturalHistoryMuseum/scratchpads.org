@@ -18,6 +18,9 @@ body {
 body {
   margin-top: @top_margin;
 }
+#zone-content {
+  margin-top: @space_above_content;
+}
 
 /*
  * Header themeing
@@ -85,7 +88,6 @@ body {
 
 }
 
-
 /*
  * Menu themeing
  */
@@ -119,7 +121,7 @@ body {
     font-weight: bold;
   }
   
-  ul.menu a.active, ul.menu a:hover {
+  ul.menu a.active, ul.menu a.active-trail, ul.menu a:hover {
     background: @green_main; /* Gets overriden per context */
     text-decoration: none;
     color: white;
@@ -133,24 +135,187 @@ body {
   }
 }
 
-
 /*
- * Provide the distinguishing theme elements for the home page
- * (green theme)
+ * Content themeing (general)
  */
-body.context-home {
-  #zone-header #region-logo div.block {
-    background: url("../@{green_logo}") no-repeat 0 0;
+#zone-content {
+  #region-content {
+    h1 {
+      font-size: @title_font_size;
+      font-family: @title_font_family;
+      font-weight: bold;
+      color: @green_main /* Gets overriden per context */
+    }
   }
   
-  #region-menu ul.menu a.active, #region-menu ul.menu a:hover {
-    background: @green_main;
+  #region-sidebar-first {
+    div.region-inner {
+      border: 0;
+      border-right: solid @separator_width @separator_color;
+    }
+  }
+}
+
+/*
+ * Sidebar menu theming
+ */
+#region-sidebar-first div.block-menu-block {
+  padding-right: 16px;
+    
+  ul.menu {
+    border: solid @sidebar_marker_width @green_main; /* Gets overriden per context */      
+    border-right: 0;
+    border-left: 0;
+    list-style: none;
+    background: url("../@{green_side_image}") no-repeat 0 100%; /* Gets override per context */
+
+    li {
+      list-style-type: none;
+      list-style-image: none;
+      margin: 0;
+      padding: 0;
+    }
+      
+    a, a:visited {
+      color: @green_main; /* Gets overriden per context */
+      text-decoration: none;
+      display: block;
+      font-size: @sidebar_font_size;
+      font-family: @sidebar_font_family;
+      padding: 0 0 0 0.5em;
+      background: white;      
+    }
+      
+    a.active-trail, a.active, a:hover {
+      background: @grey_highlight;
+    }
+      
+    li ul.menu {
+      border: 0;
+      border-top: solid @sidebar_marker_width/2 @green_main; /* Gets overriden per context */
+      background: transparent;
+              
+      li a {
+        font-size: @base_font_size;
+        margin-left: 16px;
+      }
+    }
+  }
+}
+
+/*
+ * Sidebar facet themening (news page)
+ */
+body.context-news #region-sidebar-first div.block-facetapi {
+  h2 {
+    display: none;
+  }  
+  
+  ul.facetapi-facetapi-links {
+    border: solid @sidebar_marker_width @green_main; /* Gets overriden per context */      
+    border-right: 0;
+    border-left: 0;
+    list-style: none;
+    background: url("../@{green_side_image}") no-repeat 0 100%; /* Gets override per context */
+
+    li {
+      list-style-type: none;
+      list-style-image: none;
+      margin: 0;
+      padding: 0;
+    }
+      
+    a, a:visited {
+      color: @green_main; /* Gets overriden per context */
+      text-decoration: none;
+      display: block;
+      font-size: @facet_font_size;
+      font-family: @sidebar_font_family;
+      padding: 0 0 0 0.5em;
+      background: white;      
+    }
+      
+    a.active-trail, a.active, a:hover {
+      background: @grey_highlight;
+    }
+  }
+}
+
+/*
+ * Mixin to provide all the overidable elements per theme. This gets
+ * instanced for each section with the appropriate parameters
+ */
+.context_mixin(@c_main, @c_light, @i_logo, @i_side_image) {
+  #zone-header #region-logo div.block {
+    background: url("../@{i_logo}") no-repeat 0 0;
+  }
+  
+  #region-menu ul.menu a.active, 
+  #region-menu ul.menu a.active-trail, 
+  #region-menu ul.menu a:hover {
+    background: @c_main;
   }
   
   #region-search #contact-link a, #region-search #contact-link a:visited {
-    color: @green_light;
+    color: @c_light;
   }
   #region-search #contact-link a:hover {
-    color: @green_main;
+    color: @c_main;
   }
+  
+  #zone-content #region-content h1 {
+    color: @c_main;
+  }
+  
+  #zone-content #region-sidebar-first ul.menu {
+    border: solid @sidebar_marker_width @c_main;        
+    border-right: 0;
+    border-left: 0;
+    background: url("../@{i_side_image}") no-repeat 0 100%;
+  }
+  
+  #zone-content #region-sidebar-first ul.menu li ul.menu {  
+    border: 0;
+    border-top: solid @sidebar_marker_width/2 @c_main;
+    background: transparent;
+  }
+
+  #zone-content #region-sidebar-first ul.menu a, a:visited {
+    color: @c_main;
+  }  
 }
+
+.context_facet_mixin(@c_main, @i_side_image) {
+  #region-sidebar-first div.block-facetapi ul.facetapi-facetapi-links {
+    border: solid @sidebar_marker_width @c_main;      
+    border-right: 0;
+    border-left: 0;
+    background: url("../@{i_side_image}") no-repeat 0 100%;
+      
+    a, a:visited {
+      color: @c_main;
+    }
+  }  
+}
+
+/* Instance the mixin for each section */
+body.context-home {
+  .context_mixin(@green_main, @green_light, @green_logo, @green_side_image);
+}
+body.context-about {
+  .context_mixin(@purple_main, @purple_light, @purple_logo, @purple_side_image);
+}
+body.context-support {
+  .context_mixin(@yellow_main, @yellow_light, @yellow_logo, @yellow_side_image);
+}
+body.context-develop {
+  .context_mixin(@grey_main, @grey_light, @grey_logo, @grey_side_image);
+}
+body.context-explore {
+  .context_mixin(@blue_main, @blue_light, @blue_logo, @blue_side_image);
+}
+body.context-news {
+  .context_mixin(@red_main, @red_light, @red_logo, @red_side_image);
+  .context_facet_mixin(@red_main, @red_side_image);
+}
+
