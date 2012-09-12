@@ -10,16 +10,24 @@
 body {
   font-size: @base_font_size;
   font-family: @base_font_family;
+  font-weight: @base_font_weight;
+  background: @grey_surround_color;
+}
+
+div.zone {
+  background: #FFF;
 }
 
 /*
  * General layout
  */
+#zone-header {
+  padding-top: @top_margin;
+}
 body {
-  margin-top: @top_margin;
 }
 #zone-content {
-  margin-top: @space_above_content;
+  padding-top: @space_above_content;
 }
 
 /*
@@ -64,6 +72,9 @@ body {
         margin: 0;
         
         div.form-type-radio {
+          font-family: @small_font_family;
+          font-size: @small_font_size;
+          font-weight: @small_font_weight;
           float: left;
           margin-left: 10px;
           font-size: 0.75em;
@@ -113,12 +124,14 @@ body {
   }
   
   ul.menu a, ul.menu a:visited {
+    font-family: @menu_font_family;
+    font-size: @menu_font_size;
+    font-weight: @menu_font_weight;
     display: block;
     padding: e(@menu_elem_padding);
     color: black;
     text-decoration: none;
     background: transparent;
-    font-weight: bold;
   }
   
   ul.menu a.active, ul.menu a.active-trail, ul.menu a:hover {
@@ -126,7 +139,25 @@ body {
     text-decoration: none;
     color: white;
   }
-  
+  #menu-item-home:hover {
+    background: @green_main;
+  }
+  #menu-item-explore:hover {
+    background: @blue_main;
+  }
+  #menu-item-news:hover {
+    background: @red_main;
+  }
+  #menu-item-support:hover {
+    background: @yellow_main;
+  }
+  #menu-item-develop:hover {
+    background: @grey_main;
+  }
+  #menu-item-about:hover {
+    background: @purple_main;
+  }
+
   
   
   // We hide submenus in CSS, so they're still in the markup.
@@ -143,7 +174,7 @@ body {
     h1 {
       font-size: @title_font_size;
       font-family: @title_font_family;
-      font-weight: bold;
+      font-weight: @title_font_weight;
       color: @green_main /* Gets overriden per context */
     }
   }
@@ -177,11 +208,12 @@ body {
     }
       
     a, a:visited {
-      color: @green_main; /* Gets overriden per context */
+      color: @green_dark; /* Gets overriden per context */
       text-decoration: none;
       display: block;
       font-size: @sidebar_font_size;
       font-family: @sidebar_font_family;
+      font-weight: @sidebar_font_weight;
       padding: 0 0 0 0.5em;
       background: white;      
     }
@@ -196,7 +228,8 @@ body {
       background: transparent;
               
       li a {
-        font-size: @base_font_size;
+        font-size: @sidebar_sub_font_size;
+        font-weight: @sidebar_sub_font_weight;
         margin-left: 16px;
       }
     }
@@ -245,7 +278,7 @@ body.context-news #region-sidebar-first div.block-facetapi {
  * Mixin to provide all the overidable elements per theme. This gets
  * instanced for each section with the appropriate parameters
  */
-.context_mixin(@c_main, @c_light, @i_logo, @i_side_image) {
+.context_mixin(@c_dark, @c_main, @c_light, @i_logo, @i_side_image) {
   #zone-header #region-logo div.block {
     background: url("../@{i_logo}") no-repeat 0 0;
   }
@@ -281,7 +314,7 @@ body.context-news #region-sidebar-first div.block-facetapi {
   }
 
   #zone-content #region-sidebar-first ul.menu a, a:visited {
-    color: @c_main;
+    color: @c_dark;
   }  
 }
 
@@ -300,22 +333,22 @@ body.context-news #region-sidebar-first div.block-facetapi {
 
 /* Instance the mixin for each section */
 body.context-home {
-  .context_mixin(@green_main, @green_light, @green_logo, @green_side_image);
+  .context_mixin(@green_dark, @green_main, @green_light, @green_logo, @green_side_image);
 }
 body.context-about {
-  .context_mixin(@purple_main, @purple_light, @purple_logo, @purple_side_image);
+  .context_mixin(@purple_dark, @purple_main, @purple_light, @purple_logo, @purple_side_image);
 }
 body.context-support {
-  .context_mixin(@yellow_main, @yellow_light, @yellow_logo, @yellow_side_image);
+  .context_mixin(@yellow_dark, @yellow_main, @yellow_light, @yellow_logo, @yellow_side_image);
 }
 body.context-develop {
-  .context_mixin(@grey_main, @grey_light, @grey_logo, @grey_side_image);
+  .context_mixin(@grey_dark, @grey_main, @grey_light, @grey_logo, @grey_side_image);
 }
 body.context-explore {
-  .context_mixin(@blue_main, @blue_light, @blue_logo, @blue_side_image);
+  .context_mixin(@blue_dark, @blue_main, @blue_light, @blue_logo, @blue_side_image);
 }
 body.context-news {
-  .context_mixin(@red_main, @red_light, @red_logo, @red_side_image);
+  .context_mixin(@red_dark, @red_main, @red_light, @red_logo, @red_side_image);
   .context_facet_mixin(@red_main, @red_side_image);
 }
 
