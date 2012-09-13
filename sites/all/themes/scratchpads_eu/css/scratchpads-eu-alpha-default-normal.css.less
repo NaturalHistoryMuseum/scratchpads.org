@@ -310,6 +310,97 @@ body.context-news #region-sidebar-first div.block-facetapi {
 }
 
 /*
+ * Footer themeing
+ */
+#region-logo-list {
+  div.region-inner {
+    padding-top: @space_above_footer;
+  }
+  
+  div.block {
+    border: solid @separator_width @separator_color;
+    border-right: 0;
+    border-left: 0;
+
+    a {
+      text-align: center;
+      display: block;
+      float: left;
+      width: 20%;
+    }
+  }
+}
+
+#region-site-map {
+  margin-bottom: @space_above_footer;
+  div.menu-block-wrapper > ul.menu {
+    margin: @space_above_footer 0 0 0;
+    list-style: none;
+    list-image: none;
+  }
+  
+  div.menu-block-wrapper > ul.menu > li {
+    display: block;
+    float: left;
+    margin: 0 33px 0 0;
+    padding:0;
+    
+    a:link, a:visited {
+      color: black;
+      font-family: @sitemap_font_family;
+      font-size: @sitemap_font_size;
+      font-weight: @sitemap_font_weight;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  div.menu-block-wrapper > ul.menu > li ul { 
+    li {
+      list-style-type: square;
+      list-style-image: none;
+      list-style-position: inside;
+    
+      a:link, a:visited {
+        color: black;
+        font-family: @sitemap_font_family;
+        font-size: @sitemap_sub_font_size;
+        font-weight: @sitemap_sub_font_weight;
+        text-decoration: none;
+      }
+    
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  div.menu-block-wrapper > ul.menu {
+    li.menu-mlid-487 li {
+      color: @green_main;
+    }
+    li.menu-mlid-399 li {
+      color: @blue_main;
+    }
+    li.menu-mlid-400 li {
+      color: @red_main;
+    }
+    li.menu-mlid-610 li {
+      color: @yellow_main;
+    }
+    li.menu-mlid-406 li {
+      color: @grey_main;
+    }
+    li.menu-mlid-407 li {
+      color: @purple_main;
+    }
+  }
+}
+
+/*
  * Mixin to provide all the overidable elements per theme. This gets
  * instanced for each section with the appropriate parameters.
  *
