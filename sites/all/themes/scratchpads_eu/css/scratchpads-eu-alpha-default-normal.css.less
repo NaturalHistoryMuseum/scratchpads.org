@@ -27,6 +27,11 @@ a:hover {
   text-decoration: none;
 }
 
+a.external_link {
+  padding-right: @external_link_icon_width + 4px;
+  background: url("../@{green_external_link_icon}") no-repeat 100% 50%; /* Gets overriden per context */
+}
+
 /*
  * General layout
  */
@@ -145,7 +150,9 @@ body {
     text-decoration: none;
     background: transparent;
   }
-  
+  ul.menu a.external_link, ul.menu a.external_link:visited {
+  }
+
   ul.menu a.active, ul.menu a.active-trail, ul.menu a:hover {
     background: @green_main; /* Gets overriden per context */
     text-decoration: none;
@@ -238,11 +245,19 @@ body {
       padding: 0 0 0 0.5em;
       background: white;      
     }
+    
+    a.external_link, a.external_link:visited {
+      background: url("../@{green_external_link_icon}") no-repeat 100% 50%; /* Gets overriden per context */
+    }
       
     a.active-trail, a.active, a:hover {
       background: @grey_highlight;
     }
-      
+
+    a.active-trail.external_link, a.active.external_link, a.external_link:hover {
+      background: @grey_highlight url("../@{green_external_link_icon}") no-repeat 100% 50%;
+    }
+    
     li ul.menu {
       border: 0;
       border-top: solid @sidebar_marker_width/2 @green_main; /* Gets overriden per context */
@@ -302,11 +317,15 @@ body.context-news #region-sidebar-first div.block-facetapi {
  * section. Theme the relevant section first, then copy the needed CSS
  * extracts here.
  */
-.context_mixin(@c_dark, @c_main, @c_light, @i_logo, @i_side_image) {
+.context_mixin(@c_dark, @c_main, @c_light, @i_logo, @i_side_image, @i_external_link_icon) {
   a:link, a:visited {
     color: @c_main;
   }  
   
+  a.external_link {
+    background: url("../@{i_external_link_icon}") no-repeat 100% 50%; /* Gets overriden per context */
+  }
+
   #zone-header #region-logo div.block {
     background: url("../@{i_logo}") no-repeat 0 0;
   }
@@ -344,26 +363,37 @@ body.context-news #region-sidebar-first div.block-facetapi {
   #zone-content #region-sidebar-first ul.menu a, 
   #zone-content #region-sidebar-first ul.menu a:visited {
     color: @c_dark;
-  }  
+  }
+    
+  #region-sidebar-first div.block-menu-block a.external_link, 
+  #region-sidebar-first div.block-menu-blocka.external_link:visited {
+    background: url("../@{i_external_link_icon}") no-repeat 100% 50%;
+  }
+  
+  #region-sidebar-first div.block-menu-block a.active-trail.external_link, 
+  #region-sidebar-first div.block-menu-blocka.active.external_link, 
+  #region-sidebar-first div.block-menu-block a.external_link:hover {
+    background: @grey_highlight url("../@{i_external_link_icon}") no-repeat 100% 50%;
+  }
 }
 
 /* Instance the mixin for each section */
 body.context-home {
-  .context_mixin(@green_dark, @green_main, @green_light, @green_logo, @green_side_image);
+  .context_mixin(@green_dark, @green_main, @green_light, @green_logo, @green_side_image, @green_external_link_icon);
 }
 body.context-about {
-  .context_mixin(@purple_dark, @purple_main, @purple_light, @purple_logo, @purple_side_image);
+  .context_mixin(@purple_dark, @purple_main, @purple_light, @purple_logo, @purple_side_image, @purple_external_link_icon);
 }
 body.context-support {
-  .context_mixin(@yellow_dark, @yellow_main, @yellow_light, @yellow_logo, @yellow_side_image);
+  .context_mixin(@yellow_dark, @yellow_main, @yellow_light, @yellow_logo, @yellow_side_image, @yellow_external_link_icon);
 }
 body.context-develop {
-  .context_mixin(@grey_dark, @grey_main, @grey_light, @grey_logo, @grey_side_image);
+  .context_mixin(@grey_dark, @grey_main, @grey_light, @grey_logo, @grey_side_image, @grey_external_link_icon);
 }
 body.context-explore {
-  .context_mixin(@blue_dark, @blue_main, @blue_light, @blue_logo, @blue_side_image);
+  .context_mixin(@blue_dark, @blue_main, @blue_light, @blue_logo, @blue_side_image, @blue_external_link_icon);
 }
 body.context-news {
-  .context_mixin(@red_dark, @red_main, @red_light, @red_logo, @red_side_image);
+  .context_mixin(@red_dark, @red_main, @red_light, @red_logo, @red_side_image, @red_external_link_icon);
 }
 

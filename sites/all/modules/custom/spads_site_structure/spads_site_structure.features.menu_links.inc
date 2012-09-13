@@ -65,7 +65,11 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Help Wiki',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'class' => array(
+          0 => 'external_link',
+        ),
+      ),
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -82,14 +86,18 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Git repository',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'class' => array(
+          0 => 'external_link',
+        ),
+      ),
     ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '-47',
     'parent_path' => 'node/26',
   );
   // Exported menu link: main-menu:news
@@ -277,7 +285,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
+    'weight' => '-48',
     'parent_path' => 'node/26',
   );
   // Exported menu link: main-menu:node/26
