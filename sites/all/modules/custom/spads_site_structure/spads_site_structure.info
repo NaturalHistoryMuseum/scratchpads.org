@@ -62,6 +62,7 @@ features[field][] = node-page-field_attachment
 features[field][] = node-page-field_view
 features[field][] = node-resource-body
 features[field][] = node-resource-field_attachment
+features[field][] = node-resource-field_image
 features[field][] = node-resource-field_resource_type
 features[field][] = node-resource-field_website
 features[menu_custom][] = main-menu

@@ -26,7 +26,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-50',
   );
   // Exported menu link: main-menu:about/resources
   $menu_links['main-menu:about/resources'] = array(
@@ -116,7 +116,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-46',
+    'weight' => '-48',
   );
   // Exported menu link: main-menu:node/12
   $menu_links['main-menu:node/12'] = array(
@@ -134,7 +134,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '-49',
   );
   // Exported menu link: main-menu:node/13
   $menu_links['main-menu:node/13'] = array(
@@ -156,7 +156,7 @@ function spads_site_structure_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'node/14',
     'router_path' => 'node/%',
-    'link_title' => 'Training',
+    'link_title' => 'Support',
     'options' => array(
       'attributes' => array(),
     ),
@@ -165,8 +165,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/14',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:node/15
   $menu_links['main-menu:node/15'] = array(
@@ -210,7 +209,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '50',
+    'weight' => '-46',
     'parent_path' => 'node/14',
   );
   // Exported menu link: main-menu:node/20
@@ -304,7 +303,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-44',
+    'weight' => '-45',
   );
   // Exported menu link: main-menu:node/27
   $menu_links['main-menu:node/27'] = array(
@@ -397,7 +396,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-43',
+    'weight' => '-44',
   );
   // Exported menu link: main-menu:node/39
   $menu_links['main-menu:node/39'] = array(
@@ -533,8 +532,8 @@ function spads_site_structure_menu_default_menu_links() {
   t('Resources');
   t('Sites list');
   t('Sponsors');
+  t('Support');
   t('Team');
-  t('Training');
   t('Training material');
   t('Writting modules');
 

@@ -57,7 +57,7 @@ function spads_site_structure_apachesolr_search_default_searchers() {
   $searcher->label = 'News';
   $searcher->description = 'Search all news type of content';
   $searcher->search_path = 'news';
-  $searcher->page_title = 'News';
+  $searcher->page_title = 'Scratchpads News';
   $searcher->env_id = 'solr';
   $searcher->settings = array(
     'fq' => array(
