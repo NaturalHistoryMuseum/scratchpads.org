@@ -69,7 +69,7 @@ function _spads_tweaks_search_form($form_state) {
     if ($matches[1] == 'scratchpads') {
       $type_default = 'scratchpads';
     }
-    if ($matches[3]) {
+    if (!empty($matches[3])) {
       $text_default = urldecode($matches[3]);
     }
   }
