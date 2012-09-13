@@ -265,8 +265,17 @@ function menu_tree_build($config) {
       }
     }
 
+    // Extract the "current" path from the request, or from the active menu
+    // trail if applicable.
+    $link_path = $_GET['q'] ? $_GET['q'] : '<front>';
+    $trail = menu_get_active_trail();
+    $last_item = end($trail);
+    if (!empty($last_item['link_path'])) {
+      $link_path = $last_item['link_path'];
+    }
+
     // Retrieve all the menus containing a link to the current page.
-    $result = db_query("SELECT menu_name FROM {menu_links} WHERE link_path = :link_path", array(':link_path' => $_GET['q'] ? $_GET['q'] : '<front>'));
+    $result = db_query("SELECT menu_name FROM {menu_links} WHERE link_path = :link_path", array(':link_path' => $link_path));
     foreach ($result as $item) {
       // Check if the menu is in the list of available menus.
       if (isset($menu_order[$item->menu_name])) {
@@ -295,7 +304,11 @@ function menu_tree_build($config) {
 
     // If no menu link was found, don't display the block.
     if (empty($config['menu_name'])) {
-      return array();
+      return array(
+        'subject' => t('The menu selected by the page'),
+        'subject_array' => array(),
+        'content' => array(),
+      );
     }
   }
 
