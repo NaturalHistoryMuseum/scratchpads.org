@@ -22,8 +22,8 @@ function spads_event_manager_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/14',
+    'weight' => '-50',
+    'parent_path' => 'node/44',
   );
   // Translatables
   // Included for use with string extractors like potx.

@@ -25,10 +25,14 @@
 <?php 
   if ($output) {
     $mime = $row->field_field_attachment_1[0]['raw']['filemime'];
-    $mime_icon = file_icon_map((object)(array('filemime' => $mime))) . '.png';
-    $icon = base_path() . drupal_get_path('module', 'file').'/icons/'.$mime_icon;
-
+    $mime_icon = file_icon_map((object)(array('filemime' => $mime)));
+    
     echo $output;
-    echo "&nbsp<img src='$icon' />";
+    
+    if ($mime_icon) {
+      $mime_icon = $mime_icon . ".png";
+      $icon = base_path() . drupal_get_path('module', 'file').'/icons/'.$mime_icon;
+      echo "&nbsp<img src='$icon' />";
+    }
   }
 ?>

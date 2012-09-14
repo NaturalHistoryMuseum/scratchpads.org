@@ -77,7 +77,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-48',
-    'parent_path' => 'node/14',
+    'parent_path' => 'support',
   );
   // Exported menu link: main-menu:https://git.scratchpads.eu/v
   $menu_links['main-menu:https://git.scratchpads.eu/v'] = array(
@@ -151,12 +151,63 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '10',
     'parent_path' => 'node/12',
   );
-  // Exported menu link: main-menu:node/14
-  $menu_links['main-menu:node/14'] = array(
+  // Exported menu link: main-menu:node/15
+  $menu_links['main-menu:node/15'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/14',
+    'link_path' => 'node/15',
     'router_path' => 'node/%',
-    'link_title' => 'Support',
+    'link_title' => 'Application form to attend course',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-48',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:node/16
+  $menu_links['main-menu:node/16'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/16',
+    'router_path' => 'node/%',
+    'link_title' => 'Application form for training site',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:node/19
+  $menu_links['main-menu:node/19'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/19',
+    'router_path' => 'node/%',
+    'link_title' => 'Proposition form to host a course',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-46',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:node/20
+  $menu_links['main-menu:node/20'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/20',
+    'router_path' => 'node/%',
+    'link_title' => 'Ambassadors',
     'options' => array(
       'attributes' => array(),
     ),
@@ -165,67 +216,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-46',
-  );
-  // Exported menu link: main-menu:node/15
-  $menu_links['main-menu:node/15'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/15',
-    'router_path' => 'node/%',
-    'link_title' => 'Application form to attend course',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'node/14',
-  );
-  // Exported menu link: main-menu:node/16
-  $menu_links['main-menu:node/16'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/16',
-    'router_path' => 'node/%',
-    'link_title' => 'Application form for training site',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
     'weight' => '-49',
-    'parent_path' => 'node/14',
-  );
-  // Exported menu link: main-menu:node/19
-  $menu_links['main-menu:node/19'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/19',
-    'router_path' => 'node/%',
-    'link_title' => 'Proposition form to host a course',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
-    'parent_path' => 'node/14',
-  );
-  // Exported menu link: main-menu:node/20
-  $menu_links['main-menu:node/20'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/20',
-    'router_path' => 'node/%',
-    'link_title' => 'Ambassadors',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-49',
-    'parent_path' => 'node/14',
+    'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:node/21
   $menu_links['main-menu:node/21'] = array(
@@ -254,7 +246,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-48',
     'parent_path' => 'node/20',
   );
   // Exported menu link: main-menu:node/24
@@ -303,7 +295,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-45',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:node/27
   $menu_links['main-menu:node/27'] = array(
@@ -396,7 +388,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-44',
+    'weight' => '-45',
   );
   // Exported menu link: main-menu:node/39
   $menu_links['main-menu:node/39'] = array(
@@ -470,7 +462,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '-49',
     'parent_path' => 'node/20',
   );
   // Exported menu link: main-menu:support/ambassadors/material
@@ -501,7 +493,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-48',
-    'parent_path' => 'node/14',
+    'parent_path' => 'support',
   );
   // Translatables
   // Included for use with string extractors like potx.
@@ -532,7 +524,6 @@ function spads_site_structure_menu_default_menu_links() {
   t('Resources');
   t('Sites list');
   t('Sponsors');
-  t('Support');
   t('Team');
   t('Training material');
   t('Writting modules');

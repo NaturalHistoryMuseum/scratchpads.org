@@ -23,16 +23,12 @@
  */
 ?>
 <?php 
-  if ($output) {
-    $mime = $row->field_field_attachment_1[0]['raw']['filemime'];
-    $mime_icon = file_icon_map((object)(array('filemime' => $mime)));
-    
+  // $row->field_field_training_date[0][raw][value/2]
+  if ($row->field_field_training_date[0]['raw']['value'] == $row->field_field_training_date[0]['raw']['value2']) {
+    //echo "<span class='training-date-text'>This training will take place on ";
     echo $output;
-    
-    if ($mime_icon) {
-      $mime_icon = $mime_icon . ".png";
-      $icon = base_path() . drupal_get_path('module', 'file').'/icons/'.$mime_icon;
-      echo "&nbsp<img src='$icon' />";
-    }
+  } else {
+    //echo "<span class='training-date-text'>This training will take place from ";
+    echo $output;
   }
 ?>

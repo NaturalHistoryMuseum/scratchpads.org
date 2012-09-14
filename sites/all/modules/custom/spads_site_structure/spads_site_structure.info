@@ -74,7 +74,6 @@ features[menu_links][] = main-menu:https://git.scratchpads.eu/v
 features[menu_links][] = main-menu:news
 features[menu_links][] = main-menu:node/12
 features[menu_links][] = main-menu:node/13
-features[menu_links][] = main-menu:node/14
 features[menu_links][] = main-menu:node/15
 features[menu_links][] = main-menu:node/16
 features[menu_links][] = main-menu:node/19

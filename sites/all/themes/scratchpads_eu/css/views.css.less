@@ -1,0 +1,149 @@
+/*
+ * This file contains the theme for all the views/solr pages
+ *
+ */
+
+/*
+ * This mixin styles the main title of each row
+ */
+.view-title {
+  margin-bottom: 2px;
+  a:link, a:visited, a:hover {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
+    text-decoration: none;
+  }
+}
+
+/*
+ * This mixin styles the created by/on text
+ */
+.view-created-by-on {
+  font-type: @small_font_family;
+  font-size: @small_font_size;
+  font-weight: @small_font_weight;
+  color: @grey_font_color;
+}
+
+/*
+ * This mixin styles the links at the bottom of
+ * each row
+ */
+.view-links {
+  font-family: @site_link_font_family;
+  font-size: @site_link_font_size;
+  font-weight: @site_link_font_weight;
+}
+
+/*
+ * This mixin styles images that appear before
+ * the content
+ */
+.view-image-first {
+  float: left;
+  margin: 0 16px 8px 0;
+}
+
+/*
+ * General view styling
+ */
+div.view {
+  border-top: solid @separator_width @separator_color;
+  
+  div.views-row {
+    border-bottom: solid @separator_width @separator_color;
+    padding: 16px 0 16px 0;  
+  }
+  
+  div.views-field-field-news-body {
+    margin-top: 12px;
+  }
+
+  div.views-field-title {
+    .view-title;
+  }
+  
+  span.views-field-name, 
+  span.views-field-created {
+    .view-created-by-on;
+  }
+    
+  div.views-field-nid {
+    .view-links;
+  }
+}
+
+/* Special cases for the ambassadors pages */
+div.view-ambassadors {
+  div.views-field-name {
+    .view-title;
+  }
+  
+  div.views-field-picture {
+    .view-image-first;
+  }
+  
+  div.views-field-view-user {
+    .view-links;
+  }  
+}
+
+/* Special cases for the resources pages */
+div.view-resources-pages {
+  div.views-field-uri,
+  div.views-field-field-website,
+  div.views-field-field-attachment-1 {
+    .view-title;
+  }
+  
+  div.views-field-uri-1,
+  div.views-field-field-website-1,
+  div.views-field-field-attachment {
+    .view-links;
+  }
+  
+  div.views-field-field-attachment-1 img,
+  div.views-field-field-attachment img {
+    vertical-align: middle;
+  }
+  
+  div.views-field-field-image {
+    .view-image-first;
+  }
+}
+
+/* Special case for the events page */
+div.view-events {
+  div.views-field-view-node {
+    .view-links;
+    float: left;
+    margin-right: 16px;
+  }
+  
+  div.views-field-field-training-date {
+    margin: 4px 0 8px 0;
+    
+    font-family: @event_date_font_family;
+    font-size: @event_date_font_size;
+    font-weight: @event_date_font_weight;
+    
+    span.date-display-single,
+    span.date-display-start,
+    span.date-display-end {
+      font-weight: @event_date_date_font_weight;
+    }
+  }
+}
+
+/* Special cases for the news pages, as it uses SOLR */
+body.context-news {
+  div.view {
+    border: 0;
+  }
+  
+  #region-content div.block-system-main {
+    border-top: solid @separator_width @separator_color;
+  }
+}
+

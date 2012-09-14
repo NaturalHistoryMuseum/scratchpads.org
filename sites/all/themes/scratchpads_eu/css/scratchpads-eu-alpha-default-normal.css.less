@@ -3,6 +3,7 @@
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
 
 @import "settings.css.less";
+@import "views.css.less";
 
 /*
  * General Styling
@@ -388,7 +389,7 @@ body.context-news #region-sidebar-first div.block-facetapi {
     li.menu-mlid-400 li {
       color: @red_main;
     }
-    li.menu-mlid-610 li {
+    li.menu-mlid-624 li {
       color: @yellow_main;
     }
     li.menu-mlid-406 li {
@@ -397,88 +398,6 @@ body.context-news #region-sidebar-first div.block-facetapi {
     li.menu-mlid-407 li {
       color: @purple_main;
     }
-  }
-}
-
-/*
- * Views page themeing
- */
-div.view {
-  border-top: solid @separator_width @separator_color;
-  
-  div.views-row {
-    border-bottom: solid @separator_width @separator_color;
-    padding: 16px 0 16px 0;  
-  }
-  
-  div.views-field-title {
-    margin-bottom: 2px;
-    a:link, a:visited, a:hover {
-      font-family: @h2_font_family;
-      font-size: @h2_font_size;
-      font-weight: @h2_font_weight;
-      text-decoration: none;
-    }    
-  }
-  
-  span.views-field-name, span.views-field-created {
-    font-type: @small_font_family;
-    font-size: @small_font_size;
-    font-weight: @small_font_weight;
-    color: @grey_font_color;
-  }
-  
-  div.views-field-field-news-body {
-    margin-top: 12px;
-  }
-  
-  div.views-field-nid {
-    font-family: @site_link_font_family;
-    font-size: @site_link_font_size;
-    font-weight: @site_link_font_weight;
-  }
-}
-
-/* Special cases for the resources pages */
-div.view-resources-pages {
-  div.views-field-field-image-1,
-  div.views-field-field-website,
-  div.views-field-field-attachment-1 {
-    margin-bottom: 2px;
-    a:link, a:visited, a:hover {
-      font-family: @h2_font_family;
-      font-size: @h2_font_size;
-      font-weight: @h2_font_weight;
-      text-decoration: none;
-    }    
-  }
-  
-  div.views-field-field-website-1,
-  div.views-field-field-attachment {
-    font-family: @site_link_font_family;
-    font-size: @site_link_font_size;
-    font-weight: @site_link_font_weight;
-  }
-  
-  div.views-field-field-attachment-1 img,
-  div.views-field-field-attachment img {
-    vertical-align: middle;
-  }
-  
-  div.views-field-field-image {
-    float: left;
-    margin: 0 16px 8px 0;
-  }
-}
-
-/* Special cases for the news pages, as it uses SOLR */
-body.context-news {
-  div.view {
-    border: 0;
-  }
-  
-  #region-content div.block-system-main {
-    border-top: solid @separator_width @separator_color;
   }
 }
 
