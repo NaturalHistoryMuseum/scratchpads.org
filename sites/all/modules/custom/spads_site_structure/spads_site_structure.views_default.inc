@@ -301,11 +301,13 @@ function spads_site_structure_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Resources';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -535,6 +537,7 @@ function spads_site_structure_views_default_views() {
   /* Display: Other Resources Page */
   $handler = $view->new_display('page', 'Other Resources Page', 'page_3');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -562,10 +565,24 @@ function spads_site_structure_views_default_views() {
     8 => '8',
     11 => '11',
   );
+  $handler->display->display_options['filters']['field_resource_type_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['operator_id'] = 'field_resource_type_tid_op';
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['label'] = 'Type of resource';
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['operator'] = 'field_resource_type_tid_op';
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['identifier'] = 'field_resource_type_tid';
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_resource_type_tid']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_resource_type_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_resource_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_resource_type_tid']['vocabulary'] = 'resource_type';
   $handler->display->display_options['filters']['field_resource_type_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_resource_type_tid']['error_message'] = FALSE;
   $handler->display->display_options['path'] = 'about/resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Resources';
