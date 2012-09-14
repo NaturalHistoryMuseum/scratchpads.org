@@ -225,6 +225,16 @@ function spads_context_layout_context_default_contexts() {
     ),
   );
   $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-nodequeue_1-block' => array(
+          'module' => 'views',
+          'delta' => 'nodequeue_1-block',
+          'region' => 'home_accordeon',
+          'weight' => '-10',
+        ),
+      ),
+    ),
     'delta' => array(
       'delta_template' => 'home_layout',
     ),

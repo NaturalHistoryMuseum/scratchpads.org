@@ -8,6 +8,7 @@ dependencies[] = context
 dependencies[] = ctools
 dependencies[] = delta
 dependencies[] = strongarm
+dependencies[] = views
 features[context][] = about_us
 features[context][] = defaults
 features[context][] = develop

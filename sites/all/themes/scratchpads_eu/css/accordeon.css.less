@@ -1,0 +1,154 @@
+/*
+ * This file is for styling the accordion on the home page.
+ */
+
+body.context-home #block-views-nodequeue-1-block h2.block-title {
+  font-family: @title_font_family;
+  font-size: @title_font_size;
+  font-weight: @title_font_weight;
+  color: black;
+  margin: 12px 0;  
+}
+
+body.context-home div.view-nodequeue-1 {
+  /*
+   * General settings, collapsed
+   */
+  border: 0;
+  
+  div.views-row {
+    width: @accordion_elem_width;
+    height: @accordion_height;
+    margin-right: @accordion_elem_spacing;
+    float: left;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  div.views-field-title a {
+    font-family: @accordion_title_font_family;
+    font-size: @accordion_title_font_size;
+    font-weight: @accordion_title_font_weight;
+    position: relative;
+  }
+  
+  div.accordion-background {
+    position: absolute;
+    width: @accordion_expanded_width;
+    height: @accordion_height - 2*@accordion_border_width;
+    position: absolute;
+    top: 0;
+    display: none;
+  }
+  
+  div.views-field-body {
+    display: none;
+    width: @accordion_expanded_width;
+    position: relative;
+    z-index: 1;
+    
+    div.field-content {
+      font-family: @accordion_font_family;
+      font-size: @accordion_font_size;
+      font-weight: @accordion_font_weight;
+    }    
+  }
+  
+  div.accordion-empty {
+    width: @accordion_elem_width;
+    height: @accordion_height/2 - @accordion_border_width;
+    position: absolute;
+    bottom: @accordion_border_width;
+  }
+  
+  div.views-field-view-node {
+    font-family: @site_link_font_familiy;
+    font-size: @site_link_font_size;
+    font-weight: @site_link_font_weight;
+    display: none;
+  }
+  
+  /*
+   * Specific to each block, collapsed
+   */
+  div.views-row-1 {
+    border: solid @accordion_border_width @green_dark;
+    border-right: 0;
+    border-left: 0;
+    
+    div.accordion-empty {
+      background: white url("../@{accordion_image_small_1}") no-repeat;
+    }
+  }
+
+  
+  div.views-row-2 {
+    border: solid @accordion_border_width @green_medium;
+    border-right: 0;
+    border-left: 0;
+
+    div.accordion-empty {
+      background: white url("../@{accordion_image_small_2}") no-repeat;
+    }
+  }
+
+  div.views-row-3 {
+    border: solid @accordion_border_width @green_main;
+    border-right: 0;
+    border-left: 0;
+
+    div.accordion-empty {
+      background: white url("../@{accordion_image_small_3}") no-repeat;
+    }
+  }
+  
+  div.views-row-4 {
+    border: solid @accordion_border_width @green_light;
+    border-right: 0;
+    border-left: 0;
+      
+    div.accordion-empty {
+      background: white url("../@{accordion_image_small_4}") no-repeat;
+    }    
+  }
+
+  /*
+   * General settings, expanded
+   */
+  div.views-row-last, div.accordion-expanded {
+    width: @accordion_expanded_width;
+    
+    div.views-field-body {
+      display: block;
+    }
+    
+    div.accordion-empty {
+      display: none;
+    }
+    
+    div.accordion-background {
+      display: block;
+    }
+    
+    div.views-field-view-node {
+      display: block;
+    }
+  }
+  
+  /*
+   * Specific to each block, expanded
+   */
+  div.views-row-last.views-row-4,
+  div.accordion-expanded.views-row-4 {
+    div.accordion-background {
+      background: white url("../@{accordion_image_4}") no-repeat 100% 100%;
+    }
+  }
+
+}
+
+
+
+
