@@ -1,0 +1,79 @@
+/*
+ * This file contains the css for the home page slider
+ */
+#region-home-right div.regio-home-right-inner {
+  padding-left: 20px;
+}
+
+#block-views-case-studies-slideshow-block-1 {
+  position: relative;
+  border-bottom: solid @separator_width @separator_color;
+
+  h2 {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
+    color: @green_main;
+    margin-bottom: 12px;
+  }
+  
+  div.views-slideshow-controls-top {
+    position: absolute;
+    
+    top: 10px;
+    right: 0px;
+    
+    div.views-slideshow-pager-field-item {
+      float: left;
+      background: @separator_color;
+      border-radius: 100%;
+      width: 14px;
+      height: 14px;
+      margin-right: 14px;
+      cursor: pointer;
+    
+      div.views-content-counter {
+        display: none;
+      }
+    }
+    
+    div.views-slideshow-pager-field-item.active {
+      background: @green_main;
+    }
+  }
+  
+      
+  div.view {
+    border: 0;
+  }
+    
+  div.views-row {
+    border: 0;
+  }
+  
+  div.views-field-title {
+    color: black;
+    font-family: @slideshow_font_title_family;
+    font-size: @slideshow_font_title_size;
+    font-weight: @slideshow_font_title_weight;
+    margin-bottom: 12px;
+  }
+  
+  div.views-field-body {
+    color: black;
+    font-family: @slideshow_font_family;
+    font-size: @slideshow_font_size;
+    font-weight: @slideshow_font_weight;
+  }
+  
+  div.views-field-field-screenshot {
+    float: right;
+    margin-left: 16px;
+  }
+  
+  div.views-field-field-website {
+    font-family: @site_link_font_family;
+    font-weight: @site_link_font_weight;
+    font-size: @slideshow_font_size - 1pt;    
+  }
+}

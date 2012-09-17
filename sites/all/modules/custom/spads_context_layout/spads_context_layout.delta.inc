@@ -182,8 +182,9 @@ function spads_context_layout_delta_default_templates() {
   $delta->parent = 'basic_layout';
   $delta->settings = array(
     'theme_scratchpads_eu_settings' => array(
-      'alpha_region_menu_equal_height_element' => 0,
       'alpha_zone_content_section' => NULL,
+      'alpha_region_home_right_columns' => '14',
+      'alpha_region_home_left_columns' => '10',
     ),
     'color_scratchpads_eu_files' => NULL,
     'color_scratchpads_eu_logo' => NULL,

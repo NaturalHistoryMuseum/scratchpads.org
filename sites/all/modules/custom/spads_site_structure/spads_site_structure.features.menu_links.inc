@@ -58,10 +58,73 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '-45',
     'parent_path' => 'node/34',
   );
-  // Exported menu link: main-menu:http://scratchpads.eu
-  $menu_links['main-menu:http://scratchpads.eu'] = array(
+  // Exported menu link: main-menu:http://dev.scratchpads.eu/
+  $menu_links['main-menu:http://dev.scratchpads.eu/'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'http://scratchpads.eu',
+    'link_path' => 'http://dev.scratchpads.eu/',
+    'router_path' => '',
+    'link_title' => 'Sandbox',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'external_link',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:http://dev.scratchpads.eu/project/issues
+  $menu_links['main-menu:http://dev.scratchpads.eu/project/issues'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'http://dev.scratchpads.eu/project/issues',
+    'router_path' => '',
+    'link_title' => 'Issues queue',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'external_link',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:http://twitter.com/scratchpads
+  $menu_links['main-menu:http://twitter.com/scratchpads'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'http://twitter.com/scratchpads',
+    'router_path' => '',
+    'link_title' => 'Twitter',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'external_link',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'news',
+  );
+  // Exported menu link: main-menu:http://wiki.scratchpads.eu/
+  $menu_links['main-menu:http://wiki.scratchpads.eu/'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'http://wiki.scratchpads.eu/',
     'router_path' => '',
     'link_title' => 'Help Wiki',
     'options' => array(
@@ -76,8 +139,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'support',
+    'weight' => '0',
+    'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:https://git.scratchpads.eu/v
   $menu_links['main-menu:https://git.scratchpads.eu/v'] = array(
@@ -396,7 +459,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/39',
     'router_path' => 'node/%',
     'link_title' => 'Create your own site',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -411,7 +476,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/40',
     'router_path' => 'node/%',
     'link_title' => 'Publish your data online',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -426,7 +493,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/41',
     'router_path' => 'node/%',
     'link_title' => 'Contribute to global bioscience',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -441,7 +510,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/42',
     'router_path' => 'node/%',
     'link_title' => 'Collaborate with your peers',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -449,6 +520,41 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-47',
     'parent_path' => 'node/34',
+  );
+  // Exported menu link: main-menu:node/44
+  $menu_links['main-menu:node/44'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/44',
+    'router_path' => 'node/%',
+    'link_title' => 'Support',
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-support',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-47',
+  );
+  // Exported menu link: main-menu:search/site
+  $menu_links['main-menu:search/site'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'search/site',
+    'router_path' => 'search/site',
+    'link_title' => 'Search',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => '<front>',
   );
   // Exported menu link: main-menu:support/ambassadors/current
   $menu_links['main-menu:support/ambassadors/current'] = array(
@@ -495,6 +601,126 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '-48',
     'parent_path' => 'support',
   );
+  // Exported menu link: menu-join-the-community:http://get.scratchpads.eu
+  $menu_links['menu-join-the-community:http://get.scratchpads.eu'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'http://get.scratchpads.eu',
+    'router_path' => '',
+    'link_title' => 'Create a Scratchpad',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-create',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: menu-join-the-community:node/13
+  $menu_links['menu-join-the-community:node/13'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'node/13',
+    'router_path' => 'node/%',
+    'link_title' => 'Join a Scratchpad',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-join',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '1',
+  );
+  // Exported menu link: menu-join-the-community:node/20
+  $menu_links['menu-join-the-community:node/20'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'node/20',
+    'router_path' => 'node/%',
+    'link_title' => 'Become a Scratchpad ambassador',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-ambassador',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '3',
+  );
+  // Exported menu link: menu-join-the-community:node/26
+  $menu_links['menu-join-the-community:node/26'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'node/26',
+    'router_path' => 'node/%',
+    'link_title' => 'Develop Scratchpad source code',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-develop',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '5',
+  );
+  // Exported menu link: menu-join-the-community:node/30
+  $menu_links['menu-join-the-community:node/30'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'node/30',
+    'router_path' => 'node/%',
+    'link_title' => 'Read about our policy',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-policy',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '6',
+  );
+  // Exported menu link: menu-join-the-community:support/training/events
+  $menu_links['menu-join-the-community:support/training/events'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'support/training/events',
+    'router_path' => 'support/training/events',
+    'link_title' => 'Sign up for Scratchpad training',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-signup',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '2',
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('About us');
@@ -503,12 +729,15 @@ function spads_site_structure_menu_default_menu_links() {
   t('Ambassor application form');
   t('Application form for training site');
   t('Application form to attend course');
+  t('Become a Scratchpad ambassador');
   t('Collaborate with your peers');
   t('Concept');
   t('Contribute to global bioscience');
+  t('Create a Scratchpad');
   t('Create your own site');
   t('Current Ambassadors');
   t('Develop');
+  t('Develop Scratchpad source code');
   t('Explore');
   t('FAQ');
   t('GIT commits');
@@ -516,16 +745,24 @@ function spads_site_structure_menu_default_menu_links() {
   t('Help Wiki');
   t('Home');
   t('Info / Duties');
+  t('Issues queue');
+  t('Join a Scratchpad');
   t('News');
   t('Partner projects');
   t('Policies');
   t('Proposition form to host a course');
   t('Publish your data online');
+  t('Read about our policy');
   t('Resources');
+  t('Sandbox');
+  t('Search');
+  t('Sign up for Scratchpad training');
   t('Sites list');
   t('Sponsors');
+  t('Support');
   t('Team');
   t('Training material');
+  t('Twitter');
   t('Writting modules');
 
 

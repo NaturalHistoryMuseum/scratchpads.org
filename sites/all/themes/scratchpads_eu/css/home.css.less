@@ -1,0 +1,198 @@
+/*
+ * This file contains the theming specific to the home page
+ *
+ */
+
+#region-home-accordeon {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: solid @separator_width @separator_color;
+}
+
+#region-home-left div.region-home-left-inner {
+  border-right: solid @separator_width @separator_color;
+  padding-right: 20px;
+}
+
+#block-menu-menu-join-the-community {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: solid @separator_width @separator_color;
+}
+
+/*
+ * News & Feeds block themeing
+ */
+#block-quicktabs-home-news-feeds {
+  h2 {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
+    color: @green_main;
+    margin-bottom: 12px;
+  }
+  
+  ul.quicktabs-tabs {
+    border-bottom: solid @separator_width @separator_color;
+    padding: 0;
+    width: 100%;
+    
+    li {
+      border: solid @separator_width @separator_color;
+      border-radius: 5px 5px 0 0;
+      position: relative;
+      bottom: -@separator_width - 1px + 4px;
+      background: white;
+      padding: 2px 16px 4px 16px;
+      margin: 0 12px 0 0;
+    }
+    
+    li.active {
+      border: solid @separator_width @separator_color;
+      border-bottom: solid @separator_width white;      
+      border-radius: 4px 4px 0 0;
+    }
+  
+    li.first {
+      background: url("../@{feed_icon}") no-repeat 8px 50%;
+      padding-left: @feed_icon_width + 15px;  
+    }
+
+    li.last {
+      background: url("../@{twitter_icon}") no-repeat 8px 50%;
+      padding-left: @twitter_icon_width + 15px;  
+    }
+    
+    a:link, a:visited, a:hover {
+      color: @green_medium;
+      font-family: @news_block_title_font_family;
+      font-size: @news_block_title_font_size;
+      font-weight: @news_block_title_font_weight;
+      text-decoration: none;
+    }  
+  }
+  
+  #quicktabs-container-home_news_feeds {
+    div.views-field-title {
+      a:link, a:visited, a:hover {
+        font-family: @news_block_sub_font_family;
+        font-size: @news_block_sub_font_size;
+        font-weight: @news_block_sub_font_weight;
+        color: @green_medium;
+      }
+    }
+    
+    div.views-field-field-news-body {
+      margin-top: 0;
+      font-family: @news_block_font_family;
+      font-size: @news_block_font_size;
+      font-weight: @news_block_font_weight;
+      
+      p {
+        margin: 0;
+      }
+    }
+    
+    div.views-field-nid {
+      font-family: @site_link_font_family;
+      font-size: @site_link_font_size - 2pt;
+      font-weight: @site_link_font_weight;
+    }
+    
+    div.view {
+      border: 0;
+    }
+    div.views-row {
+      border: 0;
+      padding: 0 0 8px 0;
+    }
+  }
+  
+  div.block-twitter-block {
+    p {
+      font-family: @news_block_font_family;
+      font-size: @news_block_font_size;
+      font-weight: @news_block_font_weight;
+    }
+    
+    img {
+      width: 32px;
+      height: 32px;
+      float: left;
+      margin-right: 10px;
+    }
+    
+    div.twitter_user_name {
+      float: none;
+      a:link, a:visited, a:hover {
+        font-family: @news_block_sub_font_family;
+        font-size: @news_block_sub_font_size;
+        font-weight: @news_block_sub_font_weight;
+        color: @green_medium;
+      }
+    }
+    
+    li {
+      margin: 0;
+      list-style-type: none;
+      list-style-image: none;
+    }
+  }
+  
+}
+
+/*
+ * Join the community block themening
+ */
+#block-menu-menu-join-the-community {
+  h2 {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
+    color: @green_main;
+    margin-bottom: 12px;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    list-style-type: none;
+    list-style-image: none;
+    margin-bottom: 8px;
+  }
+  
+  li a:link,
+  li a:visited {
+    display: block;
+    color: @green_medium;
+    padding-left: @join_icon_width + 10px;
+    height: @join_icon_height;
+  }
+  
+  li a.join-create {
+    background: url("../@{join_create}") no-repeat 0 0;
+  }
+
+  li a.join-join {
+    background: url("../@{join_join}") no-repeat 0 0;
+  }
+
+  li a.join-signup {
+    background: url("../@{join_signup}") no-repeat 0 0;
+  }
+
+  li a.join-ambassador {
+    background: url("../@{join_ambassador}") no-repeat 0 0;
+  }
+
+  li a.join-develop {
+    background: url("../@{join_develop}") no-repeat 0 0;
+  }
+
+  li a.join-policy {
+    background: url("../@{join_policy}") no-repeat 0 0;
+  }
+  
+}

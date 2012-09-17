@@ -233,6 +233,24 @@ function spads_context_layout_context_default_contexts() {
           'region' => 'home_accordeon',
           'weight' => '-10',
         ),
+        'menu-menu-join-the-community' => array(
+          'module' => 'menu',
+          'delta' => 'menu-join-the-community',
+          'region' => 'home_left',
+          'weight' => '-26',
+        ),
+        'quicktabs-home_news_feeds' => array(
+          'module' => 'quicktabs',
+          'delta' => 'home_news_feeds',
+          'region' => 'home_left',
+          'weight' => '-25',
+        ),
+        'views-case_studies_slideshow-block_1' => array(
+          'module' => 'views',
+          'delta' => 'case_studies_slideshow-block_1',
+          'region' => 'home_right',
+          'weight' => '-10',
+        ),
       ),
     ),
     'delta' => array(
