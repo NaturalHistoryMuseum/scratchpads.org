@@ -15,7 +15,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'administer own training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -25,7 +25,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'administer registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -35,7 +35,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'administer registration states',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -54,7 +54,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'administer training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -65,7 +65,7 @@ function spads_event_manager_user_default_permissions() {
     'roles' => array(
       0 => 'anonymous user',
       1 => 'authenticated user',
-      2 => 'team member',
+      2 => 'team',
     ),
     'module' => 'registration',
   );
@@ -75,7 +75,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'delete any training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -85,7 +85,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'delete own training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -95,7 +95,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'update any training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -105,7 +105,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'update own training registration',
     'roles' => array(
       0 => 'authenticated user',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -115,7 +115,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'view own training registration',
     'roles' => array(
       0 => 'authenticated user',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );
@@ -125,7 +125,7 @@ function spads_event_manager_user_default_permissions() {
     'name' => 'view training registration',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'registration',
   );

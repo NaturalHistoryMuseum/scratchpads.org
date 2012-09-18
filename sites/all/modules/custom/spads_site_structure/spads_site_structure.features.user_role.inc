@@ -22,9 +22,9 @@ function spads_site_structure_user_default_roles() {
     'weight' => '3',
   );
 
-  // Exported role: team member.
-  $roles['team member'] = array(
-    'name' => 'team member',
+  // Exported role: team.
+  $roles['team'] = array(
+    'name' => 'team',
     'weight' => '4',
   );
 

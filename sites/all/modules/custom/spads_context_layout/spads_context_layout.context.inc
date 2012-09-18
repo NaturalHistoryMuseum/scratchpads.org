@@ -21,6 +21,7 @@ function spads_context_layout_context_default_contexts() {
       'values' => array(
         'about' => 'about',
         'about/*' => 'about/*',
+        'about/*/*' => 'about/*/*',
       ),
     ),
   );
@@ -29,7 +30,7 @@ function spads_context_layout_context_default_contexts() {
       'delta_template' => 'general_page_layout',
     ),
     'theme_html' => array(
-      'class' => 'context-about-us',
+      'class' => 'context-about',
     ),
   );
   $context->condition_mode = 0;
@@ -38,6 +39,120 @@ function spads_context_layout_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('theme');
   $export['about_us'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ambassador_material_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        13 => 13,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-support',
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['ambassador_material_theme'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ambassador_material_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        13 => 13,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*' => 'resource/*',
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'support/ambassadors/material',
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['ambassador_material_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ambassador_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'ambassador/*' => 'ambassador/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'support/ambassadors/current',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['ambassador_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'case_study_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'casestudy/*/*' => 'casestudy/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'news',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['case_study_trail'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -185,6 +300,31 @@ function spads_context_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'event_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'event/*' => 'event/*',
+        'event/*/*' => 'event/*/*',
+        'event/*/*/*' => 'event/*/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'support/training/events',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['event_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'explore';
   $context->description = '';
   $context->tag = 'theme';
@@ -217,6 +357,34 @@ function spads_context_layout_context_default_contexts() {
   $context->name = 'home';
   $context->description = '';
   $context->tag = 'theme';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'home_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-home',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['home'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'home_blocks';
+  $context->description = '';
+  $context->tag = 'blocks';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -259,19 +427,13 @@ function spads_context_layout_context_default_contexts() {
         ),
       ),
     ),
-    'delta' => array(
-      'delta_template' => 'home_layout',
-    ),
-    'theme_html' => array(
-      'class' => 'context-home',
-    ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('theme');
-  $export['home'] = $context;
+  t('blocks');
+  $export['home_blocks'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -284,6 +446,7 @@ function spads_context_layout_context_default_contexts() {
       'values' => array(
         'news' => 'news',
         'news/*' => 'news/*',
+        'casestudy/*/*' => 'casestudy/*/*',
       ),
     ),
   );
@@ -305,6 +468,107 @@ function spads_context_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'news_item_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'news/*' => 'news/*',
+        'news/*/*' => 'news/*/*',
+        'news/*/*/*' => 'news/*/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'news',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['news_item_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'resources_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        7 => 7,
+        8 => 8,
+        9 => 9,
+        10 => 10,
+        11 => 11,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-about',
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['resources_theme'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'resources_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        7 => 7,
+        8 => 8,
+        9 => 9,
+        10 => 10,
+        11 => 11,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*' => 'resource/*',
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'about/resources',
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['resources_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'support';
   $context->description = '';
   $context->tag = 'theme';
@@ -313,6 +577,7 @@ function spads_context_layout_context_default_contexts() {
       'values' => array(
         'support' => 'support',
         'support/*' => 'support/*',
+        'event/*' => 'event/*',
       ),
     ),
   );
@@ -330,6 +595,97 @@ function spads_context_layout_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('theme');
   $export['support'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'team_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'team/*' => 'team/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'about/team',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['team_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'training_material_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        12 => 12,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-support',
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['training_material_theme'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'training_material_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        12 => 12,
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'resource/*' => 'resource/*',
+        'resource/*/*' => 'resource/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'support/training/material',
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['training_material_trail'] = $context;
 
   return $export;
 }

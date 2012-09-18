@@ -15,7 +15,7 @@ function spads_site_structure_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'news_search';
   $context->description = 'Search  blocks on news page';
-  $context->tag = 'search';
+  $context->tag = 'blocks';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -58,7 +58,7 @@ function spads_site_structure_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Search  blocks on news page');
-  t('search');
+  t('blocks');
   $export['news_search'] = $context;
 
   $context = new stdClass();
@@ -66,7 +66,7 @@ function spads_site_structure_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'search';
   $context->description = '';
-  $context->tag = 'search';
+  $context->tag = 'blocks';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -96,7 +96,7 @@ function spads_site_structure_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('search');
+  t('blocks');
   $export['search'] = $context;
 
   return $export;

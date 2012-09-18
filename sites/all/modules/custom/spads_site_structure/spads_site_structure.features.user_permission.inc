@@ -44,7 +44,7 @@ function spads_site_structure_user_default_permissions() {
       0 => 'administrator',
       1 => 'anonymous user',
       2 => 'authenticated user',
-      3 => 'team member',
+      3 => 'team',
     ),
     'module' => 'comment',
   );
@@ -56,7 +56,7 @@ function spads_site_structure_user_default_permissions() {
       0 => 'administrator',
       1 => 'anonymous user',
       2 => 'authenticated user',
-      3 => 'team member',
+      3 => 'team',
     ),
     'module' => 'node',
   );
@@ -66,7 +66,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access content overview',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -76,7 +76,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access contextual links',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'contextual',
   );
@@ -86,7 +86,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access dashboard',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'dashboard',
   );
@@ -105,7 +105,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access overlay',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'overlay',
   );
@@ -133,7 +133,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access site reports',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'system',
   );
@@ -143,7 +143,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'user',
   );
@@ -171,7 +171,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer comments',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'comment',
   );
@@ -235,7 +235,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer image styles',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'image',
   );
@@ -254,7 +254,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'menu',
   );
@@ -273,7 +273,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer nodes',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -292,7 +292,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer permissions',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'user',
   );
@@ -302,7 +302,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer rules',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'rules',
   );
@@ -312,7 +312,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer search',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'search',
   );
@@ -322,7 +322,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer shortcuts',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'shortcut',
   );
@@ -350,7 +350,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer taxonomy',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -369,7 +369,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer url aliases',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'path',
   );
@@ -379,7 +379,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'user',
   );
@@ -389,7 +389,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'administer views',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'views',
   );
@@ -399,7 +399,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'block IP addresses',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'system',
   );
@@ -436,7 +436,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'change own username',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'user',
   );
@@ -446,7 +446,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'create article content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -455,7 +455,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['create case_study content'] = array(
     'name' => 'create case_study content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -464,7 +464,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['create event content'] = array(
     'name' => 'create event content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -473,7 +473,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['create feature content'] = array(
     'name' => 'create feature content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -483,7 +483,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -492,7 +492,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['create resource content'] = array(
     'name' => 'create resource content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -502,7 +502,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'create url aliases',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'path',
   );
@@ -512,7 +512,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'customize shortcut links',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'shortcut',
   );
@@ -522,7 +522,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete any article content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -531,7 +531,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete any case_study content'] = array(
     'name' => 'delete any case_study content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -540,7 +540,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete any event content'] = array(
     'name' => 'delete any event content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -549,7 +549,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete any feature content'] = array(
     'name' => 'delete any feature content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -559,7 +559,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete any page content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -568,7 +568,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete any resource content'] = array(
     'name' => 'delete any resource content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -578,7 +578,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete own article content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -587,7 +587,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete own case_study content'] = array(
     'name' => 'delete own case_study content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -596,7 +596,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete own event content'] = array(
     'name' => 'delete own event content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -605,7 +605,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete own feature content'] = array(
     'name' => 'delete own feature content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -615,7 +615,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete own page content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -624,7 +624,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete own resource content'] = array(
     'name' => 'delete own resource content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -634,7 +634,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -644,7 +644,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'delete terms in 1',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -653,7 +653,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete terms in 2'] = array(
     'name' => 'delete terms in 2',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -662,7 +662,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete terms in 3'] = array(
     'name' => 'delete terms in 3',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -671,7 +671,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['delete terms in 4'] = array(
     'name' => 'delete terms in 4',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -690,7 +690,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'edit any article content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -699,7 +699,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit any case_study content'] = array(
     'name' => 'edit any case_study content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -708,7 +708,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit any event content'] = array(
     'name' => 'edit any event content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -717,7 +717,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit any feature content'] = array(
     'name' => 'edit any feature content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -727,7 +727,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'edit any page content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -736,7 +736,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit any resource content'] = array(
     'name' => 'edit any resource content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -746,7 +746,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'edit own article content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -755,7 +755,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit own case_study content'] = array(
     'name' => 'edit own case_study content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -773,7 +773,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit own event content'] = array(
     'name' => 'edit own event content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -782,7 +782,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit own feature content'] = array(
     'name' => 'edit own feature content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -792,7 +792,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -801,7 +801,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit own resource content'] = array(
     'name' => 'edit own resource content',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'node',
   );
@@ -811,7 +811,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'edit terms in 1',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -820,7 +820,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit terms in 2'] = array(
     'name' => 'edit terms in 2',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -829,7 +829,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit terms in 3'] = array(
     'name' => 'edit terms in 3',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -838,7 +838,7 @@ function spads_site_structure_user_default_permissions() {
   $permissions['edit terms in 4'] = array(
     'name' => 'edit terms in 4',
     'roles' => array(
-      0 => 'team member',
+      0 => 'team',
     ),
     'module' => 'taxonomy',
   );
@@ -885,7 +885,7 @@ function spads_site_structure_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'authenticated user',
-      2 => 'team member',
+      2 => 'team',
     ),
     'module' => 'comment',
   );
@@ -895,7 +895,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'revert revisions',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -906,7 +906,7 @@ function spads_site_structure_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'anonymous user',
-      2 => 'team member',
+      2 => 'team',
     ),
     'module' => 'search',
   );
@@ -935,7 +935,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'switch shortcut sets',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'shortcut',
   );
@@ -954,7 +954,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'use advanced search',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'search',
   );
@@ -966,7 +966,7 @@ function spads_site_structure_user_default_permissions() {
       0 => 'administrator',
       1 => 'anonymous user',
       2 => 'authenticated user',
-      3 => 'team member',
+      3 => 'team',
     ),
     'module' => 'filter',
   );
@@ -976,7 +976,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'use text format full_html',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'filter',
   );
@@ -986,7 +986,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'view own unpublished content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
@@ -996,7 +996,7 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team member',
+      1 => 'team',
     ),
     'module' => 'node',
   );
