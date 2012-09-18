@@ -39,15 +39,19 @@
     border-bottom: solid @separator_width @separator_color;
     padding: 0;
     width: 100%;
+    position: relative;
+    height: 1.5em;
     
     li {
       border: solid @separator_width @separator_color;
       border-radius: 5px 5px 0 0;
-      position: relative;
-      bottom: -@separator_width - 1px + 4px;
+      position: absolute;
+      bottom: -@separator_width;
       background: white;
       padding: 2px 16px 4px 16px;
       margin: 0 12px 0 0;
+      height: 1.5em;
+      width: 50px;
     }
     
     li.active {
@@ -64,6 +68,7 @@
     li.last {
       background: url("../@{twitter_icon}") no-repeat 8px 50%;
       padding-left: @twitter_icon_width + 15px;  
+      left: 120px;
     }
     
     a:link, a:visited, a:hover {

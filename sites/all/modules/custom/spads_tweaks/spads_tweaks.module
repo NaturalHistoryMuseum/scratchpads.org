@@ -67,6 +67,43 @@ function spads_tweaks_apachesolr_query_alter($query) {
 }
 
 /**
+ * Implementation of hook_url_outbound_alter
+ * 
+ * Change the path to taxonomy pages, as the site already provides
+ * this functionality via solr and exposed filters.
+ * 
+ */
+function spads_tweaks_url_outbound_alter(&$path, &$options, $original_path) {
+  if (preg_match('/^taxonomy\/term\/([0-9]+)$/', $original_path, $matches)) {
+    $term = taxonomy_term_load($matches[1]);
+    if ($term) {
+      if ($term->vid == 2) {
+        // News category
+        $path = 'news';
+        $options['query']['f[0]'] = 'im_field_category:'.$term->tid;
+      } else if ($term->vid == 3) {
+        // resource
+        switch($term->tid) {
+          case 12:
+            $path = 'support/training/material';
+            break;
+          case 13:
+            $path = 'support/ambassadors/material';
+            break;
+          default:
+            $path = 'about/resources';
+            $options['query']['field_resource_type_tid'] = $term->tid;
+            break;            
+        }
+      }
+    } else {
+      $path = 'search-site';
+    }
+  }
+  echo '';
+}
+
+/**
  * The search form
  * 
  */

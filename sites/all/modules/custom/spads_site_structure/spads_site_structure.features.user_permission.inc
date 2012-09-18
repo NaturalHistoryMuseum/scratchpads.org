@@ -143,7 +143,8 @@ function spads_site_structure_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       0 => 'administrator',
-      1 => 'team',
+      1 => 'anonymous user',
+      2 => 'team',
     ),
     'module' => 'user',
   );

@@ -85,6 +85,55 @@ body {
 }
 
 /*
+ * Node themeing
+ */
+body.page-node {
+  #block-system-main {
+    div.submitted {
+      .view-created-by-on;
+      margin-bottom: 12px;    
+    }    
+  }
+}
+
+body.page-node.node-type-case-study {
+  #block-system-main {
+    div.field-name-field-screenshot {
+      float: left;
+      margin: 8px 16px 16px 0;
+    }
+  }
+}
+
+body.page-user {
+  
+  div.user-picture {
+    float: left;
+    margin: 8px 16px 16px 0;
+  }
+  
+  /* Seems to be a bug with delta/context on the user page.
+   * This is temporary fix.
+   */
+  #zone-home-content {
+    display: none;
+  }
+}
+
+body.page-node.node-type-resource {
+  div.field-name-field-image {
+    float: left;
+    margin: 8px 16px 16px 0;
+  }
+  
+  div.field-name-field-attachment,
+  div.field-name-field-website {
+    font-size: 14pt;
+    margin: 8px 16px 16px 0;
+  }
+}
+
+/*
  * Footer themeing
  */
 #region-logo-list {
