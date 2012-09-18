@@ -56,6 +56,17 @@ function spads_tweaks_block_view($delta = 0) {
 }
 
 /**
+ * Implementation of hook_apachesolr_query_alter
+ * 
+ * On the news page, ensure the query is sorted by date.
+ */
+function spads_tweaks_apachesolr_query_alter($query) {
+  if (arg(0) == 'news') {
+    $query->setSolrsort('ds_created', 'desc');
+  }
+}
+
+/**
  * The search form
  * 
  */
