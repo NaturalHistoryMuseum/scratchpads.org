@@ -10,8 +10,11 @@
 }
 
 #region-home-left div.region-home-left-inner {
-  border-right: solid @separator_width @separator_color;
-  padding-right: 20px;
+}
+
+#region-home-right div.region-home-right-inner {
+  padding-left: 20px;
+  border-left: solid @separator_width @separator_color;  
 }
 
 #block-menu-menu-join-the-community {
@@ -195,4 +198,18 @@
     background: url("../@{join_policy}") no-repeat 0 0;
   }
   
+}
+
+/*
+ * Map block themeing
+ */
+#block-block-5 {
+  padding-top: 12px;
+  h2 {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
+    color: @green_main;
+    margin-bottom: 12px;
+  }
 }

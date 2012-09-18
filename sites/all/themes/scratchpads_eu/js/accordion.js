@@ -2,20 +2,22 @@
   var root;
   var collapsed_width = 0;
   var expanded_width = 0;
-
+  var speed_out = 400;
+  var speed_in = 600;
+  
   /*
    * This function hides the expanded accordion, and
    * adjust it's classes
    */
   function hide_expanded(accordion) {
-    $('div.accordion-empty', accordion).fadeIn('fast');
-    $('div.accordion-background').fadeOut('fast');
-    $('div.views-field-body', accordion).fadeOut('fast');
-    $('div.views-field-create-spad', accordion).fadeOut('fast');
+    $('div.accordion-empty', accordion).fadeIn(speed_in);
+    $('div.accordion-background').fadeOut(speed_out);
+    $('div.views-field-body', accordion).fadeOut(speed_out);
+    $('div.views-field-create-spad', accordion).fadeOut(speed_out);
     
     accordion.animate({
       width: collapsed_width
-    }, 'fast', function() {
+    }, speed_out, function() {
       accordion.removeClass('accordion-expanded');
       accordion.addClass('accordion-collapsed');
     });    
@@ -26,15 +28,14 @@
    * and adjust it's classes
    */
   function show_collapsed(accordion) {
-    $('div.accordion-empty', accordion).fadeOut('fast');
-    $('div.accordion-empty', accordion).fadeOut('fast');
-    $('div.accordion-background', accordion).fadeIn('fast');
-    $('div.views-field-body', accordion).fadeIn('fast');
-    $('div.views-field-create-spad', accordion).fadeIn('fast');
+    $('div.accordion-empty', accordion).fadeOut(speed_out);
+    $('div.accordion-background', accordion).fadeIn(speed_in);
+    $('div.views-field-body', accordion).fadeIn(speed_in);
+    $('div.views-field-create-spad', accordion).fadeIn(speed_in);
     
     accordion.animate({
       width: expanded_width
-    }, 'fast', function() {
+    }, speed_out, function() {
       accordion.addClass('accordion-expanded');
       accordion.removeClass('accordion-collapsed');
     });    

@@ -251,6 +251,12 @@ function spads_context_layout_context_default_contexts() {
           'region' => 'home_right',
           'weight' => '-10',
         ),
+        'block-5' => array(
+          'module' => 'block',
+          'delta' => '5',
+          'region' => 'home_right',
+          'weight' => '-9',
+        ),
       ),
     ),
     'delta' => array(

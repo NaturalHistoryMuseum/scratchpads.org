@@ -224,6 +224,11 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
@@ -436,7 +441,7 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
