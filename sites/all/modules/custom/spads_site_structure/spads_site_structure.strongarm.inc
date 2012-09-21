@@ -423,7 +423,7 @@ function spads_site_structure_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'less_dir';
-  $strongarm->value = '5058a0c765b213.61598822';
+  $strongarm->value = '505c6bb7b8cd09.76350281';
   $export['less_dir'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Scratchpads content type feature.
+ */
+
+include_once 'spads_sites_content_type.features.inc';

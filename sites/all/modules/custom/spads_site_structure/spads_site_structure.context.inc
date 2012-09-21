@@ -13,6 +13,48 @@ function spads_site_structure_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'news_case_study_item_blocks';
+  $context->description = '';
+  $context->tag = 'blocks';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'article' => 'article',
+        'case_study' => 'case_study',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-terms_of_current_node-block' => array(
+          'module' => 'views',
+          'delta' => 'terms_of_current_node-block',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+        'apachesolr_search-mlt-001' => array(
+          'module' => 'apachesolr_search',
+          'delta' => 'mlt-001',
+          'region' => 'sidebar_first',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('blocks');
+  $export['news_case_study_item_blocks'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'news_search';
   $context->description = 'Search  blocks on news page';
   $context->tag = 'blocks';
@@ -98,6 +140,70 @@ function spads_site_structure_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('blocks');
   $export['search'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'sites_list_blocks';
+  $context->description = '';
+  $context->tag = 'blocks';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'explore/sites-list' => 'explore/sites-list',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'quicktabs-sites_list' => array(
+          'module' => 'quicktabs',
+          'delta' => 'sites_list',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('blocks');
+  $export['sites_list_blocks'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'statistics_block';
+  $context->description = '';
+  $context->tag = 'blocks';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'explore' => 'explore',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-site_list-block_3' => array(
+          'module' => 'views',
+          'delta' => 'site_list-block_3',
+          'region' => 'content',
+          'weight' => '9',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('blocks');
+  $export['statistics_block'] = $context;
 
   return $export;
 }

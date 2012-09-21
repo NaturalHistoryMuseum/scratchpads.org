@@ -1,0 +1,83 @@
+<?php 
+/*
+ * @file
+ */
+include_once 'spads_sites.inc';
+
+/*
+ * Implementation of hook_menu
+ * 
+ */
+function spads_sites_menu() {
+  $items = array();
+  
+  $items['explore/dev'] = array(
+    'title' => 'Sractchpads around the world',
+    'page callback' => '_spads_sites_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+
+/*
+ * Page callback
+ */
+function _spads_sites_page() {
+  _spads_sites_purge();
+  return 'hello';
+  
+  $data = _spads_sites_load_data(SPADS_SITES_URL);
+
+  /*
+  print("Total number of Scratchpads that can be imported: " . count($data) . "<br/>");
+  foreach ($data as $site => $row) {
+    $data[$site]['node'] = _spads_sites_find_site($row['site_url']);
+    //var_dump($data[$site]['node']);
+    print("<br/>");
+    print("Site: " . $site . "<br/>");
+    if (!empty($data[$site]['node']->nid)) {
+      print("Last import:" . date('m.d.Y', $data[$site]['node']->changed) . "<br/>");
+    } else {
+      print("This site was never imported<br/>");
+    }
+  }
+  return 'hello';
+  */
+  //$data = _spads_sites_load_data(SPADS_SITES_URL);
+  $data = array_slice($data, 0, 10);
+  if ($data) {
+    foreach ($data as $row) {
+      $node = _spads_sites_find_site($row['site_url']);
+      _spads_sites_set_node_data($node, $row);
+      node_save($node);
+    }
+  }
+  /*
+   * site url => array(
+   *   site_url
+   *   site_title
+   *   site_mission
+   *   views => int
+   *   last_login_time => unix
+   *   last_node_changed_time => unix
+   *   nodes => array(
+   *     node-type => int
+   *     ... (biblio, forum, image, page, profile, spm...)
+   *   )
+   *   users => array(
+   *     login => int
+   *     total => int
+   *     week => int
+   *     month => int
+   *   )
+   * )
+   * 
+   * Images at:
+   * screenshots.scratchpads.eu/able.myspecies.info.small.jpg
+   * screenshots.scratchpads.eu/able.myspecies.info.small.annotated.jpg
+   *   
+   */
+}

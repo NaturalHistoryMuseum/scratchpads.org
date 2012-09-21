@@ -1,0 +1,6 @@
+name = Scratchpads Sites
+description = Imports and displays the list of scratchpads sites and statistics
+package = Scratchpads
+core = 7.x
+
+files[] = spads_sites.inc

@@ -111,6 +111,37 @@ function spads_context_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'ambassador_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'ambassador/*' => 'ambassador/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'debug' => array(
+      'debug' => 1,
+    ),
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-support',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['ambassador_theme'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'ambassador_trail';
   $context->description = '';
   $context->tag = 'trails';
@@ -595,6 +626,34 @@ function spads_context_layout_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('theme');
   $export['support'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'team_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'team/*' => 'team/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-about',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['team_theme'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

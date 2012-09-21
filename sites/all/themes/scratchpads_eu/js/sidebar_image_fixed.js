@@ -13,7 +13,6 @@
   function keep_sidebar_image_visible() {
     sidebar = $('#region-sidebar-first div.region-inner');
     sidebar_height = sidebar.height() + small_adjust;
-    content_height = $('#region-content').height();
     
     // Get the background image height
     var img = new Image;
@@ -35,6 +34,7 @@
     var sidebar_pos = sidebar.offset();
     var viewport_height = $(window).height();
     var scroll_top = $(window).scrollTop();
+    content_height = $('#region-content').height();
 
     var final_height = viewport_height - sidebar_pos.top - large_adjust + scroll_top;
     

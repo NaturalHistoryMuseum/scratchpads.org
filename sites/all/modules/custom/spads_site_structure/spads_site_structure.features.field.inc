@@ -623,7 +623,7 @@ function spads_site_structure_field_default_fields() {
   $fields['node-case_study-field_website'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_website',
@@ -1472,7 +1472,7 @@ function spads_site_structure_field_default_fields() {
   $fields['node-resource-field_website'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_website',

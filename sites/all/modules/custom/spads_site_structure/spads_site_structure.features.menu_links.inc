@@ -205,7 +205,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/13',
     'router_path' => 'node/%',
     'link_title' => 'Sites list',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
