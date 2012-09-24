@@ -106,6 +106,29 @@ function spads_site_structure_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'register_form_trail';
+  $context->description = '';
+  $context->tag = 'trails';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/register' => 'node/*/register',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'support/training/events',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('trails');
+  $export['register_form_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'search';
   $context->description = '';
   $context->tag = 'blocks';

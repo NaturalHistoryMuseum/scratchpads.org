@@ -1236,6 +1236,15 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Site URL */
+  $handler->display->display_options['fields']['field_website']['id'] = 'field_website';
+  $handler->display->display_options['fields']['field_website']['table'] = 'field_data_field_website';
+  $handler->display->display_options['fields']['field_website']['field'] = 'field_website';
+  $handler->display->display_options['fields']['field_website']['label'] = '';
+  $handler->display->display_options['fields']['field_website']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_website']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_website']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_website']['type'] = 'link_plain';
   /* Field: Content: Screen shot (normal) */
   $handler->display->display_options['fields']['field_screen_shot_normal_']['id'] = 'field_screen_shot_normal_';
   $handler->display->display_options['fields']['field_screen_shot_normal_']['table'] = 'field_data_field_screen_shot_normal_';
@@ -1261,7 +1270,10 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_website]';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Mission */
   $handler->display->display_options['fields']['field_mission']['id'] = 'field_mission';
   $handler->display->display_options['fields']['field_mission']['table'] = 'field_data_field_mission';

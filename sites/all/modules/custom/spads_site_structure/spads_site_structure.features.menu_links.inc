@@ -216,57 +216,6 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '10',
     'parent_path' => 'node/12',
   );
-  // Exported menu link: main-menu:node/15
-  $menu_links['main-menu:node/15'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/15',
-    'router_path' => 'node/%',
-    'link_title' => 'Application form to attend course',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/44',
-  );
-  // Exported menu link: main-menu:node/16
-  $menu_links['main-menu:node/16'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/16',
-    'router_path' => 'node/%',
-    'link_title' => 'Application form for training site',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/44',
-  );
-  // Exported menu link: main-menu:node/19
-  $menu_links['main-menu:node/19'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/19',
-    'router_path' => 'node/%',
-    'link_title' => 'Proposition form to host a course',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
-    'parent_path' => 'node/44',
-  );
   // Exported menu link: main-menu:node/20
   $menu_links['main-menu:node/20'] = array(
     'menu_name' => 'main-menu',
@@ -297,21 +246,6 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'parent_path' => 'node/20',
-  );
-  // Exported menu link: main-menu:node/22
-  $menu_links['main-menu:node/22'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/22',
-    'router_path' => 'node/%',
-    'link_title' => 'Ambassor application form',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
     'parent_path' => 'node/20',
   );
   // Exported menu link: main-menu:node/24
@@ -541,6 +475,57 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-47',
   );
+  // Exported menu link: main-menu:node/479
+  $menu_links['main-menu:node/479'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/479',
+    'router_path' => 'node/%',
+    'link_title' => 'Application form for training site',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:node/480
+  $menu_links['main-menu:node/480'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/480',
+    'router_path' => 'node/%',
+    'link_title' => 'Proposition form to host a course',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/44',
+  );
+  // Exported menu link: main-menu:node/481
+  $menu_links['main-menu:node/481'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/481',
+    'router_path' => 'node/%',
+    'link_title' => 'Ambassor application form',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/20',
+  );
   // Exported menu link: main-menu:search/site
   $menu_links['main-menu:search/site'] = array(
     'menu_name' => 'main-menu',
@@ -730,7 +715,6 @@ function spads_site_structure_menu_default_menu_links() {
   t('Ambassadors');
   t('Ambassor application form');
   t('Application form for training site');
-  t('Application form to attend course');
   t('Become a Scratchpad ambassador');
   t('Collaborate with your peers');
   t('Concept');

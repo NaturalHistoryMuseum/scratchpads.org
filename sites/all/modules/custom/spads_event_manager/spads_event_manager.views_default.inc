@@ -277,6 +277,11 @@ function spads_event_manager_views_default_views() {
   $handler->display->display_options['arguments']['entity_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['entity_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['entity_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['entity_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['entity_id']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['entity_id']['validate_options']['types'] = array(
+    'event' => 'event',
+  );
   /* Filter criterion: Registration State: Label */
   $handler->display->display_options['filters']['label']['id'] = 'label';
   $handler->display->display_options['filters']['label']['table'] = 'registration_state';
