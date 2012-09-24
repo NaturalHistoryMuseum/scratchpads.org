@@ -6,7 +6,135 @@
  * This module adds a simple waiting list functionality to the Registration module.
  * 
  */
- 
+
+/**
+ * Pre-populate the settings form from the node form values
+ */
+function registration_wl_entity_insert($entity, $type) {
+  if ($type != 'node' || $entity->type != 'event') {
+      return;
+  }
+  
+  _registration_wl_set_registration_settings($entity, $type);  
+}
+function registration_wl_entity_update($entity, $type) {
+  if ($type != 'node' || $entity->type != 'event') {
+    return;
+  }
+
+  _registration_wl_set_registration_settings($entity, $type);
+}
+function _registration_wl_set_registration_settings($entity, $type) {
+  $capacity = $entity->field_capacity[$entity->language][0]['value'];
+  $waiting_list = $entity->field_waiting_list_size[$entity->language][0]['value'];
+  $enable_registrations = $entity->field_enable_registrations[$entity->language][0]['value'];
+  $from_address = $entity->field_from_address[$entity->language][0]['value'];
+  
+  $settings = registration_entity_settings($type, $entity->nid);
+  if (!$settings) {
+    $settings = array(
+        'settings' => array(
+            'multiple_registrations' => 0,
+            'from_address' => '',
+            'registration_wl_list_size' => '0',
+            'registration_wl_state' => '0',
+        ));
+  }
+  
+  $settings['settings'] = array_merge($settings['settings'], array(
+      'registration_wl_list_size' => $waiting_list,
+      'from_address' => $from_address,      
+      'registration_wl_state' => _registration_wl_default_waiting_list_state(),      
+  ));
+  
+  registration_update_entity_settings($type, $entity->nid, array(
+    'capacity' => $capacity + $waiting_list,
+    'status' => $enable_registrations,
+    'settings' => serialize($settings['settings']),
+    )
+  );
+}
+
+/**
+ * Add warning about waiting list on the registration form
+ */
+function registration_wl_form_registration_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+  $entity = $form['#entity'];
+  
+  // If we are editing an existing entry, leave it as it is.
+  if (!empty($entity->registration_id)) {
+    return;
+  }
+
+  // Count the number of spaces availabe
+  $settings = registration_entity_settings('node', $entity->entity_id);
+  $capacity = $settings['capacity'];
+  $waiting_list_size = $settings['settings']['registration_wl_list_size'];
+  $count = registration_event_count('node', $entity->entity_id);
+  
+  if ($count >= $capacity) {
+    foreach ($form as $k => $v) {
+      if (!preg_match('/^#/', $k)) {
+        unset($form[$k]);
+      }
+    }
+    $form['registration_full'] = array(
+      '#markup' => 'Unfortunately there are no more spaces available for this training.',
+      '#weight' => -50,
+    );
+    return;
+  }
+  if ($count >= $capacity - $waiting_list_size) {
+    $form['registration_full'] = array(
+      '#markup' => 'Unfortunately there are currently no vacancies on this training. If you register we will put you on our waiting list, and contact you if any places become vacant.',
+      '#weight' => -50,
+    );
+  }
+  
+  // Anonymous users don't need this drop down, there's only one option.
+  if ($user->uid == 0) {
+    $form['who_is_registering']['#type'] = 'hidden';
+    $form['who_is_registering']['#value'] = 'registration_registrant_type_anon';
+  }
+}
+
+/**
+ * Implementation of hook_menu_link_alter
+ * 
+ * Hide the registration settings page, we handle this
+ * in the event
+ */
+function registration_wl_menu_alter(&$items) {
+  unset($items['node/%entity_object/registrations']);
+  unset($items['node/%entity_object/registrations/list']);
+  unset($items['node/%entity_object/registrations/settings']);
+  unset($items['node/%entity_object/registrations/broadcast']);
+}
+
+/**
+ * Work out the default waiting list state
+ */
+function _registration_wl_default_waiting_list_state() {
+  $states_a = registration_states();
+  
+  // Work out existing states, and select default
+  foreach ($states_a as $id => $state) {
+    $states[$id] = $state->label;
+    // 'pending' is a default state in Registration. We use that
+    // as the default pending state.
+    if ($state->name == 'pending') {
+      $pending = $id;
+    }
+  }
+
+  if ($pending) {
+    return $pending;
+  } else {
+    return array_shift(array_keys($states_a));
+  }
+}
+
 /**
  * Implements hook_registration_entity_settings
  * 
@@ -37,22 +165,12 @@ function registration_wl_registration_entity_settings($settings) {
   
 
   // Work out existing states, and select default
-  $pending = 0;
-  foreach ($states_a as $id => $state) {
-    $states[$id] = $state->label;
-    // 'pending' is a default state in Registration. We use that
-    // as the default pending state.
-    if ($state->name == 'pending') {
-      $pending = $id;
-    }
-  }
+  $pending = _registration_wl_default_waiting_list_state();
   if (isset($settings['settings']['registration_wl_state'])) {
     $default = $settings['settings']['registration_wl_state'];
-  } else if ($pending) {
-    $default = $pending;
   } else {
-    $default = array_shift(array_keys($states));
-  }
+    $default = $pending;
+  } 
   
   // Select option to select the waiting list state
   $wl_settings['registration_wl_state'] = array(
