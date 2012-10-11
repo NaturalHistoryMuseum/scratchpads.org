@@ -144,6 +144,8 @@ function drush_spads_sites_scratchpads_stats() {
     number_format(variable_get('scratchpads_total_views', 0), 0, '.', ' '));
   drush_print("Total pages: " . 
     number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ' '));
+  drush_print("Total taxa: " .
+    number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ' '));
   drush_print("Total users: " . 
     number_format(variable_get('scratchpads_total_users', 0), 0, '.', ' '));
 

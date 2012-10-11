@@ -27,9 +27,13 @@ function _spads_sites_load_data($url) {
       $new_data[$url]['site_url'] = $url;
       // Calculate total pages
       $new_data[$url]['pages'] = 0;
+      $new_data[$url]['taxa'] = 0;
       if (!empty($row['nodes'])) {
         foreach ($row['nodes'] as $type => $count) {
           $new_data[$url]['pages'] += $count;
+          if ($type == 'spm') {
+            $new_data[$url]['taxa'] += $count;
+          }
         }
       }
       // Ensure we have some values
@@ -169,6 +173,7 @@ function _spads_sites_set_node_data($node, $data) {
   _spads_sites_set_value($node, 'field_total_users', 'int', $data['users']['total']); 
   _spads_sites_set_value($node, 'field_total_logins', 'int', $data['users']['login']); 
   _spads_sites_set_value($node, 'field_recent_logins', 'int', $data['users']['month']);
+  _spads_sites_set_value($node, 'field_taxa', 'int', $data['taxa']);
   
   $screen_shot_normal = sprintf(SPADS_SCREENSHOT_NORMAL, $data['site_url']);
   $screen_shot_annotated = sprintf(SPADS_SCREENSHOT_ANNOTATED, $data['site_url']);
@@ -238,6 +243,7 @@ function _spads_sites_statistics() {
   $total_views = 0;
   $total_pages = 0;
   $total_users = 0;
+  $total_taxa = 0;
   $total_profiles = array();
   
   foreach (array_keys($result['node']) as $nid) {
@@ -246,6 +252,7 @@ function _spads_sites_statistics() {
     $total_views += $node->field_views[$node->language][0]['value'];
     $total_pages += $node->field_pages[$node->language][0]['value'];
     $total_users += $node->field_total_users[$node->language][0]['value'];
+    $total_taxa += $node->field_taxa[$node->language][0]['value'];
     
     $profile = $node->field_profile[$node->language][0]['value'];
     if (!isset($total_profiles[$profile])) {
@@ -260,6 +267,7 @@ function _spads_sites_statistics() {
   variable_set('scratchpads_total_pages', $total_pages);
   variable_set('scratchpads_total_users', $total_users);
   variable_set('scratchpads_total_profiles', $total_profiles);
+  variable_set('scratchpads_total_taxa', $total_taxa);
 }
 
 /*

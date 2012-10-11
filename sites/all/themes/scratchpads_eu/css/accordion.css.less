@@ -39,7 +39,7 @@ body.context-home div.view-nodequeue-1 {
     width: @accordion_expanded_width;
     height: @accordion_height - 2*@accordion_border_width;
     position: absolute;
-    top: 0;
+    top: @accordion_border_width;
     display: none;
   }
   
@@ -59,7 +59,7 @@ body.context-home div.view-nodequeue-1 {
   
   div.accordion-empty {
     width: @accordion_elem_width;
-    height: @accordion_height/2 - @accordion_border_width;
+    height: 130px; //@accordion_height/2 - @accordion_border_width;
     position: absolute;
     bottom: @accordion_border_width;
   }
@@ -67,7 +67,7 @@ body.context-home div.view-nodequeue-1 {
   div.views-field-create-spad {
     display: none;
     position:absolute;
-    bottom: 8px;
+    bottom: @accordion_border_width + 2px;
     z-index: 1;
   
     a:link,
@@ -81,9 +81,13 @@ body.context-home div.view-nodequeue-1 {
       border: solid 1px @green_medium;
       border-radius: 5px;
       padding: 6px;
-    }
+    }    
   }
 
+  div.views-field-title {
+    padding-top: 4px;
+  }
+  
   div.accordion-collapsed {
     cursor: pointer;
   }

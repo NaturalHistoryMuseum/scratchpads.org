@@ -175,20 +175,35 @@ body.page-node.node-type-event {
 
 #region-site-map {
   margin-bottom: @space_above_footer;
+
+  @sitemap_top_offset: 30px;
+  @sitemap_menu_top_offset: 40px;
+  @sitemap_second_top_offset: 70px;
+  @sitemap_width: 20%;
+  h2 {
+    position: absolute;
+    top: @sitemap_top_offset;
+    font-family: @title_font_family;
+    font-size: @title_font_size;
+    font-weight: @title_font_weight;
+    color: #777;
+  }
+
   div.menu-block-wrapper > ul.menu {
     margin: @space_above_footer 0 0 0;
     list-style: none;
     list-image: none;
+    margin-left: 0.7em;
   }
   
   div.menu-block-wrapper > ul.menu > li {
     display: block;
-    float: left;
+    position: absolute;
     margin: 0 33px 0 0;
     padding:0;
     
     a:link, a:visited {
-      color: black;
+      color: #333;
       font-family: @sitemap_font_family;
       font-size: @sitemap_font_size;
       font-weight: @sitemap_font_weight;
@@ -205,13 +220,16 @@ body.page-node.node-type-event {
       list-style-type: square;
       list-style-image: none;
       list-style-position: inside;
+      margin-left: -0.7em;
+      line-height: 1.1em;
     
       a:link, a:visited {
-        color: black;
+        color: #777;
         font-family: @sitemap_font_family;
         font-size: @sitemap_sub_font_size;
         font-weight: @sitemap_sub_font_weight;
         text-decoration: none;
+        margin-left: -0.3em;
       }
     
       a:hover {
@@ -221,23 +239,50 @@ body.page-node.node-type-event {
   }
   
   div.menu-block-wrapper > ul.menu {
-    li.menu-mlid-487 li {
-      color: @green_main;
+    li.menu-mlid-487 {  
+      li {
+        color: @green_main;
+      }
+      top: @sitemap_top_offset + @sitemap_menu_top_offset;
+      left: 0;
     }
-    li.menu-mlid-399 li {
-      color: @blue_main;
+    li.menu-mlid-399 {
+      li {
+        color: @blue_main;
+      }
+      top: @sitemap_top_offset + @sitemap_menu_top_offset + @sitemap_second_top_offset;
+      left: 0;
     }
-    li.menu-mlid-400 li {
-      color: @red_main;
+    li.menu-mlid-400 {
+      li {
+        color: @red_main;
+      }
+      top: @sitemap_top_offset + @sitemap_menu_top_offset;
+      left: @sitemap_width;
     }
-    li.menu-mlid-624 li {
-      color: @yellow_main;
+    li.menu-mlid-624 {
+      li {
+        color: @yellow_main;
+      }
+      
+      top: @sitemap_top_offset + @sitemap_menu_top_offset;
+      left: @sitemap_width * 2;
     }
-    li.menu-mlid-406 li {
-      color: @grey_main;
+    li.menu-mlid-406 {
+      li {
+        color: @grey_main;
+      }
+      
+      top: @sitemap_top_offset + @sitemap_menu_top_offset + @sitemap_second_top_offset;
+      left: @sitemap_width;
     }
-    li.menu-mlid-407 li {
-      color: @purple_main;
+    li.menu-mlid-407 {
+      li {
+        color: @purple_main;
+      }
+      top: @sitemap_top_offset + @sitemap_menu_top_offset;
+      left: @sitemap_width*3;
+      padding-bottom: 50px;
     }
   }
 }
