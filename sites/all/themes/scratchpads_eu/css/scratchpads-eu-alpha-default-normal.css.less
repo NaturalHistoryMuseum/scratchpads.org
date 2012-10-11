@@ -288,6 +288,37 @@ body.page-node.node-type-event {
 }
 
 /*
+ * Why choose Scratchpads page themeing
+ */
+div.view-nodequeue-1.view-display-id-page_1 {
+
+  div.views-row {
+    min-height: @why_image_height + 20px;  
+  }
+  
+  div.views-row div {
+    width: 700px - @why_image_width;
+  }  
+  
+  div.views-row-1 {
+    background: url("../@{why_create_image}") 100% 20px no-repeat;
+  }
+
+  div.views-row-2 {
+    background: url("../@{why_publish_image}") 100% 20px no-repeat;
+  }
+
+  div.views-row-3 {
+    background: url("../@{why_contribute_image}") 100% 20px no-repeat;
+  }
+
+  div.views-row-4 {
+    background: url("../@{why_collaborate_image}") 100% 20px no-repeat;
+  }
+  
+}
+
+/*
  * Override required values per context
  */
 @import "context.css.less";
