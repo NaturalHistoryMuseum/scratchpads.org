@@ -3,7 +3,7 @@
   var large_adjust = 42;
 
   var sidebar = null;
-  var sidebar_image_height = 0;
+  var sidebar_image_height = 447; // All images have the same height
   var sidebar_height = 0;
   var content_height = 0;
   
@@ -33,20 +33,28 @@
     
     // Select a random background image
     var random_image = images[Math.floor(Math.random() * images.length)];
-    var background_image = sidebar.css('background-image').replace(/\/[^\/]+\)$/, "/" + random_image + ")");    
-    var image_src = background_image.replace(/"|url\(|\)$/ig, "");
+    var image_src = sidebar.css('background-image').replace(/"|url\(|\)$/ig, "").replace(/\/[^\/]+$/, '/' + random_image);
 
+    // Apply the image and register callback
+    sidebar.css('background', '#FFF url(' + image_src + ') no-repeat 0 100%');
+    
+    $(window).bind('scroll resize', move_sidebar_image);
+    move_sidebar_image();     
+    
+    
+    /* We could use this if needed to get the image height on the fly.
     // Load the image, get it's height and apply it
     var img = new Image;
     img.onload = function() {
       sidebar_image_height = img.height;
       
-      sidebar.css('background-image', background_image);
+      sidebar.css('background', '#FFF url(' + image_src + ') no-repeat 0 100%');
       
       $(window).bind('scroll resize', move_sidebar_image);
       move_sidebar_image();     
     };
     img.src = image_src;
+    */    
   }
   
   /*
