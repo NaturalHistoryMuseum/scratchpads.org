@@ -14,16 +14,39 @@
     sidebar = $('#region-sidebar-first div.region-inner');
     sidebar_height = sidebar.height() + small_adjust;
     
-    // Get the background image height
+    var images = new Array(
+      "curly-plant-202px.png",
+      "dragonfly-202px.png",
+      "fern-202px.png",
+      "fish-202px.png",
+      "flesh-202px.png",
+      "grass-202px.png",
+      "jellyfish-202px.png",
+      "lizard-202px.png",
+      "ocean-thingy-202px.png",
+      "octopus-202px.png",
+      "shrimp-202px.png",
+      "spider-202px.png",
+      "weevil-202px.png",
+      "worm-202px.png"
+    );
+    
+    // Select a random background image
+    var random_image = images[Math.floor(Math.random() * images.length)];
+    var background_image = sidebar.css('background-image').replace(/\/[^\/]+\)$/, "/" + random_image + ")");    
+    var image_src = background_image.replace(/"|url\(|\)$/ig, "");
+
+    // Load the image, get it's height and apply it
     var img = new Image;
     img.onload = function() {
       sidebar_image_height = img.height;
-
+      
+      sidebar.css('background-image', background_image);
+      
       $(window).bind('scroll resize', move_sidebar_image);
       move_sidebar_image();     
     };
-
-    img.src = sidebar.css('background-image').replace(/"|url\(|\)$/ig, "");
+    img.src = image_src;
   }
   
   /*
