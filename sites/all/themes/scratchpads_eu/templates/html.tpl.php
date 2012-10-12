@@ -4,7 +4,6 @@
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
-  <style>@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,400italic,500italic);</style>  
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
