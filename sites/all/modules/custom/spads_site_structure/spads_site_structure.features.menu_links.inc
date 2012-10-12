@@ -40,8 +40,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-44',
-    'parent_path' => 'node/34',
+    'weight' => '-43',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:about/team
   $menu_links['main-menu:about/team'] = array(
@@ -55,8 +55,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-45',
-    'parent_path' => 'node/34',
+    'weight' => '-44',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:http://dev.scratchpads.eu/
   $menu_links['main-menu:http://dev.scratchpads.eu/'] = array(
@@ -308,8 +308,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
-    'parent_path' => 'node/34',
+    'weight' => '-48',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/28
   $menu_links['main-menu:node/28'] = array(
@@ -323,8 +323,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-43',
-    'parent_path' => 'node/34',
+    'weight' => '-42',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/29
   $menu_links['main-menu:node/29'] = array(
@@ -338,8 +338,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/34',
+    'weight' => '-46',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/30
   $menu_links['main-menu:node/30'] = array(
@@ -353,8 +353,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/34',
+    'weight' => '-47',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/31
   $menu_links['main-menu:node/31'] = array(
@@ -368,26 +368,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-46',
-    'parent_path' => 'node/34',
-  );
-  // Exported menu link: main-menu:node/34
-  $menu_links['main-menu:node/34'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/34',
-    'router_path' => 'node/%',
-    'link_title' => 'About us',
-    'options' => array(
-      'attributes' => array(
-        'id' => 'menu-item-about',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
     'weight' => '-45',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/39
   $menu_links['main-menu:node/39'] = array(
@@ -404,7 +386,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'parent_path' => 'node/34',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/40
   $menu_links['main-menu:node/40'] = array(
@@ -421,7 +403,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'parent_path' => 'node/34',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/41
   $menu_links['main-menu:node/41'] = array(
@@ -438,7 +420,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-48',
-    'parent_path' => 'node/34',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/42
   $menu_links['main-menu:node/42'] = array(
@@ -455,7 +437,7 @@ function spads_site_structure_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-47',
-    'parent_path' => 'node/34',
+    'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/44
   $menu_links['main-menu:node/44'] = array(
@@ -710,7 +692,6 @@ function spads_site_structure_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('About us');
   t('Ambassador support material');
   t('Ambassadors');
   t('Ambassor application form');

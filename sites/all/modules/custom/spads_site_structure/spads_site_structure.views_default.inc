@@ -172,9 +172,9 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
   $handler->display->display_options['style_options']['views_slideshow_cycle']['effect'] = 'scrollLeft';
   $handler->display->display_options['style_options']['views_slideshow_cycle']['transition_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
+  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '10000';
   $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
+  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '-5000';
   $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
   $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
   $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
@@ -973,12 +973,30 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Site URL */
+  $handler->display->display_options['fields']['field_website_1']['id'] = 'field_website_1';
+  $handler->display->display_options['fields']['field_website_1']['table'] = 'field_data_field_website';
+  $handler->display->display_options['fields']['field_website_1']['field'] = 'field_website';
+  $handler->display->display_options['fields']['field_website_1']['label'] = '';
+  $handler->display->display_options['fields']['field_website_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_website_1']['alter']['max_length'] = '40';
+  $handler->display->display_options['fields']['field_website_1']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['field_website_1']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_website_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_website_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_website_1']['type'] = 'link_plain';
+  /* Field: Content: Site URL */
   $handler->display->display_options['fields']['field_website']['id'] = 'field_website';
   $handler->display->display_options['fields']['field_website']['table'] = 'field_data_field_website';
   $handler->display->display_options['fields']['field_website']['field'] = 'field_website';
   $handler->display->display_options['fields']['field_website']['label'] = 'Website';
+  $handler->display->display_options['fields']['field_website']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_website']['alter']['text'] = '<a href="[field_website]">[field_website_1]</a>';
+  $handler->display->display_options['fields']['field_website']['alter']['max_length'] = '30';
+  $handler->display->display_options['fields']['field_website']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['field_website']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['field_website']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_website']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_website']['type'] = 'link_plain';
   /* Field: Content: Profile */
   $handler->display->display_options['fields']['field_profile']['id'] = 'field_profile';
   $handler->display->display_options['fields']['field_profile']['table'] = 'field_data_field_profile';
