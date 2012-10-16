@@ -302,7 +302,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/27',
     'router_path' => 'node/%',
     'link_title' => 'Concept',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -570,6 +572,74 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '-48',
     'parent_path' => 'support',
   );
+  // Exported menu link: menu-footer-t-c-menu:<front>
+  $menu_links['menu-footer-t-c-menu:<front>'] = array(
+    'menu_name' => 'menu-footer-t-c-menu',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Website feedback',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'contact-link',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: menu-footer-t-c-menu:node/495
+  $menu_links['menu-footer-t-c-menu:node/495'] = array(
+    'menu_name' => 'menu-footer-t-c-menu',
+    'link_path' => 'node/495',
+    'router_path' => 'node/%',
+    'link_title' => 'Terms & Conditions',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '1',
+  );
+  // Exported menu link: menu-footer-t-c-menu:node/496
+  $menu_links['menu-footer-t-c-menu:node/496'] = array(
+    'menu_name' => 'menu-footer-t-c-menu',
+    'link_path' => 'node/496',
+    'router_path' => 'node/%',
+    'link_title' => 'Privacy Policy',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '2',
+  );
+  // Exported menu link: menu-footer-t-c-menu:node/497
+  $menu_links['menu-footer-t-c-menu:node/497'] = array(
+    'menu_name' => 'menu-footer-t-c-menu',
+    'link_path' => 'node/497',
+    'router_path' => 'node/%',
+    'link_title' => 'Cookies',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '4',
+  );
   // Exported menu link: menu-join-the-community:http://get.scratchpads.eu
   $menu_links['menu-join-the-community:http://get.scratchpads.eu'] = array(
     'menu_name' => 'menu-join-the-community',
@@ -700,6 +770,7 @@ function spads_site_structure_menu_default_menu_links() {
   t('Collaborate with your peers');
   t('Concept');
   t('Contribute to global bioscience');
+  t('Cookies');
   t('Create a Scratchpad');
   t('Create your own site');
   t('Current Ambassadors');
@@ -717,6 +788,7 @@ function spads_site_structure_menu_default_menu_links() {
   t('News');
   t('Partner projects');
   t('Policies');
+  t('Privacy Policy');
   t('Proposition form to host a course');
   t('Publish your data online');
   t('Read about our policy');
@@ -728,8 +800,10 @@ function spads_site_structure_menu_default_menu_links() {
   t('Sponsors');
   t('Support');
   t('Team');
+  t('Terms & Conditions');
   t('Training material');
   t('Twitter');
+  t('Website feedback');
   t('Writting modules');
 
 
