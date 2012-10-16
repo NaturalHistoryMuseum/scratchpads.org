@@ -25,11 +25,10 @@
     
     div.views-slideshow-pager-field-item {
       float: left;
-      background: @separator_color;
-      border-radius: 100%;
-      width: 14px;
-      height: 14px;
-      margin-right: 14px;
+      background: #FFF url(../@{slideshow_bullet_gray}) no-repeat 0 0;
+      width: @slideshow_bullet_size;
+      height: @slideshow_bullet_size;
+      margin-right: @slideshow_bullet_size;
       cursor: pointer;
     
       div.views-content-counter {
@@ -38,7 +37,7 @@
     }
     
     div.views-slideshow-pager-field-item.active {
-      background: @green_main;
+      background: #FFF url(../@{slideshow_bullet_green}) no-repeat 0 0;
     }
   }
   
