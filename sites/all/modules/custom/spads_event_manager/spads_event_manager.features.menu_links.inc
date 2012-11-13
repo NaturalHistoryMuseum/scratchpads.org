@@ -15,8 +15,10 @@ function spads_event_manager_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'support/training/events',
     'router_path' => 'support/training/events',
-    'link_title' => 'Events',
-    'options' => array(),
+    'link_title' => ' Courses',
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'system',
     'hidden' => '0',
     'external' => '0',
@@ -27,7 +29,7 @@ function spads_event_manager_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Events');
+  t(' Courses');
 
 
   return $menu_links;

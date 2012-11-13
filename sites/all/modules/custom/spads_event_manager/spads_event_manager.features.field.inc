@@ -50,21 +50,18 @@ function spads_event_manager_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => 0,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'body',
-      'label' => 'Body',
+      'label' => 'Details',
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
@@ -79,7 +76,7 @@ function spads_event_manager_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '5',
       ),
     ),
   );
@@ -102,7 +99,11 @@ function spads_event_manager_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'event',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
       'deleted' => '0',
       'description' => 'The capacity of the training. Enter \'0\' for no limit.',
       'display' => array(
@@ -110,13 +111,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '9',
         ),
       ),
       'entity_type' => 'node',
@@ -135,7 +136,7 @@ function spads_event_manager_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '5',
+        'weight' => '15',
       ),
     ),
   );
@@ -170,7 +171,7 @@ function spads_event_manager_field_default_fields() {
       'bundle' => 'event',
       'default_value' => array(
         0 => array(
-          'value' => 0,
+          'value' => 1,
         ),
       ),
       'deleted' => '0',
@@ -180,13 +181,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'node',
@@ -203,7 +204,7 @@ function spads_event_manager_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '3',
+        'weight' => '13',
       ),
     ),
   );
@@ -247,13 +248,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '7',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -271,7 +272,7 @@ function spads_event_manager_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '16',
       ),
     ),
   );
@@ -313,13 +314,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '7',
         ),
       ),
       'entity_type' => 'node',
@@ -337,7 +338,77 @@ function spads_event_manager_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '8',
+        'weight' => '17',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-event-field_location'.
+  $fields['node-event-field_location'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_location',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_location',
+      'label' => 'Location',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
       ),
     ),
   );
@@ -379,13 +450,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '3',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '8',
         ),
       ),
       'entity_type' => 'node',
@@ -405,7 +476,83 @@ function spads_event_manager_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '4',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-event-field_registration_opening_date'.
+  $fields['node-event-field_registration_opening_date'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_registration_opening_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'date',
+      'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 0,
+          'minute' => 0,
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
+        ),
+        'timezone_db' => '',
+        'todate' => 'required',
+        'tz_handling' => 'none',
+      ),
+      'translatable' => '0',
+      'type' => 'datetime',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'deleted' => '0',
+      'description' => 'The dates during which the registration is open',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_registration_opening_date',
+      'label' => 'Registration open dates',
+      'required' => 0,
+      'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'same',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_popup',
+        'weight' => '16',
       ),
     ),
   );
@@ -451,13 +598,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '2',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '11',
         ),
       ),
       'entity_type' => 'node',
@@ -491,7 +638,77 @@ function spads_event_manager_field_default_fields() {
         'module' => 'registration',
         'settings' => array(),
         'type' => 'registration_select',
-        'weight' => '4',
+        'weight' => '14',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-event-field_short_description'.
+  $fields['node-event-field_short_description'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_short_description',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_short_description',
+      'label' => 'Short description',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '2',
       ),
     ),
   );
@@ -532,23 +749,30 @@ function spads_event_manager_field_default_fields() {
       'description' => 'This is the date of the training. This is different from the registration open/close dates which are set in the registration settings.',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'long',
+            'format_type' => 'short',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'label' => 'inline',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'short',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+          ),
+          'type' => 'date_default',
+          'weight' => '1',
         ),
       ),
       'entity_type' => 'node',
@@ -574,7 +798,7 @@ function spads_event_manager_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -609,13 +833,13 @@ function spads_event_manager_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '10',
         ),
       ),
       'entity_type' => 'node',
@@ -634,7 +858,7 @@ function spads_event_manager_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '6',
+        'weight' => '16',
       ),
     ),
   );
@@ -1014,10 +1238,10 @@ function spads_event_manager_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Accessibility/Dietary requirements');
-  t('Body');
   t('Body of the event, when viewed on it\'s own or on the events page.');
   t('Capacity');
   t('Check this to enable registrations for this event');
+  t('Details');
   t('Enable registrations');
   t('From address');
   t('I will attend the associated conference');
@@ -1026,13 +1250,17 @@ function spads_event_manager_field_default_fields() {
   t('Instructions');
   t('Instructions that will be included in the email sent to the registrant.');
   t('Level of IT/Scratchpads experience ');
+  t('Location');
   t('Name');
   t('News Body');
   t('Please let us know if you have any particular accessibility requirements');
   t('Reason for attending');
   t('Registration Type');
+  t('Registration open dates');
+  t('Short description');
   t('The \'from\' address of emails sent about this event (confirmation emails, etc.)');
   t('The capacity of the training. Enter \'0\' for no limit.');
+  t('The dates during which the registration is open');
   t('The size of the waiting list');
   t('This is the date of the training. This is different from the registration open/close dates which are set in the registration settings.');
   t('Training date');
