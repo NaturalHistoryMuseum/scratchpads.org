@@ -21,6 +21,10 @@ function spads_site_structure_ctools_plugin_api() {
     return array("version" => "3");
   }
   list($module, $api) = func_get_args();
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+  list($module, $api) = func_get_args();
   if ($module == "quicktabs" && $api == "quicktabs") {
     return array("version" => "1");
   }
@@ -42,6 +46,29 @@ function spads_site_structure_views_api() {
  */
 function spads_site_structure_image_default_styles() {
   $styles = array();
+
+  // Exported image style: page_illustration.
+  $styles['page_illustration'] = array(
+    'name' => 'page_illustration',
+    'effects' => array(
+      2 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => '124',
+          'upscale' => 0,
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
 
   // Exported image style: slideshow.
   $styles['slideshow'] = array(

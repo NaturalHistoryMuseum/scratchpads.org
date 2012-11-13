@@ -1,8 +1,8 @@
 /*
  * Mixin for themeing quicktabs
  */
-.quicktabs {
-  ul.quicktabs-tabs {
+.quicktabs(@font_color) {
+  ul.quicktabs-tabs, ul.tabs {
     border-bottom: solid @separator_width @separator_color;
     padding: 0;
     width: 100%;
@@ -32,13 +32,34 @@
     }
     
     a:link, a:visited, a:hover {
-      color: @green_medium;
+      color: @font_color;
       font-family: @news_block_title_font_family;
       font-size: @news_block_title_font_size;
       font-weight: @news_block_title_font_weight;
       text-decoration: none;
+      border:0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
     }  
   }  
 }
 
- 
+/*
+ * Mixin for themeing button like links
+ */
+.button(@background, @border, @inset, @shadow, @text) {
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px @shadow;
+
+  a:link,
+  a:visited {
+    color: @text;
+    background: @background;
+    border: solid 1px @border;
+    border-radius: 5px;
+    padding: 0 4px 2px 4px;
+    box-shadow: inset 1px 1px 4px @inset;
+    text-decoration: none;
+  }
+}

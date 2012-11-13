@@ -524,6 +524,34 @@ function spads_context_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'register_form_theme';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/register' => 'node/*/register',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'general_page_layout',
+    ),
+    'theme_html' => array(
+      'class' => 'context-support',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['register_form_theme'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'resources_theme';
   $context->description = '';
   $context->tag = 'theme';
@@ -745,6 +773,32 @@ function spads_context_layout_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('trails');
   $export['training_material_trail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'why_scratchpads';
+  $context->description = '';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'about/why' => 'about/why',
+        'about/why/*' => 'about/why/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'theme_html' => array(
+      'class' => 'context-about-why',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('theme');
+  $export['why_scratchpads'] = $context;
 
   return $export;
 }

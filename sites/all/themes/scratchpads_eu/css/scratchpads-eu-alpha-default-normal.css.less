@@ -24,28 +24,91 @@ div.view-nodequeue-1.view-display-id-page_1 {
 
   div.views-row {
     min-height: @why_image_height + 20px;  
+    div.views-field-field-image {
+      float: right;
+    }
+  }
+}
+
+body.context-about-why div.field-type-viewreference {
+  h3.title {
+    font-family: @h2_font_family;
+    font-size: @h2_font_size;
+    font-weight: @h2_font_weight;
   }
   
-  div.views-row div {
-    width: 700px - @why_image_width;
+  table div.feature-tick-box {
+    width:23px;
+    height: 18px;
+    background: url("../images/feature-tick-box.png") no-repeat transparent;
   }  
-  
-  div.views-row-1 {
-    background: url("../@{why_create_image}") 100% 20px no-repeat;
-  }
+}
 
-  div.views-row-2 {
-    background: url("../@{why_publish_image}") 100% 20px no-repeat;
-  }
-
-  div.views-row-3 {
-    background: url("../@{why_contribute_image}") 100% 20px no-repeat;
-  }
-
-  div.views-row-4 {
-    background: url("../@{why_collaborate_image}") 100% 20px no-repeat;
+body.context-about-why {
+  #page-title {
+    display: none;
   }
   
+  p {
+    clear: both;
+  }
+  
+  div.why-wrapper {  
+   padding-bottom: 20px;
+    img {
+      float: left;
+    }
+  
+    h1, p {
+      margin-left: 200px;
+      clear: none;
+    }
+  }
+}
+
+/*
+ * Register form themeing
+ */
+body.context-support #region-content #registration-form,
+body.page-node.node-type-event #region-content #block-system-main {
+  div.node-event {
+    div.field-name-field-location {
+      padding: 8px 8px 0 8px;
+    }
+    div.field-name-field-location,
+    div.field-name-field-training-date,
+    div.field-name-field-short-description {
+      background: #EEE;
+      margin: 0;
+      padding-left: 8px;
+      padding-right: 8px;
+      font-family: @event_date_font_family;
+      font-size: @event_date_font_size;
+      font-weight: @event_date_font_weight;
+    }
+    div.field-name-field-short-description {
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    h2.node-title {
+      display: none;
+    }
+
+    div.node-links {
+      display: none;
+    }
+
+    div.field-label-inline div.field-label {
+      display: block;
+      float: left;   
+      width: 170px;
+    }
+    
+    div.field-items {
+      display: block;
+    }
+  }
 }
 
 /*

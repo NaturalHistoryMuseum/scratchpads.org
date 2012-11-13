@@ -15,14 +15,19 @@
       text-align: center;
       display: block;
       float: left;
-      width: 20%;
+      //width: 20%;
+      margin-right: 80px;
+    }
+    
+    a.last {
+      margin-right: 0;
     }
   }
 }
 
 #region-site-map {
-  @sitemap_width: 180px;
-  @sitemap_spacing: 65px;
+  @sitemap_width: 200px;
+  @sitemap_spacing: 40px;
 
   margin: 20px 10px;
 
@@ -34,7 +39,7 @@
       padding: 0;
     }
 
-    ul.menu {
+    div.menu-block-wrapper > ul.menu {
       margin: 0 10px;
     }
 
@@ -88,21 +93,39 @@
     div.menu-block-wrapper ul.menu li ul {
       li.menu-mlid-487 li {  
         color: @green_main;
+        a.external_link {
+          background: url("../@{green_external_link_icon}") no-repeat 100% 50%;
+        }
       }
       li.menu-mlid-399 li {
         color: @blue_main;
+        a.external_link {
+          background: url("../@{blue_external_link_icon}") no-repeat 100% 50%;
+        }
       }
       li.menu-mlid-400 li {
         color: @red_main;
+        a.external_link {
+          background: url("../@{red_external_link_icon}") no-repeat 100% 50%;
+        }
       }
       li.menu-mlid-624 li {
         color: @yellow_main;
+        a.external_link {
+          background: url("../@{yellow_external_link_icon}") no-repeat 100% 50%;
+        }
       }
       li.menu-mlid-406 li {
         color: @grey_main;
+        a.external_link {
+          background: url("../@{grey_external_link_icon}") no-repeat 100% 50%;
+        }
       }
       li.menu-mlid-407 li {
         color: @purple_main;
+        a.external_link {
+          background: url("../@{purple_external_link_icon}") no-repeat 100% 50%;
+        }
       }
     }
   }
@@ -146,5 +169,14 @@
     li.last:after {
       content: "";
     }
+  }
+}
+
+#footer-separator {
+  background: #FFF;
+  div {
+    margin: 0 10px;
+    height: 40px;
+    border-top: solid @separator_width @separator_color;
   }
 }

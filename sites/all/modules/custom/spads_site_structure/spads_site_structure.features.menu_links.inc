@@ -28,6 +28,24 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-50',
   );
+  // Exported menu link: main-menu:about
+  $menu_links['main-menu:about'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'about',
+    'router_path' => 'about',
+    'link_title' => 'About us',
+    'options' => array(
+      'attributes' => array(
+        'id' => 'menu-item-about',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-45',
+  );
   // Exported menu link: main-menu:about/resources
   $menu_links['main-menu:about/resources'] = array(
     'menu_name' => 'main-menu',
@@ -40,7 +58,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-43',
+    'weight' => '-40',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:about/team
@@ -55,7 +73,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-44',
+    'weight' => '-39',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:http://dev.scratchpads.eu/
@@ -76,7 +94,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-46',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:http://dev.scratchpads.eu/project/issues
@@ -97,7 +115,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-47',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:http://twitter.com/scratchpads
@@ -139,7 +157,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-48',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:https://git.scratchpads.eu/v
@@ -170,16 +188,14 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => 'news',
     'link_title' => 'News',
     'options' => array(
-      'attributes' => array(
-        'id' => 'menu-item-news',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'system',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '-49',
   );
   // Exported menu link: main-menu:node/12
   $menu_links['main-menu:node/12'] = array(
@@ -197,7 +213,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-48',
   );
   // Exported menu link: main-menu:node/13
   $menu_links['main-menu:node/13'] = array(
@@ -230,7 +246,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-43',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:node/21
@@ -239,7 +255,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/21',
     'router_path' => 'node/%',
     'link_title' => 'Info / Duties',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -254,7 +272,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/24',
     'router_path' => 'node/%',
     'link_title' => 'Writting modules',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -302,9 +322,7 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/27',
     'router_path' => 'node/%',
     'link_title' => 'Concept',
-    'options' => array(
-      'attributes' => array(),
-    ),
+    'options' => array(),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -319,13 +337,15 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/28',
     'router_path' => 'node/%',
     'link_title' => 'FAQ',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-42',
+    'weight' => '-41',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/29
@@ -334,13 +354,15 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/29',
     'router_path' => 'node/%',
     'link_title' => 'Partner projects',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-46',
+    'weight' => '-43',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/30
@@ -349,13 +371,15 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/30',
     'router_path' => 'node/%',
     'link_title' => 'Policies',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
+    'weight' => '-45',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/31
@@ -364,13 +388,15 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/31',
     'router_path' => 'node/%',
     'link_title' => 'Sponsors',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-45',
+    'weight' => '-42',
     'parent_path' => 'about',
   );
   // Exported menu link: main-menu:node/39
@@ -464,7 +490,7 @@ function spads_site_structure_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'node/479',
     'router_path' => 'node/%',
-    'link_title' => 'Application form for training site',
+    'link_title' => 'Apply for a training site',
     'options' => array(
       'attributes' => array(),
     ),
@@ -473,7 +499,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-45',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:node/480
@@ -481,7 +507,7 @@ function spads_site_structure_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'node/480',
     'router_path' => 'node/%',
-    'link_title' => 'Proposition form to host a course',
+    'link_title' => 'Propose a new course',
     'options' => array(
       'attributes' => array(),
     ),
@@ -490,7 +516,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-48',
     'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:node/481
@@ -509,6 +535,108 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
     'parent_path' => 'node/20',
+  );
+  // Exported menu link: main-menu:node/511
+  $menu_links['main-menu:node/511'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/511',
+    'router_path' => 'node/%',
+    'link_title' => 'Terms and Conditions',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/30',
+  );
+  // Exported menu link: main-menu:node/512
+  $menu_links['main-menu:node/512'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/512',
+    'router_path' => 'node/%',
+    'link_title' => 'Data management',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '10',
+    'parent_path' => 'node/30',
+  );
+  // Exported menu link: main-menu:node/513
+  $menu_links['main-menu:node/513'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/513',
+    'router_path' => 'node/%',
+    'link_title' => 'Cookies',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '20',
+    'parent_path' => 'node/30',
+  );
+  // Exported menu link: main-menu:node/514
+  $menu_links['main-menu:node/514'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/514',
+    'router_path' => 'node/%',
+    'link_title' => 'Privacy',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '30',
+    'parent_path' => 'node/30',
+  );
+  // Exported menu link: main-menu:node/515
+  $menu_links['main-menu:node/515'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/515',
+    'router_path' => 'node/%',
+    'link_title' => 'How to cite',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '50',
+    'parent_path' => 'about',
+  );
+  // Exported menu link: main-menu:node/516
+  $menu_links['main-menu:node/516'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/516',
+    'router_path' => 'node/%',
+    'link_title' => 'Grant proposals',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-44',
+    'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:search/site
   $menu_links['main-menu:search/site'] = array(
@@ -539,7 +667,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '0',
     'parent_path' => 'node/20',
   );
   // Exported menu link: main-menu:support/ambassadors/material
@@ -554,7 +682,7 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
+    'weight' => '0',
     'parent_path' => 'node/20',
   );
   // Exported menu link: main-menu:support/training/material
@@ -650,6 +778,26 @@ function spads_site_structure_menu_default_menu_links() {
       'attributes' => array(
         'class' => array(
           0 => 'join-create',
+        ),
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: menu-join-the-community:http://sandbox.scratchpads.eu
+  $menu_links['menu-join-the-community:http://sandbox.scratchpads.eu'] = array(
+    'menu_name' => 'menu-join-the-community',
+    'link_path' => 'http://sandbox.scratchpads.eu',
+    'router_path' => '',
+    'link_title' => 'Try our sandbox',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'join-sandbox',
         ),
       ),
     ),
@@ -762,10 +910,11 @@ function spads_site_structure_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('About us');
   t('Ambassador support material');
   t('Ambassadors');
   t('Ambassor application form');
-  t('Application form for training site');
+  t('Apply for a training site');
   t('Become a Scratchpad ambassador');
   t('Collaborate with your peers');
   t('Concept');
@@ -774,22 +923,26 @@ function spads_site_structure_menu_default_menu_links() {
   t('Create a Scratchpad');
   t('Create your own site');
   t('Current Ambassadors');
+  t('Data management');
   t('Develop');
   t('Develop Scratchpad source code');
   t('Explore');
   t('FAQ');
   t('GIT commits');
   t('Git repository');
+  t('Grant proposals');
   t('Help Wiki');
   t('Home');
+  t('How to cite');
   t('Info / Duties');
   t('Issues queue');
   t('Join a Scratchpad');
   t('News');
   t('Partner projects');
   t('Policies');
+  t('Privacy');
   t('Privacy Policy');
-  t('Proposition form to host a course');
+  t('Propose a new course');
   t('Publish your data online');
   t('Read about our policy');
   t('Resources');
@@ -801,7 +954,9 @@ function spads_site_structure_menu_default_menu_links() {
   t('Support');
   t('Team');
   t('Terms & Conditions');
+  t('Terms and Conditions');
   t('Training material');
+  t('Try our sandbox');
   t('Twitter');
   t('Website feedback');
   t('Writting modules');

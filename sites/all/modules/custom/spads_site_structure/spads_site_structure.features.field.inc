@@ -97,7 +97,7 @@ function spads_site_structure_field_default_fields() {
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
-        'display_field' => 0,
+        'display_field' => 1,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1037,7 +1037,7 @@ function spads_site_structure_field_default_fields() {
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
-        'display_field' => 0,
+        'display_field' => 1,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1078,19 +1078,25 @@ function spads_site_structure_field_default_fields() {
         'module' => 'file',
         'settings' => array(
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
-          'insert_default' => array(
-            0 => 'auto',
-          ),
+          'insert_default' => 'auto',
           'insert_styles' => array(
-            0 => 'auto',
+            'auto' => 'auto',
+            'icon_link' => 0,
+            'image' => 0,
+            'image_large' => 0,
+            'image_medium' => 0,
+            'image_page_illustration' => 0,
+            'image_slideshow' => 0,
+            'image_thumbnail' => 0,
+            'link' => 0,
           ),
           'insert_width' => '',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1099,7 +1105,7 @@ function spads_site_structure_field_default_fields() {
   $fields['node-page-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1169,9 +1175,10 @@ function spads_site_structure_field_default_fields() {
           'insert_styles' => array(
             'auto' => 0,
             'icon_link' => 0,
-            'image' => 0,
+            'image' => 'image',
             'image_large' => 'image_large',
             'image_medium' => 'image_medium',
+            'image_page_illustration' => 'image_page_illustration',
             'image_slideshow' => 0,
             'image_thumbnail' => 'image_thumbnail',
             'link' => 0,
@@ -1266,7 +1273,7 @@ function spads_site_structure_field_default_fields() {
           'label' => 'hidden',
           'module' => 'viewreference',
           'settings' => array(),
-          'type' => 'viewreference_default',
+          'type' => 'viewreference_full',
           'weight' => '2',
         ),
         'teaser' => array(
@@ -1288,7 +1295,7 @@ function spads_site_structure_field_default_fields() {
         'module' => 'viewreference',
         'settings' => array(),
         'type' => 'viewreference_autocomplete',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -1361,7 +1368,7 @@ function spads_site_structure_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -1391,7 +1398,7 @@ function spads_site_structure_field_default_fields() {
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
-        'display_field' => 0,
+        'display_field' => 1,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1423,7 +1430,7 @@ function spads_site_structure_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => 'resources',
-        'file_extensions' => 'txt doc odt odf docx pdf png jpg jpeg',
+        'file_extensions' => 'txt doc odt odf docx pdf png jpg jpeg ppt',
         'max_filesize' => '',
         'user_register_form' => FALSE,
       ),
@@ -1432,19 +1439,25 @@ function spads_site_structure_field_default_fields() {
         'module' => 'file',
         'settings' => array(
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
-          'insert_default' => array(
-            0 => 'auto',
-          ),
+          'insert_default' => 'auto',
           'insert_styles' => array(
-            0 => 'auto',
+            'auto' => 'auto',
+            'icon_link' => 0,
+            'image' => 0,
+            'image_large' => 0,
+            'image_medium' => 0,
+            'image_page_illustration' => 0,
+            'image_slideshow' => 0,
+            'image_thumbnail' => 0,
+            'link' => 0,
           ),
           'insert_width' => '',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '5',
+        'weight' => '14',
       ),
     ),
   );
@@ -1453,7 +1466,7 @@ function spads_site_structure_field_default_fields() {
   $fields['node-resource-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1482,7 +1495,7 @@ function spads_site_structure_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'resource',
       'deleted' => '0',
-      'description' => 'If you resource is an image (Logo, Poster, etc.) use this field to upload it.',
+      'description' => 'If you resource is an image (Logo, Poster, etc.) use this field to upload it.  DO NOT USE THIS AS A THUMBNAIL.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -1503,7 +1516,7 @@ function spads_site_structure_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_image',
-      'label' => 'Image',
+      'label' => 'Image Resource',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
@@ -1521,20 +1534,26 @@ function spads_site_structure_field_default_fields() {
         'module' => 'image',
         'settings' => array(
           'insert' => 0,
-          'insert_absolute' => FALSE,
+          'insert_absolute' => 0,
           'insert_class' => '',
-          'insert_default' => array(
-            0 => 'auto',
-          ),
+          'insert_default' => 'auto',
           'insert_styles' => array(
-            0 => 'auto',
+            'auto' => 'auto',
+            'icon_link' => 0,
+            'image' => 0,
+            'image_large' => 0,
+            'image_medium' => 0,
+            'image_page_illustration' => 0,
+            'image_slideshow' => 0,
+            'image_thumbnail' => 0,
+            'link' => 0,
           ),
           'insert_width' => '',
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '4',
+        'weight' => '13',
       ),
     ),
   );
@@ -1605,6 +1624,102 @@ function spads_site_structure_field_default_fields() {
         'settings' => array(),
         'type' => 'options_buttons',
         'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-resource-field_thumbnail'.
+  $fields['node-resource-field_thumbnail'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_thumbnail',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'resource',
+      'deleted' => '0',
+      'description' => 'This is for your resource\'s thumbnail, if any is required. The thumbnail itself is not a resource. <strong>Do not use this with the image resource</strong>, as it generates it\'s own thumbnail.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => 5,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_thumbnail',
+      'label' => 'Thumbnail',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'insert' => 0,
+          'insert_absolute' => 0,
+          'insert_class' => '',
+          'insert_default' => 'auto',
+          'insert_styles' => array(
+            'auto' => 'auto',
+            'icon_link' => 0,
+            'image' => 0,
+            'image_large' => 0,
+            'image_medium' => 0,
+            'image_page_illustration' => 0,
+            'image_slideshow' => 0,
+            'image_thumbnail' => 0,
+            'link' => 0,
+          ),
+          'insert_width' => '',
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '2',
       ),
     ),
   );
@@ -1687,7 +1802,73 @@ function spads_site_structure_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '3',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-scratchpads-field_taxa'.
+  $fields['node-scratchpads-field_taxa'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_taxa',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scratchpads',
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 16,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_taxa',
+      'label' => 'Taxa',
+      'required' => 1,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '19',
       ),
     ),
   );
@@ -1837,13 +2018,17 @@ function spads_site_structure_field_default_fields() {
   t('Comment');
   t('External Resource');
   t('Feature type');
-  t('If you resource is an image (Logo, Poster, etc.) use this field to upload it.');
+  t('If you resource is an image (Logo, Poster, etc.) use this field to upload it.  DO NOT USE THIS AS A THUMBNAIL.');
   t('Image');
+  t('Image Resource');
   t('News Body');
   t('Resource type');
   t('Screenshot');
+  t('Taxa');
+  t('This is for your resource\'s thumbnail, if any is required. The thumbnail itself is not a resource. <strong>Do not use this with the image resource</strong>, as it generates it\'s own thumbnail.');
   t('This is optional. Enter it here if you want this case study to appear in the News section as well.');
   t('This should be \'Case Study\'');
+  t('Thumbnail');
   t('Use this if the resource is located on a third party website');
   t('View');
   t('Website');

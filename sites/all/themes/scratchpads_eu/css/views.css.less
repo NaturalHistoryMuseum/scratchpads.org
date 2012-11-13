@@ -112,13 +112,38 @@ div.view-resources-pages {
     vertical-align: middle;
   }
   
-  div.views-field-field-image {
+  div.views-field-field-image,
+  div.views-field-field-thumbnail {
     .view-image-first;
+  }
+  
+  div.resource-float-clear {
+    clear: both;
   }
 }
 
 /* Special case for the events page */
+body.page-support-training-events #section-content div.tabs {
+  .quicktabs(@yellow_medium);
+  
+  ul.tabs li {
+    width: 75px;
+  }
+  
+  ul.tabs li.localtab-supporttrainingeventspast {
+    left: 120px;
+    width: 85px;
+  }
+}
+
 div.view-events {
+  font-size: 0.9em;
+  border-top: 0;
+
+  div.views-row {
+    margin: 12px 0;
+    padding: 12px;
+  }
   div.views-field-view-node {
     .view-links;
     float: left;
@@ -137,6 +162,18 @@ div.view-events {
     span.date-display-end {
       font-weight: @event_date_date_font_weight;
     }
+  }
+  
+  div.views-field-nid {
+    margin-top: -1.2em;
+    margin-right: 0;
+    .button(@yellow_main, @yellow_medium, @yellow_light, #888888, #FFFFFF);
+    display: inline;
+    float:right;
+  }
+  
+  div.views-row-odd {
+    background: #EEE;
   }
 }
 

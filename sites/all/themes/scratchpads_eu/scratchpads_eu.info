@@ -11,6 +11,7 @@ base theme = 'omega'
 scripts[] = js/tweaks.js
 scripts[] = js/sidebar_image_fixed.js
 scripts[] = js/accordion.js
+scripts[] = js/team.js
 
 ;
 ; The zones we use
