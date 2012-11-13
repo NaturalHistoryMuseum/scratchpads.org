@@ -113,6 +113,41 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<div id=\'team-image\'><img src="<?php echo url(drupal_get_path(\'theme\', \'scratchpads_eu\') . \'/images/team/whole-team-b&w_700px.png\'); ?>" /></div>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_wrapper_class'] = 'user-[uid]';
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'medium';
+  /* Field: User: Bio */
+  $handler->display->display_options['fields']['field_bio']['id'] = 'field_bio';
+  $handler->display->display_options['fields']['field_bio']['table'] = 'field_data_field_bio';
+  $handler->display->display_options['fields']['field_bio']['field'] = 'field_bio';
+  $handler->display->display_options['fields']['field_bio']['label'] = '';
+  $handler->display->display_options['fields']['field_bio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_bio']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_bio']['settings'] = array(
+    'trim_length' => '600',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
@@ -494,6 +529,12 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  /* Filter criterion: Content: News Body (field_news_body) */
+  $handler->display->display_options['filters']['field_news_body_value']['id'] = 'field_news_body_value';
+  $handler->display->display_options['filters']['field_news_body_value']['table'] = 'field_data_field_news_body';
+  $handler->display->display_options['filters']['field_news_body_value']['field'] = 'field_news_body_value';
+  $handler->display->display_options['filters']['field_news_body_value']['operator'] = 'longerthan';
+  $handler->display->display_options['filters']['field_news_body_value']['value'] = '0';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');

@@ -63,6 +63,7 @@ function spads_site_structure_apachesolr_search_default_searchers() {
     'fq' => array(
       0 => 'bundle:(article OR event OR case_study)',
       1 => 'entity_type:node',
+      2 => 'bs_field_news_body:1',
     ),
     'apachesolr_search_custom_enable' => 1,
     'apachesolr_search_search_type' => 'custom',

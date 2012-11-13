@@ -67,6 +67,17 @@ function spads_tweaks_apachesolr_query_alter($query) {
 }
 
 /**
+ * Implement hook_apachesolr_index_document_build
+ */
+function spads_tweaks_apachesolr_index_document_build($document, $entity, $entity_type, $env_id) {
+  if (!empty($entity->field_news_body[$entity->language][0]['value'])) {
+    $document->bs_field_news_body = 1;
+  } else {
+    $document->bs_field_news_body = 0;
+  }
+}
+
+/**
  * Implementation of hook_url_outbound_alter
  * 
  * Change the path to taxonomy pages, as the site already provides
