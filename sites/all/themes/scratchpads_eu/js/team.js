@@ -7,7 +7,7 @@
   var path_to_source = null;
   var map = null;
   
-  // Look the the output on the page to get the user IDs that are displayed
+  // Parse the output on the page to get the user IDs
   function extract_users() {
     $('#block-system-main div.view div.views-row div.views-field-name').each(function() {
       var classes = $(this).attr('class').split(' ');
@@ -49,7 +49,7 @@
     .css('position', 'relative')
     .css('height', '300px');
     
-    rows.css('opacity', 0).css('position', 'absolute').css('top', 0);
+    rows.css('opacity', 0).css('display', 'none').css('position', 'absolute').css('top', 0);
     
     map = $('<map name="teammap" id="teammap"></map>').appendTo(image_container);
     
@@ -74,17 +74,29 @@
               opacity: 1
             });
           }, function() {
-            $('#image-' + local_map_info.user_id).stop(true).animate({
-              opacity: 0
-            });
+            if (!local_map_info.row.hasClass('team-visible')) {
+              $('#image-' + local_map_info.user_id).stop(true).animate({
+                opacity: 0
+              });
+            } else {
+              $('#image-' + local_map_info.user_id).addClass('area-team-visible');
+            }
           });
           
           area.click(function() {
             if (!local_map_info.row.hasClass('team-visible')) {
-              rows.filter('.team-visible').removeClass('team-visible').stop(true).animate({opacity:0});
+              rows.filter('.team-visible').removeClass('team-visible').stop(true)
+              .animate({
+                opacity:0
+              }, function() {
+                  $(this).css('display', 'none');
+              });
+              $('.area-team-visible').removeClass('area-team-visible').animate({opacity:0});
+
               local_map_info.row
               .addClass('team-visible')
               .stop(true)
+              .css('display', 'block')
               .animate({opacity:1});
             }
           });
