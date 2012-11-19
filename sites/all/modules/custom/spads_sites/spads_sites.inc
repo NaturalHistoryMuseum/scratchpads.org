@@ -43,6 +43,19 @@ function _spads_sites_load_data($url) {
       if (empty($row['last_login_time'])) {
         $new_data[$url]['last_login_time'] = 0;
       }
+      // Get GEO data from statistics tables
+      $query = db_select('scratchpads_statistics_user', 'u');
+      $query->join('scratchpads_statistics_site', 's', 's.owner = u.id');
+      $query->fields('u', array('latitude', 'longitude'));
+      $query->condition('latitude', NULL, 'IS NOT')
+      ->condition('longitude', NULL, 'IS NOT')
+      ->condition('url', 'http://' . $url . '/', '=');
+      $result = $query->execute();
+
+      while ($row = $result->fetchAssoc()) {
+        $new_data[$url]['geo']['latitude'] = $row['latitude'];
+        $new_data[$url]['geo']['longitude'] = $row['longitude'];
+      }
     }
     
     return $new_data;
@@ -149,6 +162,9 @@ function _spads_sites_set_value($node, $field, $type, $value, $options = array()
           'date_type' => $options['date_type'],
         );
         break;
+      case 'geo':
+        $final[] = '(' . implode(', ', $val) . ')';
+        break;
     }    
   }
   
@@ -164,7 +180,7 @@ function _spads_sites_set_node_data($node, $data) {
   $node->title = $data['site_title'];
 
   _spads_sites_set_value($node, 'field_website', 'url', $data['site_url']);
-  _spads_sites_set_value($node, 'field_mission', 'text', $data['site_mission']);
+  _spads_sites_set_value($node, 'field_mission', 'text', $data['site_mission'], array('format' => 'filtered_html'));
   _spads_sites_set_value($node, 'field_profile', 'text', $data['profile']);
   _spads_sites_set_value($node, 'field_views', 'int', $data['views']);
   _spads_sites_set_value($node, 'field_pages', 'int', $data['pages']);
@@ -174,6 +190,15 @@ function _spads_sites_set_node_data($node, $data) {
   _spads_sites_set_value($node, 'field_total_logins', 'int', $data['users']['login']); 
   _spads_sites_set_value($node, 'field_recent_logins', 'int', $data['users']['month']);
   _spads_sites_set_value($node, 'field_taxa', 'int', $data['taxa']);
+  
+  if (!empty($data['geo'])) {
+    _spads_sites_set_value($node, 'field_site_location', 'geo', array($data['geo']));
+  }
+  if (!empty($node->field_site_location)) {
+    echo "\n\n\n";
+    var_dump($node);
+    echo "\n\n\n";
+  }
   
   $screen_shot_normal = sprintf(SPADS_SCREENSHOT_NORMAL, $data['site_url']);
   $screen_shot_annotated = sprintf(SPADS_SCREENSHOT_ANNOTATED, $data['site_url']);
@@ -251,7 +276,7 @@ function _spads_sites_statistics() {
 
     $total_views += $node->field_views[$node->language][0]['value'];
     $total_pages += $node->field_pages[$node->language][0]['value'];
-    $total_users += $node->field_total_users[$node->language][0]['value'];
+    $total_users += $node->field_total_logins[$node->language][0]['value'];
     $total_taxa += $node->field_taxa[$node->language][0]['value'];
     
     $profile = $node->field_profile[$node->language][0]['value'];
