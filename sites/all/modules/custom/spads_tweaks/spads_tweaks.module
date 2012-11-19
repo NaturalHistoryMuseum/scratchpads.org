@@ -41,18 +41,35 @@ function spads_tweaks_block_info() {
           'info' => 'Scratchpads.eu search block',
           'cache' => DRUPAL_NO_CACHE,
       ),
+      '1' => array(
+          'info' => 'Scratchpads.eu contact block',
+          'cache' => DRUPAL_NO_CACHE,
+      ),
   );
 }
 
 /**
  * Implementation of hook_block_view
  */
-function spads_tweaks_block_view($delta = 0) {
-
-  return array(
-      'subject' => '',
-      'content' => drupal_get_form('_spads_tweaks_search_form'),
-  );
+function spads_tweaks_block_view($delta = 0){
+  switch($delta){
+    case 0:
+      return array(
+        'subject' => '',
+        'content' => drupal_get_form('_spads_tweaks_search_form')
+      );
+      break;
+    case 1:
+      return array(
+        'subject' => '',
+        'content' => l(t('contact us'), 'contact', array(
+          'attributes' => array(
+            'class' => 'ctools-modal-spadmodal'
+          )
+        ))
+      );
+      break;
+  }
 }
 
 /**

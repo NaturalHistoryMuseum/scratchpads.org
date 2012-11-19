@@ -11,6 +11,25 @@
  * for more information on this topic.
  */
 
+function scratchpads_eu_preprocess_page(&$variables) {
+  drupal_add_js(array(
+    'spadmodal' => array(
+      'modalSize' => array(
+        'type' => 'fixed',
+        'width' => 720,
+        'height' => 700
+      ),
+      'modalOptions' => array(
+        'opacity' => 0.50,
+        'background' => '#000',
+      ),
+      'animation' => 'fadeIn',
+      'modalTheme' => 'ModalFormsPopup',
+      'closeText' => "Close",        
+    )
+  ), 'setting');
+}
+
 function scratchpads_eu_facetapi_link_active($variables) {
   return theme_link($variables);
 }

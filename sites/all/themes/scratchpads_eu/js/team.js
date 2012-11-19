@@ -29,7 +29,7 @@
     content_container = $('div.view-content', root);
     rows = $('#block-system-main div.view div.views-row');
     path_to_source = $('img', image_container).attr('src').replace(/\/[^\/]+$/, '');
-    console.log('path to source:' + path_to_source);
+    //console.log('path to source:' + path_to_source);
     
     // Extract the user list from the view results
     extract_users();
@@ -60,7 +60,7 @@
         url: path_to_source + '/' + maps[i].user_id + '.map',
         map_info: maps[i],
         success: function(data) {
-          console.log("loaded " + this.map_info.user_id);
+          //console.log("loaded " + this.map_info.user_id);
           var area = $(data).find('area').appendTo(map);
           
           area.removeAttr('nohref').attr('href', '/').click(function(e){ 
@@ -104,7 +104,11 @@
       });
       
       // Insert the image
-      $('<img id="image-' + maps[i].user_id + '" src="' + path_to_source + '/' + maps[i].user_id + '.png' + '" />')
+      var image_url = path_to_source + '/' + maps[i].user_id + '.png';
+      if ($.browser.msie && $.browser.version < 9) {
+        image_url = path_to_source + '/ie/' + maps[i].user_id + '.gif';
+      }
+      $('<img id="image-' + maps[i].user_id + '" src="' + image_url + '" />')
       .appendTo(image_container)
       .css('position', 'absolute')
       .css('top', 0).css('left', 0)

@@ -87,6 +87,11 @@
   function setup_accordion() {
     root = $('#block-views-nodequeue-1-block');
     
+    /* Browser check */
+    if ($.browser.msie && $.browser.version < 9) {
+      title_mode = 'none';
+    }
+    
     /* Add relevant classes now */
     $('div.views-row', root).addClass('accordion-collapsed');
     $('div.views-row-last', root)
