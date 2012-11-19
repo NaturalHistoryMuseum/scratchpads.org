@@ -118,7 +118,7 @@
    * want this to run on page load
    */
   $(document).ready(function() {
-    if ($('body').hasClass('page-about-team')) {
+    if ($('body').hasClass('context-team')) {
       setup_imagemap();
     }
   });

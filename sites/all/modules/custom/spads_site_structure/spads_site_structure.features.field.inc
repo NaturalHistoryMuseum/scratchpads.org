@@ -1430,7 +1430,7 @@ function spads_site_structure_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => 'resources',
-        'file_extensions' => 'txt doc odt odf docx pdf png jpg jpeg ppt',
+        'file_extensions' => 'txt doc odt odf docx pdf png jpg jpeg ppt zip',
         'max_filesize' => '',
         'user_register_form' => FALSE,
       ),
@@ -1451,6 +1451,7 @@ function spads_site_structure_field_default_fields() {
             'image_page_illustration' => 0,
             'image_slideshow' => 0,
             'image_thumbnail' => 0,
+            'image_user_image' => 0,
             'link' => 0,
           ),
           'insert_width' => '',
@@ -2004,7 +2005,7 @@ function spads_site_structure_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );

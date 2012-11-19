@@ -51,6 +51,20 @@ body {
       font-weight: @title_font_weight;
       color: @green_main /* Gets overriden per context */
     }
+    
+    h2 {
+      font-size: @h2_font_size;
+      font-family: @h2_font_family;
+      font-weight: @h2_font_weight;
+      color: @green_main /* Gets overriden per content */
+    }
+    
+    h3 {
+      font-size: @h2_font_size;
+      font-family: @h2_font_family;
+      font-weight: @h2_font_weight;
+      color: black;
+    }
   }
   
   #region-sidebar-first {
@@ -122,4 +136,31 @@ body.page-node.node-type-resource {
     font-size: 14pt;
     margin: 8px 16px 16px 0;
   }
+}
+
+.border-less {
+  border: 0;
+  td {
+    border: 0;
+  }
+  tr:hover td {
+    background: transparent;
+  }
+}
+
+code {
+  background: @grey_light;
+  margin: 8px 32px;
+  border: 1px solid #AAA;
+  padding: 20px 16px 35px 16px;
+  display: block;
+  font-family: mono;
+  font-size: 10pt;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+body.context-develop #redmine {
+  width: 100%;
+  height: 700px;
 }

@@ -211,6 +211,23 @@
     li.active-trail ul.menu {
       display: block;
     }
+    
+    li.expanded a {
+      background-image: url("../images/menu-collapsed-arrow.png");
+      background-repeat: no-repeat;
+      background-position: 100% 7px;
+    }
+    
+    li.expanded.active-trail a {
+      background-image: url("../images/menu-expanded-arrow.png");
+      background-repeat: no-repeat;
+      background-position: 100% 7x;
+    }
+    
+    li.expanded.active-trail li a {
+      background-image: none;
+    }
+
   }
 }
 

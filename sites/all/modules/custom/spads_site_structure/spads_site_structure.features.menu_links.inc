@@ -71,31 +71,10 @@ function spads_site_structure_menu_default_menu_links() {
     'module' => 'system',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
     'weight' => '-39',
     'parent_path' => 'about',
-  );
-  // Exported menu link: main-menu:http://dev.scratchpads.eu/
-  $menu_links['main-menu:http://dev.scratchpads.eu/'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'http://dev.scratchpads.eu/',
-    'router_path' => '',
-    'link_title' => 'Sandbox',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'external_link',
-        ),
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
-    'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:http://dev.scratchpads.eu/project/issues
   $menu_links['main-menu:http://dev.scratchpads.eu/project/issues'] = array(
@@ -139,48 +118,6 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '0',
     'parent_path' => 'news',
   );
-  // Exported menu link: main-menu:http://wiki.scratchpads.eu/
-  $menu_links['main-menu:http://wiki.scratchpads.eu/'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'http://wiki.scratchpads.eu/',
-    'router_path' => '',
-    'link_title' => 'Help Wiki',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'external_link',
-        ),
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/44',
-  );
-  // Exported menu link: main-menu:https://git.scratchpads.eu/v
-  $menu_links['main-menu:https://git.scratchpads.eu/v'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'https://git.scratchpads.eu/v',
-    'router_path' => '',
-    'link_title' => 'Git repository',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'external_link',
-        ),
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
-    'parent_path' => 'node/26',
-  );
   // Exported menu link: main-menu:news
   $menu_links['main-menu:news'] = array(
     'menu_name' => 'main-menu',
@@ -188,7 +125,9 @@ function spads_site_structure_menu_default_menu_links() {
     'router_path' => 'news',
     'link_title' => 'News',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'id' => 'menu-item-news',
+      ),
     ),
     'module' => 'system',
     'hidden' => '0',
@@ -283,21 +222,6 @@ function spads_site_structure_menu_default_menu_links() {
     'weight' => '-49',
     'parent_path' => 'node/26',
   );
-  // Exported menu link: main-menu:node/25
-  $menu_links['main-menu:node/25'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/25',
-    'router_path' => 'node/%',
-    'link_title' => 'GIT commits',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
-    'parent_path' => 'node/26',
-  );
   // Exported menu link: main-menu:node/26
   $menu_links['main-menu:node/26'] = array(
     'menu_name' => 'main-menu',
@@ -322,7 +246,9 @@ function spads_site_structure_menu_default_menu_links() {
     'link_path' => 'node/27',
     'router_path' => 'node/%',
     'link_title' => 'Concept',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
@@ -345,8 +271,8 @@ function spads_site_structure_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-41',
-    'parent_path' => 'about',
+    'weight' => '-49',
+    'parent_path' => 'node/44',
   );
   // Exported menu link: main-menu:node/29
   $menu_links['main-menu:node/29'] = array(
@@ -626,7 +552,7 @@ function spads_site_structure_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'node/516',
     'router_path' => 'node/%',
-    'link_title' => 'Grant proposals',
+    'link_title' => 'Project proposals',
     'options' => array(
       'attributes' => array(),
     ),
@@ -788,26 +714,6 @@ function spads_site_structure_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
   );
-  // Exported menu link: menu-join-the-community:http://sandbox.scratchpads.eu
-  $menu_links['menu-join-the-community:http://sandbox.scratchpads.eu'] = array(
-    'menu_name' => 'menu-join-the-community',
-    'link_path' => 'http://sandbox.scratchpads.eu',
-    'router_path' => '',
-    'link_title' => 'Try our sandbox',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'join-sandbox',
-        ),
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
   // Exported menu link: menu-join-the-community:node/13
   $menu_links['menu-join-the-community:node/13'] = array(
     'menu_name' => 'menu-join-the-community',
@@ -928,10 +834,6 @@ function spads_site_structure_menu_default_menu_links() {
   t('Develop Scratchpad source code');
   t('Explore');
   t('FAQ');
-  t('GIT commits');
-  t('Git repository');
-  t('Grant proposals');
-  t('Help Wiki');
   t('Home');
   t('How to cite');
   t('Info / Duties');
@@ -942,11 +844,11 @@ function spads_site_structure_menu_default_menu_links() {
   t('Policies');
   t('Privacy');
   t('Privacy Policy');
+  t('Project proposals');
   t('Propose a new course');
   t('Publish your data online');
   t('Read about our policy');
   t('Resources');
-  t('Sandbox');
   t('Search');
   t('Sign up for Scratchpad training');
   t('Sites list');
@@ -956,7 +858,6 @@ function spads_site_structure_menu_default_menu_links() {
   t('Terms & Conditions');
   t('Terms and Conditions');
   t('Training material');
-  t('Try our sandbox');
   t('Twitter');
   t('Website feedback');
   t('Writting modules');

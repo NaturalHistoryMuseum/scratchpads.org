@@ -14,10 +14,11 @@ function spads_site_structure_apachesolr_environments() {
   $environment->api_version = 1;
   $environment->env_id = 'multi_site';
   $environment->name = 'Multi site';
-  $environment->url = 'http://localhost:8080/solr';
+  $environment->url = 'http://web-scratchpad-solr.nhm.ac.uk/solr/scratchpads2';
   $environment->service_class = '';
   $environment->conf = array(
     'apachesolr_read_only' => '1',
+    'multisitesearch' => 1,
   );
   $environment->index_bundles = array();
   $export['multi_site'] = $environment;
@@ -30,8 +31,7 @@ function spads_site_structure_apachesolr_environments() {
   $environment->service_class = '';
   $environment->conf = array(
     'apachesolr_read_only' => '0',
-    'apachesolr_search_facet_pages' => '',
-    'apachesolr_search_show_facets' => 0,
+    'multisitesearch' => 0,
   );
   $environment->index_bundles = array(
     'node' => array(

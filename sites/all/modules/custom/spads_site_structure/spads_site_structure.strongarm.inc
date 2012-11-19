@@ -511,10 +511,16 @@ function spads_site_structure_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'account' => array(
-          'weight' => '-10',
+          'weight' => '0',
         ),
         'timezone' => array(
-          'weight' => '6',
+          'weight' => '4',
+        ),
+        'picture' => array(
+          'weight' => '3',
+        ),
+        'overlay_control' => array(
+          'weight' => '2',
         ),
       ),
       'display' => array(
