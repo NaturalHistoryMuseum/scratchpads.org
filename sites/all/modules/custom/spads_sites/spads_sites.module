@@ -21,6 +21,49 @@ function spads_sites_menu() {
   return $items;
 }
 
+/**
+ * Implementatiof of hook_block_info
+ */
+function spads_sites_block_info() {
+  return array(
+    '0' => array(
+      'info' => 'Scratchpads.eu map block',
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    '1' => array(
+      'info' => 'Scratchpads.eu stats block',
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_block_view
+ */
+function spads_sites_block_view($delta = 0){
+  switch($delta){
+    case 0:
+      return array(
+      'subject' => 'Scratchpads around the world',
+      'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> "
+        . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> "
+        . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> "
+        . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>"
+        . "<p>Scratchpads ambassadors are located in 15 countries:</p>"
+        . '<iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=207476008910733911886.0004aa0d615ad69652070&amp;ie=UTF8&amp;t=m&amp;vpsrc=6&amp;source=embed&amp;ll=26.431228,29.53125&amp;spn=150.379743,298.828125&amp;z=1&amp;output=embed"></iframe>'
+      );
+      break;
+    case 1:
+      return array(
+      'subject' => 'General statistics',
+      'content' => "<table><tr><th>Number of Scratchpads</th><td>" .number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ' ')
+        ."</td></tr><tr><th>Total number of page views</th><td>" . number_format(variable_get('scratchpads_total_views', 0), 0, '.', ' ')
+        ."</td></tr><tr><th>Total number of pages</th><td>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ' ')
+        ."</td></tr><tr><th>Total number of users</th><td>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ' ')
+        ."</td></tr></table>"
+      );
+  }
+}
 
 /*
  * Page callback
