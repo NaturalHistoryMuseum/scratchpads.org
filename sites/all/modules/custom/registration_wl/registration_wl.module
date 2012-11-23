@@ -11,12 +11,50 @@
  * Pre-populate the settings form from the node form values
  */
 function registration_wl_entity_insert($entity, $type) {
-  if ($type != 'node' || $entity->type != 'event') {
-      return;
+  if ($type == 'node' && $entity->type == 'event') {
+    _registration_wl_set_registration_settings($entity, $type);
+  } else if ($type == 'registration' && $entity->is_new) {
+    $event = node_load($entity->entity_id);
+    $settings = registration_entity_settings($entity->entity_type, $entity->entity_id);
+
+    $on_waiting_list = ($entity->state == intval($settings['settings']['registration_wl_state']));
+
+    $to = $entity->anon_mail;
+    $from = $settings['settings']['from_address'];
+    $name = $entity->field_name['und'][0]['value'];
+
+    if (!$on_waiting_list) {
+      $subject = $event->field_email_subject[$event->language][0]['safe_value'];
+      $body = $event->field_instructions[$event->language][0]['safe_value'];
+    } else {
+      $subject = $event->field_email_subject_waiting_list[$event->language][0]['safe_value'];
+      $body = $event->field_instructions_waiting_list[$event->language][0]['safe_value'];
+    }
+
+    $body = str_replace('[name]', $name, $body);
+
+    if ($to && $from && $subject && $body) {
+      $message = drupal_mail('registration_wl', 'mail', $to, 'en', array($from, $subject, $body), $from, TRUE);
+      if (!$on_waiting_list) {
+        drupal_set_message('The registration has been saved. A confirmation email will be sent shortly.');
+      } else {
+        drupal_set_message('The registration has been saved (on waiting list). A confirmation email will be sent shortly.');
+      }
+    } else {
+      if (!$on_waiting_list) {
+        drupal_set_message('warning', 'The registration has been saved, but no email has been sent');
+      } else {
+        drupal_set_message('warning', 'The registration has been saved (on waiting list), but no email has been sent');
+      }
+    }
   }
-  
-  _registration_wl_set_registration_settings($entity, $type);  
 }
+
+function registration_wl_mail($key, &$message, $params) {
+  $message['subject'] = $params[1];
+  $message['body'][] = $params[2];
+}
+
 function registration_wl_entity_update($entity, $type) {
   if ($type != 'node' || $entity->type != 'event') {
     return;
@@ -106,6 +144,7 @@ function registration_wl_form_registration_form_alter(&$form, &$form_state, $for
   if ($user->uid == 0) {
     $form['who_is_registering']['#type'] = 'hidden';
     $form['who_is_registering']['#value'] = 'registration_registrant_type_anon';
+    $form['anon_mail']['#required'] = TRUE;
   }
 }
 
