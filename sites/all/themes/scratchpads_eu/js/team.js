@@ -66,6 +66,9 @@
           area.removeAttr('nohref').attr('href', '/').click(function(e){ 
             return false;
           });
+          if ($.browser.msie && $.browser.version < 8) {
+            area.focus(function() {$(this).blur();});
+          }
           
           
           var local_map_info = this.map_info;
@@ -106,7 +109,7 @@
       // Insert the image
       var image_url = path_to_source + '/' + maps[i].user_id + '.png';
       if ($.browser.msie && $.browser.version < 9) {
-        image_url = path_to_source + '/ie/' + maps[i].user_id + '.gif';
+        image_url = path_to_source + '/ie/' + maps[i].user_id + '.png';
       }
       $('<img id="image-' + maps[i].user_id + '" src="' + image_url + '" />')
       .appendTo(image_container)
