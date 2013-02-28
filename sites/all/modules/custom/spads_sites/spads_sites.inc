@@ -3,7 +3,7 @@
  * This file contains the functionality for the spads_sites module,
  * available via the module and via drush
  */
-define('SPADS_SITES_URL', 'http://dev.scratchpads.eu/scratchpads/serial');
+define('SPADS_SITES_URL', 'http://stats.scratchpads.eu/scratchpads/serial');
 define('SPADS_SCREENSHOT_NORMAL', 'screenshots.scratchpads.eu/%s.small.jpg');
 define('SPADS_SCREENSHOT_ANNOTATED', 'screenshots.scratchpads.eu/%s.small.annotated.jpg');
 define('SPADS_SITES_ALIAS', 'explore/sites');
@@ -193,11 +193,6 @@ function _spads_sites_set_node_data($node, $data) {
   
   if (!empty($data['geo'])) {
     _spads_sites_set_value($node, 'field_site_location', 'geo', array($data['geo']));
-  }
-  if (!empty($node->field_site_location)) {
-    echo "\n\n\n";
-    var_dump($node);
-    echo "\n\n\n";
   }
   
   $screen_shot_normal = sprintf(SPADS_SCREENSHOT_NORMAL, $data['site_url']);

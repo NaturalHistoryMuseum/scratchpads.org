@@ -1,39 +1,39 @@
-<?php 
+<?php
 /*
  * @file
  */
 include_once 'spads_sites.inc';
 
-/*
+/**
  * Implementation of hook_menu
  * 
  */
-function spads_sites_menu() {
+function spads_sites_menu(){
   $items = array();
-  
   $items['explore/dev'] = array(
     'title' => 'Sractchpads around the world',
     'page callback' => '_spads_sites_page',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
+    'access arguments' => array(
+      'access content'
+    ),
+    'type' => MENU_CALLBACK
   );
-  
   return $items;
 }
 
 /**
  * Implementatiof of hook_block_info
  */
-function spads_sites_block_info() {
+function spads_sites_block_info(){
   return array(
     '0' => array(
       'info' => 'Scratchpads.eu map block',
-      'cache' => DRUPAL_NO_CACHE,
+      'cache' => DRUPAL_NO_CACHE
     ),
     '1' => array(
       'info' => 'Scratchpads.eu stats block',
-      'cache' => DRUPAL_NO_CACHE,
-    ),
+      'cache' => DRUPAL_NO_CACHE
+    )
   );
 }
 
@@ -44,83 +44,37 @@ function spads_sites_block_view($delta = 0){
   switch($delta){
     case 0:
       return array(
-      'subject' => 'Scratchpads around the world',
-      'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> "
-        . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> "
-        . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> "
-        . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>"
-        . "<p>Scratchpads ambassadors are located in 15 countries:</p>"
-        . '<iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=207476008910733911886.0004aa0d615ad69652070&amp;ie=UTF8&amp;t=m&amp;vpsrc=6&amp;source=embed&amp;ll=26.431228,29.53125&amp;spn=150.379743,298.828125&amp;z=1&amp;output=embed"></iframe>'
+        'subject' => 'Scratchpads around the world',
+        'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> " . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> " . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> " . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>" . "<p>Scratchpads ambassadors are located in 16 countries:</p>" . '<iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=207476008910733911886.0004aa0d615ad69652070&amp;ie=UTF8&amp;t=m&amp;vpsrc=6&amp;source=embed&amp;ll=26.431228,29.53125&amp;spn=150.379743,298.828125&amp;z=1&amp;output=embed"></iframe>'
       );
       break;
     case 1:
       return array(
-      'subject' => 'General statistics',
-      'content' => "<table><tr><th>Number of Scratchpads</th><td>" .number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ' ')
-        ."</td></tr><tr><th>Total number of page views</th><td>" . number_format(variable_get('scratchpads_total_views', 0), 0, '.', ' ')
-        ."</td></tr><tr><th>Total number of pages</th><td>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ' ')
-        ."</td></tr><tr><th>Total number of users</th><td>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ' ')
-        ."</td></tr></table>"
+        'subject' => 'General statistics',
+        'content' => "<table><tr><th>Number of Scratchpads</th><td>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ' ') . "</td></tr><tr><th>Total number of page views</th><td>" . number_format(variable_get('scratchpads_total_views', 0), 0, '.', ' ') . "</td></tr><tr><th>Total number of pages</th><td>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ' ') . "</td></tr><tr><th>Total number of users</th><td>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ' ') . "</td></tr></table>"
       );
   }
 }
 
-/*
+/**
+ * Implementation of hook_cron
+ */
+function spads_sites_cron() {
+  // Fetch the stats data
+  $data = _spads_sites_load_data(SPADS_SITES_URL);
+  // Update existing nodes,and create new nodes
+  foreach ($data as $row) {
+    $node = _spads_sites_find_site($row['site_url']);
+    _spads_sites_set_node_data($node, $row);
+    node_save($node);
+  }
+  // Purge sites that have disapeared
+  _spads_sites_purge($data);
+  // Rebuild stats
+  _spads_sites_statistics();
+}
+
+/**
  * Page callback
  */
-function _spads_sites_page() {
-  _spads_sites_purge();
-  return 'hello';
-  
-  $data = _spads_sites_load_data(SPADS_SITES_URL);
-
-  /*
-  print("Total number of Scratchpads that can be imported: " . count($data) . "<br/>");
-  foreach ($data as $site => $row) {
-    $data[$site]['node'] = _spads_sites_find_site($row['site_url']);
-    //var_dump($data[$site]['node']);
-    print("<br/>");
-    print("Site: " . $site . "<br/>");
-    if (!empty($data[$site]['node']->nid)) {
-      print("Last import:" . date('m.d.Y', $data[$site]['node']->changed) . "<br/>");
-    } else {
-      print("This site was never imported<br/>");
-    }
-  }
-  return 'hello';
-  */
-  //$data = _spads_sites_load_data(SPADS_SITES_URL);
-  $data = array_slice($data, 0, 10);
-  if ($data) {
-    foreach ($data as $row) {
-      $node = _spads_sites_find_site($row['site_url']);
-      _spads_sites_set_node_data($node, $row);
-      node_save($node);
-    }
-  }
-  /*
-   * site url => array(
-   *   site_url
-   *   site_title
-   *   site_mission
-   *   views => int
-   *   last_login_time => unix
-   *   last_node_changed_time => unix
-   *   nodes => array(
-   *     node-type => int
-   *     ... (biblio, forum, image, page, profile, spm...)
-   *   )
-   *   users => array(
-   *     login => int
-   *     total => int
-   *     week => int
-   *     month => int
-   *   )
-   * )
-   * 
-   * Images at:
-   * screenshots.scratchpads.eu/able.myspecies.info.small.jpg
-   * screenshots.scratchpads.eu/able.myspecies.info.small.annotated.jpg
-   *   
-   */
-}
+function _spads_sites_page(){}
