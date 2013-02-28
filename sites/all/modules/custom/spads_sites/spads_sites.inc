@@ -192,7 +192,7 @@ function _spads_sites_set_node_data($node, $data) {
   _spads_sites_set_value($node, 'field_taxa', 'int', $data['taxa']);
   
   if (!empty($data['geo'])) {
-    _spads_sites_set_value($node, 'field_site_location', 'geo', array($data['geo']));
+    //_spads_sites_set_value($node, 'field_site_location', 'geo', array($data['geo']));
   }
   
   $screen_shot_normal = sprintf(SPADS_SCREENSHOT_NORMAL, $data['site_url']);
