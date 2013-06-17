@@ -8,9 +8,9 @@
       echo $output;
       break;
     case 'full':
-      echo 'Full';
+      echo 'Full (' . $output . ')';
       break;
     case 'closed':
-      echo 'Closed';
+      echo 'Closed (' . $output . ')';
       break;
   }

@@ -257,3 +257,40 @@ function registration_wl_entity_presave($entity, $type) {
     }
   }
 }
+
+/**
+ * Implement hook_menu_local_tasks_alter
+ *
+ * Hide the 'register' tab if registrations are closed.
+ *
+ */
+function registration_wl_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  foreach ($data['tabs'][0]['output'] as $id => $tab) {
+    if (preg_match('/^([^\/]+)\/%\/register$/', $tab['#link']['path'], $matches)) {
+      $entity_type = $matches[1];
+      $node = $router_item['page_arguments'][0];
+      $open = ($node->field_enable_registrations[LANGUAGE_NONE][0]['value'] == 1);
+      if ($open) {
+        $now = date('Y-m-d H:i:s');
+        if ($node->field_registration_opening_date[LANGUAGE_NONE][0]['value2'] < $now) {
+          $open = FALSE;
+        } else if ($node->field_registration_opening_date[LANGUAGE_NONE][0]['value'] > $now) {
+          $open = FALSE;
+        } else {
+          $capacity = $node->field_capacity[LANGUAGE_NONE][0]['value'];
+          $used = registration_event_count($entity_type, $node->nid);
+          if ($capacity - $used <= 0) {
+            $open = FALSE;
+          }
+        }
+      }
+
+      if (!$open) {
+        unset($data['tabs'][0]['output'][$id]);
+        $data['tabs'][0]['output'] = array_values($data['tabs'][0]['output']);
+        $data['tabs'][0]['count']--;
+      }
+      return;
+    }
+  }
+}
