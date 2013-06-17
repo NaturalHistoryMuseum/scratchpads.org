@@ -278,8 +278,10 @@ function registration_wl_menu_local_tasks_alter(&$data, $router_item, $root_path
           $open = FALSE;
         } else {
           $capacity = $node->field_capacity[LANGUAGE_NONE][0]['value'];
+          $wl = $node->field_waiting_list_size[LANGUAGE_NONE][0]['value'];
+
           $used = registration_event_count($entity_type, $node->nid);
-          if ($capacity - $used <= 0) {
+          if ($capacity + $wl - $used <= 0) {
             $open = FALSE;
           }
         }
