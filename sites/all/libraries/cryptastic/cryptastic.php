@@ -74,7 +74,7 @@ class cryptastic{
     $mac = $this->pbkdf2($iv . $msg, $k, 1000, 32); // create mac
     if($em !== $mac) // authenticate mac
       return false;
-    if(mcrypt_generic_init($td, $k, $iv) !== 0) // initialize buffers
+    if(@mcrypt_generic_init($td, $k, $iv) !== 0) // initialize buffers
       return false;
     $msg = mdecrypt_generic($td, $msg); // decrypt
     $msg = unserialize($msg); // unserialize
