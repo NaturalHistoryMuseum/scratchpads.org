@@ -979,10 +979,10 @@ function spads_site_structure_views_default_views() {
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
+  
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Sites list';
+  $handler->display->display_options['title'] = 'Darwin Core Archive';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1041,17 +1041,17 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['filters']['field_screen_shot_normal__url']['table'] = 'field_data_field_screen_shot_normal_';
   $handler->display->display_options['filters']['field_screen_shot_normal__url']['field'] = 'field_screen_shot_normal__url';
   $handler->display->display_options['filters']['field_screen_shot_normal__url']['operator'] = 'not empty';
-
+  
   /* Display: thumbnails page */
   $handler = $view->new_display('page', 'thumbnails page', 'page');
   $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'explore/sites-list-2';
-
+  
   /* Display: Thumbnails */
   $handler = $view->new_display('block', 'Thumbnails', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-
+  
   /* Display: Table */
   $handler = $view->new_display('block', 'Table', 'block_2');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -1064,6 +1064,7 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_website_1' => 'field_website_1',
     'field_website' => 'field_website',
     'field_profile' => 'field_profile',
     'field_views' => 'field_views',
@@ -1071,9 +1072,17 @@ function spads_site_structure_views_default_views() {
     'field_total_users' => 'field_total_users',
     'field_recent_logins' => 'field_recent_logins',
     'field_last_node_changed' => 'field_last_node_changed',
+    'field_dwca' => 'field_dwca',
   );
   $handler->display->display_options['style_options']['default'] = 'field_views';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_website_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_website' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -1123,6 +1132,13 @@ function spads_site_structure_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_dwca' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -1157,6 +1173,7 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['fields']['field_profile']['id'] = 'field_profile';
   $handler->display->display_options['fields']['field_profile']['table'] = 'field_data_field_profile';
   $handler->display->display_options['fields']['field_profile']['field'] = 'field_profile';
+  $handler->display->display_options['fields']['field_profile']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_profile']['element_label_colon'] = FALSE;
   /* Field: Content: Views */
   $handler->display->display_options['fields']['field_views']['id'] = 'field_views';
@@ -1208,6 +1225,14 @@ function spads_site_structure_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Field: Content: Darwin Core Archive */
+  $handler->display->display_options['fields']['field_dwca']['id'] = 'field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['table'] = 'field_data_field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['field'] = 'field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['label'] = 'DwCA';
+  $handler->display->display_options['fields']['field_dwca']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dwca']['alter']['text'] = '<a href="[field_dwca]">Yes</a>';
+  $handler->display->display_options['fields']['field_dwca']['empty'] = 'No';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -1268,7 +1293,7 @@ function spads_site_structure_views_default_views() {
     4 => 0,
     5 => 0,
   );
-
+  
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -1393,7 +1418,7 @@ function spads_site_structure_views_default_views() {
     'page' => 0,
     'block_1' => 0,
   );
-
+  
   /* Display: Recently active */
   $handler = $view->new_display('block', 'Recently active', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
@@ -1460,6 +1485,190 @@ function spads_site_structure_views_default_views() {
   $handler->display->display_options['sorts']['field_recent_logins_value']['table'] = 'field_data_field_recent_logins';
   $handler->display->display_options['sorts']['field_recent_logins_value']['field'] = 'field_recent_logins_value';
   $handler->display->display_options['sorts']['field_recent_logins_value']['order'] = 'DESC';
+  
+  /* Display: json */
+  $handler = $view->new_display('page', 'json', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Scratchpads list';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_json';
+  $handler->display->display_options['style_options']['root_object'] = '';
+  $handler->display->display_options['style_options']['top_child_object'] = '';
+  $handler->display->display_options['style_options']['plaintext_output'] = 1;
+  $handler->display->display_options['style_options']['remove_newlines'] = 1;
+  $handler->display->display_options['style_options']['jsonp_prefix'] = '';
+  $handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+  $handler->display->display_options['style_options']['object_arrays'] = 0;
+  $handler->display->display_options['style_options']['numeric_strings'] = 1;
+  $handler->display->display_options['style_options']['bigint_string'] = 0;
+  $handler->display->display_options['style_options']['pretty_print'] = 0;
+  $handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+  $handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+  $handler->display->display_options['style_options']['char_encoding'] = array();
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Site URL */
+  $handler->display->display_options['fields']['field_website']['id'] = 'field_website';
+  $handler->display->display_options['fields']['field_website']['table'] = 'field_data_field_website';
+  $handler->display->display_options['fields']['field_website']['field'] = 'field_website';
+  $handler->display->display_options['fields']['field_website']['label'] = '';
+  $handler->display->display_options['fields']['field_website']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_website']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_website']['type'] = 'link_plain';
+  /* Field: Content: Pages */
+  $handler->display->display_options['fields']['field_pages']['id'] = 'field_pages';
+  $handler->display->display_options['fields']['field_pages']['table'] = 'field_data_field_pages';
+  $handler->display->display_options['fields']['field_pages']['field'] = 'field_pages';
+  $handler->display->display_options['fields']['field_pages']['label'] = '';
+  $handler->display->display_options['fields']['field_pages']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pages']['type'] = 'number_unformatted';
+  $handler->display->display_options['fields']['field_pages']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Total users */
+  $handler->display->display_options['fields']['field_total_users']['id'] = 'field_total_users';
+  $handler->display->display_options['fields']['field_total_users']['table'] = 'field_data_field_total_users';
+  $handler->display->display_options['fields']['field_total_users']['field'] = 'field_total_users';
+  $handler->display->display_options['fields']['field_total_users']['label'] = '';
+  $handler->display->display_options['fields']['field_total_users']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_total_users']['type'] = 'number_unformatted';
+  $handler->display->display_options['fields']['field_total_users']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Views */
+  $handler->display->display_options['fields']['field_views']['id'] = 'field_views';
+  $handler->display->display_options['fields']['field_views']['table'] = 'field_data_field_views';
+  $handler->display->display_options['fields']['field_views']['field'] = 'field_views';
+  $handler->display->display_options['fields']['field_views']['label'] = '';
+  $handler->display->display_options['fields']['field_views']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_views']['type'] = 'number_unformatted';
+  $handler->display->display_options['fields']['field_views']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Profile */
+  $handler->display->display_options['fields']['field_profile']['id'] = 'field_profile';
+  $handler->display->display_options['fields']['field_profile']['table'] = 'field_data_field_profile';
+  $handler->display->display_options['fields']['field_profile']['field'] = 'field_profile';
+  $handler->display->display_options['fields']['field_profile']['label'] = '';
+  $handler->display->display_options['fields']['field_profile']['element_label_colon'] = FALSE;
+  /* Field: Content: Recent logins */
+  $handler->display->display_options['fields']['field_recent_logins']['id'] = 'field_recent_logins';
+  $handler->display->display_options['fields']['field_recent_logins']['table'] = 'field_data_field_recent_logins';
+  $handler->display->display_options['fields']['field_recent_logins']['field'] = 'field_recent_logins';
+  $handler->display->display_options['fields']['field_recent_logins']['label'] = '';
+  $handler->display->display_options['fields']['field_recent_logins']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_recent_logins']['type'] = 'number_unformatted';
+  $handler->display->display_options['fields']['field_recent_logins']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Last node changed */
+  $handler->display->display_options['fields']['field_last_node_changed']['id'] = 'field_last_node_changed';
+  $handler->display->display_options['fields']['field_last_node_changed']['table'] = 'field_data_field_last_node_changed';
+  $handler->display->display_options['fields']['field_last_node_changed']['field'] = 'field_last_node_changed';
+  $handler->display->display_options['fields']['field_last_node_changed']['label'] = '';
+  $handler->display->display_options['fields']['field_last_node_changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_last_node_changed']['type'] = 'date_plain';
+  $handler->display->display_options['fields']['field_last_node_changed']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scratchpads' => 'scratchpads',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['path'] = 'explore/sites-list/json';
+  
+  /* Display: dwca json */
+  $handler = $view->new_display('page', 'dwca json', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Scratchpads DWCA Archives';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_json';
+  $handler->display->display_options['style_options']['root_object'] = '';
+  $handler->display->display_options['style_options']['top_child_object'] = '';
+  $handler->display->display_options['style_options']['plaintext_output'] = 1;
+  $handler->display->display_options['style_options']['remove_newlines'] = 1;
+  $handler->display->display_options['style_options']['jsonp_prefix'] = '';
+  $handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+  $handler->display->display_options['style_options']['object_arrays'] = 0;
+  $handler->display->display_options['style_options']['numeric_strings'] = 1;
+  $handler->display->display_options['style_options']['bigint_string'] = 0;
+  $handler->display->display_options['style_options']['pretty_print'] = 0;
+  $handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+  $handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+  $handler->display->display_options['style_options']['char_encoding'] = array();
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'name';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Darwin Core Archive */
+  $handler->display->display_options['fields']['field_dwca']['id'] = 'field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['table'] = 'field_data_field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['field'] = 'field_dwca';
+  $handler->display->display_options['fields']['field_dwca']['label'] = 'dwca';
+  $handler->display->display_options['fields']['field_dwca']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scratchpads' => 'scratchpads',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Darwin Core Archive (field_dwca) */
+  $handler->display->display_options['filters']['field_dwca_value']['id'] = 'field_dwca_value';
+  $handler->display->display_options['filters']['field_dwca_value']['table'] = 'field_data_field_dwca';
+  $handler->display->display_options['filters']['field_dwca_value']['field'] = 'field_dwca_value';
+  $handler->display->display_options['filters']['field_dwca_value']['operator'] = 'longerthan';
+  $handler->display->display_options['filters']['field_dwca_value']['value'] = '0';
+  $handler->display->display_options['path'] = 'explore/sites-list/dwca-json';
+  
   $export['site_list'] = $view;
 
   $view = new view();
