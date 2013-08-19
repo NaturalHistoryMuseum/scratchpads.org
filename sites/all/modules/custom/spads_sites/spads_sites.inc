@@ -214,6 +214,14 @@ function _spads_sites_set_node_data($node, $data) {
   } else {
     _spads_sites_set_value($node, 'field_screen_shot_annotated', 'url', array());
   }  
+
+  // Look for DWCA
+  $dwca_headers = @get_headers('http://' . $data['site_url'] . '/dwca.zip');
+  if ($dwca_headers && preg_match('/ 200 /', $dwca_headers[0])) {
+    _spads_sites_set_value($node, 'field_dwca', 'text', 'http://' . $data['site_url'] . '/dwca.zip');
+  } else {
+    _spads_sites_set_value($node, 'field_dwca', 'text', '');
+  }
 }
 
 /*

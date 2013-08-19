@@ -364,6 +364,8 @@ function spads_context_layout_context_default_contexts() {
       'values' => array(
         'explore' => 'explore',
         'explore/*' => 'explore/*',
+        'stats' => 'stats',
+        'stats/*' => 'stats/*'
       ),
     ),
   );
