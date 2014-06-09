@@ -26,6 +26,8 @@ function spads_sites_block_info(){
 function spads_sites_block_view($delta = 0){
   switch($delta){
     case 0:
+      $query = db_select('users_roles', 'u')->condition('rid', 4)->countQuery();
+      $number_of_ambassadors = $query->execute()->fetchField();
       return array(
         'subject' => 'Scratchpads around the world',
         'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> " . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> " . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> " . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>" . "<p>Scratchpads ambassadors are located in " . $number_of_ambassadors . " countries:</p>"
