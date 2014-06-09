@@ -30,7 +30,7 @@ function spads_sites_block_view($delta = 0){
       $number_of_ambassadors = $query->execute()->fetchField();
       return array(
         'subject' => 'Scratchpads around the world',
-        'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> " . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> " . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> " . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>" . "<p>Scratchpads ambassadors are located in " . $number_of_ambassadors . " countries:</p>"
+        'content' => "<p><strong>" . number_format(variable_get('scratchpads_total_sites', 0), 0, '.', ',') . "</strong> " . "Scratchpads by <strong>" . number_format(variable_get('scratchpads_total_users', 0), 0, '.', ',') . "</strong> " . "active users covering <strong>" . number_format(variable_get('scratchpads_total_taxa', 0), 0, '.', ',') . "</strong> " . "taxa in <strong>" . number_format(variable_get('scratchpads_total_pages', 0), 0, '.', ',') . "</strong> pages.</p>" . "<p>Our " . $number_of_ambassadors . " Scratchpads ambassadors are located across the globe:</p>"
       );
       break;
     case 1:
