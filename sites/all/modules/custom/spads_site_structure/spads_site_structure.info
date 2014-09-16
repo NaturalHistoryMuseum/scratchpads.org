@@ -4,7 +4,6 @@ package = Scratchpads
 php = 5.2.4
 version = 7.x-0.1
 project = spads_site_structure
-dependencies[] = admin_menu
 dependencies[] = apachesolr_search
 dependencies[] = block
 dependencies[] = comment
