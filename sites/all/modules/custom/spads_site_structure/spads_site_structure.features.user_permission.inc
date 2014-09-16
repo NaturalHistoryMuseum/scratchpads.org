@@ -167,15 +167,6 @@ function spads_site_structure_user_default_permissions() {
     'module' => 'date_tools',
   );
 
-  // Exported permission: administer delta.
-  $permissions['administer delta'] = array(
-    'name' => 'administer delta',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'delta_ui',
-  );
-
   // Exported permission: administer delta blocks.
   $permissions['administer delta blocks'] = array(
     'name' => 'administer delta blocks',

@@ -12,7 +12,6 @@ dependencies[] = contextual
 dependencies[] = ctools
 dependencies[] = date_tools
 dependencies[] = delta_blocks
-dependencies[] = delta_ui
 dependencies[] = facetapi
 dependencies[] = fe_block
 dependencies[] = features
