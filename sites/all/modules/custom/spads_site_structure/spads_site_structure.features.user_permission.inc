@@ -72,16 +72,6 @@ function spads_site_structure_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: access dashboard.
-  $permissions['access dashboard'] = array(
-    'name' => 'access dashboard',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'team',
-    ),
-    'module' => 'dashboard',
-  );
-
   // Exported permission: access overlay.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
