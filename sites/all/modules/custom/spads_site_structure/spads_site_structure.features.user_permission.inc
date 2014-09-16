@@ -91,15 +91,6 @@ function spads_site_structure_user_default_permissions() {
     'module' => 'dashboard',
   );
 
-  // Exported permission: access devel information.
-  $permissions['access devel information'] = array(
-    'name' => 'access devel information',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'devel',
-  );
-
   // Exported permission: access overlay.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
@@ -844,15 +835,6 @@ function spads_site_structure_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: execute php code.
-  $permissions['execute php code'] = array(
-    'name' => 'execute php code',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'devel',
-  );
-
   // Exported permission: flush caches.
   $permissions['flush caches'] = array(
     'name' => 'flush caches',
@@ -939,15 +921,6 @@ function spads_site_structure_user_default_permissions() {
       1 => 'team',
     ),
     'module' => 'shortcut',
-  );
-
-  // Exported permission: switch users.
-  $permissions['switch users'] = array(
-    'name' => 'switch users',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'devel',
   );
 
   // Exported permission: use advanced search.
