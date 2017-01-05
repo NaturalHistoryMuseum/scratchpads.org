@@ -75,6 +75,18 @@ function current_search_block_info() {
 }
 
 /**
+ * Implements hook_ctools_block_info().
+ *
+ * @see http://drupal.org/node/1669918
+ */
+function current_search_ctools_block_info($module, $delta, &$info) {
+  // Give the current search blocks it's own categories.
+  $info['category'] = t('Current Search Blocks');
+  // Allow blocks to be used before the search results in Panels.
+  $info['render last'] = TRUE;
+}
+
+/**
  * Returns the content for a facet based on the delta.
  */
 function current_search_block_view($delta = '') {
@@ -97,6 +109,7 @@ function current_search_block_view($delta = '') {
           $build[$name] = $return;
           $build[$name]['#theme_wrappers'][] = 'current_search_item_wrapper';
           $build[$name]['#current_search_id'] = $settings['id'];
+          $build[$name]['#current_search_name'] = $name;
         }
       }
     }
@@ -169,9 +182,18 @@ function current_search_check_visibility($delta) {
     return FALSE;
   }
 
-  // Returns TRUE if search keys were entered by the user or this block is
-  // configured to be displayed on empty pages.
-  return ($adapter->getSearchKeys() || $config->settings['advanced']['empty_searches']);
+  // Returns TRUE based on the empty_searches setting and the current search.
+  switch ($config->settings['advanced']['empty_searches']) {
+    case CURRENT_SEARCH_DISPLAY_KEYS:
+      return ($adapter->getSearchKeys());
+    case CURRENT_SEARCH_DISPLAY_FILTERS:
+      return ($adapter->getAllActiveItems());
+    case CURRENT_SEARCH_DISPLAY_KEYS_FILTERS:
+      return ($adapter->getSearchKeys() || $adapter->getAllActiveItems());
+    case CURRENT_SEARCH_DISPLAY_ALWAYS:
+    default:
+      return TRUE;
+  }
 }
 
 /**

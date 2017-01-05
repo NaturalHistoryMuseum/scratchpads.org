@@ -1,5 +1,4 @@
 <?php
-// $Id: context_menu_block.install,v 1.4.2.1 2011/02/20 09:07:18 itafroma Exp $
 
 /**
  * @file
@@ -18,7 +17,16 @@ function context_menu_block_enable() {
   $t = get_t();
   $info = drupal_parse_info_file(drupal_get_path('module', 'context') . '/context.info');
 
-  if (!_context_menu_block_validate_context($info['version'])) {
+  // Check to see if Context's version is defined in its .info file.
+  // @see context_menu_block_requirements()
+  if (!isset($info['version'])) {
+    variable_set('context_menu_block_validate', TRUE);
+    drupal_set_message($t('Context does not have a version defined in its .info file. This could be because you are using a checkout of its git repository. For Context: Menu Block support, make sure you are using the @branch branch of Context.',
+      array(
+        '@branch' => CONTEXT_MENU_BLOCK_CONTEXT_SUPPORTED,
+      )), 'warning');
+  }
+  elseif (!_context_menu_block_validate_context($info['version'])) {
     drupal_set_message($t('Context: Menu Block requires Context @branch. Update Context to continue using Context: Menu Block.',
       array(
         '@branch' => CONTEXT_MENU_BLOCK_CONTEXT_SUPPORTED,
@@ -35,6 +43,25 @@ function context_menu_block_requirements($phase) {
   if ($phase == 'runtime') {
     $t = get_t();
     $info = drupal_parse_info_file(drupal_get_path('module', 'context') . '/context.info');
+
+    // Check to see if Context's version is defined in its .info file.
+    // If it isn't, assume it's a git checkout and that the user knows what
+    // they're doing.
+    if (!isset($info['version'])) {
+      variable_set('context_menu_block_validate', TRUE);
+
+      $requirements['context_menu_block'] = array(
+        'title' => $t('Context'),
+        'value' => $t('Version tag not found'),
+        'severity' => REQUIREMENT_WARNING,
+        'description' => $t('Context does not have a version defined in its .info file. This could be because you are using a checkout of its git repository. For Context: Menu Block support, make sure you are using the @branch branch of Context.',
+          array(
+            '@branch' => CONTEXT_MENU_BLOCK_CONTEXT_SUPPORTED,
+          )),
+      );
+
+      return $requirements;
+    }
 
     $requirements['context_menu_block'] = array(
       'title' => $t('Context'),

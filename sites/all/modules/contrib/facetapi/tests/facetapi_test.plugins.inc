@@ -17,7 +17,7 @@ class FacetapiTestAdapter extends FacetapiAdapter {
   /**
    * The total number of results in the query.
    */
-  protected $resultCount;
+  protected $resultCount = 10;
 
   /**
    * Implements FacetapiAdapter::searchExecuted().
@@ -31,6 +31,13 @@ class FacetapiTestAdapter extends FacetapiAdapter {
    */
   public function suppressOutput($realm_name) {
     return FALSE;
+  }
+
+  /**
+   * Overrides FacetapiAdapter::getSearchPath().
+   */
+  public function getSearchPath() {
+    return 'facetapi_test/search';
   }
 
   /**

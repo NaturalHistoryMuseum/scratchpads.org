@@ -1,0 +1,398 @@
+<?php
+
+require_once 'aviators_revolution.theme.inc';
+require_once 'aviators_revolution.page.inc';
+require_once 'includes/entity.component/aviators_revolution.controller.inc';
+require_once 'includes/entity.component/aviators_revolution.entity.inc';
+require_once 'includes/entity.slide/aviators_revolution.controller.inc';
+require_once 'includes/entity.slide/aviators_revolution.entity.inc';
+require_once 'includes/entity.slider/aviators_revolution.controller.inc';
+require_once 'includes/entity.slider/aviators_revolution.entity.inc';
+
+function aviators_revolution_admin_paths_alter(&$paths) {
+
+
+  $paths['admin/revolution/slider'] = FALSE;
+  $paths['admin/revolution/slider/add'] = FALSE;
+  $paths['admin/revolution/slider/*'] = FALSE;
+  $paths['admin/revolution/slider/*/view'] = FALSE;
+  $paths['admin/revolution/slider/*/edit'] = FALSE;
+  $paths['admin/revolution/slider/*/delete'] = FALSE;
+  $paths['admin/revolution/slider/*/view/add'] = FALSE;
+
+  $paths['admin/revolution/slide/*'] = FALSE;
+  $paths['admin/revolution/slide/*/view'] = FALSE;
+  $paths['admin/revolution/slide/*/edit'] = FALSE;
+  $paths['admin/revolution/slide/*/delete'] = FALSE;
+
+  $paths['admin/revolution/slide/*/component/add/%'] = FALSE;
+  $paths['admin/revolution/slide/*'] = FALSE;
+  $paths['admin/revolution/slide/*/view'] = FALSE;
+  $paths['admin/revolution/slide/*/edit'] = FALSE;
+  $paths['admin/revolution/slide/*/delete'] = FALSE;
+
+
+
+}
+/**
+ * Implements hook_menu()
+ */
+function aviators_revolution_menu() {
+
+  $items['admin/revolution/slider'] = array(
+    'title' => t('Revolution sliders'),
+    'page callback' => 'aviators_revolution_slider_list',
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/revolution/slider/add'] = array(
+    'title' => 'Add Revolution slider',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slider_form'),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  $items['admin/revolution/slider/%aviators_revolution_slider'] = array(
+    'title' => 'View',
+    'page callback' => 'aviators_revolution_slider',
+    'page arguments' => array(3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/revolution/slider/%aviators_revolution_slider/view'] = array(
+    'title' => 'View',
+    'page callback' => 'aviators_revolution_slider',
+    'page arguments' => array(3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/revolution/slider/%aviators_revolution_slider/edit'] = array(
+    'title' => 'Edit',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slider_form', 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/revolution/slider/%aviators_revolution_slider/delete'] = array(
+    'title' => 'Delete',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slider_delete_form', 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/revolution/slider/%aviators_revolution_slider/view/add'] = array(
+    'title' => 'Add new slide',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slide_form', 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  $items['admin/revolution/slide/%aviators_revolution_slide'] = array(
+    'title' => 'Add new slide',
+    'page callback' => 'aviators_revolution_slide',
+    'page arguments' => array(3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/revolution/slide/%aviators_revolution_slide/view'] = array(
+    'title' => 'View',
+    'page callback' => 'aviators_revolution_slide',
+    'page arguments' => array(3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  $items['admin/revolution/slide/%aviators_revolution_slide/edit'] = array(
+    'title' => 'Edit',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slide_form', NULL, 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+
+  $items['admin/revolution/slide/%aviators_revolution_slide/delete'] = array(
+    'title' => 'Delete',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_slide_form_delete', 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+  );
+
+  $items['admin/revolution/slide/%aviators_revolution_slide/component/add/%'] = array(
+    'title' => 'Add new slide',
+    'page callback' => 'aviators_revolution_add_component',
+    'page arguments' => array(3, 6),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/revolution/component/%aviators_revolution_component/edit'] = array(
+    'title' => 'Edit',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_component_form', NULL, 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/revolution/component/%aviators_revolution_component/delete'] = array(
+    'title' => 'Delete',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('aviators_revolution_component_form_delete', 3),
+    'access arguments' => array('administer revolution slider'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['revolution/component/%aviators_revolution_component'] = array(
+    'title' => 'Edit',
+    'page callback' => 'aviators_revolution_edit_component',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'access arguments' => array('add'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function aviators_revolution_custom_theme() {
+  $params = drupal_get_query_parameters();
+
+  if(isset($params['theme'])) {
+    return $params['theme'];
+  }
+}
+
+function aviators_revolution_edit_component($component) {
+
+  $parameters = $_POST;
+
+  $attributes = unserialize($component->attributes);
+  $attributes['data-x'] = $parameters['data-x'];
+  $attributes['data-y'] = $parameters['data-y'];
+
+  $component->attributes = serialize($attributes);
+
+  aviators_revolution_component_save($component);
+  exit;
+}
+
+/**
+ * Implements hook_block_info()
+ */
+function aviators_revolution_block_info() {
+  $sliders = aviators_revolution_slider_load_multiple();
+
+  $blocks = array();
+  foreach ($sliders as $slider) {
+    $blocks[$slider->id] = array(
+      'info' => t('Revolution slider: !title', array('!title' => $slider->name)),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+  }
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view()
+ * @param $delta
+ * @return array
+ */
+function aviators_revolution_block_view($delta) {
+  $slider = aviators_revolution_slider_load($delta);
+  $block = array();
+
+  if ($slider) {
+    $block['title'] = "<none>";
+    $block['content'] = theme('revolution_slider', array('slider' => $slider));
+  }
+
+  return $block;
+}
+
+
+function aviators_revolution_add_component($slide, $type) {
+
+  $component = aviators_revolution_component_create(array('type' => $type));
+  return drupal_get_form('aviators_revolution_component_form', $slide, $component);
+}
+
+/**
+ * Implements hook_theme()
+ * @return array
+ */
+function aviators_revolution_theme() {
+  return array(
+    'revolution_admin' => array(
+      'variables' => array('slider'),
+      'template' => 'template/revolution_admin'
+    ),
+    'aviators_revolution_slider' => array(
+      'variables' => array('form' => NULL),
+    ),
+    'revolution_slider' => array(
+      'variables' => array('slider'),
+      'template' => 'template/revolution_slider',
+    ),
+    'revolution_slide' => array(
+      'variables' => array('slide'),
+      'template' => 'template/revolution_slide',
+    ),
+    'revolution_component' => array(
+      'variables' => array('entity'),
+      'template' => 'template/revolution_component'
+    ),
+    'revolution_comp' => array(
+      'variables' => array('component'),
+      'template' => 'template/revolution_comp'
+    ),
+    'aviators_slide_weight_order' => array(
+      'render element' => 'form',
+    ),
+    'aviators_revolution_form_component_list' => array(
+      'render element' => 'form',
+    ),
+    'revolution_theme_bar' => array(
+      'variables' => array(),
+      'template' => 'template/revolution_theme_bar',
+    ),
+  );
+}
+
+/**
+ * Implements hook_permission()
+ * @return array
+ */
+function aviators_revolution_permission() {
+  return array(
+    'administer revolution slider' => array(
+      'title' => t('Administer revolution slider')
+    )
+  );
+}
+
+function aviators_revolution_access($op, $gbook = NULL, $account = NULL, $entity_type = NULL) {
+
+  return TRUE;
+}
+
+/**
+ * Implements hook_entity_info().
+ * @return array()
+ */
+function aviators_revolution_entity_info() {
+
+  $info['revolution_slider'] = array(
+    'label' => t('Revolution Slider'),
+    'label plural' => t('Revolution Sliders'),
+    'module' => 'aviators_revolution',
+    'entity class' => 'RevolutionSlider',
+    'controller class' => 'RevolutionSliderController',
+    'base table' => 'aviators_revolution_slider',
+    'load hook' => 'aviators_revolution_slider_load',
+    'entity keys' => array(
+      'id' => 'id',
+    ),
+    'bundles' => array(),
+    'bundle keys' => array(),
+    'view modes' => array(),
+    'fieldable' => FALSE,
+  );
+
+  $info['revolution_slide'] = array(
+    'label' => t('Revolution Slide'),
+    'label plural' => t('Revolution Slides'),
+    'module' => 'aviators_revolution',
+    'entity class' => 'RevolutionSlide',
+    'controller class' => 'RevolutionSlideController',
+    'base table' => 'aviators_revolution_slide',
+    'load hook' => 'aviators_revolution_slide_load',
+    'entity keys' => array(
+      'id' => 'id',
+    ),
+    'bundles' => array(),
+    'bundle keys' => array(),
+    'view modes' => array(),
+    'fieldable' => FALSE,
+  );
+
+  $info['revolution_component'] = array(
+    'label' => t('Revolution Component'),
+    'label plural' => t('Revolution Component'),
+    'module' => 'aviators_revolution',
+    'entity class' => 'RevolutionComponent',
+    'controller class' => 'RevolutionComponentController',
+    'base table' => 'aviators_revolution_component',
+    'load hook' => 'aviators_revolution_component_load',
+    'entity keys' => array(
+      'id' => 'id',
+      'bundle' => 'type',
+    ),
+    'bundles' => array(),
+    'bundle keys' => array(
+      'bundle' => 'type',
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => t('Full'),
+        'custom settings' => TRUE,
+      ),
+    ),
+    'fieldable' => TRUE,
+  );
+
+  $info['revolution_component_type'] = array(
+    'label' => t('Revolution component type'),
+    'module' => 'aviators_revolution',
+    'base table' => 'aviators_revolution_component_type',
+    'entity class' => 'Entity',
+    'controller class' => 'EntityAPIControllerExportable',
+    'access callback' => 'aviators_revolution_access',
+    'bundle of' => 'revolution_component',
+    'fieldable' => FALSE,
+    'entity keys' => array(
+      'id' => 'id',
+      'name' => 'type',
+      'label' => 'label',
+    ),
+    'admin ui' => array(
+      'path' => 'admin/structure/revolution',
+      'controller class' => 'RevolutionComponentTypeUIController',
+      'access arguments' => array('access content'), //@todo
+    ),
+  );
+
+
+  // Add bundle info but bypass entity_load() as we cannot use it here.
+  $types = db_select('aviators_revolution_component_type', 'et')
+    ->fields('et')
+    ->execute()
+    ->fetchAllAssoc('type');
+
+  $bundle_argument = count(explode('/', 'admin/structure/revolution/manage'));
+
+  foreach ($types as $type) {
+    $info['revolution_component']['bundles'][$type->type] = array(
+      'label' => $type->label,
+      'admin' => array(
+        'path' => 'admin/structure/revolution/manage/%revolution_component_type',
+        'real path' => 'admin/structure/revolution/manage/' . $type->type,
+        'bundle argument' => $bundle_argument,
+        'access arguments' => array('access content'),
+      ),
+    );
+  }
+
+  return $info;
+}

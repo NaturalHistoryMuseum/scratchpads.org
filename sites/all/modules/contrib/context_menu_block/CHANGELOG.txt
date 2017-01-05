@@ -1,5 +1,8 @@
-$Id: CHANGELOG.txt,v 1.6.2.3 2011/02/20 19:16:00 itafroma Exp $
 Context: Menu Block Module 7.x
+
+Context: Menu Block 7.x-3.x-dev
+-------------------------------
+#1121924 by Mark Trapp: Allow the use of git checkouts of Context
 
 Context: Menu Block 7.x-3.1-beta2
 -------------------------------

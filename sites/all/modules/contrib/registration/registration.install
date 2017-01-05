@@ -45,7 +45,7 @@ function registration_schema() {
         'description' => "Anonymous registrant's e-mail address.",
       ),
       'count' => array(
-        'description' => 'How many slots this registration should use towards the total capacity for this event.',
+        'description' => 'How many spaces this registration should use towards the total capacity for this event.',
         'type' => 'int',
         'not null' => TRUE,
         'default' => 1,
@@ -63,9 +63,11 @@ function registration_schema() {
         'default' => 0,
       ),
       'state' => array(
-        'description' => 'State of this registration.',
-        'type' => 'int',
+        'description' => 'The {registration_state}.name of this registration.',
+        'type' => 'varchar',
+        'length' => 32,
         'not null' => TRUE,
+        'default' => '',
       ),
       'created' => array(
         'description' => 'The Unix timestamp when the registration was created.',
@@ -97,15 +99,7 @@ function registration_schema() {
       ),
       'registration_state' => array(
         'table' => 'registration_state',
-        'columns' => array('state' => 'registration_state_id'),
-      ),
-    ),
-    'unique keys' => array(
-      'entity_id_entity_type_user' => array(
-        'entity_id',
-        'entity_type',
-        'anon_mail',
-        'user_uid'
+        'columns' => array('state' => 'name'),
       ),
     ),
     'primary key' => array('registration_id'),
@@ -147,8 +141,11 @@ function registration_schema() {
       ),
       'reminder_date' => array(
         'description' => 'Date to send the reminder on.',
+        'type' => 'datetime',
         'mysql_type' => 'datetime',
         'pgsql_type' => 'timestamp',
+        'sqlite_type' => 'varchar',
+        'sqlsrv_type' => 'smalldatetime',
         'not null' => FALSE,
       ),
       'reminder_template' => array(
@@ -159,14 +156,20 @@ function registration_schema() {
       ),
       'open' => array(
         'description' => 'Date to open registrations. Or NULL to open immediately.',
+        'type' => 'datetime',
         'mysql_type' => 'datetime',
         'pgsql_type' => 'timestamp',
+        'sqlite_type' => 'varchar',
+        'sqlsrv_type' => 'smalldatetime',
         'not null' => FALSE,
       ),
       'close' => array(
         'description' => 'Date to close registrations. Or NULL to never close automatically.',
+        'type' => 'datetime',
         'mysql_type' => 'datetime',
         'pgsql_type' => 'timestamp',
+        'sqlite_type' => 'varchar',
+        'sqlsrv_type' => 'smalldatetime',
         'not null' => FALSE,
       ),
       'settings' => array(
@@ -215,6 +218,12 @@ function registration_schema() {
         'default' => 0,
         'size' => 'tiny',
       ),
+      'default_state' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+        'description' => 'The machine name of the default registration state.',
+      ),
       'data' => array(
         'type' => 'text',
         'not null' => FALSE,
@@ -246,31 +255,31 @@ function registration_schema() {
   );
 
   $schema['registration_state'] = array(
-    'description' => t('Stores registration states configuration.'),
+    'description' => 'Stores registration states configuration.',
     'fields' => array(
       'registration_state_id' => array(
         'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'description' => t('The registration state ID.'),
+        'description' => 'The registration state ID.',
       ),
       'name' => array(
         'type' => 'varchar',
         'length' => 128,
         'not null' => TRUE,
-        'description' => t('The machine name of the registration state.'),
+        'description' => 'The machine name of the registration state.',
       ),
       'label' => array(
         'type' => 'varchar',
         'length' => 128,
         'not null' => TRUE,
-        'description' => t('The human readable name of the registration state.'),
+        'description' => 'The human readable name of the registration state.',
       ),
       'description' => array(
         'type' => 'text',
         'size' => 'big',
         'not null' => FALSE,
-        'description' => t('The description of the registration state.'),
+        'description' => 'The description of the registration state.',
       ),
       'default_state' => array(
         'description' => 'A boolean indicating default registration state.',
@@ -284,20 +293,27 @@ function registration_schema() {
         'not null' => TRUE,
         'default' => 0,
         'size' => 'tiny',
-        'description' => t('A flag showing active registration states.'),
+        'description' => 'A flag showing active registration states.',
+      ),
+      'held' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'A flag showing held registration states.',
       ),
       'show_on_form' => array(
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
         'size' => 'tiny',
-        'description' => t('A flag showing if this registration state should be shown on the registration form.'),
+        'description' => 'A flag showing if this registration state should be shown on the registration form.',
       ),
       'weight' => array(
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
-        'description' => t('The weight of this  registration state in the UI'),
+        'description' => 'The weight of this  registration state in the UI',
       ),
       'status' => array(
         'type' => 'int',
@@ -325,6 +341,19 @@ function registration_schema() {
     ),
   );
 
+  // Create cache bins for Entity-cache module.
+  $cache_schema = drupal_get_schema_unprocessed('system', 'cache');
+  $types = array(
+    'registration',
+    'registration_type',
+    'registration_state',
+  );
+
+  foreach ($types as $type) {
+    $schema["cache_entity_$type"] = $cache_schema;
+    $schema["cache_entity_$type"]['description'] = "Cache table used to store $type entity records.";
+  }
+
   return $schema;
 }
 
@@ -336,7 +365,7 @@ function registration_field_schema($field) {
     'registration_type' => array(
       'type' => 'varchar',
       'length' => 32,
-      'not null' => FALSE
+      'not null' => FALSE,
     ),
   );
   $indexes = array(
@@ -356,32 +385,44 @@ function registration_field_schema($field) {
 }
 
 /**
- * Implements hook_install
+ * Implements hook_install().
  */
 function registration_install() {
-  // Create default states
+  // Create default states.
   $states = array(
     'complete' => array(
-      'label' => st('Complete'),
-      'description' => st('Registration has been completed.'),
+      'label' => 'Complete',
+      'description' => 'Registration has been completed.',
       'default_state' => 1,
       'active' => 1,
+      'held' => 0,
       'show_on_form' => 0,
       'weight' => 1,
     ),
     'pending' => array(
-      'label' => st('Pending'),
-      'description' => st('Registration is pending.'),
+      'label' => 'Pending',
+      'description' => 'Registration is pending.',
       'default_state' => 0,
       'active' => 0,
+      'held' => 0,
+      'show_on_form' => 0,
+      'weight' => 1,
+    ),
+    'held' => array(
+      'label' => 'Held',
+      'description' => 'Registration is held.',
+      'default_state' => 0,
+      'active' => 0,
+      'held' => 1,
       'show_on_form' => 0,
       'weight' => 1,
     ),
     'canceled' => array(
-      'label' => st('Canceled'),
-      'description' => st('Registration was cancelled'),
+      'label' => 'Canceled',
+      'description' => 'Registration was cancelled',
       'default_state' => 0,
       'active' => 0,
+      'held' => 0,
       'show_on_form' => 0,
       'weight' => 1,
     ),
@@ -395,6 +436,7 @@ function registration_install() {
         'description' => $state_label['description'],
         'default_state' => $state_label['default_state'],
         'active' => $state_label['active'],
+        'held' => $state_label['held'],
         'show_on_form' => $state_label['show_on_form'],
         'weight' => $state_label['weight'],
       )
@@ -407,11 +449,166 @@ function registration_install() {
  * Implements hook_uninstall().
  */
 function registration_uninstall() {
-  // Remove default states
+  // Remove default states.
   $default_states = array(
-    'complete', 'complete', 'canceled'
+    'complete', 'complete', 'canceled',
   );
   db_delete('registration_state')
     ->condition('name', $default_states, 'IN')
     ->execute();
+}
+
+/**
+ * Change registration_state.state field from int to varchar.
+ *
+ * Required to use machine names for states.
+ */
+function registration_update_7100(&$sandbox) {
+  module_load_include('module', 'registration');
+
+  db_drop_index('registration', 'registration_state');
+  db_change_field('registration', 'state', 'state',
+    array(
+      'description' => 'The {registration_state}.name of this registration.',
+      'type' => 'varchar',
+      'length' => 32,
+      'not null' => TRUE,
+      'default' => '',
+    ));
+  db_add_index('registration', 'registration_state', array('state'));
+
+  $states = registration_get_states();
+
+  // Iterate through each defined state and update registrations with that state
+  // with the machine name of the state.
+  foreach ($states as $state) {
+    $num_updated = db_update('registration')
+      ->fields(array('state' => $state->identifier()))
+      ->condition('state', $state->registration_state_id)
+      ->execute();
+  }
+}
+
+/**
+ * Remove entity_id_entity_type_user unique index from registration.
+ */
+function registration_update_7101(&$sandbox) {
+  db_drop_index('registration', 'entity_id_entity_type_user');
+}
+
+/**
+ * Create cache bins for Entity-cache module.
+ */
+function registration_update_7102(&$sandbox) {
+  // Create cache bins for Entity-cache module.
+  $cache_schema = drupal_get_schema_unprocessed('system', 'cache');
+  $types = array(
+    'registration',
+    'registration_type',
+    'registration_state',
+  );
+
+  foreach ($types as $type) {
+    $schema["cache_entity_$type"] = $cache_schema;
+    $schema["cache_entity_$type"]['description'] = "Cache table used to store $type entity records.";
+    db_create_table("cache_entity_$type", $schema["cache_entity_$type"]);
+  }
+}
+
+/**
+ * Change multiple_registrations settings name to multiple_slots.
+ */
+function registration_update_7103(&$sandbox) {
+  $sql = "UPDATE {registration_entity} SET settings = REPLACE(settings, 'multiple_registrations', 'multiple_slots')";
+  db_query($sql);
+}
+
+/**
+ * Updates settings for multiple registration limits and slots/spaces renaming.
+ */
+function registration_update_7104(&$sandbox) {
+  $registration_entities = db_select('registration_entity', 'r')
+    ->fields('r', array('entity_id', 'settings'))
+    ->execute()
+    ->fetchAll();
+
+  foreach ($registration_entities as $ent) {
+    $settings = $ent->settings;
+    $settings = unserialize($settings);
+    if (isset($settings['multiple_slots']) && (bool) $settings['multiple_slots'] === TRUE) {
+      $settings['maximum_spaces'] = 0;
+    }
+    else {
+      $settings['maximum_spaces'] = 1;
+    }
+    unset($settings['multiple_slots']);
+    $settings = serialize($settings);
+    try {
+      db_update('registration_entity')
+        ->fields(array('settings' => $settings))
+        ->condition('entity_id', $ent->entity_id)
+        ->execute();
+    }
+    catch (Exception $e) {
+      throw new DrupalUpdateException($e->getMessage());
+    }
+  }
+
+  $field_instances = registration_get_registration_instances();
+  foreach ($field_instances as $instance) {
+    $settings = &$instance['settings']['default_registration_settings']['settings'];
+    $new_value = $settings['multiple_slots']  ? 0 : 1;
+    $settings['maximum_capacity'] = $new_value;
+    unset($settings['multiple_slots']);
+    try {
+      field_update_instance($instance);
+    }
+    catch (FieldException $e) {
+      throw new DrupalUpdateException($e->getMessage());
+    }
+  }
+
+  $t = get_t();
+  return $t('Registrations settings have been updated.');
+}
+
+/**
+ * Adds column to registration_state table for held property.
+ */
+function registration_update_7105(&$sandbox) {
+  if (!db_field_exists('registration_state', 'held')) {
+    $spec = array(
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+      'size' => 'tiny',
+      'description' => 'A flag showing held registration states.',
+    );
+
+    db_add_field('registration_state', 'held', $spec);
+  }
+}
+
+/**
+ * Add the new default_state field to the registration_type table
+ */
+
+function registration_update_7106(&$sandbox) {
+  if (!db_field_exists('registration_type', 'default_state')) {
+    db_add_field('registration_type', 'default_state',
+      array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+        'description' => 'The machine name of the default registration state.',
+      )
+    );
+  }
+}
+
+/**
+ * Rebuild class registry for RegistrationTypeController.
+ */
+function registration_update_7107() {
+  registry_rebuild();
 }
