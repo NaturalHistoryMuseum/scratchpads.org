@@ -1,0 +1,18 @@
+
+#region-site-map div.block-menu-footer-t-c-menu ul.menu {
+  display: block;
+  margin: 0 250px;
+  list-style: none;
+}
+
+#region-site-map div.block-menu-footer-t-c-menu ul.menu li {
+  display: inline;
+  border-right: 1px solid #AAA;
+  padding-right: 8px;
+  list-style: none;
+  background-image: none;
+}
+
+#region-site-map div.block-menu-footer-t-c-menu ul.menu li.last {
+  border-right: 0;
+}

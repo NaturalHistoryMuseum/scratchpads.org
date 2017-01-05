@@ -1,0 +1,97 @@
+/*
+ * This file contains the override theme for each of the different color styles.
+ *
+ * The CSS here is extracted from the main CSS for each of the relevant
+ * section. Theme the relevant section first, then copy the needed CSS
+ * extracts here.
+ * 
+ */
+
+/*
+ * Mixin to provide all the overidable elements per theme. This gets
+ * instanced for each section with the appropriate parameters.
+ *
+ */
+.context_mixin(@c_dark, @c_main, @c_light, @i_logo, @i_side_image, @i_external_link_icon) {
+  a:link, a:visited {
+    color: @c_main;
+  }  
+  
+  a.external_link {
+    background: url("../@{i_external_link_icon}") no-repeat 100% 50%; /* Gets overriden per context */
+  }
+
+  #zone-header #region-logo div.block {
+    background: url("../@{i_logo}") no-repeat 0 0;
+  }
+  
+  #region-menu ul.menu a.active, 
+  #region-menu ul.menu a.active-trail, 
+  #region-menu ul.menu a:hover {
+    background: @c_main;
+  }
+  
+  #region-search #contact-link a, #region-search #contact-link a:visited {
+    color: @c_light;
+  }
+  #region-search #contact-link a:hover {
+    color: @c_main;
+  }
+  
+  #zone-content #region-content h1 {
+    color: @c_main;
+  }
+  
+  #zone-content #region-content h2 {
+    color: @c_main;
+  }
+  
+  #zone-content #region-sidebar-first div.region-inner {
+      border: solid @sidebar_marker_width @c_main;
+      border-right: 0;
+      border-left: 0;
+      background: url("../@{i_side_image}") no-repeat 0 100%;
+  }
+    
+  #zone-content #region-sidebar-first ul.menu li ul.menu {  
+    border: 0;
+    background: transparent;
+  }
+
+  #zone-content #region-sidebar-first ul.menu a, 
+  #zone-content #region-sidebar-first ul.menu a:visited {
+    color: @c_dark;
+  }
+    
+  #region-sidebar-first div.block-menu-block a.external_link, 
+  #region-sidebar-first div.block-menu-blocka.external_link:visited {
+    background: url("../@{i_external_link_icon}") no-repeat 100% 50%;
+  }
+  
+  #region-sidebar-first div.block-menu-block a.active-trail.external_link, 
+  #region-sidebar-first div.block-menu-blocka.active.external_link, 
+  #region-sidebar-first div.block-menu-block a.external_link:hover {
+    background: @grey_highlight url("../@{i_external_link_icon}") no-repeat 100% 50%;
+  }
+}
+
+/* Instance the mixin for each section */
+body.context-home {
+  .context_mixin(@green_dark, @green_main, @green_light, @green_logo, @green_side_image, @green_external_link_icon);
+}
+body.context-about {
+  .context_mixin(@purple_dark, @purple_main, @purple_light, @purple_logo, @purple_side_image, @purple_external_link_icon);
+}
+body.context-support {
+  .context_mixin(@yellow_dark, @yellow_main, @yellow_light, @yellow_logo, @yellow_side_image, @yellow_external_link_icon);
+}
+body.context-develop {
+  .context_mixin(@grey_dark, @grey_main, @grey_light, @grey_logo, @grey_side_image, @grey_external_link_icon);
+}
+body.context-explore {
+  .context_mixin(@blue_dark, @blue_main, @blue_light, @blue_logo, @blue_side_image, @blue_external_link_icon);
+}
+body.context-news {
+  .context_mixin(@red_dark, @red_main, @red_light, @red_logo, @red_side_image, @red_external_link_icon);
+}
+
