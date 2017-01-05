@@ -13,6 +13,15 @@
 function views_send_settings() {
   $form = array();
 
+  if (VIEWS_SEND_MIMEMAIL) {
+    $form['views_send_attachment_valid_extensions'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Valid file extensions for attachments'),
+      '#default_value' => variable_get('views_send_attachment_valid_extensions', ''),
+      '#description' => t('A space separated list of allowed file extensions for attachments. Leave the list empty if you want to use the default list from file_save_upload().'),
+    );
+  }
+
   $throttle = drupal_map_assoc(array(1, 10, 20, 30, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000));
   $throttle[0] = t('Unlimited');
 
@@ -21,7 +30,7 @@ function views_send_settings() {
     '#title' => t('Cron throttle'),
     '#options' => $throttle,
     '#default_value' => variable_get('views_send_throttle', 20),
-    '#description' => t('Sets the numbers of messages sent per cron run. Failure to send will also be counted. Cron execution must not exceed the PHP maximum execution time of %max seconds. You find the time spend to send emails in the !recent_logs.', array('%max' => ini_get('max_execution_time'), '!recent_logs' => l(t('Recent log entries'), 'admin/reports/dblog'))),
+    '#description' => t('Sets the numbers of messages sent per cron run. Failure to send will also be counted. Cron execution must not exceed the PHP maximum execution time of %max seconds. You find the time spend to send e-mails in the !recent_logs.', array('%max' => ini_get('max_execution_time'), '!recent_logs' => l(t('Recent log entries'), 'admin/reports/dblog'))),
   );
   $form['views_send_spool_expire'] = array(
     '#type' => 'select',
@@ -32,9 +41,9 @@ function views_send_settings() {
   );
   $form['views_send_debug'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Log emails'),
+    '#title' => t('Log e-mails'),
     '#default_value' => variable_get('views_send_debug', FALSE),
-    '#description' => t('When checked all outgoing mesages are logged in the system log. A logged E-mail does not guarantee that it is send or will be delivered. It only indicates that a message is send to the PHP mail() function. No status information is available of delivery by the PHP mail() function.'),
+    '#description' => t('When checked all outgoing mesages are logged in the system log. A logged e-mail does not guarantee that it is send or will be delivered. It only indicates that a message is send to the PHP mail() function. No status information is available of delivery by the PHP mail() function.'),
   );
 
   return system_settings_form($form);

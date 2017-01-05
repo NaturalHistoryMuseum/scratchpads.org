@@ -1,5 +1,4 @@
 <?php
-// $Id: context_menu_block.module,v 1.6 2011/02/15 00:33:22 itafroma Exp $
 
 /**
  * @file
@@ -41,12 +40,6 @@ function context_menu_block_help($section) {
           '@url' => url('http://drupal.org/node/895232'),
         )) . '</p>';
       $readme .= '<p>' . t('If your context reaction uses a second or higher level menu item, the menu block for the menu must have <em>Expand all children of this tree</em> selected in its block configuration.') . '</p>';
-
-      $readme .= '<h2>' . t('Contact') . '</h2>';
-      $readme .= '<p>' . t('The current maintainer is Mark Trapp. You can contact him through his <a href="@url">Drupal user page</a>.',
-        array(
-          '@url' => url('http://drupal.org/user/212019'),
-        )) . '</p>';
 
       $readme .= '<h2>' . t('Acknowledgements') . '</h2>';
       $readme .= '<p>' . t('Context Menu Block is borne from the module created by <a href="@url-nauthiz693">Luke Berg</a> and <a href="@url-niklp">Nik LePage</a> in <a href="@url-issue">issue #751700</a>. It contains additonal bug fixes and provides Context 3 support.',
@@ -108,7 +101,8 @@ function _context_menu_block_active_values($context_name) {
   }
 
   foreach ($contexts['context'] as $context) {
-    if ($context->reactions && array_key_exists($context_name, $context->reactions)) {
+    // patch by david_garcia_garcia
+    if (!empty($context->reactions) && is_array($context->reactions) && $context->reactions && array_key_exists($context_name, $context->reactions)) {
       $active_values[] = $context->reactions[$context_name];
     }
   }
@@ -129,28 +123,32 @@ function _context_menu_block_active_values($context_name) {
 function context_menu_tree_add_active_path(&$tree, $active_paths) {
 
   foreach (array_keys($tree) as $key) {
-    if (!empty($tree[$key]['link']['href']) && in_array($tree[$key]['link']['href'], $active_paths)) {
-      // Set the active trail.
-      $tree[$key]['link']['in_active_trail'] = TRUE;
+	foreach($active_paths as $active_path) {
+		if (!empty($tree[$key]['link']['href']) && 
+			in_array($tree[$key]['link']['menu_name'] . ":" . $tree[$key]['link']['href'], $active_path) && 
+			!$tree[$key]['link']['hidden']) {
+		  // Set the active trail.
+		  $tree[$key]['link']['in_active_trail'] = TRUE;
+		  
+		  // The Drupal Way is to only set the active menu when the page is actually
+		  // the active page. However, the context reaction is supposed to set the
+		  // active menu. So, we need to "fake" the active menu by styling the link
+		  // as active.
+		  $tree[$key]['link']['localized_options']['attributes']['class'][] = 'active';
+		  
+		  // Found a match, so break the recursion.
+		  return TRUE;
+		}
+		elseif (!empty($tree[$key]['below'])) {
+		  // Check the child menu to see if the active path can be matched.
+		  $tree[$key]['link']['in_active_trail'] = context_menu_tree_add_active_path($tree[$key]['below'], $active_paths);
 
-      // The Drupal Way is to only set the active menu when the page is actually
-      // the active page. However, the context reaction is supposed to set the
-      // active menu. So, we need to "fake" the active menu by styling the link
-      // as active.
-      $tree[$key]['link']['localized_options']['attributes']['class'][] = 'active';
-
-      // Found a match, so break the recursion.
-      return TRUE;
-    }
-    elseif (!empty($tree[$key]['below'])) {
-      // Check the child menu to see if the active path can be matched.
-      $tree[$key]['link']['in_active_trail'] = context_menu_tree_add_active_path($tree[$key]['below'], $active_paths);
-
-      // If a match has been found, break the recursion.
-      if ($tree[$key]['link']['in_active_trail']) {
-        return TRUE;
-      }
-    }
+		  // If a match has been found, break the recursion.
+		  if ($tree[$key]['link']['in_active_trail']) {
+			return TRUE;
+		  }
+		}
+	}
   }
 
   // If we didn't find an active item, return FALSE.

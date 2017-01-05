@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.6.2.1 2011/02/20 19:15:21 itafroma Exp $
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -27,7 +26,7 @@ REQUIREMENTS
 
 - Drupal 7
 - Menu Block 2 [1]
-- Context [2] 7.x-3.0-alpha3 or later
+- Context [2] 7.x-3.0-beta1 or later
 
 [1] http://drupal.org/project/menu_block
 [2] http://drupal.org/project/context
@@ -43,12 +42,6 @@ for the menu must have "Expand all children of this tree" selected in its block
 configuration.
 
 [1] http://drupal.org/node/895232
-
-CONTACT
--------
-
-Current maintainer:
-- Mark Trapp (amorfati) - http://drupal.org/user/212019
 
 ACKNOWLEDGEMENTS
 ----------------
