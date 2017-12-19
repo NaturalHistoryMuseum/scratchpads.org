@@ -1,0 +1,19 @@
+---
+# This makes Jekyll transform the file into CSS
+---
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #EEE;
+  height: 100%;
+}
+
+body {
+  background: white;
+  max-width: 960px;
+  min-height: 110%;
+  margin: auto;
+  padding: 20px 10px 10px;
+}
