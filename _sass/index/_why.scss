@@ -1,0 +1,133 @@
+$transition-duration: 0.7s;
+
+.sp-why {
+  &__title {
+    font-size: 26.6px;
+    margin: 12px 0;
+    letter-spacing: -1.33px;
+    line-height: 40px;
+  }
+
+  &__accordion {
+    display: flex;
+
+    margin: -5px;
+
+    > * {
+      margin: 5px;
+    }
+  }
+
+  &__panel {
+    border: 7px solid;
+    border-left: 0;
+    border-right: 0;
+    padding: 6px 10px 9px;
+    font-size: 13.33px;
+    line-height: 20px;
+    flex: 1 1 0;
+    position: relative;
+    transform: rotate(0);
+    transition: all $transition-duration;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      transition: opacity $transition-duration;
+      background-repeat: no-repeat;
+      background-size: auto calc(100% - 14px);
+      background-position: right;
+      z-index: -1;
+    }
+
+    &--create {
+      color: rgb(39, 52, 28);
+
+      &::before {
+        background-image: url(/assets/why/octopus-big.png);
+      }
+    }
+
+    &--publish {
+      color: rgb(61, 95, 39);
+
+      &::before {
+        background-image: url(/assets/why/fern-big.png);
+      }
+    }
+
+    &--contribute {
+      color: rgb(135, 174, 40);
+
+      &::before {
+        background-image: url(/assets/why/weevil-big.png);
+      }
+    }
+
+    &--collaborate {
+      color: rgb(196, 210, 8);
+
+      &::before {
+        background-image: url(/assets/why/flower-big.png);
+      }
+    }
+
+    &--inactive {
+      padding: 0;
+      flex-grow: 0.26;
+
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__panel-title {
+    font-size: 24px;
+    line-height: 1em;
+    min-height: 50px;
+    transition: font-size $transition-duration;
+  }
+
+  &__panel--inactive > &__panel-title {
+    font-size: 16px;
+  }
+
+  &__panel-text {
+    color: $body-color;
+    min-height: 94px;
+    opacity: 1;
+    transition: opacity $transition-duration;
+  }
+
+  &__panel--inactive > &__panel-text {
+    opacity: 0;
+  }
+
+  &__create-button {
+    display: inline-block;
+    color: white;
+    border: 1px solid black;
+    padding: 0 4px 2px;
+    border-radius: 5px;
+    background: #27341C;
+    border: solid 1px #000;
+    box-shadow: inset 1px 1px 4px #87AE28;
+    font-size: 13.33px;
+    line-height: 20px;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity $transition-duration;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__panel--inactive > &__create-button {
+    opacity: 0;
+  }
+}

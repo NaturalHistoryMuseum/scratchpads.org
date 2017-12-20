@@ -1,0 +1,18 @@
+{
+  "name": "scratchpads.eu",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Scratchpads.eu on-line web site",
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaturalHistoryMuseum/scratchpads.eu.git"
+  },
+  "author": "Natural History Museum",
+  "bugs": {
+    "url": "https://github.com/NaturalHistoryMuseum/scratchpads.eu/issues"
+  },
+  "homepage": "https://github.com/NaturalHistoryMuseum/scratchpads.eu#readme"
+}

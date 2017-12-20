@@ -1,6 +1,9 @@
 ---
-# This makes Jekyll transform the file into CSS
+# CSS for whole site
 ---
+
+@import "variables";
+
 * {
   box-sizing: border-box;
 }
@@ -8,6 +11,8 @@
 html {
   background: #EEE;
   height: 100%;
+  font-family: $body-font;
+  color: $body-color;
 }
 
 body {
@@ -17,3 +22,18 @@ body {
   margin: auto;
   padding: 20px 10px 10px;
 }
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+a:not(:link) {
+  color: red;
+  text-decoration: line-through;
+}
+
+@import "header";
