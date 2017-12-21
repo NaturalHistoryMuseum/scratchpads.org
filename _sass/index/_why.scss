@@ -1,4 +1,4 @@
-$transition-duration: 0.7s;
+$transition-duration: 0.4s;
 
 .sp-why {
   &__title {
@@ -11,6 +11,7 @@ $transition-duration: 0.7s;
   &__accordion {
     display: flex;
 
+    // Give flex items a 10px gutter
     margin: -5px;
 
     > * {
@@ -26,61 +27,99 @@ $transition-duration: 0.7s;
     font-size: 13.33px;
     line-height: 20px;
     flex: 1 1 0;
-    position: relative;
-    transform: rotate(0);
     transition: all $transition-duration;
+    height: 224px;
+    overflow: hidden;
 
-    &::before {
+    // Create new stacking context so child z-indices are contained
+    transform: rotate(0);
+
+    // Background images - keep them in pseudo elements so we can fade them by transition: opacity
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       height: 100%;
       width: 100%;
-      opacity: 1;
-      transition: opacity $transition-duration;
+      top: 0;
+      left: 0;
       background-repeat: no-repeat;
+      transition: opacity $transition-duration;
+    }
+
+    // Big image when expanded
+    &::before {
+      opacity: 1;
       background-size: auto calc(100% - 14px);
       background-position: right;
+
+      // Keep behind the text
       z-index: -1;
     }
 
-    &--create {
-      color: rgb(39, 52, 28);
+    // Square image when collapsed
+    &::after {
+      opacity: 0;
+      background-size: 100% auto;
+      background-position: center bottom 7px;
+    }
+
+    // Apply custom colours and images to each section
+    @mixin panel ($image, $color, $border, $shadow) {
+      color: $color;
+
+      .sp-why__panel-button {
+        background: $color;
+        border: solid 1px $border;
+        box-shadow: inset 1px 1px 4px $shadow,
+                      1px 1px 1px #888888;
+      }
 
       &::before {
-        background-image: url(/assets/why/octopus-big.png);
+        background-image: url(/assets/why/#{$image}-big.png);
       }
+
+      &::after {
+        background-image: url(/assets/why/#{$image}-square.png);
+      }
+
+    }
+
+    &--create {
+      @include panel(octopus, #27341C, #000, #87AE28);
     }
 
     &--publish {
-      color: rgb(61, 95, 39);
-
-      &::before {
-        background-image: url(/assets/why/fern-big.png);
-      }
+      @include panel(fern, #3D5F27, #27341C, #C4D208)
     }
 
     &--contribute {
-      color: rgb(135, 174, 40);
-
-      &::before {
-        background-image: url(/assets/why/weevil-big.png);
-      }
+      @include panel(weevil, #87AE28, #3D5F27, #C4D208)
     }
 
     &--collaborate {
-      color: rgb(196, 210, 8);
-
-      &::before {
-        background-image: url(/assets/why/flower-big.png);
-      }
+      @include panel(flower, #C4D208, #87AE28, #FFF)
     }
 
+    // Styles for inactive section
     &--inactive {
       padding: 0;
       flex-grow: 0.26;
 
+      // Make it look clickable
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      // Switch out the images
       &::before {
         opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
       }
     }
   }
@@ -88,46 +127,87 @@ $transition-duration: 0.7s;
   &__panel-title {
     font-size: 24px;
     line-height: 1em;
-    min-height: 50px;
+    min-height: 60px;
     transition: font-size $transition-duration;
   }
 
-  &__panel--inactive > &__panel-title {
-    font-size: 16px;
+  // If we have javascript the titles get turned into buttons so they're clickable
+  &__title-button {
+    // Remove button styles
+    all: inherit;
+    min-height: auto;
+
+    // Add an 'affordance' so it looks clickable
+    &::after {
+      content: ' →';
+
+      // Not visible when active as clicking doesn't do anything
+      transition: opacity $transition-duration;
+      opacity: 0;
+    }
   }
 
   &__panel-text {
+    margin: 0;
     color: $body-color;
-    min-height: 94px;
+    min-height: 111px;
     opacity: 1;
     transition: opacity $transition-duration;
   }
 
-  &__panel--inactive > &__panel-text {
-    opacity: 0;
-  }
-
-  &__create-button {
+  // "Create your own Scratchpad" buttons
+  &__panel-button {
     display: inline-block;
     color: white;
     border: 1px solid black;
     padding: 0 4px 2px;
     border-radius: 5px;
-    background: #27341C;
-    border: solid 1px #000;
-    box-shadow: inset 1px 1px 4px #87AE28;
     font-size: 13.33px;
     line-height: 20px;
     text-decoration: none;
     opacity: 1;
-    transition: opacity $transition-duration;
+    transition: opacity $transition-duration 0.1s;
 
     &:hover {
       text-decoration: underline;
     }
   }
 
-  &__panel--inactive > &__create-button {
-    opacity: 0;
+  &__panel--inactive & {
+    // Fade in the affordance on the button
+    &__title-button::after {
+      opacity: 1;
+    }
+
+    &__panel-title {
+      font-size: 16px;
+    }
+
+    &__panel-text,
+    &__panel-button {
+      opacity: 0;
+    }
+  }
+
+  &__panel--inactive[data-animation=ended] & {
+    &__panel-text,
+    &__panel-button {
+      // Make sure buttons aren't focusable when inactive
+      visibility: hidden;
+    }
+  }
+
+  &__panel:not(&__panel--inactive) + &__panel &__panel-button {
+    display: none;
+  }
+
+  @media (max-width: 960px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+
+    &__accordion {
+      min-width: 960px;
+    }
   }
 }
