@@ -37,7 +37,7 @@ $transition-duration: 0.4s;
     // Background images - keep them in pseudo elements so we can fade them by transition: opacity
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 100%;
       width: 100%;
@@ -71,8 +71,7 @@ $transition-duration: 0.4s;
       .sp-why__panel-button {
         background: $color;
         border: solid 1px $border;
-        box-shadow: inset 1px 1px 4px $shadow,
-                      1px 1px 1px #888888;
+        box-shadow: inset 1px 1px 4px $shadow, 1px 1px 1px #888888;
       }
 
       &::before {
@@ -82,23 +81,22 @@ $transition-duration: 0.4s;
       &::after {
         background-image: url(/assets/why/#{$image}-square.png);
       }
-
     }
 
     &--create {
-      @include panel(octopus, #27341C, #000, #87AE28);
+      @include panel(octopus, #27341c, #000, #87ae28);
     }
 
     &--publish {
-      @include panel(fern, #3D5F27, #27341C, #C4D208)
+      @include panel(fern, #3d5f27, #27341c, #C4D208);
     }
 
     &--contribute {
-      @include panel(weevil, #87AE28, #3D5F27, #C4D208)
+      @include panel(weevil, #87ae28, #3d5f27, #C4D208);
     }
 
     &--collaborate {
-      @include panel(flower, #C4D208, #87AE28, #FFF)
+      @include panel(flower, #C4D208, #87ae28, #FFF);
     }
 
     // Styles for inactive section
@@ -139,7 +137,7 @@ $transition-duration: 0.4s;
 
     // Add an 'affordance' so it looks clickable
     &::after {
-      content: ' →';
+      content: " →";
 
       // Not visible when active as clicking doesn't do anything
       transition: opacity $transition-duration;
@@ -189,7 +187,7 @@ $transition-duration: 0.4s;
     }
   }
 
-  &__panel--inactive[data-animation=ended] & {
+  &__panel--inactive:not([data-animating]) & {
     &__panel-text,
     &__panel-button {
       // Make sure buttons aren't focusable when inactive

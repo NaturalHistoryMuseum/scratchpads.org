@@ -1,63 +1,63 @@
-(function () {
-  const accordion = document.querySelector('.sp-why__accordion');
-  const button = el => el.querySelector('.sp-why__title-button')
+(function() {
+  const accordion = document.querySelector(".sp-why__accordion");
+  const button = el => el.querySelector(".sp-why__title-button");
 
   const collapse = el => {
     // Remove animation-end attribute
-    el.removeAttribute('data-animation')
+    el.setAttribute("data-animating", true);
 
     // Make the class inactive
-    el.classList.add('sp-why__panel--inactive')
+    el.classList.add("sp-why__panel--inactive");
 
     // Mark ARIA collapsed
-    button(el).setAttribute('aria-expanded', false)
-  }
+    button(el).setAttribute("aria-expanded", false);
+  };
 
   const expand = el => {
     // Remove animation-end attribute
-    el.removeAttribute('data-animation')
+    el.setAttribute("data-animating", true);
 
     // Deactivate currently active panel
-    const active = accordion.querySelector('.sp-why__panel:not(.sp-why__panel--inactive)');
-    collapse(active)
+    const active = accordion.querySelector(
+      ".sp-why__panel:not(.sp-why__panel--inactive)"
+    );
+    collapse(active);
 
     // Make class active
-    el.classList.remove('sp-why__panel--inactive')
+    el.classList.remove("sp-why__panel--inactive");
 
     // Mark ARIA expanded
-    button(el).setAttribute('aria-expanded', true)
-  }
+    button(el).setAttribute("aria-expanded", true);
+  };
 
   // Apply magic to all of the accordion panels...
-  Array.from(accordion.querySelectorAll('.sp-why__panel')).forEach(
-    el => {
-      // Turn the title into a button so it's accessible
-      const button = document.createElement('button')
-      button.setAttribute('type', 'button')
-      button.classList.add('sp-why__title-button')
+  Array.from(accordion.querySelectorAll(".sp-why__panel")).forEach(el => {
+    // Turn the title into a button so it's accessible
+    const button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.classList.add("sp-why__title-button");
 
-      const title = el.querySelector('.sp-why__panel-title');
-      const text = title.firstChild
+    const title = el.querySelector(".sp-why__panel-title");
+    const text = title.firstChild;
 
-      title.replaceChild(button, text)
-      button.appendChild(text)
+    title.replaceChild(button, text);
+    button.appendChild(text);
 
-      // Add a hook to apply styles after a transition has ended
-      el.addEventListener('transitionend', () => {
-        el.setAttribute('data-animation','done')
-      })
+    // Add a hook to apply styles after a transition has ended
+    el.addEventListener("transitionend", () => {
+      el.removeAttribute("data-animating");
+    });
 
-      // Collapse all but the last panels
-      if (el.nextElementSibling) {
-        collapse(el)
-      }
-
-      // Expand panels when clicked on
-      el.setAttribute('role', 'presentation')
-      el.addEventListener('click', () => {
-        button.focus()
-        expand(el)
-      })
+    // Collapse all but the last panels
+    if (el.nextElementSibling) {
+      collapse(el);
     }
-  )
-})()
+
+    // Expand panels when clicked on
+    el.setAttribute("role", "presentation");
+    el.addEventListener("click", () => {
+      button.focus();
+      expand(el);
+    });
+  });
+})();
