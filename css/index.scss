@@ -2,4 +2,61 @@
 # CSS for index page
 ---
 @import "variables";
+@import "mixins";
 @import "index/why";
+
+$border: #eee;
+
+.sp-index {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  h2 {
+    font-size: 26.6px;
+    letter-spacing: -1.33px;
+    line-height: 40px;
+  }
+
+  > * {
+    padding-bottom: 25px;
+    padding-top: 15px;
+  }
+
+  &__why {
+    padding-top: 0;
+    grid-column: 1 / span 2;
+    border-bottom: 1px solid $border;
+  }
+
+  &__heading {
+    color: $home-accent;
+    margin-bottom: 12px;
+  }
+
+  &__join-list {
+    @include reset-list;
+
+    margin: -2.5px 1px;
+    font-family: Verdana, sans-serif;
+    font-size: 14.5px;
+    color: $home-links;
+
+    > li {
+      padding: 5.5px 6px;
+    }
+
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
