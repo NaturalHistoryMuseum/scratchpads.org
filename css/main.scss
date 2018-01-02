@@ -36,4 +36,9 @@ a:not(:link) {
   text-decoration: line-through;
 }
 
+a:visited,
+a:link {
+  color: inherit;
+}
+
 @import "header";

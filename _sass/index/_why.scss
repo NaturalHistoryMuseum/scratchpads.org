@@ -31,6 +31,11 @@ $transition-duration: 0.4s;
     // Create new stacking context so child z-indices are contained
     transform: rotate(0);
 
+    > * {
+      transform: rotate(0);
+      z-index: 1;
+    }
+
     // Background images - keep them in pseudo elements so we can fade them by transition: opacity
     &::before,
     &::after {

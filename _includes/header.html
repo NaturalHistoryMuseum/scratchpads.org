@@ -7,7 +7,13 @@
 
   <nav class="sp-header__nav">
     <ul class="sp-header__nav-list">
-      <li><a class="sp-header__nav-link sp-header__nav-link--active">Home</a></li>
+      {% for node in site.html_pages %}
+        {% if node.url == page.url %}
+          <li class="sp-header__nav-link sp-header__nav-link--active">{{ node.title }}</li>
+        {% else %}
+          <li><a href="{{ node.url }}" class="sp-header__nav-link">{{ node.title }}</a></li>
+        {% endif %}
+      {% endfor %}
       <li><a class="sp-header__nav-link">Explore</a></li>
       <li><a class="sp-header__nav-link">Support</a></li>
       <li><a class="sp-header__nav-link">Develop</a></li>
