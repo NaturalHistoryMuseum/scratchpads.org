@@ -9,7 +9,9 @@ js:
 <div class="sp-index">
   {% include index/why.html class="sp-index__why" %}
 
-  <section>
+  <hr>
+
+  <section class="sp-index__section">
     <h2 class="sp-index__heading">Join the community!</h2>
 
     <ul class="sp-index__join-list">
@@ -23,4 +25,8 @@ js:
       <li><img src="/assets/join/join-signup.png" alt=""><a>Sign up for Scratchpad training</a></li>
     </ul>
   </section>
+
+  <hr>
+
+  {% include index/case-studies.html class="sp-index__section sp-index__section-case-studies" %}
 </div>

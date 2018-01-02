@@ -1,0 +1,20 @@
+ - name: DEST
+   url: http://taxonomytraining.eu/
+   image: /assets/case-studies/dest.png
+   description: The Distributed European School of Taxonomy (DEST) aims at transferring knowledge between current and future generations of taxonomists by providing high quality education and prepare students for future taxonomic careers. DEST is using Scratchpads as a coordination and dissemination platform.
+ - name : Solanaceae Source
+   url: http://solanaceaesource.org/
+   image: /assets/case-studies/solanaceae-source.png
+   description: Solanaceae Source aims to provide a worldwide taxonomic monograph of the nightshade family, Solanaceae. The family is of considerable economic importance and contains species that are used as food (potatoes, tomatoes and eggplants), medicines (henbane and deadly nightshades) and in horticulture (petunias)
+ - name: Sampled Red List Index for Plants
+   url: http://threatenedplants.myspecies.info/
+   image: /assets/case-studies/sampled-red-list.png
+   description: SRLI for Plants collects vital information on plant species, including habitat, population and threats, which are used to determine risk of extinction. This is part of an ongoing monitoring effort to help understand the status and trends of plant species over time.
+ - name: African ichthyology portal
+   url: http://africhthy.org/
+   image: /assets/case-studies/african-ichthyology.png
+   description: Africhthy is a web portal for African ichthyology created to make available species data & literature as well as to promote efficient networking and collaboration among professionals, students and hobbyists.
+ - name: AntKey
+   url: http://antkey.org/
+   image: /assets/case-studies/antkey.jpg
+   description: Antkey is a community resource for the identification of invasive, introduced and commonly intercepted ant species from across the globe

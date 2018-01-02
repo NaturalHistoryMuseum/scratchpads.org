@@ -4,34 +4,52 @@
 @import "variables";
 @import "mixins";
 @import "index/why";
+@import "index/case-studies";
 
 $border: #eee;
 
 .sp-index {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 8fr 40px 10.89fr;
+  }
 
   h2 {
     font-size: 26.6px;
     letter-spacing: -1.33px;
     line-height: 40px;
+    color: $home-accent;
+    margin-bottom: 12px;
   }
 
-  > * {
-    padding-bottom: 25px;
-    padding-top: 15px;
+  hr {
+    background-color: #eee;
+    border: none;
+  }
+
+  &__section {
+    margin-top: 8px;
+
+    + hr {
+      height: 100%;
+      width: 1px;
+    }
   }
 
   &__why {
-    padding-top: 0;
-    grid-column: 1 / span 2;
-    border-bottom: 1px solid $border;
-  }
+    h2 {
+      color: black;
+    }
 
-  &__heading {
-    color: $home-accent;
-    margin-bottom: 12px;
+    &, & + hr {
+      grid-column: 1 / span 3;
+    }
+
+    + hr {
+      width: 100%;
+      margin: 25px 0 7px;
+      height: 1px;
+    }
   }
 
   &__join-list {
@@ -58,5 +76,9 @@ $border: #eee;
         text-decoration: none;
       }
     }
+  }
+
+  &__section-case-studies {
+    min-width: 0;
   }
 }
