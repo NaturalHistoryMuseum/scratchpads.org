@@ -18,7 +18,7 @@ $border: #eee;
     font-size: 26.6px;
     letter-spacing: -1.33px;
     line-height: 40px;
-    color: $home-accent;
+    color: map-get($colours, "home");
     margin-bottom: 12px;
   }
 

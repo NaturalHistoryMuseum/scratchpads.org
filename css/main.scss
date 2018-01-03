@@ -3,6 +3,8 @@
 ---
 
 @import "variables";
+@import "mixins";
+@import "fonts";
 
 * {
   box-sizing: border-box;
@@ -16,11 +18,21 @@ html {
 }
 
 body {
-  background: white;
   max-width: 960px;
-  min-height: 110%;
   margin: auto;
-  padding: 20px 10px 10px;
+}
+
+header,
+main {
+  background: white;
+}
+
+header {
+  padding: 20px 10px 0;
+}
+
+main {
+  padding: 0 10px 10px;
 }
 
 h1,
@@ -36,9 +48,5 @@ a:not(:link) {
   text-decoration: line-through;
 }
 
-a:visited,
-a:link {
-  color: inherit;
-}
-
 @import "header";
+@import "footer";

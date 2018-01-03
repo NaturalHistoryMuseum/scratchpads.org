@@ -8,7 +8,7 @@
 
   &__nav {
     margin-top: 10px;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     border-left: 0;
     border-right: 0;
   }
@@ -34,7 +34,7 @@
     &--active,
     &:hover {
       color: white;
-      background: $home-accent;
+      background: map-get($colours, "home");
     }
   }
 }

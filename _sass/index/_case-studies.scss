@@ -41,6 +41,6 @@
   &__link {
     font-size: 12px;
     text-transform: uppercase;
-    color: $home-accent;
+    color: map-get($colours, "home");
   }
 }
