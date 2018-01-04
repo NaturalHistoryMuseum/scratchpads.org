@@ -10,7 +10,7 @@
   }
 
   &__map {
-    margin: 22px -27px 21px 0;
+    margin: 20px -18px 20px -10px;
 
     > ul {
       @include reset-list;
@@ -19,25 +19,34 @@
       > li {
         break-inside: avoid;
         page-break-inside: avoid;
+        font-family: $title-font;
+        line-height: 22px;
+        margin-left: 10px;
+
+        > * {
+          font-family: $body-font;
+        }
       }
     }
   }
 
   &__section {
     padding: 0;
-    margin: 0;
+    margin: 0 0 10px;
     list-style-type: square;
     list-style-position: inside;
 
     > li {
       margin: 0;
-      line-height: 1;
+      line-height: 16.1333px;
+      font-family: $title-font;
+      font-size: 14.6667px;
     }
 
     > li a {
-      line-height: 1.2;
       font-size: 12px;
       margin-left: -0.3em;
+      font-family: $body-font;
     }
 
     @each $category, $colour in $colours {
