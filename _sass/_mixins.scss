@@ -3,3 +3,16 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin rule ($orientation: 'h', $color: #eee) {
+  background-color: $color;
+  border: none;
+
+  @if ($orientation == 'h') {
+    width: 100%;
+    height: 1px;
+  } @else {
+    height: 100%;
+    width: 1px;
+  }
+}

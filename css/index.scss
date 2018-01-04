@@ -23,32 +23,34 @@ $border: #eee;
   }
 
   hr {
-    background-color: #eee;
-    border: none;
+    @include rule;
+  } 
+
+  @media (min-width: 500px) {
+    hr:nth-of-type(odd) {
+      grid-column: 1 / span 3;
+    }
+  
+    hr:nth-of-type(even) {
+      @include rule(v);
+
+      height: 90%;
+    }
   }
 
   &__section {
     margin-top: 8px;
-
-    + hr {
-      height: 100%;
-      width: 1px;
-    }
   }
 
   &__why {
+    grid-column: 1 / span 3;
+
     h2 {
       color: black;
     }
 
-    &, & + hr {
-      grid-column: 1 / span 3;
-    }
-
     + hr {
-      width: 100%;
       margin: 25px 0 7px;
-      height: 1px;
     }
   }
 
@@ -80,5 +82,30 @@ $border: #eee;
 
   &__section-case-studies {
     min-width: 0;
+  }
+
+  &__feed {
+    @include reset-list;
+  }
+
+  &__post-title {
+    color: $home-links;
+    font-size: 16px;
+    line-height: 1.5;
+
+    > a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__post-content {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: $title-font;
   }
 }

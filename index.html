@@ -29,4 +29,43 @@ js:
   <hr>
 
   {% include index/case-studies.html class="sp-index__section sp-index__section-case-studies" %}
+
+  <hr>
+
+  <section class="sp-index__section">
+    <h2 class="sp-index__heading">Feeds</h2>
+
+    <ul class="sp-index__feed">
+    {% for post in site.posts %}
+      <li>
+        <h3 class="sp-index__post-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+        <div class="sp-index__post-content">{{ post.excerpt }}</div>
+        <a class="sp-index__post-more" href="{{ post.url }}">Read more</a>
+      </li>
+    {% endfor %}
+    </ul>
+    <a class="twitter-timeline" href="https://twitter.com/scratchpads?ref_src=twsrc%5Etfw" data-tweet-limit=1>Tweets by scratchpads</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+  </section>
+
+  <hr>
+
+  <section class="sp-index__section">
+    <h2 class="sp-index__heading">Scratchpads around the world</h2>
+
+    <p>
+      <b>{{ site.data.stats.scratchpads }}</b> Scratchpads by
+      <b>{{ site.data.stats.activeUsers }}</b> active users covering
+      <b>{{ site.data.stats.taxa }}</b> taxa in
+      <b>{{ site.data.stats.pages }}</b> pages.
+    </p>
+
+    <p>
+      Our {{ site.data.stats.ambassadors }} ambassadors are located across the globe:
+    </p>
+
+    <div style="height: 519px; border: 1px solid black;">Map</div>
+  </section>
+
+  <hr>
 </div>

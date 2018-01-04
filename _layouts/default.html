@@ -4,7 +4,10 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/css/main.css">
+  {% if page.css %}
   <link rel="stylesheet" href="/css/{{page.css}}.css">
+  {% endif %}
+  {% feed_meta %}
   {% for js in page.js %}
   <script src="/assets/{{js}}.js" defer></script>
   {% endfor %}
