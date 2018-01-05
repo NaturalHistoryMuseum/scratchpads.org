@@ -16,3 +16,24 @@
     width: 1px;
   }
 }
+
+@mixin page-container {
+  overflow: auto;
+  display: flex;
+
+  > * {
+    flex: 0 0 100%;
+  }
+}
+
+@mixin read-more {
+  &, &:visited {
+    font-family: $title-font;
+    text-transform: uppercase;
+    color: map-get($colours, "home");
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

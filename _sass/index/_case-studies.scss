@@ -1,13 +1,10 @@
 .sp-case-studies {
   &__list {
     @include reset-list;
-
-    display: flex;
-    overflow: auto;
+    @include page-container;
   }
 
   &__study {
-    flex: 0 0 100%;
     margin-right: 10px;
 
     &:not(:first-child) {
@@ -39,9 +36,8 @@
   }
 
   &__link {
-    font-family: $title-font;
+    @include read-more;
+
     font-size: 12px;
-    text-transform: uppercase;
-    color: map-get($colours, "home");
   }
 }

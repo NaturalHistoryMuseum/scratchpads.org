@@ -95,10 +95,56 @@ $border: #eee;
 
   &__feed {
     @include reset-list;
+
+    padding-top: 15px;
+
+    > * {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__feed-box {
+    @include page-container; 
+  }
+
+  &__tablist {
+    @include reset-list;
+
+    display: flex;
+    margin-top: -8px;
+    font-family: $title-font;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+
+    > * {
+      position: relative;
+      top: 1px;
+      border: 1px solid #eee;
+      border-radius: 4px 4px 0 0;
+      margin-right: 23px;
+      min-width: 97px;
+
+      a {
+        display: block;
+        padding: 3px 15px 3px 8px;
+        text-decoration: none;
+        color: $home-links;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      img {
+        margin: 4px 7px 0 0;
+        vertical-align: top;
+      }
+    }
   }
 
   &__post-title {
     color: $home-links;
+    font-family: $title-font;
     font-size: 16px;
     line-height: 1.5;
 
@@ -113,9 +159,18 @@ $border: #eee;
   }
 
   &__post-content {
+    margin: 2px 0 0;
     font-size: 12px;
     line-height: 1.5;
     font-family: $body-font;
+  }
+
+  &__post-more {
+    @include read-more;
+
+    font-size: 10.66px;
+    display: block;
+    line-height: 16px;
   }
 
   &__map {

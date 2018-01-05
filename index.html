@@ -35,17 +35,26 @@ js:
   <section class="sp-index__section">
     <h2 class="sp-index__heading">Feeds</h2>
 
-    <ul class="sp-index__feed">
-    {% for post in site.posts %}
-      <li>
-        <h3 class="sp-index__post-title"><a href="{{post.url}}">{{post.title}}</a></h3>
-        <div class="sp-index__post-content">{{ post.excerpt }}</div>
-        <a class="sp-index__post-more" href="{{ post.url }}">Read more</a>
-      </li>
-    {% endfor %}
+    <ul class="sp-index__tablist">
+      <li><a href="#sp-feed-atom"><img src="/assets/index/feed-icon.png" alt="">News</a></li>
+      <li><a href="#sp-feed-twitter"><img src="/assets/index/twitter.png" alt="">Twitter</a></li>
     </ul>
-    <a class="twitter-timeline" href="https://twitter.com/scratchpads?ref_src=twsrc%5Etfw" data-tweet-limit=1>Tweets by scratchpads</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <div class="sp-index__feed-box">
+      <ul class="sp-index__feed" id="sp-feed-atom">
+      {% for post in site.posts %}
+        <li>
+          <h3 class="sp-index__post-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+          <div class="sp-index__post-content">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</div>
+          <a class="sp-index__post-more" href="{{ post.url }}">Read more</a>
+        </li>
+      {% endfor %}
+      </ul>
+      <div id="sp-feed-twitter">
+        <a class="twitter-timeline" href="https://twitter.com/scratchpads?ref_src=twsrc%5Etfw" data-tweet-limit=3>Tweets by scratchpads</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
   </section>
 
   <hr>
