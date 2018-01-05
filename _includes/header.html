@@ -7,14 +7,14 @@
 
   <nav class="sp-header__nav">
     <ul class="sp-header__nav-list">
-      {% for node in site.html_pages %}
+    {% assign menu = (site.pages | where_exp: "page", "page.menu > 0" | sort: "menu") %}
+      {% for node in menu %}
         {% if node.url == page.url %}
-          <li class="sp-header__nav-link sp-header__nav-link--active">{{ node.title }}</li>
+          <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ node.theme | default: "home" }}">{{ node.title }}</li>
         {% else %}
-          <li><a href="{{ node.url }}" class="sp-header__nav-link">{{ node.title }}</a></li>
+          <li><a href="{{ node.url }}" class="sp-header__nav-link" data-theme="{{ node.theme | default: "home" }}">{{ node.title }}</a></li>
         {% endif %}
       {% endfor %}
-      <li><a class="sp-header__nav-link">Explore</a></li>
       <li><a class="sp-header__nav-link">Support</a></li>
       <li><a class="sp-header__nav-link">Develop</a></li>
       <li><a class="sp-header__nav-link">About us</a></li>

@@ -4,7 +4,7 @@
   <ul class="sp-case-studies__list">
     {% for study in site.data.case-studies %}
       <li class="sp-case-studies__study">
-        <figure class="sp-case-studies__figure">
+        <figure class="sp-case-studies__figure" role="group">
           <img src="{{study.image}}" alt="Screenshot of {{study.name}} scratchpad">
           <figcaption class="sp-case-studies__caption">
             <h3 class="sp-case-studies__name">{{study.name}}</h3>

@@ -31,10 +31,20 @@
     line-height: 24px;
     text-decoration: none;
 
+    &, &:visited {
+      color: inherit;
+    }
+
     &--active,
     &:hover {
       color: white;
-      background: map-get($colours, "home");
+    }
+
+    @each $theme, $colour in $colours {
+      &--active[data-theme=#{$theme}],
+      &:hover[data-theme=#{$theme}] {
+        background: $colour;
+      }
     }
   }
 }
