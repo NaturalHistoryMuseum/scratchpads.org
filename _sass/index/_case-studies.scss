@@ -27,18 +27,19 @@
   }
 
   &__name {
+    font-family: $title-font;
     font-size: 14.6667px;
     line-height: 22px;
   }
 
   &__desc {
-    font-family: Verdana, sans-serif;
     font-size: 13.3333px;
     line-height: 20px;
-    margin: 12px 15px 19px 0;
+    margin: 12px 15px 18px 0;
   }
 
   &__link {
+    font-family: $title-font;
     font-size: 12px;
     text-transform: uppercase;
     color: map-get($colours, "home");

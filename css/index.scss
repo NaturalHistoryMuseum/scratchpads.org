@@ -9,6 +9,8 @@
 $border: #eee;
 
 .sp-index {
+  margin-bottom: -8px;
+
   @media (min-width: 500px) {
     display: grid;
     grid-template-columns: 8fr 40px 10.89fr;
@@ -20,17 +22,18 @@ $border: #eee;
     line-height: 40px;
     color: map-get($colours, "home");
     margin-bottom: 12px;
+    font-family: $title-font;
   }
 
   hr {
     @include rule;
-  } 
+  }
 
   @media (min-width: 500px) {
     hr:nth-of-type(odd) {
       grid-column: 1 / span 3;
     }
-  
+
     hr:nth-of-type(even) {
       @include rule(v);
 
@@ -39,7 +42,14 @@ $border: #eee;
   }
 
   &__section {
-    margin-top: 8px;
+    margin-top: 4px;
+    font-family: $body-font;
+    font-size: 14.6667px;
+    line-height: 22px;
+
+    > p {
+      margin: 0 0 20px;
+    }
   }
 
   &__why {
@@ -50,20 +60,19 @@ $border: #eee;
     }
 
     + hr {
-      margin: 25px 0 7px;
+      margin: 25px 0 11px;
     }
   }
 
   &__join-list {
     @include reset-list;
 
-    margin: -2.5px 1px;
-    font-family: Verdana, sans-serif;
+    margin: 0 1px;
     font-size: 14.5px;
     color: $home-links;
 
     > li {
-      padding: 5.5px 6px;
+      padding: 2.5px 6px 8px;
     }
 
     img {
@@ -106,6 +115,16 @@ $border: #eee;
   &__post-content {
     font-size: 12px;
     line-height: 1.5;
-    font-family: $title-font;
+    font-family: $body-font;
+  }
+
+  &__map {
+    margin-top: 21px;
+    margin-bottom: 37px;
+    height: 500px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
