@@ -5,19 +5,30 @@
 
 .sp-page {
   @each $theme, $colour in $colours {
+    $secondary: map-get($secondaries, $theme);
+
     &[data-theme=#{$theme}] & {
       &__sidebar {
         background-image: url("/assets/sidebar/#{$theme}.png");
       }
 
       &__sidebar-nav {
+        color: $secondary;
         border-color: $colour;
       }
 
       &__main {
         h1,
-        h2 {
+        h2,
+        a,
+        a:visited {
           color: $colour;
+        }
+
+        a[href^="https:"],
+        a[href^="http:"]{
+          padding-right: 16px;
+          background: url(/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
         }
       }
     }
@@ -30,7 +41,7 @@
     font-family: $title-font;
     padding-right: 16px;
     margin-right: 5px;
-    flex-basis: 220px;
+    flex: 0 0 220px;
     border-right: 1px solid #eee;
     background-position: bottom left;
     background-repeat: no-repeat;
@@ -40,7 +51,9 @@
   &__sidebar-nav {
     @include reset-list;
 
-    border-top: 7px solid;
+    border-style: solid;
+    border-width: 7px 0;
+    height: 100%;
   }
 
   &__sidebar-item {
@@ -60,14 +73,15 @@
     &:hover {
       background: #DDD;
     }
-
+    
     &:hover {
       text-decoration: underline;
     }
   }
 
   &__main {
-
+    font-size: 14.67px;
+    line-height: 22px;
     margin-left: 15px;
 
     h1 {
@@ -85,6 +99,18 @@
       font-family: $title-font;
     }
 
+    p {
+      margin-bottom: 20px;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
     dl {
       border: 1px solid #ccc;
       background: #ccc;
@@ -92,7 +118,6 @@
       display: grid;
       grid-template-columns: 1fr 31px;
       grid-row-gap: 1px;
-      font-size: 14.6667px;
       line-height: 22px;
     }
 

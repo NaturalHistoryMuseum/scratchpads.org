@@ -1,6 +1,7 @@
+{% include theme %}
 <header class="sp-header">
   <h1>
-    <img src="/assets/logo/logo-{{ page.theme | default: 'home' }}.png"
+    <img src="/assets/logo/logo-{{ theme }}.png"
          alt="Scratchpads - biodiversity online"
          class="sp-header__logo">
   </h1>
@@ -9,13 +10,13 @@
     <ul class="sp-header__nav-list">
     {% assign menu = (site.pages | where_exp: "page", "page.menu" | sort: "weight") %}
       {% for node in menu %}
+        {% include theme page=node %}
         {% if node.url == page.url %}
-          <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ node.theme | default: "home" }}">{{ node.menu }}</li>
+          <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ theme }}">{{ node.menu }}</li>
         {% else %}
-          <li><a href="{{ node.url }}" class="sp-header__nav-link" data-theme="{{ node.theme | default: "home" }}">{{ node.menu }}</a></li>
+          <li><a href="{{ node.url }}" class="sp-header__nav-link" data-theme="{{ theme }}">{{ node.menu }}</a></li>
         {% endif %}
       {% endfor %}
-      <li><a class="sp-header__nav-link">Support</a></li>
       <li><a class="sp-header__nav-link">Develop</a></li>
       <li><a class="sp-header__nav-link">About us</a></li>
     </ul>

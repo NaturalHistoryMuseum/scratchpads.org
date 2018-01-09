@@ -2,8 +2,6 @@ $title-font: Ubuntu, sans-serif;
 $body-font: Verdana, sans-serif;
 $body-color: black;
 
-$home-links: #3d5f27;
-
 $colours: (
   home: #87ae28,
   explore: #2887a8,
@@ -11,3 +9,9 @@ $colours: (
   support: #d99818,
   about: #996daa
 );
+
+$secondaries: (
+  home: #3d5f27,
+  explore: #1C2734,
+  support: #572E00
+)

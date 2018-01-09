@@ -7,6 +7,7 @@
 @import "index/case-studies";
 
 $border: #eee;
+$home-links: map-get($secondaries, "home");
 
 .sp-index {
   margin-bottom: -8px;
