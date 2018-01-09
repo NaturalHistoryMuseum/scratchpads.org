@@ -1,0 +1,113 @@
+---
+---
+@import 'variables';
+@import 'mixins';
+
+.sp-page {
+  @each $theme, $colour in $colours {
+    &[data-theme=#{$theme}] & {
+      &__sidebar {
+        background-image: url("/assets/sidebar/#{$theme}.png");
+      }
+
+      &__sidebar-nav {
+        border-color: $colour;
+      }
+
+      &__main {
+        h1,
+        h2 {
+          color: $colour;
+        }
+      }
+    }
+  }
+
+  display: flex;
+  padding-top: 25px;
+
+  &__sidebar {
+    font-family: $title-font;
+    padding-right: 16px;
+    margin-right: 5px;
+    flex-basis: 220px;
+    border-right: 1px solid #eee;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    min-height: 400px;
+  }
+
+  &__sidebar-nav {
+    @include reset-list;
+
+    border-top: 7px solid;
+  }
+
+  &__sidebar-item {
+    display: block;
+    padding: 0 0 4px 8px;
+    font-size: 16px;
+    line-height: 1.5;
+
+    &,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &--active,
+    &:active,
+    &:hover {
+      background: #DDD;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__main {
+
+    margin-left: 15px;
+
+    h1 {
+      font-size: 26.67px;
+      letter-spacing: -1.33px;
+      line-height: 40px;
+      margin-bottom: 20px;
+      font-family: $title-font;
+    }
+
+    h2 {
+      font-size: 18.67px;
+      letter-spacing: -0.93px;
+      line-height: 28px;
+      font-family: $title-font;
+    }
+
+    dl {
+      border: 1px solid #ccc;
+      background: #ccc;
+      margin: 0 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 31px;
+      grid-row-gap: 1px;
+      font-size: 14.6667px;
+      line-height: 22px;
+    }
+
+    dt {
+      background: #f7f7f7;
+    }
+
+    dd {
+      background: white;
+    }
+
+    dd,
+    dt {
+      margin: 0;
+      padding: 4px 8px;
+    }
+  }
+}

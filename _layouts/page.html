@@ -1,0 +1,22 @@
+---
+layout: default
+css: page
+---
+
+<div class="sp-page" data-theme="{{ page.theme }}">
+  <aside class="sp-page__sidebar">
+    {% assign pages = site.pages | where_exp: "node", "node.theme == page.theme" %}
+    <ul class="sp-page__sidebar-nav">
+    {% for node in pages %}
+      {% assign class = 'sp-page__sidebar-item' %}
+      {% if node.url == page.url %}
+         {% assign class = class | append: ' ' | append: class | append: '--active' %}
+      {% endif %}
+      <li><a href="{{ node.url }}" class="{{ class }}">{{ node.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </aside>
+  <article class="sp-page__main">
+    {{ content }}
+  </article>
+</div>
