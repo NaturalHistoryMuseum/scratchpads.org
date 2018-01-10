@@ -1,17 +1,19 @@
 {% include theme %}
+{% assign page_theme = theme %}
 <header class="sp-header">
   <h1>
-    <img src="/assets/logo/logo-{{ theme }}.png"
+    <img src="/assets/logo/logo-{{ page_theme }}.png"
          alt="Scratchpads - biodiversity online"
          class="sp-header__logo">
   </h1>
 
   <nav class="sp-header__nav">
     <ul class="sp-header__nav-list">
+
     {% assign menu = (site.pages | where_exp: "page", "page.menu" | sort: "weight") %}
       {% for node in menu %}
         {% include theme page=node %}
-        {% if node.url == page.url %}
+        {% if theme == page_theme %}
           <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ theme }}">{{ node.menu }}</li>
         {% else %}
           <li><a href="{{ node.url }}" class="sp-header__nav-link" data-theme="{{ theme }}">{{ node.menu }}</a></li>

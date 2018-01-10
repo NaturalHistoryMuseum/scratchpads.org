@@ -2,23 +2,70 @@
 layout: default
 css: page
 ---
+{% comment %}
+  Find the root page for the current category by goind through all
+  main menu pages and selecting the one that matches by category
+{% endcomment %}
 {% include theme %}
 {% assign page_theme = theme %}
+{% assign roots = site.html_pages | where_exp: "root", "root.menu != nil" %}
+{% for r in roots %}
+  {% include theme page=r %}
+  {% if theme == page_theme %}
+    {% assign root = r %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% include parent %}
+{% assign page_parent = parent %}
+
 <div class="sp-page" data-theme="{{ page_theme }}">
   <aside class="sp-page__sidebar">
     <ul class="sp-page__sidebar-nav">
-    {% for node in site.pages %}
-      {% include theme page=node %}
-      {% if theme != page_theme %}
-        {% continue %}
-      {% endif %}
+      {% comment %}
+        Loop through root page and its children
+      {% endcomment %}
+      {% include children page=root %}
+      {% assign pages = children | unshift: root %}
 
-      {% assign class = 'sp-page__sidebar-item' %}
-      {% if node.url == page.url %}
-         {% assign class = class | append: ' ' | append: class | append: '--active' %}
-      {% endif %}
-      <li><a href="{{ node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a></li>
-    {% endfor %}
+      {% for node in pages %}
+        {% comment %}Don't indent children of root page{% endcomment %}
+        {% if node == root %}
+          {% assign children = nil %}
+        {% else %}
+          {% include children page=node %}
+        {% endif %}
+
+        {% assign active = false %}
+        {% if node.url == page.url or node.url == page_parent and page_parent != root.url %}
+          {% assign active = true %}
+        {% endif %}
+
+        {% comment %}Generate class for menu item with BEM modifiers{% endcomment %}
+        {% assign base = 'sp-page__sidebar-item' %}
+        {% assign class = base %}
+        {% if active %}
+          {% assign class = class | append: ' ' | append: base | append: '--active' %}
+        {% endif %}
+        {% if children %}
+          {% assign class = class | append: ' ' | append: base | append: '--children' %}
+        {% endif %}
+        <li>
+          <a href="{{ node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a>
+          {% if children and active %}
+            <ul class="sp-page__sidebar-subnav">
+              {% for child in children %}
+                {% assign class = 'sp-page__sidebar-item' %}
+                {% if child.url == page.url %}
+                  {% assign class = class | append: ' ' | append: class | append: '--active' %}
+                {% endif %}
+                <li><a href="{{ child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
     </ul>
   </aside>
   <article class="sp-page__main">
