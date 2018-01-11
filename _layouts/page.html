@@ -20,6 +20,7 @@ css: page
 {% include parent %}
 {% assign page_parent = parent %}
 
+{% assign image = site.static_files | where_exp: "img", "img.path contains 'assets/sidebar'" | sample %}
 <div class="sp-page" data-theme="{{ page_theme }}">
   <aside class="sp-page__sidebar">
     <ul class="sp-page__sidebar-nav">
@@ -67,6 +68,7 @@ css: page
         </li>
       {% endfor %}
     </ul>
+    <img src="{{image.path}}" alt="" role="presentation" class="sp-page__decoration">
   </aside>
   <article class="sp-page__main">
     {{ content }}
