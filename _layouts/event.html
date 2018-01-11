@@ -1,0 +1,11 @@
+---
+layout: page
+theme: support
+---
+<h1>{{ page.title | default: page.location }}</h1>
+<div style="background: #eee;">
+  <div><b>Location:</b> {{ page.location }}</div>
+  <div><b>Training date:</b> {{ page.training-date }}</div>
+  <div><b>Short description:</b> {{ page.short-description }}</div>
+</div>
+{{ content }}

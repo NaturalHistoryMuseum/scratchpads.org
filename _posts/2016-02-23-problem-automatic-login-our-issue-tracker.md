@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  Problem with automatic login to our issue tracker
-category: news
 excerpt: Users report problems with the automatic authentication in the Scratchpads Issues tracker (support.scratchpads.eu).
 ---
 

@@ -1,3 +1,16 @@
-permalink: /:categories/:year-:month/:title
+permalink: /news/:year-:month/:title
 plugins:
   - jekyll-feed
+collections:
+  events:
+    output: true
+    permalink: /event/:year-:month/:title
+defaults:
+  -
+    scope:
+      scope: ""
+      type: "events"
+    values:
+      layout: "event"
+      theme: "support"
+      parent: "/support/training/events"

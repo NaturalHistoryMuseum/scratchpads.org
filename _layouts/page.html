@@ -58,7 +58,7 @@ css: page
             <ul class="sp-page__sidebar-subnav">
               {% for child in children %}
                 {% assign class = 'sp-page__sidebar-item' %}
-                {% if child.url == page.url %}
+                {% if child.url == page.url or child.url == page.parent %}
                   {% assign class = class | append: ' ' | append: class | append: '--active' %}
                 {% endif %}
                 <li><a href="{{ child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>

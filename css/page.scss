@@ -3,6 +3,8 @@
 @import 'variables';
 @import 'mixins';
 
+@import 'events';
+
 .sp-page {
   @each $theme, $colour in $colours {
     $secondary: map-get($secondaries, $theme);
@@ -99,6 +101,7 @@
     font-size: 14.67px;
     line-height: 22px;
     margin-left: 15px;
+    flex: 1;
 
     h1 {
       font-size: 26.67px;
