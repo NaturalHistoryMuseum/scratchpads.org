@@ -1,2 +1,5 @@
 {% assign p = include.page | default: page %}
-{% assign parent = p.parent | default: p.url | split: '/' | pop | join: '/' | append: '/' %}
+{% assign parent = p.parent %}
+{% if parent == nil %}
+  {% assign parent = p.url | split: '/' | pop | join: '/' | append: '/' %}
+{% endif %}

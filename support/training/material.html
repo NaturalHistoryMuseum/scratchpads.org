@@ -1,0 +1,35 @@
+---
+title: Resources
+sidebar: 'Training material'
+layout: page
+weight: 2
+---
+<h1>Resources</h1>
+
+{% for item in site.training-material %}
+  {% assign extPos = item.download | size | minus: 4 %}
+  {% assign ext = item.download | slice: extPos, 4 %}
+
+  <hr>
+
+  <h2>
+    {{item.title | capitalise }}
+  </h2>
+
+  <div class="sp-resources__resource">
+    {% if item.image %}
+      <img src="{{item.image}}">
+    {% endif %}
+
+    <div>
+      {{ item.content }}
+
+      <a href="{{item.download}}" download>
+        Download {{ item.title }}
+        {% if ext == '.zip' %}
+          <img src="/assets/zip.png" alt="This download is a zip file">
+        {% endif %}
+      </a>
+    </div>
+  </div>
+{% endfor %}

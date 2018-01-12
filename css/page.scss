@@ -4,6 +4,7 @@
 @import 'mixins';
 
 @import 'events';
+@import 'resources';
 
 .sp-page {
   @each $theme, $colour in $colours {
@@ -29,6 +30,13 @@
           padding-right: 16px;
           background: url(/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
         }
+      }
+
+      &__sidebar-item--external {
+        padding-right: 16px;
+        background-image: url(/assets/external-link-#{$theme}.png);
+        background-repeat: no-repeat;
+        background-position: 100% 50%;
       }
     }
   }
@@ -69,6 +77,10 @@
   &__sidebar-item {
     display: block;
     padding: 0 0 4px 8px;
+
+    &--child {
+      padding-bottom: 0;
+    }
 
     &,
     &:visited {
@@ -153,6 +165,12 @@
     dt {
       margin: 0;
       padding: 4px 8px;
+    }
+
+    hr {
+      @include rule;
+
+      margin-bottom: 20px;
     }
   }
 }

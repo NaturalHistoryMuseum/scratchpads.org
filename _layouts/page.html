@@ -49,19 +49,24 @@ css: page
         {% if active %}
           {% assign class = class | append: ' ' | append: base | append: '--active' %}
         {% endif %}
-        {% if children %}
+        {% assign len = children | size %}
+        {% if len > 0 %}
           {% assign class = class | append: ' ' | append: base | append: '--children' %}
         {% endif %}
+        {% if node.redirect_to %}
+          {% assign class = class | append: ' ' | append: base | append: '--external' %}
+        {% endif %}
         <li>
-          <a href="{{ node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a>
+          <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a>
           {% if children and active %}
             <ul class="sp-page__sidebar-subnav">
               {% for child in children %}
-                {% assign class = 'sp-page__sidebar-item' %}
+                {% assign base = 'sp-page__sidebar-item' %}
+                {% assign class = base | append: ' ' | append: base | append: '--child' %}
                 {% if child.url == page.url or child.url == page.parent %}
-                  {% assign class = class | append: ' ' | append: class | append: '--active' %}
+                  {% assign class = class | append: ' ' | append: base | append: '--active' %}
                 {% endif %}
-                <li><a href="{{ child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
+                <li><a href="{{ child.redirect_to | default: child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
               {% endfor %}
             </ul>
           {% endif %}

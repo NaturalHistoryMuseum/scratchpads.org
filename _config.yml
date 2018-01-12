@@ -1,14 +1,15 @@
 permalink: /news/:year-:month/:title
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 collections:
   events:
     output: true
     permalink: /event/:year-:month/:title
+  training-material:
 defaults:
   -
     scope:
-      scope: ""
       type: "events"
     values:
       layout: "event"

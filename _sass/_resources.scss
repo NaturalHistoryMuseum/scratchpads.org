@@ -1,0 +1,9 @@
+.sp-resources {
+  &__resource {
+    display: flex;
+
+    > img {
+      flex: 0 0 auto;
+    }
+  }
+}
