@@ -7,6 +7,9 @@ collections:
     output: true
     permalink: /event/:year-:month/:title
   training-material:
+  ambassadors:
+    output: true
+    permalink: /ambassador/:title
 defaults:
   -
     scope:
@@ -15,3 +18,10 @@ defaults:
       layout: "event"
       theme: "support"
       parent: "/support/training/events"
+  -
+    scope:
+      type: "ambassadors"
+    values:
+      layout: "page"
+      theme: "support"
+      parent: "/support/ambassadors/current"

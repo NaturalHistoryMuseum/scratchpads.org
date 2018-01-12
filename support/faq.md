@@ -3,6 +3,7 @@ sidebar: FAQ
 weight: 3
 ---
 
+{% assign wiki = site.html_pages | where_exp: "page", "page.url == '/support/help-wiki'" | map: "redirect_to" | first  %}
 
 Frequently Asked Questions
 ==========================
@@ -40,7 +41,7 @@ The Scratchpads project is about customising Drupal's basic functionality to mak
 [Back to top](#top)
 
 ## Is there a user manual for Scratchpads?
-Scratchpads (much like taxonomy) are being updated and upgraded constantly to meet users’ demands to manage and connect biodiversity data. To address these changes we have adopted an easily adjustable system of documenting Scratchpads functionality through our [dedicated wiki page](http://help.scratchpads.eu). Wikis can easily be updated to reflect latest updates. If you feel more confident with a printed manual of Scratchpads, you can generate and download one through the wiki pages.  
+Scratchpads (much like taxonomy) are being updated and upgraded constantly to meet users’ demands to manage and connect biodiversity data. To address these changes we have adopted an easily adjustable system of documenting Scratchpads functionality through our [dedicated wiki page]({{ wiki }}). Wikis can easily be updated to reflect latest updates. If you feel more confident with a printed manual of Scratchpads, you can generate and download one through the wiki pages.  
 [Back to top](#top)
 
 ## I am a developer. Can I help?
@@ -58,7 +59,7 @@ Yes. Spreading the word about Scratchpads and its use in the taxonomic and biodi
 [Back to top](#top)
 
 ## How can I apply for a new Scratchpad?
-You can apply for a new Scratchpad by submitting the [online application form](http://get.scratchpads.eu). After submitting the form you will receive an e-mail with directions on how to access and set up your new site. We recommend following the [on-line training material](http://help.scratchpads.eu/) and exploring the [sandbox test site](../support/sandbox) before starting to populate your own new site.  
+You can apply for a new Scratchpad by submitting the [online application form](http://get.scratchpads.eu). After submitting the form you will receive an e-mail with directions on how to access and set up your new site. We recommend following the [on-line training material]({{ wiki }}) and exploring the [sandbox test site](../support/sandbox) before starting to populate your own new site.  
 [Back to top](#top)
 
 ## Can I apply for a new site on behalf of someone else?
@@ -78,5 +79,5 @@ No. Scratchpads will not take any credit for any of the data you put in your sit
 [Back to top](#top)
 
 ## I have applied for and created my new Scratchpad site. Now what?
-Congratulations! You are now ready to start structuring your site and put content in. You can follow our basic training guide, search for documentation on specific topics or watch some of our how-to videos available in our dedicated [help wiki site](http://help.scratchpads.eu). If cannot find out how to do a specific task please ask for support through our [issues queue site](http://dev.scratchpads.eu).  
+Congratulations! You are now ready to start structuring your site and put content in. You can follow our basic training guide, search for documentation on specific topics or watch some of our how-to videos available in our dedicated [help wiki site]({[ wiki ]}). If cannot find out how to do a specific task please ask for support through our [issues queue site](http://dev.scratchpads.eu).  
 [Back to top](#top)

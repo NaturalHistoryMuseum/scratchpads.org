@@ -1,0 +1,38 @@
+---
+layout: page
+title: Ambassadors
+sidebar: Current Ambassadors
+weight: 2
+---
+
+<h1>Ambassadors</h1>
+
+{% for person in site.ambassadors %}
+  <hr>
+  <div>
+    <h2>{{ person.name }}</h2>
+
+    <img style="float: left" src="/{{ person.image }}">
+    <b>
+      <ul>
+        <li>{{ person.name }}</li>
+        <li>{{ person.position }}</li>
+        <li>{{ person.institution }}</li>
+        <li>{{ person.location }}</li>
+      </ul>
+    </b>
+
+    <i>Scratchpads:</i>
+    <ul>
+    {% for pad in person.scratchpads %}
+      <li>
+        <a href="{{ pad.url }}">{{ pad.name }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+
+    <p>Scratchpad user since {{ person.user_since }}</p>
+
+    <p><a href="{{ person.url }}">Read more about {{ person.name }}</a></p>
+  </div>
+{% endfor %}
