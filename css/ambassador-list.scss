@@ -1,0 +1,21 @@
+---
+---
+@import 'variables';
+@import 'mixins';
+@import 'ambassador-info';
+
+.sp-ambassador-list {
+  &__name {
+    font-size: 18.67px;
+    line-height: 28px;
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
+  }
+}

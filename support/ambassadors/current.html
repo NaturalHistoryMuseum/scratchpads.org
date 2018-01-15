@@ -3,6 +3,8 @@ layout: page
 title: Ambassadors
 sidebar: Current Ambassadors
 weight: 2
+css: ambassador-list
+markdown: false
 ---
 
 <h1>Ambassadors</h1>
@@ -10,29 +12,10 @@ weight: 2
 {% for person in site.ambassadors %}
   <hr>
   <div>
-    <h2>{{ person.name }}</h2>
+    <h2 class="sp-ambassador-list__name"><a href="{{ person.url }}">{{ person.name }}</a></h2>
 
-    <img style="float: left" src="/{{ person.image }}">
-    <b>
-      <ul>
-        <li>{{ person.name }}</li>
-        <li>{{ person.position }}</li>
-        <li>{{ person.institution }}</li>
-        <li>{{ person.location }}</li>
-      </ul>
-    </b>
+    {% include ambassador-info.html person=person %}
 
-    <i>Scratchpads:</i>
-    <ul>
-    {% for pad in person.scratchpads %}
-      <li>
-        <a href="{{ pad.url }}">{{ pad.name }}</a>
-      </li>
-    {% endfor %}
-    </ul>
-
-    <p>Scratchpad user since {{ person.user_since }}</p>
-
-    <p><a href="{{ person.url }}">Read more about {{ person.name }}</a></p>
+    <p class="sp-ambassador-list__readmore"><a href="{{ person.url }}">Read more about {{ person.name }}</a></p>
   </div>
 {% endfor %}

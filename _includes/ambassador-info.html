@@ -1,0 +1,30 @@
+{% assign person = include.person %}
+{% assign cls = 'sp-ambassador-info' %}
+<div class="{{ cls }}">
+  <img class="{{ cls }}__image" src="/{{ person.image }}">
+  <div>
+    <ul class="{{cls}}__details">
+      <li>{{ person.name }}</li>
+      {% for line in person.position %}
+        <li>{{ line }}</li>
+      {% endfor %}
+      <li>{{ person.institution }}</li>
+      <li>{{ person.location }}</li>
+    </ul>
+
+    {% if person.scratchpads %}
+      <i>Scratchpads:</i>
+      <ul class="{{cls}}__scratchpads">
+      {% for pad in person.scratchpads %}
+        <li>
+          <a href="{{ pad.url | default: pad }}">{{ pad.name | default: pad.url | default: pad }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if person.user_since %}
+      <p>Scratchpad user since {{ person.user_since }}</p>
+    {% endif %}
+  </div>
+</div>

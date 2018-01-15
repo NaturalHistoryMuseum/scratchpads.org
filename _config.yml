@@ -22,6 +22,7 @@ defaults:
     scope:
       type: "ambassadors"
     values:
-      layout: "page"
+      layout: "ambassador"
       theme: "support"
       parent: "/support/ambassadors/current"
+      markdown: false

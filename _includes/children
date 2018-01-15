@@ -1,8 +1,0 @@
-{% assign children = site.html_pages | sort: "weight" %}
-{% for node in site.html_pages %}
-  {% include parent page=node %}
-  {% assign p = include.page | default: page %}
-  {% if parent != p.url %}
-    {% assign children = children | where_exp: "c", "c.url != node.url" | where_exp: "c", "c.weight != -1" %}
-  {% endif %}
-{% endfor %}

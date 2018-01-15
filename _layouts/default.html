@@ -7,9 +7,9 @@
   {% if page.css %}
   <link rel="stylesheet" href="/css/{{page.css}}.css">
   {% endif %}
-  {% if layout.css %}
-  <link rel="stylesheet" href="/css/{{layout.css}}.css">
-  {% endif %}
+  {% for css in layout.css %}
+  <link rel="stylesheet" href="/css/{{css}}.css">
+  {% endfor %}
   {% feed_meta %}
   {% for js in page.js %}
   <script src="/assets/{{js}}.js" defer></script>

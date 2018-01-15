@@ -2,44 +2,65 @@
 layout: default
 css: page
 ---
-{% comment %}
-  Find the root page for the current category by goind through all
-  main menu pages and selecting the one that matches by category
-{% endcomment %}
-{% include theme %}
-{% assign page_theme = theme %}
-{% assign roots = site.html_pages | where_exp: "root", "root.menu != nil" %}
-{% for r in roots %}
-  {% include theme page=r %}
-  {% if theme == page_theme %}
-    {% assign root = r %}
+{% assign array = '' | split: '' %}
+
+{% assign current = page %}
+{% assign path = array %}
+{% for i in (1..5) %}
+  {% assign root = current %}
+  {% include parent page=current %}
+  {% assign current = site.html_pages | where_exp: "page", "page.url == parent" | first %}
+  {% if current and current.url != '/' %}
+    {% assign path = path | unshift: current.url %}
+  {% else %}
     {% break %}
   {% endif %}
 {% endfor %}
 
-{% include parent %}
-{% assign page_parent = parent %}
+{% assign menu_pages = array %}
+{% assign child_pages = array %}
+{% assign has_children = array %}
+
+{% for node in site.html_pages %}
+  {% include parent page=node %}
+  {% if parent != '/' %}
+    {% assign has_children = has_children | push: parent %}
+  {% endif %}
+
+  {% if parent == root.url %}
+    {% assign menu_pages = menu_pages | push: node %}
+  {% elsif parent == path[1] or parent == page.url %}
+    {% assign child_pages = child_pages | push: node %}
+  {% endif %}
+{% endfor %}
+
+{% assign has_children = has_children | uniq | join: '$' | append: '$' %}
+
+{% assign path = path | join: '$' | append: '$' %}
+
+{% include theme %}
+{% assign page_theme = theme %}
 
 {% assign image = site.static_files | where_exp: "img", "img.path contains 'assets/sidebar'" | sample %}
 <div class="sp-page" data-theme="{{ page_theme }}">
   <aside class="sp-page__sidebar">
     <ul class="sp-page__sidebar-nav">
-      {% comment %}
-        Loop through root page and its children
-      {% endcomment %}
-      {% include children page=root %}
-      {% assign pages = children | unshift: root %}
+      {% assign pages = menu_pages | unshift: root %}
 
       {% for node in pages %}
         {% comment %}Don't indent children of root page{% endcomment %}
+        {% assign url = node.url | append: '$' %}
+
         {% if node == root %}
           {% assign children = nil %}
+        {% elsif has_children contains url  %}
+          {% assign children = true %}
         {% else %}
-          {% include children page=node %}
+          {% assign children = nil %}
         {% endif %}
 
         {% assign active = false %}
-        {% if node.url == page.url or node.url == page_parent and page_parent != root.url %}
+        {% if page.url == node.url or path contains url and node.url != root.url %}
           {% assign active = true %}
         {% endif %}
 
@@ -49,8 +70,7 @@ css: page
         {% if active %}
           {% assign class = class | append: ' ' | append: base | append: '--active' %}
         {% endif %}
-        {% assign len = children | size %}
-        {% if len > 0 %}
+        {% if children %}
           {% assign class = class | append: ' ' | append: base | append: '--children' %}
         {% endif %}
         {% if node.redirect_to %}
@@ -60,7 +80,7 @@ css: page
           <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a>
           {% if children and active %}
             <ul class="sp-page__sidebar-subnav">
-              {% for child in children %}
+              {% for child in child_pages %}
                 {% assign base = 'sp-page__sidebar-item' %}
                 {% assign class = base | append: ' ' | append: base | append: '--child' %}
                 {% if child.url == page.url or child.url == page.parent %}
@@ -75,7 +95,12 @@ css: page
     </ul>
     <img src="{{image.path}}" alt="" role="presentation" class="sp-page__decoration">
   </aside>
+
   <article class="sp-page__main">
-    {{ content }}
+    {% if page.markdown != false %}
+      {% include content.html content=content tag='article' %}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </article>
 </div>
