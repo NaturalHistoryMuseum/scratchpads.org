@@ -20,6 +20,7 @@
       &__main {
         h1,
         h2,
+        h3,
         a,
         a:visited {
           color: $colour;
@@ -120,7 +121,8 @@
     }
 
     h1,
-    h2 {
+    h2,
+    h3 {
       font-family: $title-font;
 
       > a {
@@ -187,5 +189,17 @@
   dt {
     margin: 0;
     padding: 4px 8px;
+  }
+
+  code {
+    display: block;
+    background: #CFCCBA;
+    font-size: 13.33px;
+    line-height: 3;
+    margin: 8px 32px;
+    border: 1px solid #AAA;
+    padding: 10px 16px 25px;
+    white-space: pre;
+    overflow-x: auto;
   }
 }

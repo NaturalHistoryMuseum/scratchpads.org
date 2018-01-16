@@ -3,10 +3,10 @@ sidebar: FAQ
 weight: 3
 ---
 
-{% assign wiki = site.html_pages | where_exp: "page", "page.url == '/support/help-wiki'" | map: "redirect_to" | first  %}
-
 Frequently Asked Questions
 ==========================
+
+{% assign wiki = site.html_pages | where_exp: "page", "page.url == '/support/help-wiki'" | map: "redirect_to" | first  %}
 
 1.  [What are Scratchpads?](#what-are-scratchpads)
 2.  [Who uses Scratchpads?](#who-uses-scratchpads)
