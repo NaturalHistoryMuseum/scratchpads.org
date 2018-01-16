@@ -116,6 +116,10 @@
     margin-left: 15px;
     flex: 1;
 
+    p:nth-of-type(2) {
+      clear: left;
+    }
+
     a:hover {
       text-decoration: none;
     }
@@ -149,6 +153,13 @@
       margin-bottom: 20px;
     }
   }
+
+  &__image {
+    display: block;
+    float: left;
+    width: 200px;
+    padding-bottom: 20px;
+  }
 }
 
 .sp-content {
@@ -165,30 +176,6 @@
 
   ul {
     padding-left: 1.2em;
-  }
-
-  dl {
-    border: 1px solid #ccc;
-    background: #ccc;
-    margin: 0 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 31px;
-    grid-row-gap: 1px;
-    line-height: 22px;
-  }
-
-  dt {
-    background: #f7f7f7;
-  }
-
-  dd {
-    background: white;
-  }
-
-  dd,
-  dt {
-    margin: 0;
-    padding: 4px 8px;
   }
 
   code {

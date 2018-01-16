@@ -99,6 +99,11 @@ css: page
   </aside>
 
   <article class="sp-page__main">
+    {% if page.image %}
+      <div class="sp-page__image">
+        <img src="{{page.image}}" alt="">
+      </div>
+    {% endif %}
     {% if page.markdown != false %}
       {% include content.html content=content tag='article' %}
     {% else %}

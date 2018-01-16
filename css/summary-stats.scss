@@ -1,0 +1,26 @@
+---
+---
+
+.sp-summary-stats__table {
+  border: 1px solid #ccc;
+  background: #ccc;
+  margin: 0 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 31px;
+  grid-row-gap: 1px;
+  line-height: 22px;
+
+  dt {
+    background: #f7f7f7;
+  }
+
+  dd {
+    background: white;
+  }
+
+  dd,
+  dt {
+    margin: 0;
+    padding: 4px 8px;
+  }
+}

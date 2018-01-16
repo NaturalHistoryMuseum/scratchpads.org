@@ -1,11 +1,11 @@
 ---
 weight: 2
+css: about-why
+image: /about/why/why-publish.png
 ---
 
 Publish your data online
 ========================
-
-![](/about/why/why-publish.png)
 
 **Scratchpads are an easy and effective way to present your data online.**  
   
@@ -14,18 +14,14 @@ Whether you just want to publish on the web, construct a database or assemble a 
 
 ## Overview of features: - Master
 
-### Share your data across comunities
+Share your data across comunities
+: Scratchpad lets you connect with your community.
 
-Scratchpad lets you connect with your community.
+Search engine friendly
+: All Scratchpads sites are search engine friendly. Scratchpads sites usually rank on top in Google search results when relevant taxa and keywords are used.
 
-### Search engine friendly
+Publish your content online
+: Scratchpads lets you create your content online.
 
-All Scratchpads sites are search engine friendly. Scratchpads sites usually rank on top in Google search results when relevant taxa and keywords are used.
-
-### Publish your content online
-
-Scratchpads lets you create your content online.
-
-### Publish in peer reviewed Journals
-
-Submit original data present in your scratchpad directly to peer-reviewed journals for publication.
+Publish in peer reviewed Journals
+: Submit original data present in your scratchpad directly to peer-reviewed journals for publication.
