@@ -6,7 +6,7 @@ collections:
   events:
     output: true
     permalink: /event/:year-:month/:title
-  training-material:
+  resources:
   ambassadors:
     output: true
     permalink: /ambassador/:title

@@ -1,9 +1,23 @@
 .sp-resources {
+  &__title {
+    font-size: 18.66px;
+    line-height: 28px;
+  }
+
   &__resource {
     display: flex;
 
-    > img {
-      flex: 0 0 auto;
+    p:first-child {
+      margin-top: 0px;
+    }
+  }
+
+  &__thumb {
+    flex: 0 0 auto;
+    margin-right: 15px;
+
+    img {
+      border: 0.5px solid rgba(0, 0, 0, 0.1);
     }
   }
 }

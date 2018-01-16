@@ -1,0 +1,46 @@
+{% assign resources = site.resources | sort: "order" %}
+{% if include.tag %}
+  {% assign resources = resources | where_exp: "resource", "resource.tags contains include.tag" %}
+{% endif %}
+
+{% assign exts = 'zip|ppt' | split: '|' %}
+
+{% for item in resources %}
+  {% assign extPos = item.download | size | minus: 3 %}
+  {% assign ext = item.download | slice: extPos, 3 %}
+  {% unless exts contains ext %}
+    {% assign ext = nil %}
+  {% endunless %}
+
+  <hr>
+
+  <h2>
+    <a href="{{item.download}}"
+       download
+       class="sp-resources__title"
+       role="presentation"
+       tabindex="-1">{{item.title | capitalise }}</a>
+    {% if ext %}
+      <img src="/assets/{{ext}}.png" alt="" aria-hidden="true">
+    {% endif %}
+  </h2>
+
+  <div class="sp-resources__resource">
+    {% if item.image %}
+      <a href="{{item.download}}" download aria-hidden="true" tabindex="-1" class="sp-resources__thumb">
+        <img src="{{item.image}}">
+      </a>
+    {% endif %}
+
+    <div>
+      {{ item.content }}
+
+      <a href="{{item.download}}" download>
+        Download {{ item.short-name | default: item.title }}
+        {% if ext %}
+          <img src="/assets/{{ext}}.png" alt="This download is a {{ ext }} file">
+        {% endif %}
+      </a>
+    </div>
+  </div>
+{% endfor %}

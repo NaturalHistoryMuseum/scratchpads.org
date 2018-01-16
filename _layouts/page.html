@@ -21,7 +21,8 @@ css: page
 {% assign child_pages = array %}
 {% assign has_children = array %}
 
-{% for node in site.html_pages %}
+{% assign weighted_pages = site.html_pages | sort: "weight" %}
+{% for node in weighted_pages %}
   {% include parent page=node %}
   {% if parent != '/' %}
     {% assign has_children = has_children | push: parent %}
@@ -67,17 +68,21 @@ css: page
         {% comment %}Generate class for menu item with BEM modifiers{% endcomment %}
         {% assign base = 'sp-page__sidebar-item' %}
         {% assign class = base %}
+        {% assign aria = '' %}
+        {% assign expanded = 'false' %}
         {% if active %}
+          {% assign expanded = 'true' %}
           {% assign class = class | append: ' ' | append: base | append: '--active' %}
         {% endif %}
         {% if children %}
+          {% assign aria = 'aria-expanded="' | append: expanded | append: '"' %}
           {% assign class = class | append: ' ' | append: base | append: '--children' %}
         {% endif %}
         {% if node.redirect_to %}
           {% assign class = class | append: ' ' | append: base | append: '--external' %}
         {% endif %}
         <li>
-          <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}">{{ node.sidebar | default: node.title }}</a>
+          <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" {{ aria }}>{{ node.sidebar | default: node.title }}</a>
           {% if children and active %}
             <ul class="sp-page__sidebar-subnav">
               {% for child in child_pages %}

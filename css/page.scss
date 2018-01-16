@@ -115,9 +115,23 @@
     margin-left: 15px;
     flex: 1;
 
+    a:hover {
+      text-decoration: none;
+    }
+
     h1,
     h2 {
       font-family: $title-font;
+
+      > a {
+        &:link {
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     h1 {
@@ -145,10 +159,6 @@
   p,
   ul {
     margin-bottom: 20px;
-  }
-
-  a:hover {
-    text-decoration: none;
   }
 
   ul {
