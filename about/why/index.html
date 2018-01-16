@@ -1,0 +1,26 @@
+---
+layout: page
+title: Why choose Scratchpads?
+---
+<h1>Why Choose Scratchpads?</h1>
+
+{% assign nodes = site.html_pages | sort: "weight" %}
+
+{% for node in nodes %}
+  {% include parent page=node %}
+  {% if parent != page.url %}
+    {% continue %}
+  {% endif %}
+
+  <hr>
+
+  <div class="sp-media">
+    <div>
+      <h2><a href="{{node.url}}">{{ node.title }}</a></h2>
+      {% assign excerpt = node.content | split: site.excerpt_separator %}
+      <p>{{ excerpt[1] | strip_html }}</p>
+      <a href="{{node.url}}">Read more</a>
+    </div>
+    <a href="{{node.url}}"><img src="{{node.image}}"></a>
+  </div>
+{% endfor %}

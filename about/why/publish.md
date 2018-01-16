@@ -7,8 +7,7 @@ image: /about/why/why-publish.png
 Publish your data online
 ========================
 
-**Scratchpads are an easy and effective way to present your data online.**  
-  
+**Scratchpads are an easy and effective way to present your data online.**
 
 Whether you just want to publish on the web, construct a database or assemble a formal manuscript, Scratchpads are able to help!
 
