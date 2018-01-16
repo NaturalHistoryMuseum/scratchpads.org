@@ -35,9 +35,7 @@ css: page
   {% endif %}
 {% endfor %}
 
-{% assign has_children = has_children | uniq | join: '$' | append: '$' %}
-
-{% assign path = path | join: '$' | append: '$' %}
+{% assign has_children = has_children | uniq %}
 
 {% include theme %}
 {% assign page_theme = theme %}
@@ -50,18 +48,17 @@ css: page
 
       {% for node in pages %}
         {% comment %}Don't indent children of root page{% endcomment %}
-        {% assign url = node.url | append: '$' %}
 
         {% if node == root %}
           {% assign children = nil %}
-        {% elsif has_children contains url  %}
+        {% elsif has_children contains node.url  %}
           {% assign children = true %}
         {% else %}
           {% assign children = nil %}
         {% endif %}
 
         {% assign active = false %}
-        {% if page.url == node.url or path contains url and node.url != root.url %}
+        {% if page.url == node.url or path contains node.url and node.url != root.url %}
           {% assign active = true %}
         {% endif %}
 
