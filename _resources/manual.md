@@ -5,6 +5,7 @@ image: /assets/manual.png
 tags:
   - training
   - ambassadors
+order: 2
 ---
 
 {% assign wiki = site.html_pages | where_exp: "page", "page.url == '/support/help-wiki'" | map: "redirect_to" | first  %}

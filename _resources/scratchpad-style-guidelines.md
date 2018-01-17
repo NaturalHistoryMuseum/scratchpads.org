@@ -5,7 +5,7 @@ download: /resources/files/guidelines-for-scratchpads-logotypes-colours-and-font
 image: /resources/thumbnails/design-guidelines-thumbnail.png
 tags:
   - ambassadors
-order: 2
+order: 5
 ---
 
 The default logotype is green but six other colours are also available.
