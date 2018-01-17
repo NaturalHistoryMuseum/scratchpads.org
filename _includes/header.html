@@ -16,7 +16,7 @@
         {% if theme == page_theme %}
           <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ theme }}">{{ node.menu }}</li>
         {% else %}
-          <li><a href="{{ node.url }}" class="sp-header__nav-link" data-theme="{{ theme }}">{{ node.menu }}</a></li>
+          <li><a href="{{ node.redirect_to | default: node.url }}" class="sp-header__nav-link" data-theme="{{ theme }}">{{ node.menu }}</a></li>
         {% endif %}
       {% endfor %}
     </ul>

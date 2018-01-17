@@ -44,9 +44,11 @@ css: page
 <div class="sp-page" data-theme="{{ page_theme }}">
   <aside class="sp-page__sidebar">
     <ul class="sp-page__sidebar-nav">
-      {% assign pages = menu_pages | unshift: root %}
+      {% unless root.redirect_to %}
+        {% assign menu_pages = menu_pages | unshift: root %}
+      {% endunless %}
 
-      {% for node in pages %}
+      {% for node in menu_pages %}
         {% comment %}Don't indent children of root page{% endcomment %}
 
         {% if node == root %}
