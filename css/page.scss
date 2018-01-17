@@ -205,5 +205,18 @@
 
 .sp-media {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin: 0 -8px;
+
+  &--space {
+    justify-content: space-between;
+  }
+
+  > * {
+    margin: 4px 8px;
+  }
+
+  > img {
+    flex: 0 0 auto;
+  }
 }
