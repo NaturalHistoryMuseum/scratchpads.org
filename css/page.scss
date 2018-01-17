@@ -170,7 +170,7 @@
   }
 
   p,
-  ul {
+  :not(li) > ul {
     margin-bottom: 20px;
   }
 
@@ -188,6 +188,18 @@
     padding: 10px 16px 25px;
     white-space: pre;
     overflow-x: auto;
+  }
+
+  table {
+    border: 1px solid #CCC;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td, th {
+    padding: 4px 8px;
   }
 }
 
