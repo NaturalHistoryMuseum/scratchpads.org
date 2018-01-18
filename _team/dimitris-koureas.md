@@ -1,0 +1,8 @@
+---
+image: user-28.png
+d: "M363,92L371,94L376,97L381,105L382,113L382,119L381,124L383,125L382,131L381,136L380,137L376,141L374,145L374,149L376,153L378,154L381,161L385,166L396,171L401,173L404,176L408,184L409,193L404,198L402,202L392,209L381,212L376,218L374,228L368,250L365,274L361,292L362,297L358,338L357,353L348,355L342,358L344,305L348,302L350,297L348,294L346,286L341,276L338,269L333,263L327,260L327,253L328,249L328,245L326,243L324,240L328,236L325,226L324,216L320,217L318,228L314,233L311,239L306,245L305,252L298,249L297,242L298,235L304,224L311,213L310,206L310,200L305,195L306,190L309,182L311,173L321,170L331,165L341,159L345,157L347,149L348,140L348,137L346,132L342,133L341,128L341,123L341,120L344,122L345,119L345,111L346,103L347,98L351,96L360,93"
+---
+
+**e-Taxonomy Support Specialist**
+
+Dimitris is a biologist. He was awarded his PhD from Aristotle University in the field of Plant Systematics and Biodiversity working with aromatic plants of the Labiatae family. He participated, as a research associate, in several EU co-funded biodiversity research programs. He is currently involved in organising and delivering parts of the outreach and support program of Scratchpads and also works on the diversity and taxonomy of the [genus _Thymus_ in SE Europe](http://thymus.myspecies.info).

@@ -1,0 +1,22 @@
+---
+---
+
+.sp-team {
+  &__map-link {
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__member {
+    margin: 16px 0;
+
+    &:target {
+      transition: background-color 0.5s;
+      background: #FFFFCC;
+    }
+  }
+}

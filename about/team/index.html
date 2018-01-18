@@ -1,0 +1,34 @@
+---
+title: Team
+layout: page
+css: team
+weight: 3
+---
+
+<h1>Team</h1>
+
+<svg style="width: 100%;" viewBox="0 0 700 700" role="group" aria-label="Image map of current staff">
+  <image href="/about/team/photos/team-bw.png" width="700" height="700" />
+
+  {% for person in site.team %}
+    <pattern id="img{{ forloop.index }}" patternUnits="userSpaceOnUse" width="700" height="700">
+      <image href="/about/team/photos/{{ person.image }}" width="700" height="700" />
+    </pattern>
+    <a xlink:href="#{{ person.title | replace: ' ', '-' | downcase }}"
+       xlink:title="{{ person.title }}"
+       class="sp-team__map-link">
+      <path d="{{ person.d }}" fill="url(#img{{forloop.index}})" />
+    </a>
+  {% endfor %}
+</svg>
+
+{% for person in site.team %}
+  <hr>
+
+  <div id="{{ person.title | replace: ' ', '-' | downcase }}"
+       class="sp-team__member">
+    <h2>{{ person.title }}</h2>
+    {{ person.content }}
+    <a href="#top" aria-hidden="true" tabindex="-1">Back to top</a>
+  </div>
+{% endfor %}

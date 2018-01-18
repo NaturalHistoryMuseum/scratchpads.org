@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     {% assign redirect_to = "/about/team/#"  | append: page.title | replace: ' ', '-' | downcase %}
+     <meta http-equiv="refresh" content="0;url={{ redirect_to }}" />
+  </head>
+  <body>
+      This page has moved to <a href="{{ redirect_to }}">{{ redirect_to }}</a>.
+  </body>
+</html>

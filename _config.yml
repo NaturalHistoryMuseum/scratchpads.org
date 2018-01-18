@@ -10,6 +10,9 @@ collections:
   ambassadors:
     output: true
     permalink: /ambassador/:title
+  team:
+    output: true
+    permalink: /team/:title
 defaults:
   -
     scope:
@@ -26,3 +29,7 @@ defaults:
       theme: "support"
       parent: "/support/ambassadors/current"
       markdown: false
+  - scope:
+      type: "team"
+    values:
+      layout: "team"
