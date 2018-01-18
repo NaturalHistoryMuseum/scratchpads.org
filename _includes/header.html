@@ -13,11 +13,13 @@
     {% assign menu = (site.pages | where_exp: "page", "page.menu" | sort: "weight") %}
       {% for node in menu %}
         {% include theme page=node %}
+        {% assign base = "sp-header__nav-link" %}
+        {% assign class = base %}
         {% if theme == page_theme %}
-          <li class="sp-header__nav-link sp-header__nav-link--active" data-theme="{{ theme }}">{{ node.menu }}</li>
-        {% else %}
-          <li><a href="{{ node.redirect_to | default: node.url }}" class="sp-header__nav-link" data-theme="{{ theme }}">{{ node.menu }}</a></li>
+          {% assign class = class | append: " " | append: base | append: "--active" %}
         {% endif %}
+
+        <li><a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" data-theme="{{ theme }}">{{ node.menu }}</a></li>
       {% endfor %}
     </ul>
   </nav>

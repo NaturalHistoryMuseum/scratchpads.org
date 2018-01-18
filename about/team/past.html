@@ -1,0 +1,12 @@
+---
+title: Previous team members
+layout: page
+---
+{% assign team = site.team | where_exp: "person", "person.current == false" %}
+
+<h1>Previous team members</h1>
+{% for person in team %}
+  <hr>
+  {{ person.title }}<br>
+  {{ person.content }}
+{% endfor %}

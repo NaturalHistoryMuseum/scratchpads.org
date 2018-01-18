@@ -10,7 +10,8 @@ weight: 3
 <svg style="width: 100%;" viewBox="0 0 700 700" role="group" aria-label="Image map of current staff">
   <image href="/about/team/photos/team-bw.png" width="700" height="700" />
 
-  {% for person in site.team %}
+  {% assign team = site.team | where_exp: "person", "person.current != false" %}
+  {% for person in team %}
     <pattern id="img{{ forloop.index }}" patternUnits="userSpaceOnUse" width="700" height="700">
       <image href="/about/team/photos/{{ person.image }}" width="700" height="700" />
     </pattern>
@@ -22,7 +23,7 @@ weight: 3
   {% endfor %}
 </svg>
 
-{% for person in site.team %}
+{% for person in team %}
   <hr>
 
   <div id="{{ person.title | replace: ' ', '-' | downcase }}"

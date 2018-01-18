@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-     {% assign redirect_to = "/about/team/#"  | append: page.title | replace: ' ', '-' | downcase %}
+     {% if page.current != false %}
+      {% assign redirect_to = "/about/team/#"  | append: page.title | replace: ' ', '-' | downcase %}
+     {% else %}
+       {% assign redirect_to = "/about/team/past" %}
+     {% endif %}
      <meta http-equiv="refresh" content="0;url={{ redirect_to }}" />
   </head>
   <body>

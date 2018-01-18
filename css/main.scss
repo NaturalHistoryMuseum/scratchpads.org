@@ -41,7 +41,7 @@ h3 {
   font-weight: 400;
 }
 
-a:not(:link) {
+a:not([href]) {
   color: red;
   text-decoration: line-through;
 }
