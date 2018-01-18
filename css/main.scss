@@ -25,6 +25,18 @@ main {
   background: white;
 }
 
+@each $theme, $colour in $colours {
+  main[data-theme=#{$theme}] {
+    h1,
+    h2,
+    h3,
+    a,
+    a:visited {
+      color: $colour;
+    }
+  }
+}
+
 header {
   padding: 20px 10px 0;
 }
@@ -48,3 +60,4 @@ a:not([href]) {
 
 @import "header";
 @import "footer";
+@import "content";

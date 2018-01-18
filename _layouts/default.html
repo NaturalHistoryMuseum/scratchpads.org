@@ -20,7 +20,10 @@
 
 <body>
   {% include header.html %}
-  <main>
+
+  {% include theme %}
+  {% assign page_theme = theme %}
+  <main data-theme="{{theme}}">
     {{ content }}
   </main>
   {% include footer.html %}
