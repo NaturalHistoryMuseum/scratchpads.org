@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 css: page
 ---
 {% assign array = '' | split: '' %}
@@ -37,79 +37,78 @@ css: page
 
 {% assign has_children = has_children | uniq %}
 
-{% include theme %}
-{% assign page_theme = theme %}
+<div class="sp-page">
+{% capture sidebar %}
+  <ul class="sp-page__sidebar-nav">
+    {% unless root.redirect_to %}
+      {% assign menu_pages = menu_pages | unshift: root %}
+    {% endunless %}
 
-{% assign image = site.static_files | where_exp: "img", "img.path contains 'assets/sidebar'" | sample %}
-<div class="sp-page" data-theme="{{ page_theme }}">
-  <aside class="sp-page__sidebar">
-    <ul class="sp-page__sidebar-nav">
-      {% unless root.redirect_to %}
-        {% assign menu_pages = menu_pages | unshift: root %}
-      {% endunless %}
+    {% for node in menu_pages %}
+      {% comment %}Don't indent children of root page{% endcomment %}
 
-      {% for node in menu_pages %}
-        {% comment %}Don't indent children of root page{% endcomment %}
+      {% if node == root %}
+        {% assign children = nil %}
+      {% elsif has_children contains node.url  %}
+        {% assign children = true %}
+      {% else %}
+        {% assign children = nil %}
+      {% endif %}
 
-        {% if node == root %}
-          {% assign children = nil %}
-        {% elsif has_children contains node.url  %}
-          {% assign children = true %}
-        {% else %}
-          {% assign children = nil %}
+      {% assign active = false %}
+      {% if page.url == node.url or path contains node.url and node.url != root.url %}
+        {% assign active = true %}
+      {% endif %}
+
+      {% comment %}Generate class for menu item with BEM modifiers{% endcomment %}
+      {% assign base = 'sp-page__sidebar-item' %}
+      {% assign class = base %}
+      {% assign aria = '' %}
+      {% assign expanded = 'false' %}
+      {% if active %}
+        {% assign expanded = 'true' %}
+        {% assign class = class | append: ' ' | append: base | append: '--active' %}
+      {% endif %}
+      {% if children %}
+        {% assign aria = 'aria-expanded="' | append: expanded | append: '"' %}
+        {% assign class = class | append: ' ' | append: base | append: '--children' %}
+      {% endif %}
+      {% if node.redirect_to %}
+        {% assign class = class | append: ' ' | append: base | append: '--external' %}
+      {% endif %}
+      <li>
+        <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" {{ aria }}>{{ node.sidebar | default: node.title }}</a>
+        {% if children and active %}
+          <ul class="sp-page__sidebar-subnav">
+            {% for child in child_pages %}
+              {% assign base = 'sp-page__sidebar-item' %}
+              {% assign class = base | append: ' ' | append: base | append: '--child' %}
+              {% if child.url == page.url or child.url == page.parent %}
+                {% assign class = class | append: ' ' | append: base | append: '--active' %}
+              {% endif %}
+              <li><a href="{{ child.redirect_to | default: child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
+            {% endfor %}
+          </ul>
         {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endcapture %}
 
-        {% assign active = false %}
-        {% if page.url == node.url or path contains node.url and node.url != root.url %}
-          {% assign active = true %}
-        {% endif %}
+{% include sidebar.html class="sp-page__sidebar" content=sidebar %}
 
-        {% comment %}Generate class for menu item with BEM modifiers{% endcomment %}
-        {% assign base = 'sp-page__sidebar-item' %}
-        {% assign class = base %}
-        {% assign aria = '' %}
-        {% assign expanded = 'false' %}
-        {% if active %}
-          {% assign expanded = 'true' %}
-          {% assign class = class | append: ' ' | append: base | append: '--active' %}
-        {% endif %}
-        {% if children %}
-          {% assign aria = 'aria-expanded="' | append: expanded | append: '"' %}
-          {% assign class = class | append: ' ' | append: base | append: '--children' %}
-        {% endif %}
-        {% if node.redirect_to %}
-          {% assign class = class | append: ' ' | append: base | append: '--external' %}
-        {% endif %}
-        <li>
-          <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" {{ aria }}>{{ node.sidebar | default: node.title }}</a>
-          {% if children and active %}
-            <ul class="sp-page__sidebar-subnav">
-              {% for child in child_pages %}
-                {% assign base = 'sp-page__sidebar-item' %}
-                {% assign class = base | append: ' ' | append: base | append: '--child' %}
-                {% if child.url == page.url or child.url == page.parent %}
-                  {% assign class = class | append: ' ' | append: base | append: '--active' %}
-                {% endif %}
-                <li><a href="{{ child.redirect_to | default: child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-    <img src="{{image.path}}" alt="" role="presentation" class="sp-page__decoration">
-  </aside>
-
-  <article class="sp-page__main">
-    {% if page.image %}
-      <div class="sp-page__image">
-        <img src="{{page.image}}" alt="">
-      </div>
-    {% endif %}
-    {% if page.markdown != false %}
-      {% include content.html content=content tag='article' %}
-    {% else %}
-      {{ content }}
-    {% endif %}
-  </article>
+  <main class="sp-base__content">
+    <article class="sp-page__main">
+      {% if page.image %}
+        <div class="sp-page__image">
+          <img src="{{page.image}}" alt="">
+        </div>
+      {% endif %}
+      {% if page.markdown != false %}
+        {% include content.html content=content tag='article' %}
+      {% else %}
+        {{ content }}
+      {% endif %}
+    </article>
+  </main>
 </div>

@@ -1,0 +1,116 @@
+---
+---
+@import 'variables';
+@import 'mixins';
+@import 'sidebar';
+
+.sp-news {
+  @include sidebar-parent;
+
+  display: flex;
+  
+  &__main {
+    margin-left: 15px;
+    flex: 1;
+  }
+
+  &__sidebar-item {
+    display: inline-block;
+    margin: 8px 0;
+
+    img {
+      vertical-align: middle;
+      margin: 0 4px 0 0;
+    }
+  }
+  
+  &__sidebar-section-title {
+    font-family: $body-font;
+    color: #AAA;
+    font-size: 14.67px;
+  }
+
+  &__sidebar-section {
+    @include reset-list;
+
+    li {
+      line-height: 22px;
+    }
+
+    li:hover {
+      background: #DDD;
+    }
+  }
+
+  hr {
+    @include rule;
+  }
+
+  &__title {
+    font-size: 26.67px;
+    margin-bottom: 20px;
+  }
+
+  &__year {
+    display: flex;
+    align-items: center;
+  }
+
+  &__year::after {
+    content: '';
+    
+    @include rule;
+  }
+
+  &__year:target {
+    border-top: 2px solid;
+    margin-top: -2px;
+
+    &, & + * {
+      background: #FFFFDD;
+    }
+  }
+
+  &__post {
+    padding: 16px 0;
+  }
+
+  &__post-header {
+    color: #AAA;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &__post-title {
+    font-size: 18.6667px;
+    line-height: 28px;
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__pagination {
+    @include reset-list;
+
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  &__page-prev a::before {
+    content: '🠘 ';
+  }
+
+  &__page-next a::after {
+    content: ' 🠚';
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

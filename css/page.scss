@@ -5,18 +5,15 @@
 
 @import 'events';
 @import 'resources';
+@import 'sidebar';
 
 .sp-page {
+  @include sidebar-parent;
+
   @each $theme, $colour in $colours {
     $secondary: map-get($secondaries, $theme);
 
-    &[data-theme=#{$theme}] & {
-      &__sidebar-nav,
-      &__decoration {
-        color: $secondary;
-        border-color: $colour;
-      }
-
+    body[data-theme=#{$theme}] & {
       &__main {
         a[href^="https:"],
         a[href^="http:"]{
@@ -34,28 +31,14 @@
     }
   }
 
-  display: flex;
-  padding-top: 25px;
-
   &__sidebar {
     font-family: $title-font;
-    padding-right: 16px;
-    margin-right: 5px;
     flex: 0 0 220px;
-    border-right: 1px solid #eee;
-  }
-
-  &__decoration {
-    border-bottom: 7px solid;
-    display: block;
-    top: calc(100vh - 482px);
-    position: sticky;
   }
 
   &__sidebar-nav {
     @include reset-list;
 
-    border-top: 7px solid;
     font-size: 16px;
     line-height: 1.5;
   }

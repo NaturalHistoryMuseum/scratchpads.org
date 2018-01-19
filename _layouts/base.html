@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/main.css">
+  {% if page.css %}
+  <link rel="stylesheet" href="/css/{{page.css}}.css">
+  {% endif %}
+  {% for css in layout.css %}
+  <link rel="stylesheet" href="/css/{{css}}.css">
+  {% endfor %}
+  {% feed_meta %}
+  {% for js in page.js %}
+  <script src="/assets/{{js}}.js" defer></script>
+  {% endfor %}
+
+  <title>{{ page.title }} | Scratchpads</title>
+</head>
+
+{% include theme %}
+{% assign page_theme = theme %}
+
+<body data-theme="{{theme}}">
+  {% include header.html %}
+
+  <div class="sp-base">
+    {{ content }}
+  </div>
+
+  {% include footer.html %}
+</body>
+</html>

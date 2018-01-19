@@ -1,0 +1,49 @@
+.sp-sidebar {
+  padding-right: 16px;
+  margin-right: 5px;
+  border-right: 1px solid #eee;
+
+  @each $theme, $colour in $colours {
+    $secondary: map-get($secondaries, $theme);
+
+    body[data-theme=#{$theme}] & {
+      &__content,
+      &__decoration {
+        border-color: $colour;
+      }
+
+      &__content {
+        :link,
+        :visited {
+          color: $secondary;
+        }
+
+        :hover {
+          text-decoration: none;
+        }
+      }
+
+      a[href^="https:"],
+      a[href^="http:"]{
+        padding-right: 16px;
+        background: url(/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
+      }
+    }
+  }
+
+  &__content {
+    border-top: 7px solid;
+  }
+
+  &__decoration {
+    border-bottom: 7px solid;
+    display: block;
+    top: calc(100vh - 482px);
+    position: sticky;
+  }
+}
+
+@mixin sidebar-parent {
+  display: flex;
+  padding-top: 25px;
+}
