@@ -5,31 +5,7 @@ title: News
 ---
 
 <div class="sp-news">
-  {% capture sidebar %}
-    <a href="http://twitter.com/scratchpads"
-       title="Scratchpads on Twitter"
-       class="sp-news__sidebar-item">
-      <img src="/assets/twitter.png" alt="" role="presentation">Twitter
-    </a>
-    <hr>
-    <h3 id="sidebar-date" class="sp-news__sidebar-section-title">Date</h3>
-    <ul aria-labelledby="sidebar-date" class="sp-news__sidebar-section">
-      {% assign count = 0 %}
-      {% assign years = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-      {% for year in  years %}
-        {% assign index = count | divided_by: site.paginate | floor %}
-        {% assign url = '/news' %}
-        {% if index > 0 %}
-          {% assign index = index | plus: 1 %}
-          {% assign url = site.paginate_path | replace: ":num", index %}
-        {% endif %}
-        <li><a href="{{ url }}#{{ year.name }}">{{ year.name }} ({{ year.items.size }})</a></li>
-
-        {% assign count = count | plus: year.items.size %}
-      {% endfor %}
-    </ul>
-  {% endcapture %}
-  {% include sidebar.html content=sidebar %}
+  {% include news-sidebar.html %}
 
   <main class="sp-news__main sp-base__content">
     <h1 class="sp-news__title">News</h1>

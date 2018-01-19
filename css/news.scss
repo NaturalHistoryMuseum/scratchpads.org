@@ -113,4 +113,16 @@
   a:hover {
     text-decoration: none;
   }
+
+  &__full-post {
+    margin: 10px 0 0 15px;
+    font-size: 14.67px;
+    line-height: 22px;
+
+    &-title {
+      font-size: 26.67px;
+      letter-spacing: -1.33px;
+      margin-bottom: 30px;
+    }
+  }
 }
