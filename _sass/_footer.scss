@@ -52,11 +52,25 @@
       font-size: 12px;
       margin-left: -0.3em;
       font-family: $title-font;
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     @each $category, $colour in $colours {
       &--#{$category} {
         color: $colour;
+
+        a[href^="http:"],
+        a[href^="https:"] {
+          padding-right: 16px;
+          background-image: url("/assets/external-link-#{$category}.png");
+          background-repeat: no-repeat;
+          background-position: 100% 50%;
+        }
       }
     }
   }
@@ -65,11 +79,6 @@
     font-size: 12px;
     color: #333;
     font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   &__hygiene {

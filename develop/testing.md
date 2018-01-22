@@ -1,6 +1,6 @@
 ---
 parent: '/develop/hosting'
-redirect_to: '//qa.scratchpads.eu'
+redirect_to: 'http://qa.scratchpads.eu'
 title: Testing
 weight: 2
 ---

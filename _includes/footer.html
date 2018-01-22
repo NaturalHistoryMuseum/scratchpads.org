@@ -9,57 +9,90 @@
 
   <hr>
 
+  {% assign array = '' | split: '' %}
+  {% assign home = array %}
+  {% assign explore = array %}
+  {% assign develop = array %}
+  {% assign support = array %}
+  {% assign about = array %}
+
+  {% assign categories = site.html_pages | sort: "weight" | group_by: "menu" %}
+
+  {% for cat in categories %}
+    {% case cat.name %}
+      {% when '' %}
+        {% assign posts = cat.items %}
+      {% when 'Home' %}
+        {% assign home = cat.items %}
+      {% when 'Explore' %}
+        {% assign explore = cat.items %}
+      {% when 'Develop' %}
+        {% assign develop = cat.items %}
+      {% when 'Support' %}
+        {% assign support = cat.items %}
+      {% when 'About us' %}
+        {% assign about = cat.items %}
+    {% endcase %}
+  {% endfor %}
+
+  {% for node in posts %}
+    {% include parent page=node %}
+
+    {% case parent %}
+      {% when home[0].url %}
+        {% assign home = home | push: node %}
+      {% when explore[0].url %}
+        {% assign explore = explore | push: node %}
+      {% when develop[0].url %}
+        {% assign develop = develop | push: node %}
+      {% when support[0].url %}
+        {% assign support = support | push: node %}
+      {% when about[0].url %}
+        {% assign about = about | push: node %}
+    {% endcase %}
+  {% endfor %}
+
+  {% assign about = about | shift %}
+
   <nav class="sp-footer__map" aria-label="Site map">
     <ul>
       <li>
-        <a class="sp-footer__category" href="/">Home</a>
+        <div class="sp-footer__category">Scratchpads</div>
         <ul class="sp-footer__section sp-footer__section--home">
+          <li><a href="/">Home</a></li>
           <li><a>Contact us</a></li>
         </ul>
       </li>
       <li>
-        <a class="sp-footer__category">Explore</a>
+        <div class="sp-footer__category">Explore</div>
         <ul class="sp-footer__section sp-footer__section--explore">
-          <li><a>Summary Statistics</a></li>
-          <li><a title="Statistics on Sites, Content and users">Scratchpads 2 statistics</a></li>
-          <li><a>Sites list</a></li>
+          {% for page in explore %}
+            <li><a href="{{page.url}}">{{ page.sidebar | default: page.title }}</a></li>
+          {% endfor %}
         </ul>
       </li>
       <li>
-        <a class="sp-footer__category">Develop</a>
+        <div class="sp-footer__category">Develop</div>
         <ul class="sp-footer__section sp-footer__section--develop">
-          <li><a>Extending Scratchpads</a></li>
-          <li><a>Hosting</a></li>
-          <li><a href="http://qa.scratchpads.eu/" title="Scratchpads Automated Testing Site">Testing</a></li>
-          <li><a>Git repository</a></li>
-          <li><a>Git commits</a></li>
+          {% for page in develop %}
+            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+          {% endfor %}
         </ul>
       </li>
       <li>
-        <a class="sp-footer__category">Support</a>
+        <div class="sp-footer__category">Support</div>
         <ul class="sp-footer__section sp-footer__section--support">
-          <li><a>Introduction</a></li>
-          <li><a>Training</a></li>
-          <li><a>FAQ</a></li>
-          <li><a>Help Wiki</a></li>
-          <li><a>Issues queue</a></li>
-          <li><a>Sandbox</a></li>
-          <li><a>Apply for a training site</a></li>
-          <li><a>Grant proposals</a></li>
-          <li><a>Ambassadors</a></li>
+          {% for page in support %}
+            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+          {% endfor %}
         </ul>
       </li>
       <li>
-        <a class="sp-footer__category">About us</a>
+        <div class="sp-footer__category">About us</div>
         <ul class="sp-footer__section sp-footer__section--about">
-          <li><a>Why choose Scratchpads?</a></li>
-          <li><a>Concept</a></li>
-          <li><a>Policies</a></li>
-          <li><a>Partner projects</a></li>
-          <li><a>Sponsors</a></li>
-          <li><a>Resources</a></li>
-          <li><a>Team</a></li>
-          <li><a>How to cite</a></li>
+          {% for page in about %}
+            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+          {% endfor %}
         </ul>
       </li>
     </ul>

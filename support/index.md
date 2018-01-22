@@ -3,11 +3,12 @@ menu: 'Support'
 weight: 3
 sidebar: 'Introduction'
 ---
+
+# Support
+
 {% assign wiki = site.html_pages | where_exp: "page", "page.url == 
 '/support/help-wiki'" | map: "redirect_to" | first  %}
 {% assign tracker = site.html_pages | where_exp: "page", "page.url == '/support/issues-queue'" | map: "redirect_to" | first  %}
-
-# Support
 
   In order to facilitate the use of Scratchpads among users we make use of a diverse set of support tools.
 

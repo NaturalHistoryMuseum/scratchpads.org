@@ -12,6 +12,11 @@ $home-links: map-get($secondaries, "home");
 .sp-index {
   margin-bottom: -8px;
 
+  a:link,
+  a:visited {
+    color: #3D5F27;
+  }
+
   @media (min-width: 500px) {
     display: grid;
     grid-template-columns: 8fr 40px 10.89fr;
