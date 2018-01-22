@@ -1,4 +1,5 @@
 ---
+redirect_from: "/terms-and-conditions"
 weight: 1
 title: Terms and conditions
 ---

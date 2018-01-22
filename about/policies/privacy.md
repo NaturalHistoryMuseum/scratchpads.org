@@ -1,4 +1,5 @@
 ---
+redirect_from: "/privacy-policy"
 weight: 3
 ---
 
