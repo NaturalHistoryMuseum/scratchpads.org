@@ -163,7 +163,6 @@ $transition-duration: 0.4s;
   // "Create your own Scratchpad" buttons
   &__panel-button {
     display: inline-block;
-    color: white;
     border: 1px solid black;
     padding: 0 4px 2px;
     border-radius: 5px;
@@ -172,6 +171,12 @@ $transition-duration: 0.4s;
     text-decoration: none;
     opacity: 1;
     transition: opacity $transition-duration 0.1s;
+    font-family: $title-font;
+
+    &:link,
+    &:visited {
+      color: white;
+    }
 
     &:hover {
       text-decoration: underline;

@@ -3,8 +3,6 @@
 ---
 @import "variables";
 @import "mixins";
-@import "index/why";
-@import "index/case-studies";
 
 $border: #eee;
 $home-links: map-get($secondaries, "home");
@@ -12,8 +10,8 @@ $home-links: map-get($secondaries, "home");
 .sp-index {
   margin-bottom: -8px;
 
-  a:link,
-  a:visited {
+  :link,
+  :visited {
     color: #3D5F27;
   }
 
@@ -189,3 +187,6 @@ $home-links: map-get($secondaries, "home");
     align-items: center;
   }
 }
+
+@import "index/why";
+@import "index/case-studies";
