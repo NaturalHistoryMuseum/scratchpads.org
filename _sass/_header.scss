@@ -1,7 +1,6 @@
 .sp-header {
   padding: 20px 10px 0;
   margin: 0;
-  font-family: $title-font;
   background: white;
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +12,7 @@
   }
 
   &__nav {
+    font-family: $title-font;
     margin-top: 10px;
     border: 1px solid #eee;
     border-left: 0;
@@ -43,32 +43,58 @@
     &:hover {
       color: white;
     }
+  }
 
-    @each $theme, $colour in $colours {
+  &__search {
+    text-align: right;
+  }
+
+  &__search-label-text {
+    @include visually-hidden;
+  }
+
+  &__search-bar {
+    display: flex;
+    border: 1px solid #eee;
+    margin: 3px -3px;
+  }
+
+  &__search-submit {
+    background: transparent;
+    border: 0;
+  }
+
+  &__search-input {
+    border: 0;
+    background: transparent;
+    padding: 3px;
+  }
+
+  &__contact {
+    font-size: 12px;
+
+    &:not(:hover) {
+      text-decoration: none;
+    }
+  }
+
+  @each $theme, $colour in $colours {
+    &__nav-link {
       &--active[data-theme="#{$theme}"],
       &:hover[data-theme="#{$theme}"] {
         background: $colour;
       }
     }
-  }
 
-  &__search-label-text,
-  &__search-submit {
-    @include visually-hidden;
-  }
+    body[data-theme="#{$theme}"] & {
+      &__contact:link,
+      &__contact:visited {
+        color: $colour;
+      }
 
-  &__search-label {
-    border: 1px solid #eee;
-    display: block;
-
-    &::after {
-      content: "🔎";
-    }
-
-    input {
-      border: 0;
-      background: transparent;
-      padding: 2px 3px;
+      &__search-bar:focus-within {
+        box-shadow: 0 0 5px 2px $colour;
+      }
     }
   }
 }
