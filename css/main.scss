@@ -22,6 +22,22 @@ body {
 
 .sp-base {
   background: white;
+
+  &__skip {
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+
+    &:not(:focus) {
+      @include visually-hidden;
+    }
+  }
 }
 
 @each $theme, $colour in $colours {
