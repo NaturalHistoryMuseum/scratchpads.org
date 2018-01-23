@@ -1,7 +1,14 @@
 .sp-case-studies {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   &__list {
     @include reset-list;
     @include page-container;
+
+    grid-column-end: span 2;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-x: repeat(calc(100% + 19px));
   }
 
   &__study {
@@ -39,5 +46,31 @@
     @include read-more;
 
     font-size: 12px;
+  }
+
+  &__index {
+    @include reset-list;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+
+    &-item {
+      $r: 15px;
+
+      width: $r * 2;
+      height: $r * 2;
+      line-height: $r * 2;
+      border-radius: $r;
+      text-align: center;
+      background: #eee;
+      display: block;
+      margin: $r / 2;
+
+      &[data-active],
+      &:hover {
+        background: #87ae28;
+      }
+    }
   }
 }

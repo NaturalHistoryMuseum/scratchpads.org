@@ -108,7 +108,14 @@ $home-links: map-get($secondaries, "home");
   }
 
   &__feed-box {
-    @include page-container; 
+    @include page-container;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-x: repeat(calc(100% + 9px));
+
+    > * {
+      margin: 0 5px;
+    }
   }
 
   &__tablist {
@@ -120,23 +127,24 @@ $home-links: map-get($secondaries, "home");
     font-size: 16px;
     border-bottom: 1px solid #eee;
 
-    > * {
+    a {
       position: relative;
       top: 1px;
       border: 1px solid #eee;
       border-radius: 4px 4px 0 0;
       margin-right: 23px;
       min-width: 97px;
+      display: block;
+      padding: 3px 15px 3px 8px;
+      text-decoration: none;
+      color: $home-links;
 
-      a {
-        display: block;
-        padding: 3px 15px 3px 8px;
-        text-decoration: none;
-        color: $home-links;
+      &:hover {
+        text-decoration: underline;
+      }
 
-        &:hover {
-          text-decoration: underline;
-        }
+      &[data-active] {
+        border-bottom-color: white;
       }
 
       img {
@@ -178,13 +186,7 @@ $home-links: map-get($secondaries, "home");
   }
 
   &__map {
-    margin-top: 21px;
-    margin-bottom: 37px;
-    height: 500px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
   }
 }
 

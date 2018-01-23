@@ -4,6 +4,7 @@ title: Home
 css: index
 js:
  - why/accordion
+ - index
 menu: Home
 weight: 1
 ---
@@ -41,7 +42,7 @@ weight: 1
       <li><a href="#sp-feed-twitter"><img src="/assets/index/twitter.png" alt="">Twitter</a></li>
     </ul>
 
-    <div class="sp-index__feed-box">
+    <div class="sp-index__feed-box" data-slider>
       <ul class="sp-index__feed" id="sp-feed-atom">
       {% for post in site.posts %}
         <li>
@@ -74,7 +75,7 @@ weight: 1
       Our {{ site.data.stats.ambassadors }} Scratchpads ambassadors are located across the globe:
     </p>
 
-    {% include ambassador-map.html %}
+    {% include ambassador-map.html class="sp-index__map" %}
   </section>
 
   <hr>
