@@ -3,6 +3,9 @@
   margin: 0;
   font-family: $title-font;
   background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   &__logo {
     margin-bottom: 11px;
@@ -14,6 +17,7 @@
     border: 1px solid #eee;
     border-left: 0;
     border-right: 0;
+    width: 100%;
   }
 
   &__nav-list {
@@ -41,10 +45,30 @@
     }
 
     @each $theme, $colour in $colours {
-      &--active[data-theme=#{$theme}],
-      &:hover[data-theme=#{$theme}] {
+      &--active[data-theme="#{$theme}"],
+      &:hover[data-theme="#{$theme}"] {
         background: $colour;
       }
+    }
+  }
+
+  &__search-label-text,
+  &__search-submit {
+    @include visually-hidden;
+  }
+
+  &__search-label {
+    border: 1px solid #eee;
+    display: block;
+
+    &::after {
+      content: "🔎";
+    }
+
+    input {
+      border: 0;
+      background: transparent;
+      padding: 2px 3px;
     }
   }
 }
