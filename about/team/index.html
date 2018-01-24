@@ -15,8 +15,8 @@ weight: 3
     <pattern id="img{{ forloop.index }}" patternUnits="userSpaceOnUse" width="700" height="700">
       <image href="/about/team/photos/{{ person.image }}" width="700" height="700" />
     </pattern>
-    <a xlink:href="#{{ person.title | replace: ' ', '-' | downcase }}"
-       xlink:title="{{ person.title }}"
+    <a href="#{{ person.title | replace: ' ', '-' | downcase }}"
+       title="{{ person.title }}"
        class="sp-team__map-link">
       <path d="{{ person.d }}" fill="url(#img{{forloop.index}})" />
     </a>
@@ -30,6 +30,6 @@ weight: 3
        class="sp-team__member">
     <h2>{{ person.title }}</h2>
     {{ person.content }}
-    <a href="#top" aria-hidden="true" tabindex="-1">Back to top</a>
+    <a href="#main" aria-hidden="true" tabindex="-1">Back to top</a>
   </div>
 {% endfor %}

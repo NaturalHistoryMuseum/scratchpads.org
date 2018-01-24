@@ -1,7 +1,7 @@
 ---
 weight: 4
 css: about-why
-image: /about/why/why-collaborate.png
+page_image: /about/why/why-collaborate.png
 ---
 
 Collaborate with your peers

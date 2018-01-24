@@ -35,7 +35,7 @@ jekyll.stdout.on("data", async buffer => {
     for (const path of paths) {
       results.push(
         ...(await new Promise((resolve, reject) =>
-          tester.run(url + "/" + path, (error, results) => {
+          tester.run(url + "/" + encodeURI(path), (error, results) => {
             if (error) {
               errors.push(error);
 

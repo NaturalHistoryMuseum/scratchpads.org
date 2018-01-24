@@ -1,7 +1,7 @@
 {% assign person = include.person %}
 {% assign cls = 'sp-ambassador-info' %}
 <div class="{{ cls }}">
-  <img class="{{ cls }}__image" src="/{{ person.image }}">
+  <img class="{{ cls }}__image" src="/{{ person.image }}" alt="Photo of {{ person.name }}">
   <div>
     <ul class="{{cls}}__details">
       <li>{{ person.name }}</li>

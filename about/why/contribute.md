@@ -1,14 +1,14 @@
 ---
 weight: 3
 css: about-why
-image: /about/why/why-contribute.png
+page_image: /about/why/why-contribute.png
 ---
 
 Contribute to biodiversity knowledge
 ====================================
 
 **Link and share your structured data to make it widely accessible.**  
-  
+
 Scratchpads provide the neccessary tools to allow you to mobilise and link your biodiversity data. Import and link data from multiple biodiversity resources and allow your data to be re-used with attribution in global biodiversity initiatives like the [Encyclopedia of Life](http://eol.org/) and [GBIF](http://www.gbif.org/). Anyone who uses your data will cite you for your contribution.
 
 ## Overview of features: - Master

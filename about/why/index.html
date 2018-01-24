@@ -19,8 +19,8 @@ title: Why choose Scratchpads?
       <h2><a href="{{node.url}}">{{ node.title }}</a></h2>
       {% assign excerpt = node.content | split: site.excerpt_separator %}
       <p>{{ excerpt[1] | strip_html }}</p>
-      <a href="{{node.url}}">Read more</a>
+      <a href="{{node.url}}" aria-hidden="true" tabindex="-1">Read more</a>
     </div>
-    <a href="{{node.url}}"><img src="{{node.image}}"></a>
+    <a href="{{node.url}}" aria-hidden="true" tabindex="-1"><img src="{{node.page_image}}"></a>
   </div>
 {% endfor %}

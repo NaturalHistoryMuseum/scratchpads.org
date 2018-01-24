@@ -1,14 +1,14 @@
 ---
 weight: 1
 css: about-why
-image: /about/why/why-create.png
+page_image: /about/why/why-create.png
 ---
 
 Create your own site
 ====================
 
 **Create your own website to connect, work with and share your data. Build a virtual community based on your specific or a wider research field.**  
-  
+
 
 Signing up for a Scratchpad is free, quick and simple! No knowledge of website creation is required and your site can cover any aspect of natural history (a taxonomic group, a geographical area, club or society, journal, etc).
 

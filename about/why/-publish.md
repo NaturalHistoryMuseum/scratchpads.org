@@ -1,7 +1,7 @@
 ---
 weight: 2
 css: about-why
-image: /about/why/why-publish.png
+page_image: /about/why/why-publish.png
 permalink: /about/why/publish/
 ---
 
