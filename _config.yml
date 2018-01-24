@@ -35,3 +35,9 @@ defaults:
       type: "team"
     values:
       layout: "team"
+exclude:
+  - test.js
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - package.json
