@@ -19,6 +19,7 @@
   "dependencies": {
     "glob": "^7.1.2",
     "glob-promise": "^3.3.0",
-    "pa11y": "^4.13.2"
+    "pa11y": "^5.0.0-beta.8",
+    "pa11y-reporter-html": "^1.0.0"
   }
 }
