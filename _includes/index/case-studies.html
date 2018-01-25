@@ -1,11 +1,13 @@
 <section class="sp-case-studies {{ include.class }}">
-  <h2 class="sp-case-studies__title">Case studies</h2>
+  <div class="sp-case-studies__header">
+    <h2 class="sp-case-studies__title">Case studies</h2>
 
-  <ul class="sp-case-studies__index" aria-hidden="true">
-    {% for study in site.data.case-studies %}
-      <li><a class="sp-case-studies__index-item" href="#{{ study.name | slugify }}" title="{{ study.name }}">{{ forloop.index }}</a></li>
-    {% endfor %}
-  </ul>
+    <ul class="sp-case-studies__index" aria-hidden="true">
+      {% for study in site.data.case-studies %}
+        <li><a class="sp-case-studies__index-item" href="#{{ study.name | slugify }}" title="{{ study.name }}">{{ forloop.index }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 
   <ul class="sp-case-studies__list" data-slider>
     {% for study in site.data.case-studies %}

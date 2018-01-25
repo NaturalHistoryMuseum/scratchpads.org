@@ -15,7 +15,7 @@ $home-links: map-get($secondaries, "home");
     color: #3D5F27;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: $break-point) {
     display: grid;
     grid-template-columns: 8fr 40px 10.89fr;
   }
@@ -33,7 +33,7 @@ $home-links: map-get($secondaries, "home");
     @include rule;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: $break-point) {
     hr:nth-of-type(odd) {
       grid-column: 1 / span 3;
     }
@@ -76,6 +76,8 @@ $home-links: map-get($secondaries, "home");
     color: $home-links;
 
     > li {
+      display: flex;
+      align-items: flex-start;
       padding: 2.5px 6px 8px;
     }
 
@@ -86,6 +88,7 @@ $home-links: map-get($secondaries, "home");
 
     a {
       text-decoration: underline;
+      flex: 1;
 
       &:hover {
         text-decoration: none;

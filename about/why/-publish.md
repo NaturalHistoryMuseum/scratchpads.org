@@ -14,14 +14,18 @@ formal manuscript, Scratchpads are able to help!
 
 ## Overview of features: - Master
 
-Share your data across comunities : Scratchpad lets you connect with your
+Share your data across comunities
+: Scratchpad lets you connect with your
 community.
 
-Search engine friendly : All Scratchpads sites are search engine friendly.
+Search engine friendly
+: All Scratchpads sites are search engine friendly.
 Scratchpads sites usually rank on top in Google search results when relevant
 taxa and keywords are used.
 
-Publish your content online : Scratchpads lets you create your content online.
+Publish your content online
+: Scratchpads lets you create your content online.
 
-Publish in peer reviewed Journals : Submit original data present in your
+Publish in peer reviewed Journals
+: Submit original data present in your
 scratchpad directly to peer-reviewed journals for publication.

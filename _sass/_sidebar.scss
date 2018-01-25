@@ -40,10 +40,19 @@
     display: block;
     top: calc(100vh - 482px);
     position: sticky;
+
+    @media (max-width: $break-point) {
+      height: 7px;
+      width: 100%;
+    }
   }
 }
 
 @mixin sidebar-parent {
   display: flex;
   padding-top: 25px;
+
+  @media (max-width: $break-point) {
+    flex-direction: column-reverse;
+  }
 }

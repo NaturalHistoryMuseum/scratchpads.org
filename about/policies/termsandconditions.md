@@ -24,7 +24,7 @@ owned by you and your agents and you bare sole and ultimate responsibility for
 this Content. ViBRANT supports the computer hardware infrastructure and software
 content management system that provides access to this Content.
 
-## 3 Access to services and termination of access\**
+## 3 Access to services and termination of access
 
 You are responsible for all activity logged through your user account and for
 the activity of other persons or entity you grant access to this Site. You agree

@@ -6,6 +6,11 @@
 
   &__resource {
     display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 50%;
+    }
 
     p:first-child {
       margin-top: 0px;

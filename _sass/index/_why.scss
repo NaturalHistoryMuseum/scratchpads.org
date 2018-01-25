@@ -137,6 +137,10 @@ $transition-duration: 0.4s;
     all: inherit;
     min-height: auto;
 
+    &:focus {
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+
     // Add an 'affordance' so it looks clickable
     &::after {
       content: " →";

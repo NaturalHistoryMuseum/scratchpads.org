@@ -139,6 +139,7 @@
 
 .sp-media {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0 -8px;
 
@@ -147,10 +148,12 @@
   }
 
   > * {
+    flex: 1 1 50%;
     margin: 4px 8px;
   }
 
-  > img {
+  > img,
+  &__img {
     flex: 0 0 auto;
   }
 }

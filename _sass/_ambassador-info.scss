@@ -1,5 +1,7 @@
 .sp-ambassador-info {
   display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
   &__image {
     flex: 0 0 auto;

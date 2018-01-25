@@ -1,12 +1,17 @@
 .sp-case-studies {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    flex: 1 0 auto;
+  }
 
   &__list {
     @include reset-list;
     @include page-container;
 
-    grid-column-end: span 2;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(calc(100% + 19px));
   }
@@ -22,12 +27,14 @@
   &__figure {
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     margin: 0;
     align-items: flex-start;
+    justify-content: center;
   }
 
   &__caption {
-    flex-basis: 50%;
+    flex: 1 0 200px;
   }
 
   &__name {
@@ -52,8 +59,7 @@
     @include reset-list;
 
     display: flex;
-    justify-content: flex-end;
-    margin-left: auto;
+    margin: auto;
 
     &-item {
       $r: 15px;

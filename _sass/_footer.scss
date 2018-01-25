@@ -20,6 +20,7 @@
     > ul {
       @include reset-list;
       column-count: 4;
+      column-width: 150px;
 
       > li {
         break-inside: avoid;
