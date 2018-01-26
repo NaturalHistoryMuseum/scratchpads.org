@@ -36,7 +36,15 @@ jekyll.stdout.on("data", async buffer => {
   if (url) {
     jekyll.stdout.unpipe(process.stdout);
     const paths = await glob("**/*.html", {
-      cwd: path.resolve(process.cwd(), "_site")
+      cwd: path.resolve(process.cwd(), "_site"),
+      ignore: [
+        'ambassador/*.html',
+        'develop/repository.html',
+        'develop/commits.html',
+        'develop/testing.html',
+        'support/issues-queue.html',
+        ''
+      ]
     });
 
     const options = ({
@@ -62,16 +70,17 @@ jekyll.stdout.on("data", async buffer => {
     for (const ix in paths) {
       const path = paths[ix];
       process.stdout.write(`${ix}/${paths.length} ${path}`);
-      readline.clearLine(process.stdout, 1)
       readline.cursorTo(process.stdout, 0);
 
       try {
         const { issues } = await Promise.race([pa11y(url + "/" + encodeURI(path), options), cancellation]);
 
-        results.push(...issues)
+        results.push(...(issues.map(i => ({ ...i, message: path + '\n' + i.message }))))
       } catch (error) {
         errors.push(error);
       }
+
+      readline.clearLine(process.stdout, 1)
 
       if(breakLoop) {
         break;
@@ -91,7 +100,7 @@ jekyll.stdout.on("data", async buffer => {
 
     if (results.length === 0) {
       console.log('All executed tests passed!')
-      process.exit();
+      return;
     }
 
     console.log(`${results.length} issues found`);

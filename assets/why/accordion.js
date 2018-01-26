@@ -54,7 +54,6 @@
     }
 
     // Expand panels when clicked on
-    el.setAttribute("role", "presentation");
     el.addEventListener("click", () => {
       button.focus();
       expand(el);
