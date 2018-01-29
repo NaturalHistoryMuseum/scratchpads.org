@@ -43,7 +43,7 @@ jekyll.stdout.on("data", async buffer => {
         'develop/commits.html',
         'develop/testing.html',
         'support/issues-queue.html',
-        ''
+        'news/*/*.html'
       ]
     });
 

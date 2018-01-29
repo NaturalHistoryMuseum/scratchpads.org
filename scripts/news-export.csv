@@ -1,0 +1,841 @@
+"Title","News Body","Post date"
+"No new Scratchpads sites applications possible (Temporarily) ","We are sorry to announce that for reasons related to our current technical and support capacity we will not be able to temporarily accept applications for creating new Scratchpads sites. This does not affect the operation of the current Scratchpads sites, or registration of new users to existing sites.
+We will update you once this issue has been resolved.
+For more information on this issue, please email your query to support@scratchpads.eu
+","Monday, October 31, 2016 - 17:16"
+"Problem with automatic login to our issue tracker","Users report problems with the automatic authentication in the Scratchpads Issues tracker (support.scratchpads.eu).
+If you experience similar difficulties, please do use the e-mail address support@scratchpads.eu and until we fully address the underlying cause.
+We apologise for the inconvenience.
+","Tuesday, February 23, 2016 - 14:53"
+"Overrun of scheduled maintenance ","Unfortunately, our (NHM) servers scheduled maintenance overran the expected duration. Scratchpads remained inaccessible from 19.00 Nov 09 to 10.00 Nov 10 (GMT).
+All services are now back up and running. No additional downtime is expected.
+We apologise for this overrun and the inconvinience that might have caused you
+","Tuesday, November 10, 2015 - 10:31"
+"Scratchpads downtime on Mon 09 Nov 2015","Due to planned technical maintenance of the Natural History Museum London servers, all NHM-based Scratchpads servers will remain inaccessible between 18.30 and 22.00 (GMT) on Monday 09 November 2015. During that time all NHM-hosted Scratchpads sites will not be accessible. 
+Thank you for your understanding.
+","Thursday, November 5, 2015 - 12:04"
+"New Scratchpads Ambassador in Borneo","Liew Thor-Seng is our new ambassador from Borneo, Malaysia. Liew is a biologist with interests in ecology, evolution, systematics and conservation science. Currently, his research is focused on the land snails of Southeast Asia. He is currently affiliated with the Institute for Tropical Biology and Conservation, Universiti Malaysia Sabah.
+Liew is currently involved in three Scratchpads communities:http://borneanlandsnails.myspecies.infohttp://malaypeninsularsnail.myspecies.infohttp://opisthostoma.myspecies.info
+Find out more about Liew athttp://scratchpads.eu/ambassador/liew-thor-seng
+","Thursday, February 19, 2015 - 17:20"
+"Changelog - Scratchpads 2.6.0 (2015-02-11)","Release Changelog
+Scratchpads 2.6.0 (2015-02-11)
+- Updated the EXIF Custom module enabling it for all Scratchpads (#4176)
+- Created a simple Entity filter (#4219)
+- Greatly improved the translation functionality of Scratchapds (#2317)
+- Upgraded Drupal to 7.34
+- Enable any block to be embedded on the front page (#1174)
+- Hide simplenews settings
+- Updated GBIF maps to their new API (v1)
+- Ensure the dblog module is always disabled
+- Removed called to feeds_alter() which required a patched version of feeds
+- Ensure ""0"" values are correctly exported (#4004)
+- Present images in rows, rather than a single column (#4297)
+- Ensure tinytax options take immediate effect (#4305)
+- Ensure media views aren't cached to ensure newly uploaded files are visible in the media library tab
+- Improved and cleaned up the tag/autotag modules, and enabled tag with tips
+- Added a reference field to the lexicon term output (#3001)
+- Allow the citethispage list of authors to be tweaked. (#3920)
+- Added the format option to the WYSIWYG editor (#1000)
+- Hide all media with a weight of 100 from ALL media gallery pages. (#4013)
+- Don't display empty stripy divs (#4296)
+- Allow a user to specify a list of terms that should always be displayed in a tinytax tree. Fixes (#4305)
+- Reset to alphabetical button added to TUI (#4274)
+- Added the ability for a user to clear their site's cache. (#4300)
+- Don't automatically enable the CKEditor SCAYT (Spell Check As You Type) feature. (#4302)
+- Front page views should use the summary if available. (#4284)
+- Prevent population of Media (URL) field in Excel templates (#4265)
+- Upgraded the mediaelement library and module (#4263)
+- Ensure a Slickgrid row can be updated multiple times without waiting for caches to clear (#4254)
+- Removed calls to eval() to improve overall security
+- Display only 50 results on a Biblio page
+- Tweaked the ShareThis widget settings to improve performance
+- Merged code from various development branches (yet to be fully released)
+","Thursday, February 19, 2015 - 17:01"
+"Bryan Kenneth Simon","It is with great sadness that we have to announce the passing of Bryan Kenneth Simon following a short battle with leukaemia.
+Bryan was a well known grass taxonomist, having worked at the Queensland Herbarium for nearly four decades and for nine years as a botanist in Bulawayo, Zimbabwe (then Rhodesia).
+Bryan was a Scratchpads ambassador, and vocal supporter of the Scratchpads since their early days. He was very encouraging of what we, the Scratchpads Team, are working towards, making our task that little bit easier. His Scratchpads are amongst the most viewed and used of all the Scratchpads, being an invaluable resource for grass taxonomists. His two Scratchpads (AusGrass2 and GrassWorld) are currently being partially maintained by former colleagues, although if you would like to provide help and expertise, please do get in touch, and we can forward on your offer of help.
+Bryan is survived by a wonderful family, including his wife, five children, and several grandchildren.
+","Tuesday, January 20, 2015 - 16:15"
+"CORDIS article on ViBRANT and Scratchpads","The European Commission's Community Research and Development Information Research (CORDIS) has published an article on ViBRANT project and Scratchpads. You can read it at http://cordis.europa.eu/result/rcn/150383_en.html
+The article is in six languages
+","Wednesday, November 12, 2014 - 10:39"
+"Changelog - Scratchpads 2.5.4 (2014-11-10)","Release Changelog
+Scratchpads 2.5.4 (2014-11-10)
+- Added the improved DwC-A Export module. (#4126)
+Note, the improved DwC-A module has not been enabled on all sites.  We will be rolling this out first to sites that are able to help us with testing (e.g. former LifeDesk sites).
+","Monday, November 10, 2014 - 11:11"
+"Changelog - Scratchpads 2.5.3.4 (2014-10-24)","Release Changelog
+Scratchpads 2.5.3.4 (2014-10-24)
+- Possibly improve ""cold start"" times of sites
+","Monday, November 10, 2014 - 11:09"
+"Changelog - Scratchpads 2.5.3.3 (2014-10-23)","Release Changelog
+Scratchpads 2.5.3.3 (2014-10-23)
+- Prevent clearing of image width and height cache.
+","Monday, November 10, 2014 - 11:08"
+"Changelog - Scratchpads 2.5.3.2 (2014-10-20)","Release Changelog
+Scratchpads 2.5.3.2 (2014-10-20)
+- Patched a MAJOR bug with Drupal that could have resulted in sites being hacked. (https://www.drupal.org/SA-CORE-2014-005)
+","Monday, November 10, 2014 - 11:07"
+"Changelog - Scratchpads 2.5.3.1 (2014-09-15)","Release Changelog
+Scratchpads 2.5.3.1 (2014-09-15)
+- Fix an error that caused ""odd"" behaviour when importing into a user reference field by name (#4226)
+","Monday, November 10, 2014 - 11:04"
+"New Scratchpads Ambassador in the USA","Breda Zimkus is the 26th Scratchpads Ambassadors. Breda's research interests are focused on the biodiversity, biogeography, phylogenetics, taxonomy and conservation of amphibians and reptiles. She is particularly interested in the phylogenetic diversification of African amphibians, defining species boundaries and understanding the complex patterns of diversification across the continent.
+Breda already maintains a Scratchpads site on African Amphibianshttp://africanamphibians.myspecies.info
+Find out more about her athttp://scratchpads.eu/ambassador/breda-zimkus
+","Tuesday, November 4, 2014 - 16:42"
+"New Scratchpads Ambassador in Malaysia","Azman is a senior lecturer in the Marine Science Programme of the School of Environmental & Natural Resource Sciences and research fellow in the Marine Ecosystem Research Centre (EKOMAR) in Universiti kebangsaan Malaysia. Azman has a cumulative experience of 8 years in teaching basic and advance zoology courses, particularly in allied fields of marine science, and research. Academic experiences include more than 10 years of research studies in ecosystem processes and marine biodiversity. Collaborate with scientists around the South East Asian region (Thailand, Indonesia, Singapore) and also Germany, Australia, and Japan).
+Find out more about him athttp://scratchpads.eu/ambassador/azman-abdul-rahim
+","Monday, October 20, 2014 - 17:40"
+"New Scratchpads Ambassador in Costa Rica","Our new Ambassador in Costa Rica is Eduardo Chacón. Eduardo has a MSc in Biology from Univesity of Costa Rica. He has been working in the University of Costa Rica since 2009, teaching in courses about ecology and Flora of Costa Rica and has been doing research with communities of trees in the southern of Costa Rica. Furthermore Eduardo is the manager of the Digital Herbarium ""Herbario Digital de Golfito"" (http://hergol.biologia.ucr.ac.cr/). Also, worked in a consultancy for Interamerican Biodiversity Information Network making the Information System of Invasive Species of Costa Rica (http://invasoras.acebio.org/).
+http://scratchpads.eu/ambassador/eduardo-chacón
+","Monday, September 29, 2014 - 14:55"
+"Changelog - Scratchpads 2.5.3 (2014-08-14)","Release Changelog
+Scratchpads 2.5.3 (2014-08-14)
+- Delete unpublished anonymous forum nodes older than one week (likely to be spam)
+- Ensure responsive images are still responsive
+- Aggregate the species map view (#4210,#2461)
+- Allow the updating of a WoRMS imported classification (#4205)
+- Prevent half created terms (those that failed before creating the revision) from blocking the creation of additional terms (#4208)
+- Add an error message to the WoRMS service for failed downloads
+- Fix an error that could result in duplicate UUIDs from the Taxonomy Editor
+- Allow more than 1024 chars in a taxonomy autocomplete field (#4195)
+","Friday, August 15, 2014 - 11:18"
+"Changelog - Scratchpads 2.5.2 (2014-07-15)","Release Changelog
+Scratchpads 2.5.2 (2014-07-15)
+- Added .gz to list of allowed extensions (#4194)
+- Removed the emails sent to the Scratchpads team
+- Ensure that taxonomy fields associated with multiple vocabularies don't mess up the validation formula and PermittedValues worksheet. (#4184)
+- Only use identify command for files with specific extensions.  This is to ensure identify doesn't get used to try to identify very large video or audio files. (#3310)
+- Updated Google Analytics .myspecies.info code
+- Don't enable views caching on Publication views
+- Allow importing of 0 into any field provided by the number module (#4004)
+- Display coordinates when clicking on a point (#4159)
+- Allow the select other field to work with the Tag API (#4166)
+- Link the main image on the front page to its entity page (#4163)
+- Clean up failed batches and TCS downloads
+- Ensure filtering by filename hits files with upper case extensions (#4158)
+- Allow altering the author of a node on import (#4143)
+- Prevent ghost galleries from being displayed (#4155)
+- Improved caching, which should improve the performance of sites
+","Friday, August 15, 2014 - 11:17"
+"Changelog - Scratchpads 2.5.1 (2014-06-13)","Release Changelog
+Scratchpads 2.5.1 (2014-06-13)
+- Fix a bug with Google Maps that prevented wide area points from displaying (#4150)
+- Page results with large numbers of authors don't break the citation module (#4150)
+- Various updates to the publication module
+- AJAX/AHAH forms don't break CAPTCHA (#4147)
+- Allow map fields to be added to the user entity/bundle
+- Force update of taxonomy terms on ALL imports (no matter if data appears to have changed) (#4142)
+- Allow 0 to be imported into text fields (#4004)
+- Link to the importer page updated
+- Enable the AdvAgg module to improve CSS and JS aggregation (#4101)
+- Ensure sorting of Tinytax and TUI are ordered by weight (#4134)
+- Try to prevent redirection loops (#4128)
+- Dynamically set the resolution of the GBIF layer based on zoom
+- Link to the results page of ReFindIt (#4105)
+- Fix formatting of inline citations on taxon pages (#4118)
+","Friday, June 13, 2014 - 15:59"
+"Changelog - Scratchpads 2.5.0 (2014-05-07)","Release Changelog
+Scratchpads 2.5.0 (2014-05-07)
+New features
+- Enable the revisioning of taxonomy terms (#3892)
+- Replace Google Scholar module with ReFindit (#4105,#1174)
+Bug fixes & Improvements
+- Improve sorting of Biblio pages (#4110)
+- Prevent  or  tags being presented on Scratchpads pages in the Issues... block (#4113)
+- Fixed an issue with multiple taxonomy fields on biblio nodes (#4099)
+- Minor presentation tweak (#3884)
+- Aggregate slickgrid views on taxonomy pages (#4082)
+","Monday, May 12, 2014 - 13:56"
+"New Scratchpads Ambassador in Venezuela","Marco Gaiani is our new Ambassador from Venezuela and the third from South America. Marco is Curator of Hemiptera and Head of Biodiversity Informatics at Universidad Central de Venezuela, Museo del Instituto de Zoologia Agricola.
+Learn more about him at http://scratchpads.eu/ambassador/marco-gaiani
+","Wednesday, April 30, 2014 - 17:56"
+"New Scratchpads Ambassador in Switzerland","Angelo Bolzern is our new Ambassador from Switzerland. Angelo is a postdoctoral researcher at the Natural History Museums of Basel. 
+Learn more about him at http://scratchpads.eu/ambassador/angelo-bolzern
+","Friday, April 25, 2014 - 12:02"
+"Changelog - Scratchpads 2.4.1 (2014-04-03)","Release Changelog
+Scratchpads 2.4.1 (2014-04-03)
+- Delete temporary files older than one month to free up valuable disk space
+- Ensure description fields on files are imported as Filtered HTML, rather than plain text (#4076)
+- Allow importing from CSV files (#4058)
+- Display the GID of a group on the group edit page, and allow importing into a group (#4065)
+- Repatched feeds_alter() to ensure alter functions happen in the correct order.
+- Only display author names with references associated in facet autocomplete search box (#4057)
+- Ensure menu tabs are correctly translated (#4063)
+- Correctly import dates from Excel (no longer need to ensure that text is correctly formatted)
+- Added Bigmenu as a tool (#3383)
+- Allow access to the advanced help popup (#4044)
+- Ensure the nomenclature block displays as expected (#3890)
+- Prevent the editing of some views by users
+- Delete entries from the feeds_item table with blank GUIDs (#4020,#4022)
+- Export boolean values (#4004)
+- Ensure the emonocot citation block is not cached (#4008)
+- Some minor code fixes
+","Monday, April 14, 2014 - 12:51"
+"Changelog - Scratchpads 2.4 (2014-03-12)","Release Changelog
+Scratchpads 2.4 (2014-03-12)
+- Enable the use of a private file system (#909)
+- Ensure taxonomy terms are available to search for the anonymous user (#3919)
+- Add roles and permissions to Groups (#3961)
+- Fix e-monocot portal feedback (#3465)
+- Hide WCM ID field from nomenclature block (#2885)
+- Fix and improve Slickgrid (#3992,#3899,#3896,#3713,#3231,#1317)
+- Reduce the number of PHP errors, and log errors to syslog rather than the DB
+- Ensure the entityconnectpreview module is enabled (#1297)
+- Fix an issue on e-monocot sites that could prevent the synonyms tab from being displayed
+- Enable a user to request a full site backup from Aegir (#2830)
+- Enable bulk assigning of users to groups (#3443)
+- Fix an issue on some migrated sites that prevents editing of user reference fields (#3430)
+- Sort Solr search pages by creation date descending (#3963)
+- Prevent orphaned terms appearing in autocomplete boxes (#3933)
+- Prevent a Feeds template error (#3960)
+- Possibly fix importing large numbers of terms from WoRMS (#3932)
+- Flag up inactive Scratchpads, and mail users if they've never logged in
+- Improve performance of the taxonomy formatter (#3080)
+- Prevent the taxonomy editor from orphaning terms (#1436)
+- Allow deletion of multiple terms in the taxonomy editor (#2900)
+- Aggregate data on taxon pages (#2461)
+- Sort fields in the Excel templates (#1977)
+- Increase the sensitivity when dragging terms in the taxonomy editor (#2289)
+- No longer use a jQuery CDN
+- Delete EOL temp files (#3888)
+- Fix an issue with the Biblio export links (#3889)
+- Prevent taxon page headers from being displayed full div height (#3891)
+- Display only relevant type specimens in the nomenclature block (#3714)
+- Link images to their file entity to enable the popup (#3864)
+- Prevent all images being resized then ""narrow"" version of the front page (#3866)
+- Hide Group roles and permissions (#3865)
+- Hide Vernacular name label if no values are present (#3772)
+- Enable the ""Remember me"" feature if logging in via OpenID
+- Upgraded Drupal to 7.26
+- Export key files in DwC-A (#2295)
+- Sort galleries by weight (#2992)
+- Remember the status of the tinytax toggle checkbox between pages (#2343)
+- Ensure validation is performed on import (#2208)
+- Tag images attached to specimens (#3372)
+- Add default weights for all images (#3396)
+- Allow certain fields to be added/removed from additional entity/bundles (#3178)
+- Renamed Moneran to Bacteria/Archaea
+- Removed the CAPTCHA After, Mollom and Boost modules
+- Display authors when searching by taxonomy (#3790)
+- Attempt to export more than 65534 records (#3776)
+- Ensure distribution and habitat changes can be saved (#3503)
+- Ensure tabs in the Specimens Slickgrid can be switched between (#3747)
+- Allow the Tinytax block to be hidden for anonymous users (#3773)
+","Thursday, March 13, 2014 - 16:49"
+"Export from BRAHMS into Scratchpads ","BRAHMS is a flexible database management system for botanical researchers and herbaria. In the latest version (v. 7.4.2) Brahms software is providing users with the option to export taxonomies, locations, specimens and people into a .csv format which can be directly imported into a Scratchpad site. 
+This new functionality enables researchers and research communities, who use BRAHMS as their primary botanical data management system, to quickly develop a Scratchpad site based on their existing botanical database making use of the added functionality Scratchpads provide for structuring, curating, linking and publishing biodiversity data.
+You can download the latest version of BRAHMS from:http://herbaria.plants.ox.ac.uk/bol/brahms/Software
+","Thursday, March 13, 2014 - 16:30"
+"New Scratchpads Ambassador in Brazil","Simone Nunes is our new Ambassador in Brazil. Simone Nunes is a postdoctoral fellow at Universidade Federal do Rio Grande do Norte. Learn more about her at http://scratchpads.eu/ambassador/simone-nunes-brandao
+","Friday, January 31, 2014 - 14:43"
+"Changelog - Scratchpads 2.3.2 (2014-01-08)","Release Changelog
+Scratchpads 2.3.2 (2014-01-08)
+- Allow exporting of all references from a search, rather than just the first 100 (#1420)
+- Batch the export of specimens to CSV/XML from the Slickgrid table (#3769)
+- Add a user and node reference (GUID) column to import templates (#3755, #2487)
+- Ensure that GUIDs in imports are GUIDs, and not IDs for a specific import (#3731)
+- Prevent user 2 from being redirected to the setup work-flow when editing other users
+- Clean up the user/%uid/edit/%profile form pages
+- Enable subscribing of users to newsletters (#3750)
+- Ensure that creation of Biblio nodes using a DOI works as expected (#3764)
+- Allow setting of whether content in a group is public or private, and a general tidy of group permissions (#3721)
+- Ensure that terms can always be toggled in Tinytax
+- Load Tinytax dynamically, and cache the data in Varnish
+- Moved CC images to our own mirror which can be cached by Varnish (actually quicker than CC's own server)
+- Fix the autocomplete for associating a user with a biblio author (#2954)
+- Allow twitter feeds on the front page of a site, and hide the users' twitter settings page (#3711)
+- Tweaked the default sort order for Slickgrid views (#3199)
+- If T&Cs have been tweaked, link to them, otherwise link to the default scratchpads.eu page
+- Enable adding of media by URL as well as file upload (#867)
+- Advise users that deleting a gallery does not delete the images in it (#1099)
+- Add a description to the Media field (#1104)
+- Allow filtering of the users pages (#3724)
+- Remove the confusing HTML option for newsletters (it is not supported) (#3701)
+","Thursday, January 9, 2014 - 11:27"
+"New monthly visitors record!","During the last month (November 2013) Scratchpads sites had 55,556 unique visitors and over 258,000 pageviews.
+","Monday, December 9, 2013 - 16:21"
+"Changelog - Scratchpads 2.3.1 (2013-12-05)","Release Changelog
+Scratchpads 2.3.1 (2013-12-05)
+- Upgraded Drupal to 7.24 (#3495)
+- Display a preview of an entity when using the entityconnect widget (#3495)
+- Enable importing into a file field using a URL (#1456)
+- Clean up the WYSIWYG Media options (#1971)
+- Order the Taxonomy search autocomplete (#3679)
+- General testing bug fixes (#107)
+- Allow the upload of KMZ files (#3673)
+- Prevent duplication of tags on biblio nodes (#3657)
+- Order of terms in Tinytax/TUI (#3078)
+- Ensure taxonomy hierarchies are imported correctly (#3663)
+- Remove our use of the term ""moneran"" (#3638)
+- Improved performance of the Tinytax block
+- Increased the sensitivity of our spam detection
+- Removed a link to GBIF's ECAT (#3645)
+- Move to using Varnish, rather than Boost (#3049)
+- Italics for series and subseries (#3638)
+- Prevent disabling of tools if they're in use (#3635)
+- Display unit indicators and names correctly (#3222)
+- Display Volume when selecting biblio nodes in an autocomplete field (#3527)
+- Bandaged an issue with caching (#3503)
+- Use WYSIWYG editor for the Remarks field (#3567)
+- Refresh the admin paths when enabling a tool (#3623)
+","Friday, December 6, 2013 - 10:00"
+"A new translation service for Scratchpads","We have dropped the Google Translate Toolkit as a facilitator in translating Scratchpads interface and set-up a new more user friendly and intuitive system. 
+The new service is very similar to the Drupal Localize server. It should be used by translators from around the world to maintain localizations of the Scratchpads. 
+Just pick your language and you'll be able to download existing work and contribute to the translations. You can find more information on http://localize.scratchpads.eu
+Once again, thanks to all of you who are actively helping us translate Scratchpads in your language!
+","Tuesday, November 19, 2013 - 18:07"
+"See how we are doing","Over the last 3 years we have received c .180 feedback forms from people that have participated in our Scratchpads training courses.
+Download the .pdf to get an overview of the aggregated results of all the submitted forms.
+","Thursday, November 14, 2013 - 16:56"
+"Changelog - Scratchpads 2.3.0 (2013-11-06)","Release Changelog
+Scratchpads 2.3.0 (2013-11-06)
+- Added the Publication tool
+- Ensure the Groups feature can be complete disabled (#3348)
+- Sort groups pages chronologically descending (#3608)
+- Various publication module fixes
+- Minor Slickgrid fix to allow Slickgrid views to be easily edited
+- Allow site maintainers to specify whether anonymous users can post comments
+- Prevent the colorbox popup appearing when clicking on view/cancel from the delete page (#3533)
+- Added the authority name to taxonomy autocomplete boxes to help distinguish homonyms (#3527)
+- Index most file types, in addition to media (#793)
+- Minor performance improvement for large classifications
+- Allow Fields added to Biblio records to be updated using the Excel importer
+- Allow associating content with a file in imports (#3494)
+- Ensure required and permitted values are included in templates (#3521)
+","Wednesday, November 6, 2013 - 17:12"
+"Do you want your Scratchpad on the first page?","If you want your site to be featured on the first page of scratchpads.eu, please send to support@scratchpads.eu the URL of your site and a brief description (max. 35 words). This is an open call so please feel free to send us your emails at anytime.
+","Thursday, October 24, 2013 - 17:33"
+"We changed our release frequency pattern","Scratchpads are changing their release frequency pattern. We are going to release a new version of Scratchpads every first Wednesday of each month. Our next release is planned for Wednesday 6 November. Visit Scratchpads.eu to stay updated for bug fixes and new features in every release.
+","Tuesday, October 22, 2013 - 11:02"
+"Looking for Beta testers: BRAHMS integration","BRAHMS (Botanical Research And Herbarium Management System) and Scratchpads have traveled all the way to to bring the two systems close together. As we are in the last phase of the testing before releasing, we are looking for beta testers to test the export functionality of BRAHMS to Scratchpads. 
+To participate you will need to actively maintain a BRAHMS database. 
+If you are interested please send an email to support@scratchpads.eu until Oct 15 2013.
+","Thursday, October 10, 2013 - 15:00"
+"Changelog - Scratchpads 2.2.0 (2013-10-09)","Release Changelog
+Scratchpads 2.2.0 (2013-10-09)
+- Added the Citations tool (#3130)
+- Fixed an issue with the Biography feature (#3473)
+- Prevent failed imports from being restarted (#3439)
+- Updated to DwC-Archives (#3405, #3400)
+- Display the users on three tabs (All/People/Users) (#3285)
+- Ensure the Groups feature enables fully (#3330)
+- Added the views_date_format_sql module for grouping views by dates (#3492)
+- Ensure the XLS templates are created correctly when using multiple application servers (#3467)
+- Simplify the configuration of site information (all from front page) (#3306)
+- Prevent the import of empty strings by feeds (#3237)
+- Allow use of regular expressions in Slickgrid filters (#3102)
+- Allow sidebar tabs to be as wide as they need to be (#3308)
+- Only display the specimens tab when required (#3445)
+- Show optgroups for role delegation (#3448)
+","Wednesday, October 9, 2013 - 14:31"
+"Changelog - Scratchpads 2.1.10 (2013-09-25)","Release Changelog
+Scratchpads 2.1.10 (2013-09-25)
+- Fixed the twitter filter (3288)
+- Fixed an issue with cloned nodes and UUIDs (3384)
+- Display the full reference when hovering over a biblio citation (3395)
+- Improved error message for RefBank import (3020)
+- Enable the hiding of PDF attachments associated with biblio nodes (3404)
+- Tweak the meta.xml file in DwC-A exports (3400)
+- Ensure Darwincore and other modules warn users when being disabled (3271)
+- Clean up a bug with Darwincore when disabled (3067)
+- Reorder facets on search pages (2244)
+- Prevent redirecting of non-admin users when adding certain nodes (3444)
+- Add validation to user/people import (3374)
+- Ensure content type publishing options can be updated (3433)
+- Prevent jumping numbers in certain pagers (3329)
+- Only display the BHL magnifying glass if required (3093)
+- Export TID and Name for a taxonomic name field (3414)
+- Prevent periodic import failures (3392)
+- Prevent the ShareThis widget appearing multiple times on a page (3284)
+- Minor changes to facilitate offline Scratchpads Training courses
+- Partial fix for incorrect species occuring in the IUCN box (3321)
+- Prevent a ""Missing relationship"" warning (3328)
+- Ensure the IUCN and other widgets display correctly (3385)
+- Fixed (3393, 3402, 3386)
+","Wednesday, September 25, 2013 - 15:14"
+"Visit us during the Science Uncovered event","On Friday 27 September the Natural History Museum is organising the annual Science Uncovered event in the framework of the European Researcher's night EU initiative. If you want to learn more about Scratchpads and how we facilitate research and dissemination of research results come along on Friday. 
+The Scratchpads team will be located in the Museum's main hall between 18.00 - 20.00
+Learn more about Science Uncovered
+","Wednesday, September 25, 2013 - 12:46"
+"Changelog - Scratchpads 2.1.9 (2013-09-11)","Release Changelog
+Scratchpads 2.1.9 (2013-09-11)
+- Ensure the EOL TCS import works (#3318)
+- Export TID rather than name for the Excel template (#3362)
+- Various EOL DwC-A fixes
+- Display the copyright owner and the licence on the front page slideshow (#3105)
+- Ensure single value facets display correctly (#3298)
+- Fixed a bug with the filter on content views (#3317)
+- Ensure all biography fields are exported in the template files (#3370)
+- Display 56 media items on gallery pages (#3282)
+- Allow specifying by labels for text fields (#3375)
+- Fixed an issue that prevented images from being uploaded (#3299)
+- Minor fix to the ""Make this profile public"" option (#3378)
+- Display author names even when they can not be parsed (#3365)
+","Wednesday, September 11, 2013 - 16:20"
+"Our new Ambassador in India","We are pleased to announce that Arpit Deomurari is our first Scratchpads Ambassador located in India. Arpit is Deputy manager of GIS & Biodiversity Informatics in the Foundation for Ecological Security in Anand, Gujarat, India, Please read more about Arpit here.
+","Friday, August 30, 2013 - 10:26"
+"Changelog - Scratchpads 2.1.8 (2013-08-28)","Release Changelog
+Scratchpads 2.1.8 (2013-08-28)
+- Only include approved comments in DwC-A exports (#3144)
+- Added honeypot to help fight spam user account submissions (#3238)
+- Weighting option on taxon description pages (#2446)
+- Support for user biographies (#3202)
+- Allow for biblio citation style settings (#3053)
+- Allow People to have login access (#3219)
+- Fix image upload issue (#3303)
+- Use GBIG taxonomic status values in DwC-A exports (#2406)
+- Remove hyperlink from references in DWC-A exports (#3055)
+- Remove Group content type when Groups are disabled (#3074)
+- Separate media links on node edit form (#1478)
+- Prevent duplicate terms from being added to autotag taxonomies (#3236)
+- Theme the media browser (#1962)
+","Wednesday, August 28, 2013 - 12:58"
+"Changelog - Scratchpads 2.1.7 (2013-08-14)","Release Changelog
+Scratchpads 2.1.7 (2013-08-14)
+- Added the tracker module as a tool (#931)
+- Ensure that certain configuration pages are hidden
+- Added the Spambot and Captcha modules to help prevent spam (#3187)
+- Delete any spam comments that may have been received (#3187)
+- Display the TID and GUID in the Taxonomy editor (#2878)
+- Allow uploading of SVG and TIFF images (#1511)
+- Ensure that users can set width/height/align attributes on images (#2852)
+- Automatically tag biblio records based on keywords (#2047)
+- Allow basic GM3 configuration (#976)
+- Performance improvements (#1407)
+- Prevent displaying of duplicate references on the taxon page biblio tab (#3235)
+- Prevent locking of the body field so that it may be removed from content types
+- Added a message to the Contact Us form stating that the message is for the site maintainer
+- Ensure a classification may be exported when the hierarchy is broken
+- Display all rights reserved (#2973)
+- Cache the Remote Issues Tab to improve performance
+- Fixed a display issue with the forum sidebar (#3210)
+- Allocate more memory for the Feeds XLS import
+- Character editor bug fixed (#3200)
+- Allow externally hosted Scratchpads to tweak their own configuration/user 1
+- Allow filtering by any field in the VBO views (#3104)
+- Fixed a bug with Slickgrid and views with arguments
+- Only show NCBI data for valid terms (#2190)
+- Display user references as full names (#2735)
+","Wednesday, August 14, 2013 - 13:11"
+"Service bulletin","Issue status: Closed
+Type: Service interruption
+Severity: High - affecting all users
+Handled by: NHM ICT
+Issue commencing: 2013-08-20 18.00 (GMT+1) 
+Issue closed: 2013-08-20 23.00 (GMT+1) 
+Description
+On Tuesday 20 August between 18:00 and 23:00 (GMT+1), The Natural History Museum ICT will be performing vital upgrades to the Museum’s IT infrastructure. This work will require a period of network downtime. As a result Scratchpads will not be available during this time. This includes all subdomains of myspecies.info, e-monocot.org and scratchpads.eu domains.
+The upgrade will enable ICT to provide better resilience to core IT hardware and improve the reliability and availability of hosted services.
+We apologise for any inconvenience this may cause. 
+This bulletin will close when the service is again fully functional
+","Tuesday, August 13, 2013 - 16:00"
+"Changelog - Scratchpads 2.1.6 (2013-07-31)","Release Changelog
+Scratchpads 2.1.6 (2013-07-31)
+ - Italicise subgeneric ranked taxa (#3138)
+ - Enabled the editing of a site's URL aliases
+ - Minor DwC-A additions for image metadata
+ - Enable harvesting of site categories for the stats pages (#110)
+","Wednesday, July 31, 2013 - 15:50"
+"Changelog - Scratchpads 2.1.5 (2013-07-17)","Release Changelog
+Scratchpads 2.1.5 (2013-07-17)
+- Various DwC-A bug fixes
+- Tweaks to the presentation of Scratchpads statistics (#110)
+- Prevent empty field_collection items from being created by Feeds imports (#3106)
+- Added Vice Counties to the GM3 Regions (#2109)
+- Character editor bug fixes (for those with the Character editor enabled) (#3129, #3125, #3127, #3099, #3113, #1210 #3108, #2262, #3097, #3098, #3095, #3096, #3112)
+- Display the Entity/Bundle on search results pages (#3109)
+- Added quotes to the Google Scholar API searches to get more specific results (#3124)
+- Prevent deleting of stock Scratchpads fields (#3077)
+- A link to open GeoCAT using the CSV view has been added to relevant taxon pages (#2431)
+- Prevent each site from running Optimize on the Solr server
+- Ensure hidden pages are correctly hidden
+- Added SCRATCHPADS_VERSION constant for displaying of the Scratchpads version number
+- Generate COinS on Biblio pages (#3082)
+- Renamed the Taxonomy description field to Comments (#882)
+","Wednesday, July 17, 2013 - 17:31"
+"Rapid Conservation Assessments through GeoCAT","In collaboration with Kew Gardens you can now directly import your georeferenced specimens to GeoCAT .
+GeoCAT is designed to produce rapid species level conservation assessments based on IUCN Red List Categories and Criteria (IUCN 2001). Through an easy to use interface with a familiar Google Map underlay, you can upload primary occurrence data for a species and at the click of a button, calculate values relating to the geographic range of a species.
+Learn how here
+","Friday, July 12, 2013 - 11:49"
+"The Natural History Museum Informatics Horizons","25 speakers showcase, demonstrate and describe Biodivesity tools and digital projects. See the analytical programme here
+","Monday, July 8, 2013 - 17:45"
+"Changelog - Scratchpads 2.1.4 (2013-07-03)","Release Changelog
+Scratchpads 2.1.4 (2013-07-03)
+- Updates redirect module to the latest ""dev"" version (Fixes a duplicate hashes issue)
+- Display Scratchpads version on eMonocot sites (#2965)
+- Tweak the taxonomy term description field (#882)
+- Allow hiding of SPM fields (#911)
+- Fixed issues with import/saving SPM (#2785, #2956)
+- Updates to Scratchpads Statistics
+- Hide the Character project (#3019)
+- Prevent access to certain pages
+- Check for missing files and delete records from the database (#3035)
+- Created a specific CSV file for Ecological Niche modelling
+- Further tweaks to the DwC-A
+- Fix cloning of Biblio nodes (#3037)
+","Wednesday, July 3, 2013 - 12:53"
+"New server: One step closer to failover","Scratchpads hosted at the Natural History Museum, London, are, as of today, being served by two servers (Silica and Quartz) instead of the previous one (Quartz).  This should result in faster page load times, especially at peak times.  The current configuration will allow Silica to be taken offline for maintenance, with all sites being served by Quartz.  It will not allow for Quartz to be taken offline, something we intend to work on in the future.
+Scratchpads may experience some transient issues as we finish setting up the new server.
+","Monday, June 24, 2013 - 16:19"
+"Changelog - Scratchpads 2.1.3 (2013-06-19)","Release ChangelogScratchpads 2.1.3 (2013-06-19)
+The release this week should be applied to all sites by Friday June 21st.
+- Added a switch for displaying of thumbnails as scaled images (#1247)
+- Enable the hiding of borders from tables (#2908)
+- Tweaked the text displayed when ""All rights reserved"" is selected (#2972)
+- Allow importing into certain fields in a field collection (#2375)
+- Export field collection values (#3007)
+- Ensure taxon description blocks on the front page are displayed (#3003)
+- Enable the displaying of a Lucid key (#2952)
+- Display TDWG regions on a taxon overview page (#2380)
+- Expand the autocomplete box (3014#, 3011#)
+- Fix entityconnect buttons in Chrome (#3015)
+- Add locations to the taxon CSV output for BioVeL/GeoCAT
+- Allow filtering by a node reference field in Slickgrid (#3010)
+- Improve formatting of vernacular names (#2898)
+- Prevent users from tabifying blocks they shouldn't (#2975)
+- Minor fixes to DwC-A
+- Remove the Hashcash module (#2961)
+","Wednesday, June 19, 2013 - 15:37"
+"Scratchpads in ViBRANT-BEBOL-JEMU meeting","Scratchpads and other ViBRANT tools were presented during a one-day meeting in Brussels on Tuesday June 11. Presentations and discussions aimed at the use of Scratchpads by the DNA taxonomists. The workshop was organized by JEMU, BeBoL and ViBRANT, as part of the ViBRANT technical workshops, RBINS (WP3 Training, outreach and community support).
+52 participants.
+Main topics and links to the presentations:
+
+	ViBRANT project overview - Isabella Van de Velde, Royal Belgian Institute of Natural Sciences, Brussels
+
+		Introduction to Scratchpads - Dimitrios Koureas, Natural History Museum London
+
+		Scratchpads Publication module - Dimitrios Koureas, Natural History Museum London
+
+		Scratchpads tools for the DNA taxonomist - Edward Baker and Dimitrios Koureas, Natural History Museum London
+
+		Manipulating sequence data and OBOE - Neil Caithness, Oxford e-Research Centre
+
+		Literature Mining and MarkUp using OBOE - David Morse and David King, Open University
+
+		Pensoft Writing tool - Lyubomir Penev, Pensoft Publishers
+
+		Data papers based on BOL data, Biodiversity Data Journal - Lyubomir Penev, Pensoft Publishers
+
+		RefBank and RefFinder - David King Open University and Lyubomir Penev, Pensoft Publishers
+
+		Open access journals - Lyubomir Penev, Pensoft Publishers
+","Thursday, June 13, 2013 - 10:29"
+"Changelog - Scratchpads 2.1.2 (2013-06-05)","Release ChangelogScratchpads 2.1.2 (2013-06-05)
+ - Added additional update options for media files (#615)
+ - Ensure the default newsletter is available (#1123)
+ - Display links to other forums when viewing a forum/forum post (#1140)
+ - Link to taxon page description tabs from the front page, rather than specific nodes (#591)
+ - Ensure botanical classifications display synonyms correctly (#2893)
+ - Fix the filtering and sorting in the grid editor (#2889,#2203)
+ - Ensure the filter boxes are displayed in all tabs in the grid editor (#2849)
+ - Added and configured the Gravatar module on all sites (#464)
+ - Allow linking of taxon names in an import by TID or GUID (#2752)
+ - Filter EOL API images out of the media select box (#2815)
+ - Hide Editors from the literature pages (#2911)
+ - Allow ""People"" to have profile images (#2888,#2820)
+ - Type Arhive -> Archive (#2459)
+ - Display logos on training sites (#2874)
+ - Allow displaying of Biblio records for a ""Person"" (#1481)
+ - Allow users to edit the fields displayed in the lightbox (#2798)
+ - Link the points on a map to their specimens (#1421)
+ - Prevent tips from overlapping the date fields (#811)
+ - Ensure export of large quantities of data in feeds works as expected (#2914)
+ - Ensure all file fields use the Media select widget (#2143)
+ - Wipe unit indicator values if the corresponding unit name value has been wiped (#2928)
+ - Editing data in the location grid no longer removes GM3 data (#2048)
+ - Consistent spacing of the nomenclature block (#2936)
+ - Allow Slickgrid to work with page arguments (#2950,#2867)
+ - Allow deleting of large branches from the taxonomy editor (#1463)
+ - Ensure the validation is added to populated Excel templates (#2272)
+ - Fixed the DwC-A generation script
+ - Added a data integrity check for terms in a deleted classification
+ - Various Publication module fixes
+ - Ensure small images can be edited from the lightbox (#2701)
+ - Add descriptions to the Revision information checkboxes (#1102)
+ - Removed the content type facet from the literature pages (#2219)
+ - Upgraded Omega theme to 7.x-3.1
+","Wednesday, June 5, 2013 - 17:28"
+"Scratchpads learn to speak Ukrainian ","As part of the Scratchpads interface translation project we have recently added Ukrainian. If you would like to contribute to any of the available languages for translation please let us know by sending an email to support@scratchpads.eu
+You can now contribute to any of the below languages:
+Chinese
+French
+German
+Portuguese
+Spanish
+Ukranian
+Please read http://help.scratchpads.eu/w/Translating_scratchpad for more information on how to contribute.
+","Tuesday, June 4, 2013 - 10:16"
+"Changelog - Scratchpads 2.1.1 (2013-05-20)","Release ChangelogScratchpads 2.1.1 (2013-05-20)
+An early release this week which should be applied to all sites by Wednesday May 22nd.
+- Ensure Primary menu links on Forum pages are displayed correctly (#2869)
+- Disable changing the display of the Forum content type
+- Change the URL of the training feedback form (#2873)
+- Prevent an error when deleting files using Views Bulk Operations ((#2587)
+- Added a Blog sidebar block to allow filtering of blocks (#1303)
+- Added a Forum sidebar block to allow easy navigation of fora (#1140)
+- Upgraded the Apachesolr and Apachesolr Multisite Search modules
+- Ensure that all indexable content is indexed
+- Prevent an error on indexing sites without a biological classification
+- Fixed bugs with Multisite Search the caused the whole index to be deleted
+- Fixed a bug that prevented facets from displaying on the media gallery pages
+- Prevent images associated with a gallery from being deleted if the gallery is deleted (#2694)
+- Ensure that Scratchpads Messages are correctly and consistently formatted
+- Ensure all vocabularies can be referenced in a term_reference field (#2856)
+- Ensure logos are displayed on all new sites
+- Ensure that the media browser displays images correctly
+- BHL Widget now uses BHL APIv2 with a much improved overlay (#2833)
+- Ensure that the Google Scholar and BHL widgets are displayed on the correct pages (#2833)
+- Added a data integrity module to ensure basic data structures are not corrupt
+- Allow users to see which version of Scratchpads they are using by hovering over the Scratchpads logo
+- Performance improvement for the taxon page map blocks
+","Monday, May 20, 2013 - 15:29"
+"Service bulletin","Issue status: Closed
+Type: Service degradation
+Severity: Medium - affecting most users
+Handled by: Scratchpads Team
+Issue commenced: 2013-05-15 
+Issue closed: 2013-05-16 
+Description
+A re-indexing process of all sites took place during Thursday and Friday (15-16/05/2013). As a result some users in certain sites experienced issues accessing their Literature and Media galleries while this is in progress. 
+We are sorry for the inconvenience that might have caused you. The re-indexing was necessary as a result of a Scratchpads module fix.
+","Wednesday, May 15, 2013 - 17:21"
+"Scratchpads Migration Procedure","We have documented the Scratchpads migration procedure on our help wiki: http://help.scratchpads.eu/w/Migration_Procedure
+This also includes a diagram and all the notifications we have sent out to site maintainers.
+If you have any questions about migration please contact us at support@scratchpads.eu
+","Thursday, May 9, 2013 - 12:06"
+"We updated our Policies","Scratchpads policies (i.e. terms and conditions, data management, cookies and privacy) have been updated. Please read them at http://scratchpads.eu/about/policies
+","Wednesday, May 8, 2013 - 16:29"
+"Changelog - Scratchpads 2.1.0 (2013-05-08)","Major Release ChangelogScratchpads 2.1.0 (2013-05-08)
+* Convert vernacular names to field_collections if the name is not blank
+* Slickgrid now loads rows dynamically
+- Ensure that there are no spaces after the hybrid indicator '×' (#2268)
+- Updated plupload module to 7.x-1.1
+- Removed old code
+- Added the .zip extension to the allowed list (#999)
+- Update the way views are counted by the stats module (#2521)
+- Prevent the media browser from showing EOL API files (#2815)
+- Ensure newly added terms are added to the terms reported by stats
+- Ensure that page views are counted on cached pages
+- Link to the ""Scratchpads Policies"" page (#2809)
+- Only match lexicon terms on whole words (changed from left-match)
+- Updated Lexicon module to 7.x-1.10
+- Updated Entity module to 7.x-1.1 (#2587)
+- Updated Views module to 7.x-3.7
+- No need to downgrade jQuery to 1.7 on views admin pages
+- Updated views_bulk_operations to 7.x-3.1
+- Moved the display of the taxonomic name field to the bottom of all content
+","Wednesday, May 8, 2013 - 13:19"
+"Service bulletin","Issue status: Closed
+Type: Service outage & Service degradation
+Severity: High - affecting all users
+Handled by: NHM ICT & Scratchpads Team
+Issue commenced: 2013-05-04 03:20 (GMT +1)
+Issue closed:2013-05-04 14:20 (GMT +1)
+Description
+The main Scratchpads server (Quartz) was down for six minutes on Saturday morning resulting in an outage of all Scratchpads services. As a consequence our Solr server (i.e. our search and indexing server) was down resulting in a Scratchpads service degradation from 2013-05-04 03:26 until rebooted at about 2013-05-04 14:20 
+We apologise for any inconvenience this might have caused. The Natural History Museum ICT is investigating the cause for this.
+","Tuesday, May 7, 2013 - 13:21"
+"Few days left to register for the online training","An online scratchpads training course will be held on 24 May 2013. This is the first of a series of online training courses. Online training courses will act complimentary to the on site training events. The target audience is existing or perspective Scratchpads users mainly from regions and communities that no on-site training has previously been given or is planned for in the near future.
+Register here:http://scratchpads.eu/event/2013-04/online-training-course
+Deadline for registrations:
+17 May 2013
+","Tuesday, May 7, 2013 - 12:11"
+"Scratchpads 2.0 Leaves Beta (Scratchpads v2.0.1)","We are pleased to announce that Scratchpads 2.0 is formally leaving beta!
+Since the first Scratchpads 2.0 release in 2012 we have completed over 800 reported issues and added many improvements and new features.
+Today marks our second update of Scratchpads 2.0 as we change from ""rolling releases"" to versioned bi-weekly releases.
+There are a number of benefits you should see from the switch to versioned releases: we can more easily let you know about updates and improvements; do more thorough testing; and maintain our documentation more easily.
+Changelog
+Scratchpads 2.0.1 (2013-04-24)
+- Upgraded Drupal to 7.22
+- Prepared the sites to use Varnish
+- Upgraded simplenews module to 7.x-1.0
+- Ensure the file styles table can be populated (#1118)
+- Fixed an issue with the Excel import that repeated some import rows
+- Added images to the DwC-A export
+- Ensure EOL API images are correctly displayed
+- Enable statistics on all sites
+- Enable users to reset the emails used by Femail
+- Include a Last-Modified header for the DwC-A to aid caching
+- Added Khalid Almaini's OpenID - the newest memeber of our team
+- Added the cookieguard module, although not actually enabled
+- Improved presentation handling of the user_reference fields
+- Various Pensoft publication module fixes
+- Removed the ""beta"" logo
+- Open the help wiki in a new tab (#880).
+- Prevent the WYSIWYG editor from expanding
+","Wednesday, April 24, 2013 - 13:01"
+"Service bulletin","Issue status: Closed
+Type: Service outage
+Severity: High - affecting all users
+Handled by: NHM ICT
+Issue commenced: 2013-04-20 19:00 (GMT +1)
+Issue closed:2013-04-21 13.00 (GMT +1)
+Description
+On Saturday evening a power switch feeding key network equipment failed taking external access to the NHM systems. On Sunday during work to fix this, all virtual servers shut down for a brief period affecting many ICT services. ICT have been working to ensure all services are back  and operating normally. We apologise for this loss of service and are investigating what caused the initial loss of power and then the unexpected subsequent loss of further services while we were remedying the problem.
+","Monday, April 22, 2013 - 14:43"
+"Service bulletin","Issue status: Closed
+Type: Service interruption
+Severity: High - affecting all users
+Handled by: Scratchpads Team & NHM ICT
+Issue commenced: 2013-04-15 11:00 (GMT +1)
+Issue duration:2013-04-15 12.00 (GMT +1)
+Description
+As part of our Server upgrade process a required global Scratchpads service interruption will commence on Monday 2013-04-15 at 11.00 (GMT+1) and estimated to last for a maximum of 1 hour. This is a required upgrade to the date storage in our server. During the upgrade users will not be able to access any of the Scratchpads sites as well as the Scratchpads portal, the Scratchpads wiki site and the scratchpads Issue queue.
+We are sorry for any inconvenience caused to our users.
+","Tuesday, April 9, 2013 - 12:08"
+"Upgrade of Scratchpads v.1.0 sites started","After extended testing in order to minimize the volume of expected issues, we are entering the final phase of upgrading all Scratchpads sites still in the old version. The maintainers of these sites (c. 300) have already received an email explaining the process to be followed. For most of the sites the upgrade will be completed in the next few weeks. 
+Maintainers of the upgraded sites will be able to use in full extent the added functionality of Scratchpads v.2.0 and users will enjoy a more user friendly and intuitive interface. 
+Please note that sites already in the new version will not be affected by this upgrade. 
+","Wednesday, March 27, 2013 - 16:53"
+"Meet our new Ambassador in California, USA","Eli Sarnat is our new Ambassador in the USA. His main area of research is Ant systematics. He is currently Manager at Antwork Consulting, LLC, and a research associate of California Academy of Sciences, San Francisco.
+We are more than happy to welcome Eli as a Scratchpads Ambassador. See his short profile here.
+If you also feel like you could help us, please apply to become an ambassador. Learn more here.
+","Monday, March 25, 2013 - 17:19"
+"Service bulletin","Issue status: Closed
+Type: Service degradation
+Severity: Secondary issue affecting all users
+Handled by: Scratchpads Team & NHM ICT
+Issue commenced: 2013-03-18 00:00
+Issue closed: 2013-03-25 13:38
+Description
+Service degradation affecting all users.
+The issue regarding users experiencing Search and Indexing problems (including media and references lists) has now been resolved.
+The server is now behaving as expected. Scratchpads development team has made significant configuration changes to address the indexing and searching issues. 
+We are sorry for any inconvenience caused to our users.
+","Monday, March 25, 2013 - 14:25"
+"Service bulletin","Issue status: Closed
+Type: Service Interruption
+Severity: Crucial issue affecting all users
+Handled by: NHM ICT
+Issue commenced: 2013-03-14 19:38
+Issue closed: 2013-03-15 08:28
+Description
+Service interruption affecting all users due to hardware failure.
+The problem was identified as a memory failure on one of the EXSi that host the Scratchpads virtual machines (VM) causing a global Scratchpads service shutdown.
+The problem prevented all users from accessing Scratchpads sites and Scratchpads portal for approximately 12 hours.  
+The Scratchpads VMs are now relocated and back to full operation. 
+We are sorry for any inconvenience this may have caused to our users.
+","Friday, March 15, 2013 - 12:40"
+"Ambassador Grants results ","We are pleased to announce that a total of four proposals are to be funded, pending final acceptance from our ambassadors.
+The list of proposed training courses can be found below: 
+Title: A step into the future: online taxonomy for Cameroon
+Location: Université de Yaoundé I, Département d'Informatique, Cameroon
+Ambassador: Thomas Couvreur
+Title: Basic training course during the 2nd International Conference Modern Phytomorphology
+Location: State Natural History Museum NAS Ukraine
+Ambassador: Andrew Novikoff
+Title: Opening up the biodiversity of hyper-diverse Malaysia
+Location: the Museum of Zoology, University of Malaysia, Kuala Lumpur
+Ambassador: John Wilson
+Title: Organising African Biodiversity Communities via Scratchpads
+Location: National Museums of Kenya, Nairobi
+Ambassador: John Sullivan
+The above proposals will promote the use of Scratchpads in selected new research communities around the world. The Ambassador training courses grants scheme gives the opportunity to our Ambassadors to actively promote Scratchpads and develop their skills as support and training providers.
+","Tuesday, March 5, 2013 - 10:39"
+"Job vacancy to work on Scratchpads ","The Natural History Museum is looking to recruit a Drupal Developer to work on the Scratchpads project (http://scratchpad.eu), which is based on the Drupal (http://drupal.org/) content management system. The role encompasses the development of content, theming and functionality for new and existing PHP and Drupal systems and applications.
+Please find more information and apply for the job exclusively athttps://nhm.irecruittotal.com/CONFIG/NHM/StaticPages/CAC/SearchVacancy.a...
+","Tuesday, February 26, 2013 - 15:24"
+"Meet our new Ambassador in the Netherlands","Thibaut De Meulemeester  is the newest member in our ambassadors network. Thibaut is a postdoctoral researcher at NBC-Naturalis. His Scratchpad is dedicated to the taxonomy and distribution of fossil bees. Find out more about Thibaut here,
+","Monday, February 25, 2013 - 13:51"
+"Meet our new Ambassador in USA","John Friel is our new Ambassador in the USA. His main area of research is on the biodiversity of freshwater fishes, particularly catfishes (Order Siluriformes). He is currently serving as the curator for Fishes, Amphibians & Reptiles at the Cornell University Museum of Vertebrates. 
+We are more than happy to welcome John as a Scratchpads Ambassador. See his short profile here.
+If you also feel like you could help us, please apply to become an ambassador. Learn more  here.
+","Friday, February 15, 2013 - 15:55"
+"35 participants in our training course in Leiden","Two sessions of training courses for Scratchpads were organised during the pro-iBiosphere meeting  in Leiden. The course attended 35 participants from all over the world (Europe, America, Africa, Asia and Australia). 
+The introductory presentation given during the workshop can be found here.
+Please keep an eye on our list of upcoming training courses in the Support > Training section of the scratchpads.eu site
+","Friday, February 15, 2013 - 15:25"
+"Meet our new Ambassador in China","Wang Lisong is our new ambassador in China. Wang is a researcher at the Institute of Botany, Chinese Academy of Sciences. Wang is actively maintaining a Scratchpad on the higher plants of China and also contributes to the translation of the Scratchpads interface in Chinese.
+As all our ambassadors, Wang will promote the use of Scratchpads among selected research communities in China. 
+If you also feel like you could help us, please apply to become an ambassador. Learn more  here.
+","Wednesday, February 6, 2013 - 15:46"
+"New monthly visitors record!","During the last month (January 2013) Scratchpads sites had 54,462 unique visitors. That is an increase of 14.3% to our previous monthly record (Oct 2012)
+","Friday, February 1, 2013 - 18:29"
+"Join the Scratchpads Translation Project for Chinese","In addition to the currently selected languages we would also like Scratchpads to start speaking Chinese. If you would like to contribute towards this translation please contact us at support@scratchpads.eu. 
+Scratchpads are already being used by research communities and individuals around the world. To facilitate wider use of Scratchpads we are commencing a project to translate the Scratchpads interface to multiple languages. This project will be primarily crowd-sourced to our extended user community, as they have the expertise to accurately translate used terms in their respective language.
+As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to support@scratchpads.eu. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.eu/w/Translating_scratchpad
+","Thursday, January 31, 2013 - 18:27"
+"ViBRANT Researcher Evangelos Pafilis awarded EOL Rubenstein fellowship 2013","Evangelos Pafilis, Research fellow in the ViBRANT project partner Hellenic Center of Marine Research, Crete, Greece has been awarded the Encyclopedia of Life 2013 Rubenstein Research Fellowship. 
+Evangelos along his collaborators:
+Christina Pavloudi, Hellenic Centre for Marine Research, Crete, Greece ;
+Julia Schnetzer, Bremen, Germany;
+Lucia Fanini, Hellenic Centre for Marine Research, Crete, Greece;
+Lars Juhl Jensen, University of Copenhagen, Denmark;
+Sarah Faulwetter, Hellenic Centre for Marine Research, Crete, Greece;
+Sune Pletscher-Frankild, , University of Copenhagen, Denmark and
+Umer Zeeshan Ijaz, Aikaterini Vasileiadou, University of Glasgow, United Kingdom 
+will work on the project called:
+""ENVIRONMENTS: Discovering habitat terms in EOL Contents""
+In total seven teams of biologists, information scientists and software developers were selected to work on Big Data research through EOL.
+","Wednesday, January 30, 2013 - 19:04"
+"New Features: Google Scholar, BHL, IUCN & NCBI widgets","We are pleased to announce four (4) new widgets that allow Scratchpads users to link their taxonomic terms to high profile external content providers.
+These widgets promote Scratchpads as an integrated biodiversity content management platform for research communities. 
+Add content to your taxon pages provided by the following services: 
+Google Scholar:
+Will return the most relevant to each taxon references and their full text links*.To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_Google_Scholar
+Biodiversity Heritage Library (BHL):
+Will return the relevant to each taxon records from a 100,000+ volumes full text literature databaseTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_BHL
+IUCN:
+Will return taxonomic, conservation status and distribution information on each taxon that has been globally evaluated using the IUCN Red List Categories and CriteriaTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_IUCN_data
+NCBI:
+Will return associated information from the different datasets of one of the largest genomic data providersTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_NCBI
+* Subject to individual Institutions' full text access agreements
+","Tuesday, January 22, 2013 - 15:23"
+"Invitation to our Ambassadors","To further strengthen our Ambassadors network, Scratchpads is providing grants to support Scratchpads training courses proposed by our ambassadors. If you are one of Ambassadors please check your emails for the invitation form. If you would like to join our Ambassadors network please check all relative information under Support > Ambassadors.
+","Thursday, January 10, 2013 - 14:41"
+"New feature: WoRMS importer","Scratchpads are now using a new importer that allows users to build new classifications based on data from the World Register of Marine Species (http://www.marinespecies.org/about.php).
+You can find detailed documentation of this new tool in our wiki pages under Importing a WoRMS classification
+","Tuesday, January 8, 2013 - 18:22"
+"Join the Scratchpads Translation Project","Scratchpads are already being used by research communities and individuals around the world. To facilitate wider use of Scratchpads we are commencing a project to translate the Scratchpads interface to multiple languages. This project will be primarily crowd-sourced to our extended user community, as they have the expertise to accurately translate used terms in their respective language. 
+As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to  support@scratchpads.eu. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.eu/w/Translating_scratchpad
+At the moment we are undertaking the translation in the following languages:
+French
+German
+Portuguese
+Spanish
+ The translation project is hosted by Google Translate Toolkit, so you will need to have an active Google account to use it 
+","Thursday, January 3, 2013 - 15:59"
+"New documentation pages available","We have recently added the following Scratchpads 2.0 documentation pages:
+Citing references in pages
+Importing locations using MS Excel files
+Importing specimens using MS Excel files
+Importing taxon descriptions using MS Excel files
+Importing location data from .kml files
+Microsoft Office taxonomic dictionary based on you taxonomies
+Adding Twitter feeds in pages
+You can also search for documentation on other Scratchpads functions in our dedicated wiki.
+","Wednesday, December 19, 2012 - 10:20"
+"More monthly visitors than ever before","During October 2012 Scratchpads sites had 47,661 unique visitors from 190 countries braking all previous monthly records. 
+For comparison reasons Scratchpads sites had 32,412 during Oct 2011 (a 47% relative increase) and 18,729 during Oct 2010 (a 154% relative increase).
+","Monday, December 3, 2012 - 18:34"
+"New issues tracker","We have a new issues tracker which is part of our new project management system that now runs on Redmine.
+All Scratchpad users can continue to post issues from their Scratchpads in the same way as before by clicking on the issues tab on the left hand side of the site when logged in.
+The majority of issues submitted by users will be found under the Support Project of Scratchpads 2 in the new system.
+We are currently sorting and categorising all of the issues from our old system.
+","Friday, November 30, 2012 - 12:39"
+"Upgrade process of Scratchpads v.1.0 sites ","Maintainers of Scratchpads v.1.0 sites can find information on the upgrade to Scratchpads v.2.0 process (called migration) in our dedicated wiki page.
+","Thursday, November 29, 2012 - 13:12"
+"Our global outreach scheme","Training and outreach are an important part of the Scratchpads project. In 2012 we have run training courses and given lectures in 15 countries around the world;
+Belgium
+Brazil
+Bulgaria
+China
+Denmark
+Greece
+Korea
+Panama
+Serbia
+Singapore
+South Africa
+Sweden
+Switzerland
+UK
+USA
+We will be running more training courses and give more talks in 2013.
+","Tuesday, November 27, 2012 - 17:36"
+"New scratchpads.eu Site","After months of work we are pleased to announce the launching of our new Scratchpads.eu site today. Navigate through our new more intuitive interface to find detailed information about the Scratchpads project.
+The Site will act as the primary source of information about the Scratchpads project, provide useful information for new and existing users and be used as the primary gateway for browsing the Scratchpad sites catalogue.
+","Monday, November 19, 2012 - 15:40"
