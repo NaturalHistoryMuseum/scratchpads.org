@@ -1,0 +1,149 @@
+/*
+ * Theme the tabs for this page
+ */
+body.context-explore {    
+  #quicktabs-sites_list {
+    .quicktabs(@blue_medium);
+  
+    ul.quicktabs-tabs {
+      li {
+        width: 140px;
+      }
+    
+      li.last {
+        left: 200px;
+      }
+      
+      a:link {
+        color: @blue_main;
+      }
+    }
+  }  
+}
+
+/*
+ * Sites list themeing
+ */
+body.context-explore div.view-site-list.view-display-id-block_2 {
+
+  table {
+    font-size: 8pt;
+    td {
+      padding: 4px 1px;
+      border: 1px solid @separator_color;
+    }
+  }
+}
+
+/*
+ * Thumbnails themeing
+ */
+body.context-explore div.view-site-list.view-display-id-block_1 {
+  border: 0;
+  
+  table {
+    border: 0;
+    height: 100%;
+  }
+  
+  tr:hover td {
+    background: white;
+  }
+  
+  td {
+    width: 200px;
+    height: 150px;
+    padding-bottom: 24px;
+
+    img.sites-list-plain {
+      display: block;
+    }
+    img.sites-list-hover {
+      display: none;
+    }  
+  }
+  
+  td:hover {
+    img.sites-list-plain {
+      display: none;
+    }
+    img.sites-list-hover {
+      display: block;
+    }    
+  }
+}
+
+
+/*
+ * Statistics page themeing
+ */
+body.context-explore h2 {
+  font-family: @h2_font_family;
+  font-size: @h2_font_size;
+  font-weight: @h2_font_weight;
+  color: @blue_main;
+}
+
+#block-views-site-list-block-3 {
+  div.views-row {
+    clear: both;
+    min-height: 150px;
+  }
+  div.views-row-last {
+    border-bottom: 0;
+  }
+  div.views-field-title, div.views-field-field-mission {
+    margin-left: 220px;
+  }
+  img.sites-list-plain {
+    display: block;
+    float: left;
+  }
+  img.sites-list-hover {
+    display: none;
+    float: left;
+  }
+  div.views-row:hover img.sites-list-plain {
+    display: none;
+  }
+  div.views-row:hover img.sites-list-hover {
+    display: block;
+  }
+
+}
+
+body.context-explore {
+  #region-content { 
+    .scratchpads-statistics-wrapper {
+      h3 {
+        font-size:100% !important;
+        color: #888 !important;
+      }
+      h2, h3 {
+        margin-bottom:5px;
+        margin-top:5px;
+      }
+    }
+      
+    #block-block-6 {
+      p {
+        margin-bottom:0 !important;
+      }
+    }
+  }
+
+  #region-sidebar-first {
+    .block-scratchpads-statistics {
+      border: 0;
+      border-top: solid @separator_width @separator_color; 
+      margin-top: 16px;
+      padding-top: 0.5em;
+      h2 {
+        color: @grey_font_color;
+        font-size: @base_font_size;
+        font-family: @base_font_family;
+        font-weight: @base_font_weight;
+      }
+    }
+  } 
+}
