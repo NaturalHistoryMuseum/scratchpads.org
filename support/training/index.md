@@ -7,7 +7,7 @@ the taxon pages, data import and communication tools. Participants will be given
 the opportunity to learn best practices and gain a better understanding of what
 the Scratchpads can do for them and their research community.
 
-[Please check our upcoming training courses list](/support/training/events)
+[Please check our upcoming training courses list]({{ '/support/training/events' | relative_url }})
 
 **Courses are free to attend**<br> There is no course registration fee but
 participants are responsible for their own travel and subsistence expenses when
@@ -27,7 +27,7 @@ criteria:
 * registration at the associated conference or event (if applicable)
 
 Applications by e-mail or any other method other than
-[the provided form](/support/training/events) will not be considered.<br> All
+[the provided form]({{ '/support/training/events' | relative_url }}) will not be considered.<br> All
 applicants will be notified of the outcome of their application within a week
 after the closing date.<br> Applicants will be expected to confirm their
 attendance to the course within a reasonable time.
@@ -40,9 +40,9 @@ order to attend our training courses or use Scratchpads.
 **Have an idea for a new training course?**<br> If you have an idea of a venue
 for a training course or would like to propose hosting one at your home
 institution please fill in and submit the
-[Propose a new course](/propose-new-course) form. We will be happy to evaluate
+[Propose a new course]({{ '/propose-new-course' | relative_url }}) form. We will be happy to evaluate
 your proposal and discuss it further with you.
 
 **Have you already participated in a course?**<br> If you have already attended
 one of our courses we would appreciate your feedback. Please fill our
-[training course feedback form](training-course-feedback).
+[training course feedback form]({{ '/training-course-feedback' | relative_url }}).

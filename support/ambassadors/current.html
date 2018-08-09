@@ -13,11 +13,11 @@ markdown: false
   <hr>
   <div>
     <h2 class="sp-ambassador-list__name">
-      <a href="{{ person.url }}" role="presentation" tabindex="-1">{{ person.name }}</a>
+      <a href="{{ person.url | relative_url }}" role="presentation" tabindex="-1">{{ person.name }}</a>
     </h2>
 
     {% include ambassador-info.html person=person %}
 
-    <p class="sp-ambassador-list__readmore"><a href="{{ person.url }}">Read more about {{ person.name }}</a></p>
+    <p class="sp-ambassador-list__readmore"><a href="{{ person.url | relative_url }}">Read more about {{ person.name }}</a></p>
   </div>
 {% endfor %}

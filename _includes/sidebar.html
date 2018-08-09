@@ -3,5 +3,5 @@
   <div class="sp-sidebar__content">
     {{ include.content }}
   </div>
-  <img src="{{image.path}}" alt="" role="presentation" class="sp-sidebar__decoration">
+  <img src="{{ image.path | relative_url }}" alt="" role="presentation" class="sp-sidebar__decoration">
 </aside>

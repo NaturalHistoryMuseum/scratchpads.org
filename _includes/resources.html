@@ -15,30 +15,30 @@
   <hr>
 
   <h2>
-    <a href="{{item.download}}"
+    <a href="{{ item.download | relative_url }}"
        download
        class="sp-resources__title"
        role="presentation"
        tabindex="-1">{{item.title | capitalise }}</a>
     {% if ext %}
-      <img src="/assets/{{ext}}.png" alt="" aria-hidden="true">
+      <img src="{{ '/assets/' | relative_url }}{{ext}}.png" alt="" aria-hidden="true">
     {% endif %}
   </h2>
 
   <div class="sp-resources__resource">
     {% if item.image %}
-      <a href="{{item.download}}" download aria-hidden="true" tabindex="-1" class="sp-resources__thumb">
-        <img src="{{item.image}}">
+      <a href="{{ item.download | relative_url }}" download aria-hidden="true" tabindex="-1" class="sp-resources__thumb">
+        <img src="{{ item.image | relative_url }}">
       </a>
     {% endif %}
 
     <div>
       {{ item.content }}
 
-      <a href="{{item.download}}" download>
+      <a href="{{ item.download | relative_url }}" download>
         Download {{ item.short-name | default: item.title }}
         {% if ext %}
-          <img src="/assets/{{ext}}.png" alt="This download is a {{ ext }} file">
+          <img src="{{ '/assets/' | relative_url }}{{ext}}.png" alt="This download is a {{ ext }} file">
         {% endif %}
       </a>
     </div>

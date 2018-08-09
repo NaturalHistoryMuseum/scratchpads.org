@@ -8,12 +8,12 @@ weight: 3
 <h1>Team</h1>
 
 <svg style="width: 100%;" viewBox="0 0 700 700" role="group" aria-label="Image map of current staff">
-  <image href="/about/team/photos/team-bw.png" width="700" height="700" />
+  <image href="{{ '/about/team/photos/team-bw.png' | relative_url }}" width="700" height="700" />
 
   {% assign team = site.team | where_exp: "person", "person.current != false" %}
   {% for person in team %}
     <pattern id="img{{ forloop.index }}" patternUnits="userSpaceOnUse" width="700" height="700">
-      <image href="/about/team/photos/{{ person.image }}" width="700" height="700" />
+      <image href="{{ '/about/team/photos/' | relative_url }}{{ person.image }}" width="700" height="700" />
     </pattern>
     <a href="#{{ person.title | replace: ' ', '-' | downcase }}"
        title="{{ person.title }}"

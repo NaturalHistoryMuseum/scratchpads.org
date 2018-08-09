@@ -6,4 +6,4 @@ short-description: Old training events have been archived.
 
 Old training events have been archived and are no longer available to view online.
 
-Please [contact us](/contact) for more information.
+Please [contact us]({{ '/contact' | relative_url }}) for more information.

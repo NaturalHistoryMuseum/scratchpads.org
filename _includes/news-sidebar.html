@@ -2,7 +2,7 @@
 <a href="http://twitter.com/scratchpads"
    title="Scratchpads on Twitter"
    class="sp-news__sidebar-item">
-  <img src="/assets/twitter.png" alt="" role="presentation">Twitter
+  <img src="{{ '/assets/twitter.png' | relative_url }}" alt="" role="presentation">Twitter
 </a>
 <hr>
 <h3 id="sidebar-date" class="sp-news__sidebar-section-title">Date</h3>
@@ -16,7 +16,7 @@
       {% assign index = index | plus: 1 %}
       {% assign url = site.paginate_path | replace: ":num", index %}
     {% endif %}
-    <li><a href="{{ url }}#{{ year.name }}">{{ year.name }} ({{ year.items.size }})</a></li>
+    <li><a href="{{ url | relative_url }}#{{ year.name }}">{{ year.name }} ({{ year.items.size }})</a></li>
 
     {% assign count = count | plus: year.items.size %}
   {% endfor %}

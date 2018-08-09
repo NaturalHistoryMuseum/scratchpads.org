@@ -27,7 +27,7 @@ policies periodically and be aware of modifications.**
 
 Please read the following policies carefully:
 
-1. [Terms and Conditions](/about/policies/termsandconditions)
-2. [Data Management Policy](/about/policies/datamanagement)
-3. [Cookie Policy](/about/policies/cookies)
-4. [Privacy Policy](/about/policies/privacy)
+1. [Terms and Conditions]({{ '/about/policies/termsandconditions' | relative_url }})
+2. [Data Management Policy]({{ '/about/policies/datamanagement' | relative_url }})
+3. [Cookie Policy]({{ '/about/policies/cookies' | relative_url }})
+4. [Privacy Policy]({{ '/about/policies/privacy' | relative_url }})

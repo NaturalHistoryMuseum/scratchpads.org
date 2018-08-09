@@ -1,10 +1,10 @@
 <footer class="sp-footer">
   <ul aria-label="Sponsors" class="sp-footer__sponsors">
-    <li><a href="http://www.ner.ac.uk"><img src="/assets/sponsor-logos/ner.png" alt="Natural Environment Research Council"></a></li>
-    <li><a href="http://www.e-monocot.org"><img src="/assets/sponsor-logos/emonocot.png" alt="eMonocot"></a></li>
-    <li><a href="http://www.vbrant.eu"><img src="/assets/sponsor-logos/vibrant.png" alt="ViBrant"></a></li>
-    <li><a href="https://ec.europa.eu/digital-single-market/e-infrastructures"><img src="/assets/sponsor-logos/einfra.png" alt="e-Infrastructures"></a></li>
-    <li><a href="http://www.nhm.ac.uk"><img src="/assets/sponsor-logos/nhm.png" alt="Natural History Museum"></a></li>
+    <li><a href="http://www.ner.ac.uk"><img src="{{ '/assets/sponsor-logos/ner.png' | relative_url }}" alt="Natural Environment Research Council"></a></li>
+    <li><a href="http://www.e-monocot.org"><img src="{{ '/assets/sponsor-logos/emonocot.png' | relative_url }}" alt="eMonocot"></a></li>
+    <li><a href="http://www.vbrant.eu"><img src="{{ '/assets/sponsor-logos/vibrant.png' | relative_url }}" alt="ViBrant"></a></li>
+    <li><a href="https://ec.europa.eu/digital-single-market/e-infrastructures"><img src="{{ '/assets/sponsor-logos/einfra.png' | relative_url }}" alt="e-Infrastructures"></a></li>
+    <li><a href="http://www.nhm.ac.uk"><img src="{{ '/assets/sponsor-logos/nhm.png' | relative_url }}" alt="Natural History Museum"></a></li>
   </ul>
 
   <hr>
@@ -59,15 +59,15 @@
       <li>
         <div class="sp-footer__category">Scratchpads</div>
         <ul class="sp-footer__section sp-footer__section--home">
-          <li><a href="/">Home</a></li>
-          <li><a href="/contact">Contact us</a></li>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/contact' | relative_url }}">Contact us</a></li>
         </ul>
       </li>
       <li>
         <div class="sp-footer__category">Explore</div>
         <ul class="sp-footer__section sp-footer__section--explore">
           {% for page in explore %}
-            <li><a href="{{page.url}}">{{ page.sidebar | default: page.title }}</a></li>
+            <li><a href="{{ page.url | relative_url }}">{{ page.sidebar | default: page.title }}</a></li>
           {% endfor %}
         </ul>
       </li>
@@ -75,7 +75,8 @@
         <div class="sp-footer__category">Develop</div>
         <ul class="sp-footer__section sp-footer__section--develop">
           {% for page in develop %}
-            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+            {% assign url = page.url | relative_url %}
+            <li><a href="{{ page.redirect_to | default: url }}">{{page.sidebar | default: page.title}}</a></li>
           {% endfor %}
         </ul>
       </li>
@@ -83,7 +84,8 @@
         <div class="sp-footer__category">Support</div>
         <ul class="sp-footer__section sp-footer__section--support">
           {% for page in support %}
-            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+            {% assign url = page.url | relative_url %}
+            <li><a href="{{ page.redirect_to | default: url }}">{{page.sidebar | default: page.title}}</a></li>
           {% endfor %}
         </ul>
       </li>
@@ -91,7 +93,8 @@
         <div class="sp-footer__category">About us</div>
         <ul class="sp-footer__section sp-footer__section--about">
           {% for page in about %}
-            <li><a href="{{ page.redirect_to | default: page.url }}">{{page.sidebar | default: page.title}}</a></li>
+            {% assign url = page.url | relative_url %}
+            <li><a href="{{ page.redirect_to | default: url }}">{{page.sidebar | default: page.title}}</a></li>
           {% endfor %}
         </ul>
       </li>
@@ -101,9 +104,9 @@
   <hr>
 
   <ul class="sp-footer__hygiene">
-    <li><a href="/contact">Website feedback</a></li>
-    <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
-    <li><a href="/privacy-policy">Privacy Policy</a></li>
-    <li><a href="/cookies">Cookies</a></li>
+    <li><a href="{{ '/contact' | relative_url }}">Website feedback</a></li>
+    <li><a href="{{ '/terms-and-conditions' | relative_url }}">Terms & Conditions</a></li>
+    <li><a href="{{ '/privacy-policy' | relative_url }}">Privacy Policy</a></li>
+    <li><a href="{{ '/cookies' | relative_url }}">Cookies</a></li>
   </ul>
 </footer>

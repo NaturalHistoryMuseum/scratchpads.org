@@ -2,15 +2,15 @@
 {% assign page_theme = theme %}
 <header class="sp-header">
   <h1>
-    <a href="/">
-      <img src="/assets/logo/logo-{{ page_theme }}.png"
+    <a href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/logo/logo-' | relative_url }}{{ page_theme }}.png"
          alt="Scratchpads - biodiversity online"
          class="sp-header__logo">
     </a>
   </h1>
 
   <form class="sp-header__search" action="https://search.yahoo.com/search">
-    <a href="/contact" class="sp-header__contact">contact us</a>
+    <a href="{{ '/contact' | relative_url }}" class="sp-header__contact">contact us</a>
     <input type="hidden" name="vs" value="scratchpads.eu">
     <div class="sp-header__search-bar">
       <label class="sp-header__search-label">
@@ -33,7 +33,7 @@
           {% assign class = class | append: " " | append: base | append: "--active" %}
         {% endif %}
 
-        <li><a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" data-theme="{{ theme }}">{{ node.menu }}</a></li>
+        <li><a href="{{ node.redirect_to | default: node.url | relative_url }}" class="{{ class }}" data-theme="{{ theme }}">{{ node.menu }}</a></li>
       {% endfor %}
     </ul>
   </nav>

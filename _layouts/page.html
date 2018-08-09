@@ -76,8 +76,9 @@ css: page
       {% if node.redirect_to %}
         {% assign class = class | append: ' ' | append: base | append: '--external' %}
       {% endif %}
+      {% assign url = node.url | relative_url %}
       <li>
-        <a href="{{ node.redirect_to | default: node.url }}" class="{{ class }}" {{ aria }}>{{ node.sidebar | default: node.title }}</a>
+        <a href="{{ node.redirect_to | default: url }}" class="{{ class }}" {{ aria }}>{{ node.sidebar | default: node.title }}</a>
         {% if children and active %}
           <ul class="sp-page__sidebar-subnav">
             {% for child in child_pages %}
@@ -86,7 +87,8 @@ css: page
               {% if child.url == page.url or child.url == page.parent %}
                 {% assign class = class | append: ' ' | append: base | append: '--active' %}
               {% endif %}
-              <li><a href="{{ child.redirect_to | default: child.url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
+              {% assign url = child.url | relative_url %}
+              <li><a href="{{ child.redirect_to | default: url }}" class="{{ class }}">{{ child.sidebar | default: child.title }}</a></li>
             {% endfor %}
           </ul>
         {% endif %}
@@ -101,7 +103,7 @@ css: page
     <article class="sp-page__main" id="main">
       {% if page.page_image %}
         <div class="sp-page__image">
-          <img src="{{page.page_image}}" alt="">
+          <img src="{{ page.page_image | relative_url }}" alt="">
         </div>
       {% endif %}
       {% if page.markdown != false %}

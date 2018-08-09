@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
      {% if page.current != false %}
-      {% assign redirect_to = "/about/team/#"  | append: page.title | replace: ' ', '-' | downcase %}
+      {% assign redirect_to = "/about/team/#" | append: page.title | replace: ' ', '-' | downcase | relative_url %}
      {% else %}
-       {% assign redirect_to = "/about/team/past" %}
+       {% assign redirect_to = "/about/team/past" | relative_url %}
      {% endif %}
      <meta http-equiv="refresh" content="0;url={{ redirect_to }}" />
      <title>Page moved | Scratchpads</title>

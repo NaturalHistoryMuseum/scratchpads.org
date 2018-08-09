@@ -94,9 +94,9 @@ the EU FP7 research infrastructures programme (ViBRANT,
 (e-Monocot, [http://e-monocot.org/](http://e-monocot.org/)) through to December
 2013\. Scratchpads have seen logarithmic growth in both the number of sites and
 the number of registered, active users since their inception in 2007
-([http://scratchpads.eu/explore](/explore)). The Scratchpad
+([http://scratchpads.eu/explore]({{ '/explore' | relative_url }})). The Scratchpad
 code is open source
-([http://scratchpads.eu/develop/repository](/develop/repository))
+([http://scratchpads.eu/develop/repository]({{ '/develop/repository' | relative_url }}))
 and is being installed by various people around the world. While significant
 extension of Scratchpad functionality will require further grant funding, active
 development by other groups or individuals is already starting to appear. While

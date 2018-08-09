@@ -8,7 +8,7 @@
   <li class="sp-events__course">
     <div>
       {{ event.training-date | default: event.date }}
-      (<a href="{{ event.url }}">View details</a>)
+      (<a href="{{ event.url | relative_url }}">View details</a>)
     </div>
     <div><b>{{ event.location }}</b></div>
     <div>{{ event.short-description }}</div>
