@@ -3,6 +3,8 @@
 @import 'variables';
 @import 'mixins';
 
+$baseurl: "{{ site.baseurl }}";
+
 @import 'events';
 @import 'resources';
 @import 'sidebar';
@@ -18,13 +20,13 @@
         a[href^="https:"],
         a[href^="http:"]{
           padding-right: 16px;
-          background: url(/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
+          background: url(#{$baseurl}/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
         }
       }
 
       &__sidebar-item--external {
         padding-right: 16px;
-        background-image: url(/assets/external-link-#{$theme}.png);
+        background-image: url(#{$baseurl}/assets/external-link-#{$theme}.png);
         background-repeat: no-repeat;
         background-position: 100% 50%;
       }
@@ -71,13 +73,13 @@
     }
 
     &--children {
-      background-image: url(/assets/menu-collapsed-arrow.png);
+      background-image: url(#{$baseurl}/assets/menu-collapsed-arrow.png);
       background-repeat: no-repeat;
       background-position: 100% 7px;
     }
 
     &#{&}--active#{&}--children {
-      background-image: url(/assets/menu-expanded-arrow.png);
+      background-image: url(#{$baseurl}/assets/menu-expanded-arrow.png);
     }
 
     &:hover {

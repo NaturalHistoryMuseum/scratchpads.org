@@ -68,7 +68,7 @@
         a[href^="http:"],
         a[href^="https:"] {
           padding-right: 16px;
-          background-image: url("/assets/external-link-#{$category}.png");
+          background-image: url("#{$baseurl}/assets/external-link-#{$category}.png");
           background-repeat: no-repeat;
           background-position: 100% 50%;
         }

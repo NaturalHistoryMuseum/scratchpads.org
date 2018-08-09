@@ -26,7 +26,7 @@
       a[href^="https:"],
       a[href^="http:"]{
         padding-right: 16px;
-        background: url(/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
+        background: url(#{$baseurl}/assets/external-link-#{$theme}.png) no-repeat 100% 50%;
       }
     }
   }

@@ -70,6 +70,8 @@ a:not([href]) {
   text-decoration: line-through;
 }
 
+$baseurl: "{{ site.baseurl }}";
+
 @import "header";
 @import "footer";
 @import "content";

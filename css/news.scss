@@ -1,5 +1,6 @@
 ---
 ---
+$baseurl: "{{ site.baseurl }}";
 @import 'variables';
 @import 'mixins';
 @import 'sidebar';
@@ -8,7 +9,7 @@
   @include sidebar-parent;
 
   display: flex;
-  
+
   &__main {
     margin-left: 15px;
     flex: 1;
@@ -23,7 +24,7 @@
       margin: 0 4px 0 0;
     }
   }
-  
+
   &__sidebar-section-title {
     font-family: $body-font;
     color: #AAA;
@@ -58,7 +59,7 @@
 
   &__year::after {
     content: '';
-    
+
     @include rule;
   }
 
