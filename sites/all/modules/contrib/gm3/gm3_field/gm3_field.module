@@ -31,6 +31,16 @@ function gm3_field_theme(){
         'data' => array()
       )
     ),
+    'gm3_point_text_lat' => array(
+      'variables' => array(
+        'data' => array()
+      )
+    ),
+    'gm3_point_text_lon' => array(
+      'variables' => array(
+        'data' => array()
+      )
+    ),
     'gm3_polygon_text' => array(
       'variables' => array(
         'data' => array()
@@ -161,13 +171,16 @@ function gm3_field_field_insert($entity_type, $entity, $field, $instance, $langc
   switch($field['type']){
     case 'gm3_point':
       $new_items = array();
-      if(is_string($items[0])){
+      if(isset($items[0]) && is_string($items[0])){
         // Strip point: from the string first.
         $items[0] = str_replace('point:', '', strtolower($items[0]));
         _gm3_field_get_array_from_points_string($items[0], $new_items);
-      }
-      if(count($items)){
-        _gm3_field_get_array_from_points_string($items[0]['map'], $new_items);
+      }else if(count($items)){
+        if(isset($items[0]['map'])){
+          _gm3_field_get_array_from_points_string($items[0]['map'], $new_items);
+        }else{
+          $new_items = $items;
+        }
       }
       $items = $new_items;
       break;
@@ -176,11 +189,19 @@ function gm3_field_field_insert($entity_type, $entity, $field, $instance, $langc
     case 'gm3_polyline':
       $new_items = array();
       if(is_string($items[0])){
-        $items[0] = str_replace(substr($field['type'], 4) . ':', '', strtolower($items[0]));
+        $items[0] = str_replace(substr(strtoupper($field['type']), 4) . ':', '', strtoupper($items[0]));
         _gm3_field_get_array_from_poly_string($items[0], $new_items, substr($field['type'], 4));
       }
       if(count($items)){
-        _gm3_field_get_array_from_poly_string($items[0]['map'], $new_items, substr($field['type'], 4));
+        if(isset($items[0]['map'])){
+          _gm3_field_get_array_from_poly_string($items[0]['map'], $new_items, substr($field['type'], 4));
+        }else{
+          $new_items = $items;
+          $poly_type = substr($field['type'], 4);
+          foreach(array_keys($new_items) as $new_item_k){
+            $new_items[$new_item_k]['gm3_type'] = $poly_type;
+          }
+        }
       }
       $items = $new_items;
       break;
@@ -201,35 +222,124 @@ function gm3_field_field_insert($entity_type, $entity, $field, $instance, $langc
             $line_parts = explode(':', $line);
             if(count($line_parts) > 1){
               $type = "gm3_" . strtolower(array_shift($line_parts));
+              foreach($line_parts as $key => $part){
+                if(!trim($part)){
+                  unset($line_parts[$key]);
+                }
+              }
               $items[0]['map']['children'][$type][] = implode(':', $line_parts);
             }
           }
         }
-        foreach($items[0]['map']['children'] as $type => $value){
-          switch($type){
-            case 'gm3_point':
-              _gm3_field_get_array_from_points_string($value, $new_items, 'point');
-              break;
-            case 'gm3_rectangle':
-            case 'gm3_polygon':
-            case 'gm3_polyline':
-              _gm3_field_get_array_from_poly_string($value, $new_items, substr($type, 4), TRUE);
-              break;
-            default:
-              // Here we have a field that was not defined by this module, we use the 
-              // name of the module, plus the name of the type plus view to get the name
-              // of the function to call
-              // "{$field['module']}_{$field['type']}_view()"
-              if(function_exists("{$type}_gm3_combination_insert")){
-                $function_name = "{$type}_gm3_combination_insert";
-                $function_name($new_items, $value);
-              }
-              break;
+        if(isset($items[0]['map']['children'])){
+          foreach($items[0]['map']['children'] as $type => $value){
+            switch($type){
+              case 'gm3_point':
+                _gm3_field_get_array_from_points_string($value, $new_items, 'point');
+                break;
+              case 'gm3_rectangle':
+              case 'gm3_polygon':
+              case 'gm3_polyline':
+                _gm3_field_get_array_from_poly_string($value, $new_items, substr($type, 4), TRUE);
+                break;
+              default:
+                // Here we have a field that was not defined by this module, we use the 
+                // name of the module, plus the name of the type plus view to get the name
+                // of the function to call
+                // "{$field['module']}_{$field['type']}_view()"
+                if(function_exists("{$type}_gm3_combination_insert")){
+                  $function_name = "{$type}_gm3_combination_insert";
+                  $function_name($new_items, $value);
+                }
+                break;
+            }
           }
+        }else{
+          $new_items = $items;
         }
       }
       $items = $new_items;
       break;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * If we are adding a new entity we pass of to entityconnect_add_form_alter
+ * if we are returning to the parent form we hand off to
+ * entityconnect_return_form_alter.
+ */
+function gm3_field_form_alter(&$form, &$form_state, $form_id){
+  // Theme the entity connect elements if any are present
+  if(function_exists('_entityconnect_get_ref_fields')){
+    foreach(_entityconnect_get_ref_fields() as $field_name => $field){
+      // What type of entity are we to load.
+      switch($field['type']){
+        case 'node_reference':
+          $entity_type = 'node';
+          break;
+        case 'user_reference':
+          $entity_type = 'user';
+          break;
+      }
+      if(isset($form[$field_name])){
+        if(isset($form[$field_name]['preview'])){
+          $add_libraries = FALSE;
+          switch($entity_type){
+            case 'node':
+              $types = array_filter($field['settings']['referenceable_types']);
+              foreach($types as $bundle){
+                $instances = field_info_instances($entity_type, $bundle);
+                foreach($instances as $instance){
+                  if(@isset($instance['display']['entityconnectpreview']['module']) && $instance['display']['entityconnectpreview']['module'] == 'gm3_field'){
+                    $add_libraries = TRUE;
+                    break 2;
+                  }
+                }
+              }
+              break;
+            case 'user':
+              break;
+          }
+          if($add_libraries){
+            // We add all of the libraries, just to be safe.
+            $form[$field_name]['preview']['#attached'] = array(
+              'library' => array(
+                array(
+                  'gm3',
+                  'gm3'
+                ),
+                array(
+                  'gm3',
+                  'gm3.point'
+                ),
+                array(
+                  'gm3',
+                  'gm3.infobubble'
+                ),
+                array(
+                  'gm3',
+                  'gm3.clusterer'
+                ),
+                array(
+                  'gm3',
+                  'gm3.polygon'
+                ),
+                array(
+                  'gm3',
+                  'gm3.rectangle'
+                ),
+                array(
+                  'gm3',
+                  'gm3.polyline'
+                )
+              )
+            );
+          }
+        }
+      }
+    }
   }
 }
 
@@ -242,7 +352,8 @@ function gm3_field_feeds_processor_targets_alter(&$targets, $entity_type, $bundl
     'gm3_polygon',
     'gm3_polyline',
     'gm3_rectangle',
-    'gm3_combination'
+    'gm3_combination',
+    'gm3_region' // Should be in the gm3_region_field module, but it's easy here!
   );
   foreach(field_info_instances($entity_type, $bundle_name) as $name => $instance){
     $info = field_info_field($name);
@@ -262,9 +373,22 @@ function gm3_field_feeds_processor_targets_alter(&$targets, $entity_type, $bundl
  * Callback to set the value for a GM3 field.
  */
 function gm3_field_feeds_set_target_text($source, $entity, $target, $value){
-  $info = field_info_field($target);
+  $entity_type = strtolower(get_class($source->importer->processor));
+  if(($processor_location = strpos($entity_type, 'processor')) > 0){
+    $entity_type = substr($entity_type, 0, $processor_location);
+  }
+  if(substr($entity_type, 0, 5) == 'feeds'){
+    $entity_type = substr($entity_type, 5);
+  }
+  if(!entity_get_info($entity_type)){
+    $entity_type = 'node';
+  }
+  if(is_array($value)){
+    $value = $value[0];
+  }
   $field = isset($entity->$target) ? $entity->$target : array();
-  $field['und'][] = $value;
+  $lang = field_language($entity_type, $entity, $target);
+  $field[$lang][] = $value;
   $entity->{$target} = $field;
 }
 
@@ -294,9 +418,29 @@ function _gm3_field_get_array_from_poly_string($value, &$items, $poly_type, $typ
 function _gm3_field_get_array_from_points_string($value, &$items, $type = FALSE){
   if(is_array($value) || strlen(trim($value))){
     if(is_string($value)){
-      $value = explode("|", $value);
+      $value = preg_split("/[\n\r|]+/", $value);
     }
     foreach($value as $lat_lng){
+      if(preg_match('/[a-zA-Z][a-zA-Z][0-9]/', $lat_lng)){
+        try{
+          if(($path = libraries_get_path('gridrefutils')) != FALSE && file_exists("$path/gridrefutils.php")){
+            include_once "$path/gridrefutils.php";
+          }
+          $grutoolbox = Grid_Ref_Utils::toolbox();
+          // convert to a numeric reference
+          $uk_grid_numbers = $grutoolbox->get_UK_grid_nums($lat_lng);
+          // convert to global latitude/longitude
+          $grid_ref = $grutoolbox->grid_to_lat_long($uk_grid_numbers, $grutoolbox->COORDS_GPS_UK, $grutoolbox->HTML);
+          // Remove deg symbol.
+          $lat_lng = str_replace('&deg;', '', $grid_ref);
+        }
+        catch(Exception $e){
+          // We've experienced an error. Give an error message, and do nothing
+          // more.
+          drupal_set_message(t('Unable to convert grid reference %grid_ref', array('%grid_ref'=> $lat_lng)), 'error', FALSE);
+          break;
+        }
+      }
       $lat_lng = preg_replace('/[)(]/', '', $lat_lng);
       $lat_lng = explode(", ", $lat_lng);
       if(count($lat_lng) == 1){
@@ -509,11 +653,35 @@ function gm3_polygon_items_validate($items, $field_name, &$errors){
   if(isset($items['map']['map']) && is_string($items['map']['map'])){
     $polygons = preg_split('/[\r\n]+/', $items['map']['map']);
     foreach($polygons as $polygon){
-      if(!gm3_is_valid_polygon($polygon)){
+      if($polygon && !gm3_is_valid_polygon($polygon)){
         $errors[$field_name][LANGUAGE_NONE][0][] = array(
           'error' => 'gm3_invalid_data',
           'message' => t('Invalid map data has been entered. Please reload this page before resubmitting.')
         );
+      }
+    }
+  }
+}
+
+function gm3_combination_items_validate($items, $field_name, &$errors){
+  foreach($items as $item){
+    if(is_string($item)){
+      $lines = preg_split("/[\n\r]+/", $item);
+      foreach($lines as $line){
+        $first_colon_pos = strpos($line, ':');
+        $type = substr($line, 0, $first_colon_pos);
+        $rest = substr($line, $first_colon_pos + 1);
+        $func = false;
+        if(function_exists($type . '_items_validate')){
+          $func = $type . '_items_validate';
+        }else if(function_exists("gm3_{$type}_items_validate")){
+          $func = "gm3_{$type}_items_validate";
+        }
+        if($func){
+          $func(array(
+            $rest
+          ), $field_name, $errors);
+        }
       }
     }
   }
@@ -529,9 +697,7 @@ function gm3_is_valid_polygon($polygon){
   return $wkt_reader->read($polygon, TRUE);
 }
 
-function gm3_point_items_validate($items, $field_name, &$errors){
-  
-}
+function gm3_point_items_validate($items, $field_name, &$errors){}
 
 /**
  * Implements hook_field_is_empty().
@@ -539,19 +705,34 @@ function gm3_point_items_validate($items, $field_name, &$errors){
 function gm3_field_field_is_empty($item, $field){
   switch($field['type']){
     case 'gm3_point':
+      return !(strlen(trim($item['map'])) || isset($item['latitude']));
     case 'gm3_polygon':
+      return !(strlen(trim($item['map'])) || isset($item['polygon']));
     case 'gm3_polyline':
+      return !(strlen(trim($item['map'])) || isset($item['polyline']));
     case 'gm3_rectangle':
-      return !strlen(trim($item['map']));
+      return !(strlen(trim($item['map'])) || isset($item['rectangle']));
     case 'gm3_combination':
-      foreach($item['map']['children'] as $type => $value){
-        if(is_array($value)){
-          if(count($value)){return FALSE;}
-        }else if(is_string($value)){
-          if(strlen(trim($value))){return FALSE;}
+      if(is_array($item)){
+        if(isset($item['map']['children'])){
+          foreach($item['map']['children'] as $type => $value){
+            if(is_array($value)){
+              if(count($value)){return FALSE;}
+            }else if(is_string($value)){
+              if(strlen(trim($value))){return FALSE;}
+            }
+          }
+        }else{
+          $non_empty = array_filter($item, function ($i){
+            return $i !== NULL;
+          });
+          return !count($non_empty);
         }
+        return TRUE;
+      }else{
+        // This is for the benefit of the Feeds module.
+        return !strlen(trim($item));
       }
-      return TRUE;
   }
 }
 
@@ -597,6 +778,24 @@ function gm3_field_field_formatter_info(){
         'gm3_polyline',
         'gm3_combination'
       )
+    ),
+    'gm3_text_lat' => array(
+      'label' => t('Geo field text (latitude).'),
+      'field types' => array(
+        'gm3_point',
+        'gm3_polygon',
+        'gm3_polyline',
+        'gm3_combination'
+      )
+    ),
+    'gm3_text_lon' => array(
+      'label' => t('Geo field text (longitude).'),
+      'field types' => array(
+        'gm3_point',
+        'gm3_polygon',
+        'gm3_polyline',
+        'gm3_combination'
+      )
     )
   );
 }
@@ -615,8 +814,8 @@ function gm3_field_field_formatter_settings_form($field, $instance, $view_mode, 
           '#required' => TRUE,
           '#default_value' => isset($instance['display'][$view_mode]['settings']['display_convex_hull']) ? $instance['display'][$view_mode]['settings']['display_convex_hull'] : 0,
           '#options' => array(
-            t('NO'),
-            t('YES')
+            t('No'),
+            t('Yes')
           )
         )
       );
@@ -648,6 +847,22 @@ function theme_gm3_point_text($variables){
     '#markup' => t('Longitude: %longitude, Latitude: %latitude', array(
       '%longitude' => $variables['data']['longitude'],
       '%latitude' => $variables['data']['latitude']
+    ))
+  );
+}
+
+function theme_gm3_point_text_lat($variables){
+  return array(
+    '#markup' => t('%latitude', array(
+      '%latitude' => $variables['data']['latitude']
+    ))
+  );
+}
+
+function theme_gm3_point_text_lon($variables){
+  return array(
+    '#markup' => t('%longitude', array(
+      '%longitude' => $variables['data']['longitude']
     ))
   );
 }
@@ -709,11 +924,51 @@ function gm3_field_field_formatter_view($entity_type, $entity, $field, $instance
     case 'gm3_entity_map':
       // Set an ID based on the entity.
       $entity_info = entity_get_info($entity_type);
-      $id = "gm3_map-{$entity->{$entity_info['entity keys']['bundle']}}-{$entity->{$entity_info['entity keys']['id']}}";
+      $id = "gm3_map-" . (!empty($entity_info['entity keys']['bundle']) ? $entity->{$entity_info['entity keys']['bundle']} : 'bundle') . "-" . $entity->{$entity_info['entity keys']['id']};
       break;
     case 'gm3_field_map':
       // Setting the ID here is easy, as we can simply use the field ID.
       $id = $instance['field_name'];
+      break;
+    case 'gm3_text_lat':
+      $elements = array();
+      switch($field['type']){
+        case 'gm3_combination':
+          foreach($items as $item){
+            $elements[] = theme($item['gm3_type'] . '_text_lat', array(
+              'data' => $item
+            ));
+          }
+          break;
+        default:
+          foreach($items as $item){
+            $elements[] = theme($field['type'] . '_text_lat', array(
+              'data' => $item
+            ));
+          }
+          break;
+      }
+      return $elements;
+      break;
+    case 'gm3_text_lon':
+      $elements = array();
+      switch($field['type']){
+        case 'gm3_combination':
+          foreach($items as $item){
+            $elements[] = theme($item['gm3_type'] . '_text_lon', array(
+              'data' => $item
+            ));
+          }
+          break;
+        default:
+          foreach($items as $item){
+            $elements[] = theme($field['type'] . '_text_lon', array(
+              'data' => $item
+            ));
+          }
+          break;
+      }
+      return $elements;
       break;
     case 'gm3_text':
     default:
@@ -740,9 +995,12 @@ function gm3_field_field_formatter_view($entity_type, $entity, $field, $instance
     case 'gm3_point':
       if(count($items)){
         // Set the items as not being editable.
-        foreach($items as $key => $item){
+        foreach(array_keys($items) as $key){
           $items[$key]['editable'] = FALSE;
           $items[$key]['colour'] = variable_get('gm3_default_point_colour', 0);
+          if(!isset($items[$key]['content'])){
+            $items[$key]['content'] = 'Latitude: ' . $items[$key]['latitude'] . '<br/>Longitude: ' . $items[$key]['longitude'];
+          }
         }
         module_load_include('theme.inc', 'gm3');
         $element = gm3_get_map(array(
@@ -776,6 +1034,7 @@ function gm3_field_field_formatter_view($entity_type, $entity, $field, $instance
           'map' => array(
             'id' => $id,
             'libraries' => array(
+              'polygon' => array(),
               substr($field['type'], 4) => array(
                 substr($field['type'], 4) . 's' => $polys
               )
@@ -931,10 +1190,11 @@ function gm3_field_field_widget_form(&$form, &$form_state, $field, $instance, $l
           'class' => array(
             $element['#field_name'] . '-point'
           ),
-          'placeholder' => '(' . t('Latitude') . ', ' . t('Longitude') . ')'
+          'placeholder' => '(' . t('Decimal latitude') . ', ' . t('Decimal longitude') . ') e.g. (51.49679, -0.17792)'
         ),
         '#default_value' => _gm3_field_get_points_string_from_array($items),
-        '#type' => $data_field_type
+        '#type' => $data_field_type,
+        '#maxlength' => 10000000
       );
       break;
     case 'gm3_polyline_gm3':
@@ -959,6 +1219,7 @@ function gm3_field_field_widget_form(&$form, &$form_state, $field, $instance, $l
           'map' => array(
             'id' => $element['#field_name'],
             'libraries' => array(
+              'polygon' => array(),
               $poly_type => array(
                 $poly_type . 's' => $polys
               ),
@@ -985,7 +1246,8 @@ function gm3_field_field_widget_form(&$form, &$form_state, $field, $instance, $l
           )
         ),
         '#default_value' => $default_value_string,
-        '#type' => $data_field_type
+        '#type' => ($data_field_type == 'textfield' ? 'textarea' : 'hidden'),
+        '#maxlength' => 10000000
       );
       break;
     case 'gm3_combination_gm3':
@@ -1049,6 +1311,7 @@ function gm3_field_field_widget_form(&$form, &$form_state, $field, $instance, $l
             ));
             $widget['children']['gm3_point'] = array(
               '#type' => $data_field_type,
+              '#maxlength' => 10000000,
               '#title' => t('Point'),
               '#attributes' => array(
                 'class' => array(
@@ -1069,7 +1332,7 @@ function gm3_field_field_widget_form(&$form, &$form_state, $field, $instance, $l
               'id' => $element['#field_name']
             ));
             $widget['children']['gm3_' . $poly_type] = array(
-              '#type' => $data_field_type,
+              '#type' => ($data_field_type == 'textfield' ? 'textarea' : 'hidden'),
               '#title' => $poly_type,
               '#maxlength' => 10000000,
               '#attributes' => array(

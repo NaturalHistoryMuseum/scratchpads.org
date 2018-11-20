@@ -12,6 +12,16 @@ function theme_gm3_map($variables){
  * Function to return a renderable array for a map.
  */
 function gm3_get_map($variables){
+  // FIXME - This should be changed to dynamically calcuate what GM3 JS
+  // libraries are dependent on others.
+  $dependencies = array(
+    'region' => 'polygon'
+  );
+  foreach($dependencies as $library => $dependent){
+    if(isset($variables['map']['libraries'][$library]) && !isset($variables['map']['libraries'][$dependent])){
+      $variables['map']['libraries'][$dependent] = array();
+    }
+  }
   // No need to use drupal_static here!
   static $info = array();
   if(!isset($variables['map']['id'])){
@@ -19,7 +29,7 @@ function gm3_get_map($variables){
     $variables['map']['id'] = 'gm3-map';
   }
   if(isset($variables['map']['libraries']['point']['convexhull']) && $variables['map']['libraries']['point']['convexhull']){
-    // We need to add a convex hull polygon.  Lets do so.
+    // We need to add a convex hull polygon. Lets do so.
     if(gm3_load_geophp()){
       $points = array();
       foreach($variables['map']['libraries']['point']['points'] as $point){
@@ -44,7 +54,7 @@ function gm3_get_map($variables){
   if(isset($info[$variables['map']['id']])){
     // this map has already been initialized.
     // We can alter settings for the map, but won't be able to add any tools
-    // to the map.  This won't be a problem for viewing a map, but may be an
+    // to the map. This won't be a problem for viewing a map, but may be an
     // issue for editing.
     drupal_add_js(array(
       'gm3' => array(
@@ -174,6 +184,9 @@ function gm3_add(&$map = array()){
  * Theme a GM3 view.
  */
 function theme_gm3_view_gm3($variables){
+  static $colours = 0;
+  $colours++;
+  //$colours = $colours % 8;
   $geo_fields = array();
   $none_geo_fields = array();
   foreach($variables['view']->field as $field_key => $field){
@@ -186,24 +199,12 @@ function theme_gm3_view_gm3($variables){
   $map = array(
     'libraries' => array()
   );
-  //foreach($variables['view']->result as $index => $row){
-  foreach($variables['rows'] as $index => $row){
-    $content = '';
-    foreach($none_geo_fields as $key){
-      if($key == 'title'){
-        // Need a way of setting the title on all entity types.
-      }else{
-        if(isset($row->{"field_$key"})){
-          foreach($row->{"field_$key"} as $key => $value){
-            if(is_array($value['rendered'])){
-              $content .= drupal_render($value['rendered']);
-            }else{
-              $content .= $value['rendered'];
-            }
-          }
-        }
-      }
-    }
+  // Because it's not possible to click on two points with the exact same
+  // location, we group content that have the exact same location.
+  $array_points = array();
+  foreach(array_keys($variables['rows']) as $index){
+    $row = $variables['view']->result[$index];
+    $content = $variables['rows'][$index];
     foreach($geo_fields as $key => $type){
       switch($type){
         case 'gm3_rectangle':
@@ -229,51 +230,92 @@ function theme_gm3_view_gm3($variables){
               'points' => array()
             );
           }
-          foreach($row->{"field_$key"} as $item){
-            $point = $item['raw'];
-            $point['content'] = $content;
-            $map['libraries']['point']['points'][] = $point;
+          if(count($row->{"field_$key"})){
+            foreach($row->{"field_$key"} as $item){
+              $point = $item['raw'];
+              if(isset($array_points[$point['latitude']][$point['longitude']])){
+                if(!is_array($map['libraries']['point']['points'][$array_points[$point['latitude']][$point['longitude']]]['content'])){
+                  $map['libraries']['point']['points'][$array_points[$point['latitude']][$point['longitude']]]['content'] = array(
+                    array(
+                      'title' => '1',
+                      'content' => $map['libraries']['point']['points'][$array_points[$point['latitude']][$point['longitude']]]['content']
+                    )
+                  );
+                }
+                $map['libraries']['point']['points'][$array_points[$point['latitude']][$point['longitude']]]['content'][] = array(
+                  'title' => count($map['libraries']['point']['points'][$array_points[$point['latitude']][$point['longitude']]]['content']) + 1,
+                  'content' => $content
+                );
+              }else{
+                $point['content'] = $content;
+                $array_points[$point['latitude']][$point['longitude']] = count($map['libraries']['point']['points']);
+                $map['libraries']['point']['points'][] = $point;
+              }
+            }
+          }else{
+            if(isset($row->{"field_data_{$key}_{$key}_latitude"})){
+              $map['libraries']['point']['points'][] = array(
+                'latitude' => $row->{"field_data_{$key}_{$key}_latitude"},
+                'longitude' => $row->{"field_data_{$key}_{$key}_longitude"},
+                'content' => $content
+              );
+            }
+          }
+          foreach(array_keys($map['libraries']['point']['points']) as $key){
+            $map['libraries']['point']['points'][$key]['colour'] = $colours;
           }
           break;
         case 'gm3_combination':
-          foreach($row->{"field_$key"} as $item){
-            switch($item['raw']['gm3_type']){
-              case 'point':
-                if(!isset($map['libraries']['point'])){
-                  $map['libraries']['point'] = array(
-                    'points' => array()
+          foreach($row->_field_data as $id => $values){
+            if(empty($values['entity']->{$key})){
+              continue;
+            }
+            foreach(entity_get_info() as $entity_type => $values2){
+              if($values2['base table'] == $variables['view']->base_table){
+                break;
+              }
+            }
+            $lang = field_language($entity_type, $values['entity'], $key);
+            foreach($values['entity']->{$key}[$lang] as $item){
+              switch($item['gm3_type']){
+                case 'point':
+                  if(!isset($map['libraries']['point'])){
+                    $map['libraries']['point'] = array(
+                      'points' => array()
+                    );
+                  }
+                  $map['libraries']['point']['points'][] = array(
+                    'latitude' => $item['latitude'],
+                    'longitude' => $item['longitude'],
+                    'content' => $content
                   );
-                }
-                $map['libraries']['point']['points'][] = array(
-                  'latitude' => $item['raw']['latitude'],
-                  'longitude' => $item['raw']['longitude'],
-                  'content' => $content
-                );
-                break;
-              case 'rectangle':
-              case 'polyline':
-              case 'polygon':
-                module_load_include('functions.inc', 'gm3');
-                if(!isset($map['libraries'][$item['raw']['gm3_type']])){
-                  $map['libraries'][$item['raw']['gm3_type']] = array(
-                    $item['raw']['gm3_type'] . 's' => array()
+                  break;
+                case 'rectangle':
+                case 'polyline':
+                case 'polygon':
+                  module_load_include('functions.inc', 'gm3');
+                  if(!isset($map['libraries'][$item['gm3_type']])){
+                    $map['libraries'][$item['gm3_type']] = array(
+                      $item['gm3_type'] . 's' => array()
+                    );
+                  }
+                  $map['libraries'][$item['gm3_type']][$item['gm3_type'] . 's'][] = array(
+                    $item['gm3_type'] => array_pop(gm3_convert_polygon_string($item[$item['gm3_type']])),
+                    'editable' => FALSE,
+                    'content' => $content
                   );
-                }
-                $map['libraries'][$item['raw']['gm3_type']][$item['raw']['gm3_type'] . 's'][] = array(
-                  $item['raw']['gm3_type'] => array_pop(gm3_convert_polygon_string($item['raw'][$item['raw']['gm3_type']])),
-                  'editable' => FALSE,
-                  'content' => $content
-                );
-                break;
-              default:
-                // The default - This field type is not defined by the gm3 module,
-                // we therefore append call the map_alter function for this
-                // field
-                $function = "{$item['raw']['gm3_type']}_map_alter";
-                if(function_exists($function)){
-                  $function($map, $item['raw']);
-                }
-                break;
+                  break;
+                default:
+                  // The default - This field type is not defined by the gm3
+                  // module,
+                  // we therefore append call the map_alter function for this
+                  // field
+                  $function = "{$item['gm3_type']}_map_alter";
+                  if(function_exists($function)){
+                    $function($map, $item);
+                  }
+                  break;
+              }
             }
           }
           break;
@@ -282,9 +324,9 @@ function theme_gm3_view_gm3($variables){
           // we therefore append call the map_alter function for this
           // field
           foreach($row->{"field_$key"} as $item){
-            $function = "{$item['raw']['gm3_type']}_map_alter";
+            $function = "{$item['gm3_type']}_map_alter";
             if(function_exists($function)){
-              $function($map, $item['raw']);
+              $function($map, $item);
             }
           }
           break;
