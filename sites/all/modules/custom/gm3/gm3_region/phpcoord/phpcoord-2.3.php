@@ -1,6 +1,12 @@
 <?php
-//--------------------------------------------------------------------------// PHPcoord
-// phpcoord.php//// (c) 2005 Jonathan Stott//// Created on 11-Aug-2005// 2.3.1 - 2013-06-26 S.D.Rycroft
+//--------------------------------------------------------------------------
+// PHPcoord
+// phpcoord.php
+//
+// (c) 2005 Jonathan Stott
+//
+// Created on 11-Aug-2005
+// 2.3.1 - 2013-06-26 S.D.Rycroft
 //  - Changed toString methods to "magic" __toString methods.
 // 2.3 - 24 Aug 2006
 //  - Changed OSRef->toSixFigureString() so that the eastings and northings
@@ -13,9 +19,12 @@
 // 2.0 - 21 Dec 2005
 //  - Completely different object design - conversion functions now through
 //    objects rather than static functions
-//  - Updated comments and documentation// 1.1 - 11 Sep 2005
+//  - Updated comments and documentation
+// 1.1 - 11 Sep 2005
 //  - Added OSGB36/WGS84 data conversions
-// 1.0 - 11 Aug 2005//  - Initial version//--------------------------------------------------------------------------
+// 1.0 - 11 Aug 2005
+//  - Initial version
+//--------------------------------------------------------------------------
 // ================================================================== LatLng
 class LatLng{
 
@@ -29,7 +38,7 @@ class LatLng{
      * @param lat latitude
      * @param lng longitude
      */
-  function LatLng($lat, $lng){
+  function __construct($lat, $lng){
     $this->lat = $lat;
     $this->lng = $lng;
   }
@@ -208,7 +217,8 @@ class LatLng{
     if($latitude >= 56.0 && $latitude < 64.0 && $longitude >= 3.0 && $longitude < 12.0){
       $longitudeZone = 32;
     }
-    // Special zones for Svalbard    if($latitude >= 72.0 && $latitude < 84.0){
+    // Special zones for Svalbard
+    if($latitude >= 72.0 && $latitude < 84.0){
       if($longitude >= 0.0 && $longitude < 9.0){
         $longitudeZone = 31;
       }else if($longitude >= 9.0 && $longitude < 21.0){
@@ -230,7 +240,8 @@ class LatLng{
     $M = $a * ((1 - $eSquared / 4 - 3 * $eSquared * $eSquared / 64 - 5 * $eSquared * $eSquared * $eSquared / 256) * $latitudeRad - (3 * $eSquared / 8 + 3 * $eSquared * $eSquared / 32 + 45 * $eSquared * $eSquared * $eSquared / 1024) * sin(2 * $latitudeRad) + (15 * $eSquared * $eSquared / 256 + 45 * $eSquared * $eSquared * $eSquared / 1024) * sin(4 * $latitudeRad) - (35 * $eSquared * $eSquared * $eSquared / 3072) * sin(6 * $latitudeRad));
     $UTMEasting = (double)($UTM_F0 * $n * ($A + (1 - $t + $c) * pow($A, 3.0) / 6 + (5 - 18 * $t + $t * $t + 72 * $c - 58 * $ePrimeSquared) * pow($A, 5.0) / 120) + 500000.0);
     $UTMNorthing = (double)($UTM_F0 * ($M + $n * tan($latitudeRad) * ($A * $A / 2 + (5 - $t + (9 * $c) + (4 * $c * $c)) * pow($A, 4.0) / 24 + (61 - (58 * $t) + ($t * $t) + (600 * $c) - (330 * $ePrimeSquared)) * pow($A, 6.0) / 720)));
-    // Adjust for the southern hemisphere    if($latitude < 0){
+    // Adjust for the southern hemisphere
+    if($latitude < 0){
       $UTMNorthing += 10000000.0;
     }
     return new UTMRef($UTMEasting, $UTMNorthing, $UTMZone, $longitudeZone);
@@ -251,7 +262,7 @@ class OSRef{
      * the whole of the British Grid. For example, to create an OSRef
      * object from the six-figure grid reference TG514131, the easting would
      * be 651400 and the northing would be 313100.
-     * 
+     *
      * Grid references with accuracy greater than 1m can be represented
      * using floating point values for the easting and northing. For example,
      * a value representing an easting or northing accurate to 1mm would be
@@ -260,7 +271,7 @@ class OSRef{
      * @param easting the easting of the reference (with 1m accuracy)
      * @param northing the northing of the reference (with 1m accuracy)
      */
-  function OSRef($easting, $northing){
+  function __construct($easting, $northing){
     $this->easting = $easting;
     $this->northing = $northing;
   }
@@ -278,7 +289,7 @@ class OSRef{
   /**
      * Convert this grid reference into a string using a standard six-figure
      * grid reference including the two-character designation for the 100km
-     * square. e.g. TG514131. 
+     * square. e.g. TG514131.
      *
      * @return
      */
@@ -373,7 +384,7 @@ class UTMRef{
      * @param latZone
      * @param lngZone
      */
-  function UTMRef($easting, $northing, $latZone, $lngZone){
+  function __construct($easting, $northing, $latZone, $lngZone){
     $this->easting = $easting;
     $this->northing = $northing;
     $this->latZone = $latZone;
@@ -407,7 +418,8 @@ class UTMRef{
     $zoneNumber = $this->lngZone;
     $zoneLetter = $this->latZone;
     $longitudeOrigin = ($zoneNumber - 1.0) * 6.0 - 180.0 + 3.0;
-    // Correct y for southern hemisphere    if((ord($zoneLetter) - ord("N")) < 0){
+    // Correct y for southern hemisphere
+    if((ord($zoneLetter) - ord("N")) < 0){
       $y -= 10000000.0;
     }
     $m = $y / $UTM_F0;
@@ -438,7 +450,7 @@ class RefEll{
      * @param maj the major axis
      * @param min the minor axis
      */
-  function RefEll($maj, $min){
+  function __construct($maj, $min){
     $this->maj = $maj;
     $this->min = $min;
     $this->ecc = (($maj * $maj) - ($min * $min)) / ($maj * $maj);
