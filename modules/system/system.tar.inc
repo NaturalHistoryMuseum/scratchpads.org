@@ -41,8 +41,8 @@
 
  /**
  * Note on Drupal 8 porting.
- * This file origin is Tar.php, release 1.4.0 (stable) with some code
- * from PEAR.php, release 1.9.5 (stable) both at http://pear.php.net.
+ * This file origin is Tar.php, release 1.4.5 (stable) with some code
+ * from PEAR.php, release 1.10.5 (stable) both at http://pear.php.net.
  * To simplify future porting from pear of this file, you should not
  * do cosmetic or other non significant changes to this file.
  * The following changes have been done:
@@ -1394,10 +1394,22 @@ class Archive_Tar
         if ($p_stored_filename == '') {
             $p_stored_filename = $p_filename;
         }
-        $v_reduce_filename = $this->_pathReduction($p_stored_filename);
 
-        if (strlen($v_reduce_filename) > 99) {
-            if (!$this->_writeLongHeader($v_reduce_filename)) {
+        $v_reduced_filename = $this->_pathReduction($p_stored_filename);
+
+        if (strlen($v_reduced_filename) > 99) {
+            if (!$this->_writeLongHeader($v_reduced_filename, false)) {
+                return false;
+            }
+        }
+
+        $v_linkname = '';
+        if (@is_link($p_filename)) {
+            $v_linkname = readlink($p_filename);
+        }
+
+        if (strlen($v_linkname) > 99) {
+            if (!$this->_writeLongHeader($v_linkname, true)) {
                 return false;
             }
         }
@@ -1406,14 +1418,10 @@ class Archive_Tar
         $v_uid = sprintf("%07s", DecOct($v_info[4]));
         $v_gid = sprintf("%07s", DecOct($v_info[5]));
         $v_perms = sprintf("%07s", DecOct($v_info['mode'] & 000777));
-
         $v_mtime = sprintf("%011s", DecOct($v_info['mtime']));
-
-        $v_linkname = '';
 
         if (@is_link($p_filename)) {
             $v_typeflag = '2';
-            $v_linkname = readlink($p_filename);
             $v_size = sprintf("%011s", DecOct(0));
         } elseif (@is_dir($p_filename)) {
             $v_typeflag = "5";
@@ -1425,7 +1433,6 @@ class Archive_Tar
         }
 
         $v_magic = 'ustar ';
-
         $v_version = ' ';
 
         if (function_exists('posix_getpwuid')) {
@@ -1440,14 +1447,12 @@ class Archive_Tar
         }
 
         $v_devmajor = '';
-
         $v_devminor = '';
-
         $v_prefix = '';
 
         $v_binary_data_first = pack(
             "a100a8a8a8a12a12",
-            $v_reduce_filename,
+            $v_reduced_filename,
             $v_perms,
             $v_uid,
             $v_gid,
@@ -1487,7 +1492,7 @@ class Archive_Tar
         $this->_writeBlock($v_binary_data_first, 148);
 
         // ----- Write the calculated checksum
-        $v_checksum = sprintf("%06s ", DecOct($v_checksum));
+        $v_checksum = sprintf("%06s\0 ", DecOct($v_checksum));
         $v_binary_data = pack("a8", $v_checksum);
         $this->_writeBlock($v_binary_data, 8);
 
@@ -1519,7 +1524,7 @@ class Archive_Tar
         $p_filename = $this->_pathReduction($p_filename);
 
         if (strlen($p_filename) > 99) {
-            if (!$this->_writeLongHeader($p_filename)) {
+            if (!$this->_writeLongHeader($p_filename, false)) {
                 return false;
             }
         }
@@ -1615,36 +1620,31 @@ class Archive_Tar
      * @param string $p_filename
      * @return bool
      */
-    public function _writeLongHeader($p_filename)
+    public function _writeLongHeader($p_filename, $is_link = false)
     {
-        $v_size = sprintf("%11s ", DecOct(strlen($p_filename)));
-
-        $v_typeflag = 'L';
-
+        $v_uid = sprintf("%07s", 0);
+        $v_gid = sprintf("%07s", 0);
+        $v_perms = sprintf("%07s", 0);
+        $v_size = sprintf("%'011s", DecOct(strlen($p_filename)));
+        $v_mtime = sprintf("%011s", 0);
+        $v_typeflag = ($is_link ? 'K' : 'L');
         $v_linkname = '';
-
-        $v_magic = '';
-
-        $v_version = '';
-
+        $v_magic = 'ustar ';
+        $v_version = ' ';
         $v_uname = '';
-
         $v_gname = '';
-
         $v_devmajor = '';
-
         $v_devminor = '';
-
         $v_prefix = '';
 
         $v_binary_data_first = pack(
             "a100a8a8a8a12a12",
             '././@LongLink',
-            0,
-            0,
-            0,
+            $v_perms,
+            $v_uid,
+            $v_gid,
             $v_size,
-            0
+            $v_mtime
         );
         $v_binary_data_last = pack(
             "a1a100a6a2a32a32a8a8a155a12",
@@ -1679,7 +1679,7 @@ class Archive_Tar
         $this->_writeBlock($v_binary_data_first, 148);
 
         // ----- Write the calculated checksum
-        $v_checksum = sprintf("%06s ", DecOct($v_checksum));
+        $v_checksum = sprintf("%06s\0 ", DecOct($v_checksum));
         $v_binary_data = pack("a8", $v_checksum);
         $this->_writeBlock($v_binary_data, 8);
 
@@ -1805,10 +1805,13 @@ class Archive_Tar
      */
     private function _maliciousFilename($file)
     {
-        if (strpos($file, '/../') !== false) {
+        if (strpos($file, 'phar://') === 0) {
             return true;
         }
-        if (strpos($file, '../') === 0) {
+        if (strpos($file, DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) !== false) {
+            return true;
+        }
+        if (strpos($file, '..' . DIRECTORY_SEPARATOR) === 0) {
             return true;
         }
         return false;
@@ -1873,11 +1876,20 @@ class Archive_Tar
                 continue;
             }
 
-            // ----- Look for long filename
-            if ($v_header['typeflag'] == 'L') {
-                if (!$this->_readLongHeader($v_header)) {
-                    return null;
-                }
+            switch ($v_header['typeflag']) {
+                case 'L': {
+                    if (!$this->_readLongHeader($v_header)) {
+                        return null;
+                    }
+                } break;
+
+                case 'K': {
+                    $v_link_header = $v_header;
+                    if (!$this->_readLongHeader($v_link_header)) {
+                        return null;
+                    }
+                    $v_header['link'] = $v_link_header['filename'];
+                } break;
             }
 
             if ($v_header['filename'] == $p_filename) {
@@ -1978,11 +1990,20 @@ class Archive_Tar
                 continue;
             }
 
-            // ----- Look for long filename
-            if ($v_header['typeflag'] == 'L') {
-                if (!$this->_readLongHeader($v_header)) {
-                    return false;
-                }
+            switch ($v_header['typeflag']) {
+                case 'L': {
+                    if (!$this->_readLongHeader($v_header)) {
+                        return null;
+                    }
+                } break;
+
+                case 'K': {
+                    $v_link_header = $v_header;
+                    if (!$this->_readLongHeader($v_link_header)) {
+                        return null;
+                    }
+                    $v_header['link'] = $v_link_header['filename'];
+                } break;
             }
 
             // ignore extended / pax headers
