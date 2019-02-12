@@ -112,8 +112,10 @@ function drush_spads_sites_scratchpads_import() {
   foreach ($slice as $row) {
     drush_print("Importing " . $row['site_url'] . "...");
     $node = _spads_sites_find_site($row['site_url']);
-    _spads_sites_set_node_data($node, $row);
-    node_save($node);    
+    if($node){
+      _spads_sites_set_node_data($node, $row);
+      node_save($node);
+    } 
   }
   drush_print("All done!");  
 }
