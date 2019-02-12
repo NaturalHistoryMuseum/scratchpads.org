@@ -75,7 +75,7 @@ function _spads_sites_format_url($url){
 */
 function _spads_sites_find_site($url){
   $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')->entityCondition('bundle', 'scratchpads')->fieldCondition('field_website', 'url', $url, '=')->range(0, 1);
+  $query->entityCondition('entity_type', 'node')->entityCondition('deleted', 0)->entityCondition('bundle', 'scratchpads')->fieldCondition('field_website', 'url', $url, '=')->range(0, 1);
   $result = $query->execute();
   if(!empty($result['node'])){
     $nid = array_pop(array_keys($result['node']));
