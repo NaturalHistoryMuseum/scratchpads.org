@@ -112,13 +112,7 @@ $home-links: map-get($secondaries, "home");
 
   &__feed-box {
     @include page-container;
-
-    scroll-snap-type: mandatory;
-    scroll-snap-points-x: repeat(calc(100% + 9px));
-
-    > * {
-      margin: 0 5px;
-    }
+    @include scroll-snap;
   }
 
   &__tablist {

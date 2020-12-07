@@ -26,6 +26,14 @@
   }
 }
 
+@mixin scroll-snap {
+  scroll-snap-type: x mandatory;
+
+  > * {
+    scroll-snap-align: start;
+  }
+}
+
 @mixin read-more {
   &,
   &:visited {

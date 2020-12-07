@@ -11,9 +11,7 @@
   &__list {
     @include reset-list;
     @include page-container;
-
-    scroll-snap-type: mandatory;
-    scroll-snap-points-x: repeat(calc(100% + 19px));
+    @include scroll-snap;
   }
 
   &__study {
