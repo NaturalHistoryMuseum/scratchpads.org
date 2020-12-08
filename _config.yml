@@ -42,4 +42,3 @@ exclude:
   - Gemfile.lock
   - package.json
   - README.md
-baseurl: "/scratchpads.eu"
