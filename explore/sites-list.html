@@ -1,0 +1,29 @@
+---
+layout: page
+title: Sites list
+weight: 3
+---
+
+<h1>Scratchpads</h1>
+
+Total Scratchpads: {{ site.data.sites | size }}
+
+<table>
+	<thead>
+		<tr>
+			<th>Scratchpad Name</th>
+			<th>Data nodes</th>
+			<th>Taxonomy vocabularies</th>
+			<th>Taxonomy terms</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for site in site.data.sites %}<tr>
+			<td><a href="http://{{site.name}}">{{ site.name }}</a></td>
+			<td>{{ site.nodes }}</td>
+			<td>{{ site.vocabs }}</td>
+			<td>{{ site.terms }}</td>
+		</tr>
+	</tbody>
+	{% endfor %}
+</table>

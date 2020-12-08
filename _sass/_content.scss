@@ -30,6 +30,12 @@
     border: 1px solid #CCC;
   }
 
+  thead {
+    position: sticky;
+    top: 0;
+    background: white;
+  }
+
   th {
     text-align: left;
   }

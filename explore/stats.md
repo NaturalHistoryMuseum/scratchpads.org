@@ -5,4 +5,4 @@ theme: "explore"
 ---
 # Scratchpads 2 statistics
 
-Stats coming soon
+Detailed stats are currently unavailable. For information about current Scratchpads, see the [sites list](./explore/sites-list).
