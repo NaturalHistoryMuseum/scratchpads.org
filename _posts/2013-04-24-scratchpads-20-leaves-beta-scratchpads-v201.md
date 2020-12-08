@@ -1,9 +1,9 @@
 ---
 title: "Scratchpads 2.0 Leaves Beta (Scratchpads v2.0.1)"
-date: 2013-04-24 13:01:00
+date: 2013-04-24 12:01:51
 ---
 
-We are pleased to announce that Scratchpads 2.0 is formally leaving beta!
+<strong>We are pleased to announce that Scratchpads 2.0 is formally leaving beta!</strong>
 
 Since the first Scratchpads 2.0 release in 2012 we have completed over 800 reported issues and added many improvements and new features.
 
@@ -11,9 +11,9 @@ Today marks our second update of Scratchpads 2.0 as we change from "rolling rele
 
 There are a number of benefits you should see from the switch to versioned releases: we can more easily let you know about updates and improvements; do more thorough testing; and maintain our documentation more easily.
 
-Changelog
-
+<strong>Changelog</strong>
 Scratchpads 2.0.1 (2013-04-24)
+
 - Upgraded Drupal to 7.22
 - Prepared the sites to use Varnish
 - Upgraded simplenews module to 7.x-1.0
@@ -31,4 +31,3 @@ Scratchpads 2.0.1 (2013-04-24)
 - Removed the "beta" logo
 - Open the help wiki in a new tab (#880).
 - Prevent the WYSIWYG editor from expanding
-

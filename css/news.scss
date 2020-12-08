@@ -104,11 +104,13 @@ $baseurl: "{{ site.baseurl }}";
   }
 
   &__page-prev a::before {
-    content: '🠘 ';
+    content: '☚ ';
+    font-size: 20px;
   }
 
   &__page-next a::after {
-    content: ' 🠚';
+    content: ' ☛';
+    font-size: 20px;
   }
 
   a:hover {

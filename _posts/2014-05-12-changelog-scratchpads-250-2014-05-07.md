@@ -1,20 +1,18 @@
 ---
 title: "Changelog - Scratchpads 2.5.0 (2014-05-07)"
-date: 2014-05-12 13:56:00
+date: 2014-05-12 12:56:33
 ---
 
-Release Changelog
+<strong>Release Changelog
+Scratchpads 2.5.0 (2014-05-07)</strong>
 
-Scratchpads 2.5.0 (2014-05-07)
+<strong>New features</strong>
+- Enable the revisioning of taxonomy terms (<a href="http://support.scratchpads.eu/issues/3892">#3892</a>)
+- Replace Google Scholar module with ReFindit (<a href="http://support.scratchpads.eu/issues/4105">#4105</a>,<a href="http://support.scratchpads.eu/issues/1174">#1174</a>)
 
-New features
-- Enable the revisioning of taxonomy terms (#3892)
-- Replace Google Scholar module with ReFindit (#4105,#1174)
-
-Bug fixes & Improvements
-- Improve sorting of Biblio pages (#4110)
-- Prevent  or  tags being presented on Scratchpads pages in the Issues... block (#4113)
-- Fixed an issue with multiple taxonomy fields on biblio nodes (#4099)
-- Minor presentation tweak (#3884)
-- Aggregate slickgrid views on taxonomy pages (#4082)
-
+<strong>Bug fixes & Improvements</strong>
+- Improve sorting of Biblio pages (<a href="http://support.scratchpads.eu/issues/4110">#4110</a>)
+- Prevent <i> or <em> tags being presented on Scratchpads pages in the Issues... block (<a href="http://support.scratchpads.eu/issues/4113">#4113</a>)
+- Fixed an issue with multiple taxonomy fields on biblio nodes (<a href="http://support.scratchpads.eu/issues/4099">#4099</a>)
+- Minor presentation tweak (<a href="http://support.scratchpads.eu/issues/3884">#3884</a>)
+- Aggregate slickgrid views on taxonomy pages (<a href="http://support.scratchpads.eu/issues/4082">#4082</a>)
