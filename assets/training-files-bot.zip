@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
 		<link rel="stylesheet" href="/index.php?title=MediaWiki:Modern.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
 		<link rel="stylesheet" href="/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />		<!--[if lt IE 7]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
-		
+
 		<script type= "text/javascript">/*<![CDATA[*/
 		var skin = "modern";
 		var stylepath = "/skins";
@@ -29,7 +29,7 @@
 		var wgScript = "/index.php";
 		var wgVariantArticlePath = false;
 		var wgActionPaths = {};
-		var wgServer = "http://help.scratchpads.eu";
+		var wgServer = "http://help.scratchpads.org";
 		var wgCanonicalNamespace = "File";
 		var wgCanonicalSpecialPageName = false;
 		var wgNamespaceNumber = 6;
@@ -52,7 +52,7 @@
 		var wgRestrictionEdit = [];
 		var wgRestrictionMove = [];
 		/*]]>*/</script>
-                
+
 		<script type="text/javascript" src="/skins/common/wikibits.js?207"><!-- wikibits js --></script>
 		<!-- Head Scripts -->
 		<script type="text/javascript" src="/skins/common/ajax.js?207"></script>
@@ -70,7 +70,7 @@
 		<h5>Views</h5>
 		<div class="pBody">
 			<ul>
-	
+
 				 <li id="ca-nstab-image" class="selected"><a href="/w/File:Botanical_Training_Materials.zip" title="View the file page [c]" accesskey="c">File</a></li>
 				 <li id="ca-talk" class="new"><a href="/index.php?title=File_talk:Botanical_Training_Materials.zip&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
 				 <li id="ca-viewsource"><a href="/index.php?title=File:Botanical_Training_Materials.zip&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
@@ -104,7 +104,7 @@
 <div class="mediaWarning"><b>Warning</b>: This file may contain malicious code, by executing it your system may be compromised.<hr /></div>
 <p>Botanical training materials (Liliaceae/lilies) provided by The Royal Botanic Gardens, Kew as part of eMonocot.
 </p>
-<!-- 
+<!--
 NewPP limit report
 Preprocessor node count: 1/1000000
 Post-expand include size: 0/2097152 bytes
@@ -124,7 +124,7 @@ Expensive parser function count: 0/100
 <p>There are no pages that link to this file.
 </p></div>
 <div class="printfooter">
-Retrieved from "<a href="http://help.scratchpads.eu/w/File:Botanical_Training_Materials.zip">http://help.scratchpads.eu/w/File:Botanical_Training_Materials.zip</a>"</div>
+Retrieved from "<a href="http://help.scratchpads.org/w/File:Botanical_Training_Materials.zip">http://help.scratchpads.org/w/File:Botanical_Training_Materials.zip</a>"</div>
 		<div class='mw_clear'></div>
 					</div><!-- mw_contentholder -->
 	</div><!-- mw_content -->
@@ -140,7 +140,7 @@ Retrieved from "<a href="http://help.scratchpads.eu/w/File:Botanical_Training_Ma
 				<li id="n-Home"><a href="/w/Main_Page">Home</a></li>
 				<li id="n-All-pages"><a href="/w/Special:AllPages">All pages</a></li>
 				<li id="n-recentchanges"><a href="/w/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
-				<li id="n-Changes-by-others"><a href="http://help.scratchpads.eu/index.php?title=Special:Recentchanges&amp;limit=500&amp;days=30&amp;hidemyself=1">Changes by others</a></li>
+				<li id="n-Changes-by-others"><a href="http://help.scratchpads.org/index.php?title=Special:Recentchanges&amp;limit=500&amp;days=30&amp;hidemyself=1">Changes by others</a></li>
 				<li id="n-Books"><a href="/w/Category:Books">Books</a></li>
 			</ul>
 		</div><!-- pBody -->
@@ -188,7 +188,7 @@ Retrieved from "<a href="http://help.scratchpads.eu/w/File:Botanical_Training_Ma
 	</div>
 
 
-	<!-- footer --> 
+	<!-- footer -->
 	<div id="footer">
 			<ul id="f-list">
 				<li id="lastmod"> This page was last modified on 19 June 2012, at 10:08.</li>
@@ -200,6 +200,6 @@ Retrieved from "<a href="http://help.scratchpads.eu/w/File:Botanical_Training_Ma
 			</ul>
 		<div class='mw_poweredby'>Powered by MediaWiki 1.15.5-2squeeze4</div>	</div>
 
-	
+
 		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
 <!-- Served in 0.101 secs. --></body></html>

@@ -17,7 +17,7 @@ Scratchpads and other ViBRANT tools were presented during a one-day meeting in B
 \t<li>
 \t\tScratchpads tools for the DNA taxonomist - Edward Baker and Dimitrios Koureas, <a href="http://www.nhm.ac.uk/ /">Natural History Museum London</a></li>
 \t<li>
-\t\t<a href="http://vbrant.eu/sites/vbrant.eu/files/Caithness_OBOE.pps">Manipulating sequence data and OBOE</a> - Neil Caithness, <a href="http://www.oerc.ox.ac.uk/">Oxford e-Research Centre</a></li>
+\t\t<a href="http://vbrant.scratchpads.org/sites/vbrant.scratchpads.org/files/Caithness_OBOE.pps">Manipulating sequence data and OBOE</a> - Neil Caithness, <a href="http://www.oerc.ox.ac.uk/">Oxford e-Research Centre</a></li>
 \t<li>
 \t\t<a href="http://bebol.myspecies.info/sites/bebol.myspecies.info/files/Morse%26King_Literature_Mining_and_Mark-up.pptx#overlay-context=node/92">Literature Mining and MarkUp</a> using <a href="https://oboe.oerc.ox.ac.uk/">OBOE</a> - David Morse and David King, <a href="http://www.open.ac.uk/">Open University</a></li>
 \t<li>

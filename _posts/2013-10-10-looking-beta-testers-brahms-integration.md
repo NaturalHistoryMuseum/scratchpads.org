@@ -8,4 +8,4 @@ BRAHMS (Botanical Research And Herbarium Management System) and Scratchpads have
 
 To participate you will need to actively maintain a BRAHMS database.
 
-If you are interested please send an email to support@scratchpads.eu until Oct 15 2013.
+If you are interested please send an email to scratchpads@nhm.ac.uk until Oct 15 2013.

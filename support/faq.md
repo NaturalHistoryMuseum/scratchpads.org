@@ -31,7 +31,7 @@ Scratchpads users include societies, journals, experienced and early stage resea
 [Back to top](#main)
 
 ## How are Scratchpads funded?
-Scratchpads were created in the EU Network of Excellence [EDIT](http://www.e-taxonomy.eu) that ran from 2006 - 2010. Currently funding is primarily through the [ViBRANT](http://www.vbrant.eu) project (2010 - 2013), a European Commission grant under [Framework Seven](http://cordis.europa.eu/fp7/home_en.html). We are also receiving funds through the [Natural Environment Research Council](http://www.nerc.ac.uk/) funded [e-monocot](http://www.e-monocot.org) project, in partnership with the [Royal Botanic Gardens Kew](http://www.kew.org) and the [University of Oxford](http://www.ox.ac.uk/). The [Natural History Museum](http://www.nhm.ac.uk) (NHM), London also contributes staff time to the project and is committed to supporting Scratchpads after 2013. Further funds to support the Scratchpads have been provided by the [Global Biodiversity Information Facility](http://www.gbif.org) (GBIF) and from core funding within the NHM. Finally we are working with [Biodiversity Informatics Group](http://eol.org/info/234) (BIG) of the [Encyclopedia of Life project](http://www.eol.org).
+Scratchpads were created in the EU Network of Excellence [EDIT](http://www.e-taxonomy.eu) that ran from 2006 - 2010. Currently funding is primarily through the [ViBRANT](http://vbrant.scratchpads.org) project (2010 - 2013), a European Commission grant under [Framework Seven](http://cordis.europa.eu/fp7/home_en.html). We are also receiving funds through the [Natural Environment Research Council](http://www.nerc.ac.uk/) funded [e-monocot](http://www.e-monocot.org) project, in partnership with the [Royal Botanic Gardens Kew](http://www.kew.org) and the [University of Oxford](http://www.ox.ac.uk/). The [Natural History Museum](http://www.nhm.ac.uk) (NHM), London also contributes staff time to the project and is committed to supporting Scratchpads after 2013. Further funds to support the Scratchpads have been provided by the [Global Biodiversity Information Facility](http://www.gbif.org) (GBIF) and from core funding within the NHM. Finally we are working with [Biodiversity Informatics Group](http://eol.org/info/234) (BIG) of the [Encyclopedia of Life project](http://www.eol.org).
 Ultimately the longevity of the Scratchpads will be dependent upon whether they remain useful and actively used. Without community support for infrastructure and content, the Scratchpads project will be short lived. Every indication is that the Scratchpads' popularity will make the project as secure as any informatics project in the foreseeable future.
 [Back to top](#main)
 
@@ -59,7 +59,7 @@ Yes. Spreading the word about Scratchpads and its use in the taxonomic and biodi
 [Back to top](#main)
 
 ## How can I apply for a new Scratchpad?
-You can apply for a new Scratchpad by submitting the [online application form](http://get.scratchpads.eu). After submitting the form you will receive an e-mail with directions on how to access and set up your new site. We recommend following the [on-line training material]({{ wiki }}) and exploring the [sandbox test site](../support/sandbox) before starting to populate your own new site.
+You can apply for a new Scratchpad by submitting the [online application form](http://get.scratchpads.org). After submitting the form you will receive an e-mail with directions on how to access and set up your new site. We recommend following the [on-line training material]({{ wiki }}) and exploring the [sandbox test site](../support/sandbox) before starting to populate your own new site.
 [Back to top](#main)
 
 ## Can I apply for a new site on behalf of someone else?
@@ -67,7 +67,7 @@ You can apply on behalf of a scientific society or research group, provided you 
 [Back to top](#main)
 
 ## Can I test Scratchpads before I apply for a new site?
-Yes. You can try out all of Scratchpads functionality through our dedicated [sandbox site](http://sandbox.scratchpads.eu). Feel free to experiment with this site and test it exhaustively. It will be re-created every 6 hours, so you can't break it for long! On the other hand, please do not upload valuable data to the sandbox site because all content will be permanently erased when its re-created. If you intent to do extensive testing and you need a testing site for several days please apply for your own training site through our [application form](../support/training/apply-for-site). Training sites will be deleted after 2 weeks from the date created.
+Yes. You can try out all of Scratchpads functionality through our dedicated [sandbox site](http://sandbox.scratchpads.org). Feel free to experiment with this site and test it exhaustively. It will be re-created every 6 hours, so you can't break it for long! On the other hand, please do not upload valuable data to the sandbox site because all content will be permanently erased when its re-created. If you intent to do extensive testing and you need a testing site for several days please apply for your own training site through our [application form](../support/training/apply-for-site). Training sites will be deleted after 2 weeks from the date created.
 [Back to top](#main)
 
 ## Can I join an existing Scratchpad site?

@@ -5,10 +5,10 @@ weight: 5
 Sandbox
 =======
 
-The [Sandbox](http://sandbox.scratchpads.eu) is a site built to allow people interested in Scratchpads to try out all the available functions before applying for their own site.
+The [Sandbox](http://sandbox.scratchpads.org) is a site built to allow people interested in Scratchpads to try out all the available functions before applying for their own site.
 
-Please use the following credentials to [login to Sandbox](http://sandbox.scratchpads.eu):  
-Username: _username_  
+Please use the following credentials to [login to Sandbox](http://sandbox.scratchpads.org):
+Username: _username_
 Password: _password_
 
 **What can you do in the Sandbox?**

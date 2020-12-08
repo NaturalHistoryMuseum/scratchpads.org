@@ -1,17 +1,17 @@
 "Title","News Body","Post date"
 "No new Scratchpads sites applications possible (Temporarily) ","We are sorry to announce that for reasons related to our current technical and support capacity we will not be able to temporarily accept applications for creating new Scratchpads sites. This does not affect the operation of the current Scratchpads sites, or registration of new users to existing sites.
 We will update you once this issue has been resolved.
-For more information on this issue, please email your query to support@scratchpads.eu
+For more information on this issue, please email your query to scratchpads@nhm.ac.uk
 ","Monday, October 31, 2016 - 17:16"
 "Problem with automatic login to our issue tracker","Users report problems with the automatic authentication in the Scratchpads Issues tracker (support.scratchpads.eu).
-If you experience similar difficulties, please do use the e-mail address support@scratchpads.eu and until we fully address the underlying cause.
+If you experience similar difficulties, please do use the e-mail address scratchpads@nhm.ac.uk and until we fully address the underlying cause.
 We apologise for the inconvenience.
 ","Tuesday, February 23, 2016 - 14:53"
 "Overrun of scheduled maintenance ","Unfortunately, our (NHM) servers scheduled maintenance overran the expected duration. Scratchpads remained inaccessible from 19.00 Nov 09 to 10.00 Nov 10 (GMT).
 All services are now back up and running. No additional downtime is expected.
 We apologise for this overrun and the inconvinience that might have caused you
 ","Tuesday, November 10, 2015 - 10:31"
-"Scratchpads downtime on Mon 09 Nov 2015","Due to planned technical maintenance of the Natural History Museum London servers, all NHM-based Scratchpads servers will remain inaccessible between 18.30 and 22.00 (GMT) on Monday 09 November 2015. During that time all NHM-hosted Scratchpads sites will not be accessible. 
+"Scratchpads downtime on Mon 09 Nov 2015","Due to planned technical maintenance of the Natural History Museum London servers, all NHM-based Scratchpads servers will remain inaccessible between 18.30 and 22.00 (GMT) on Monday 09 November 2015. During that time all NHM-hosted Scratchpads sites will not be accessible.
 Thank you for your understanding.
 ","Thursday, November 5, 2015 - 12:04"
 "New Scratchpads Ambassador in Borneo","Liew Thor-Seng is our new ambassador from Borneo, Malaysia. Liew is a biologist with interests in ecology, evolution, systematics and conservation science. Currently, his research is focused on the land snails of Southeast Asia. He is currently affiliated with the Institute for Tropical Biology and Conservation, Universiti Malaysia Sabah.
@@ -152,7 +152,7 @@ Bug fixes & Improvements
 "New Scratchpads Ambassador in Venezuela","Marco Gaiani is our new Ambassador from Venezuela and the third from South America. Marco is Curator of Hemiptera and Head of Biodiversity Informatics at Universidad Central de Venezuela, Museo del Instituto de Zoologia Agricola.
 Learn more about him at http://scratchpads.eu/ambassador/marco-gaiani
 ","Wednesday, April 30, 2014 - 17:56"
-"New Scratchpads Ambassador in Switzerland","Angelo Bolzern is our new Ambassador from Switzerland. Angelo is a postdoctoral researcher at the Natural History Museums of Basel. 
+"New Scratchpads Ambassador in Switzerland","Angelo Bolzern is our new Ambassador from Switzerland. Angelo is a postdoctoral researcher at the Natural History Museums of Basel.
 Learn more about him at http://scratchpads.eu/ambassador/angelo-bolzern
 ","Friday, April 25, 2014 - 12:02"
 "Changelog - Scratchpads 2.4.1 (2014-04-03)","Release Changelog
@@ -225,7 +225,7 @@ Scratchpads 2.4 (2014-03-12)
 - Ensure tabs in the Specimens Slickgrid can be switched between (#3747)
 - Allow the Tinytax block to be hidden for anonymous users (#3773)
 ","Thursday, March 13, 2014 - 16:49"
-"Export from BRAHMS into Scratchpads ","BRAHMS is a flexible database management system for botanical researchers and herbaria. In the latest version (v. 7.4.2) Brahms software is providing users with the option to export taxonomies, locations, specimens and people into a .csv format which can be directly imported into a Scratchpad site. 
+"Export from BRAHMS into Scratchpads ","BRAHMS is a flexible database management system for botanical researchers and herbaria. In the latest version (v. 7.4.2) Brahms software is providing users with the option to export taxonomies, locations, specimens and people into a .csv format which can be directly imported into a Scratchpad site.
 This new functionality enables researchers and research communities, who use BRAHMS as their primary botanical data management system, to quickly develop a Scratchpad site based on their existing botanical database making use of the added functionality Scratchpads provide for structuring, curating, linking and publishing biodiversity data.
 You can download the latest version of BRAHMS from:http://herbaria.plants.ox.ac.uk/bol/brahms/Software
 ","Thursday, March 13, 2014 - 16:30"
@@ -282,8 +282,8 @@ Scratchpads 2.3.1 (2013-12-05)
 - Use WYSIWYG editor for the Remarks field (#3567)
 - Refresh the admin paths when enabling a tool (#3623)
 ","Friday, December 6, 2013 - 10:00"
-"A new translation service for Scratchpads","We have dropped the Google Translate Toolkit as a facilitator in translating Scratchpads interface and set-up a new more user friendly and intuitive system. 
-The new service is very similar to the Drupal Localize server. It should be used by translators from around the world to maintain localizations of the Scratchpads. 
+"A new translation service for Scratchpads","We have dropped the Google Translate Toolkit as a facilitator in translating Scratchpads interface and set-up a new more user friendly and intuitive system.
+The new service is very similar to the Drupal Localize server. It should be used by translators from around the world to maintain localizations of the Scratchpads.
 Just pick your language and you'll be able to download existing work and contribute to the translations. You can find more information on http://localize.scratchpads.eu
 Once again, thanks to all of you who are actively helping us translate Scratchpads in your language!
 ","Tuesday, November 19, 2013 - 18:07"
@@ -306,13 +306,13 @@ Scratchpads 2.3.0 (2013-11-06)
 - Allow associating content with a file in imports (#3494)
 - Ensure required and permitted values are included in templates (#3521)
 ","Wednesday, November 6, 2013 - 17:12"
-"Do you want your Scratchpad on the first page?","If you want your site to be featured on the first page of scratchpads.eu, please send to support@scratchpads.eu the URL of your site and a brief description (max. 35 words). This is an open call so please feel free to send us your emails at anytime.
+"Do you want your Scratchpad on the first page?","If you want your site to be featured on the first page of scratchpads.eu, please send to scratchpads@nhm.ac.uk the URL of your site and a brief description (max. 35 words). This is an open call so please feel free to send us your emails at anytime.
 ","Thursday, October 24, 2013 - 17:33"
 "We changed our release frequency pattern","Scratchpads are changing their release frequency pattern. We are going to release a new version of Scratchpads every first Wednesday of each month. Our next release is planned for Wednesday 6 November. Visit Scratchpads.eu to stay updated for bug fixes and new features in every release.
 ","Tuesday, October 22, 2013 - 11:02"
-"Looking for Beta testers: BRAHMS integration","BRAHMS (Botanical Research And Herbarium Management System) and Scratchpads have traveled all the way to to bring the two systems close together. As we are in the last phase of the testing before releasing, we are looking for beta testers to test the export functionality of BRAHMS to Scratchpads. 
-To participate you will need to actively maintain a BRAHMS database. 
-If you are interested please send an email to support@scratchpads.eu until Oct 15 2013.
+"Looking for Beta testers: BRAHMS integration","BRAHMS (Botanical Research And Herbarium Management System) and Scratchpads have traveled all the way to to bring the two systems close together. As we are in the last phase of the testing before releasing, we are looking for beta testers to test the export functionality of BRAHMS to Scratchpads.
+To participate you will need to actively maintain a BRAHMS database.
+If you are interested please send an email to scratchpads@nhm.ac.uk until Oct 15 2013.
 ","Thursday, October 10, 2013 - 15:00"
 "Changelog - Scratchpads 2.2.0 (2013-10-09)","Release Changelog
 Scratchpads 2.2.0 (2013-10-09)
@@ -356,7 +356,7 @@ Scratchpads 2.1.10 (2013-09-25)
 - Ensure the IUCN and other widgets display correctly (3385)
 - Fixed (3393, 3402, 3386)
 ","Wednesday, September 25, 2013 - 15:14"
-"Visit us during the Science Uncovered event","On Friday 27 September the Natural History Museum is organising the annual Science Uncovered event in the framework of the European Researcher's night EU initiative. If you want to learn more about Scratchpads and how we facilitate research and dissemination of research results come along on Friday. 
+"Visit us during the Science Uncovered event","On Friday 27 September the Natural History Museum is organising the annual Science Uncovered event in the framework of the European Researcher's night EU initiative. If you want to learn more about Scratchpads and how we facilitate research and dissemination of research results come along on Friday.
 The Scratchpads team will be located in the Museum's main hall between 18.00 - 20.00
 Learn more about Science Uncovered
 ","Wednesday, September 25, 2013 - 12:46"
@@ -424,12 +424,12 @@ Scratchpads 2.1.7 (2013-08-14)
 Type: Service interruption
 Severity: High - affecting all users
 Handled by: NHM ICT
-Issue commencing: 2013-08-20 18.00 (GMT+1) 
-Issue closed: 2013-08-20 23.00 (GMT+1) 
+Issue commencing: 2013-08-20 18.00 (GMT+1)
+Issue closed: 2013-08-20 23.00 (GMT+1)
 Description
 On Tuesday 20 August between 18:00 and 23:00 (GMT+1), The Natural History Museum ICT will be performing vital upgrades to the Museum’s IT infrastructure. This work will require a period of network downtime. As a result Scratchpads will not be available during this time. This includes all subdomains of myspecies.info, e-monocot.org and scratchpads.eu domains.
 The upgrade will enable ICT to provide better resilience to core IT hardware and improve the reliability and availability of hosted services.
-We apologise for any inconvenience this may cause. 
+We apologise for any inconvenience this may cause.
 This bulletin will close when the service is again fully functional
 ","Tuesday, August 13, 2013 - 16:00"
 "Changelog - Scratchpads 2.1.6 (2013-07-31)","Release Changelog
@@ -558,7 +558,7 @@ Main topics and links to the presentations:
  - Removed the content type facet from the literature pages (#2219)
  - Upgraded Omega theme to 7.x-3.1
 ","Wednesday, June 5, 2013 - 17:28"
-"Scratchpads learn to speak Ukrainian ","As part of the Scratchpads interface translation project we have recently added Ukrainian. If you would like to contribute to any of the available languages for translation please let us know by sending an email to support@scratchpads.eu
+"Scratchpads learn to speak Ukrainian ","As part of the Scratchpads interface translation project we have recently added Ukrainian. If you would like to contribute to any of the available languages for translation please let us know by sending an email to scratchpads@nhm.ac.uk
 You can now contribute to any of the below languages:
 Chinese
 French
@@ -566,7 +566,7 @@ German
 Portuguese
 Spanish
 Ukranian
-Please read http://help.scratchpads.eu/w/Translating_scratchpad for more information on how to contribute.
+Please read http://help.scratchpads.org/w/Translating_scratchpad for more information on how to contribute.
 ","Tuesday, June 4, 2013 - 10:16"
 "Changelog - Scratchpads 2.1.1 (2013-05-20)","Release ChangelogScratchpads 2.1.1 (2013-05-20)
 An early release this week which should be applied to all sites by Wednesday May 22nd.
@@ -596,15 +596,15 @@ An early release this week which should be applied to all sites by Wednesday May
 Type: Service degradation
 Severity: Medium - affecting most users
 Handled by: Scratchpads Team
-Issue commenced: 2013-05-15 
-Issue closed: 2013-05-16 
+Issue commenced: 2013-05-15
+Issue closed: 2013-05-16
 Description
-A re-indexing process of all sites took place during Thursday and Friday (15-16/05/2013). As a result some users in certain sites experienced issues accessing their Literature and Media galleries while this is in progress. 
+A re-indexing process of all sites took place during Thursday and Friday (15-16/05/2013). As a result some users in certain sites experienced issues accessing their Literature and Media galleries while this is in progress.
 We are sorry for the inconvenience that might have caused you. The re-indexing was necessary as a result of a Scratchpads module fix.
 ","Wednesday, May 15, 2013 - 17:21"
-"Scratchpads Migration Procedure","We have documented the Scratchpads migration procedure on our help wiki: http://help.scratchpads.eu/w/Migration_Procedure
+"Scratchpads Migration Procedure","We have documented the Scratchpads migration procedure on our help wiki: http://help.scratchpads.org/w/Migration_Procedure
 This also includes a diagram and all the notifications we have sent out to site maintainers.
-If you have any questions about migration please contact us at support@scratchpads.eu
+If you have any questions about migration please contact us at scratchpads@nhm.ac.uk
 ","Thursday, May 9, 2013 - 12:06"
 "We updated our Policies","Scratchpads policies (i.e. terms and conditions, data management, cookies and privacy) have been updated. Please read them at http://scratchpads.eu/about/policies
 ","Wednesday, May 8, 2013 - 16:29"
@@ -635,7 +635,7 @@ Handled by: NHM ICT & Scratchpads Team
 Issue commenced: 2013-05-04 03:20 (GMT +1)
 Issue closed:2013-05-04 14:20 (GMT +1)
 Description
-The main Scratchpads server (Quartz) was down for six minutes on Saturday morning resulting in an outage of all Scratchpads services. As a consequence our Solr server (i.e. our search and indexing server) was down resulting in a Scratchpads service degradation from 2013-05-04 03:26 until rebooted at about 2013-05-04 14:20 
+The main Scratchpads server (Quartz) was down for six minutes on Saturday morning resulting in an outage of all Scratchpads services. As a consequence our Solr server (i.e. our search and indexing server) was down resulting in a Scratchpads service degradation from 2013-05-04 03:26 until rebooted at about 2013-05-04 14:20
 We apologise for any inconvenience this might have caused. The Natural History Museum ICT is investigating the cause for this.
 ","Tuesday, May 7, 2013 - 13:21"
 "Few days left to register for the online training","An online scratchpads training course will be held on 24 May 2013. This is the first of a series of online training courses. Online training courses will act complimentary to the on site training events. The target audience is existing or perspective Scratchpads users mainly from regions and communities that no on-site training has previously been given or is planned for in the near future.
@@ -686,9 +686,9 @@ Description
 As part of our Server upgrade process a required global Scratchpads service interruption will commence on Monday 2013-04-15 at 11.00 (GMT+1) and estimated to last for a maximum of 1 hour. This is a required upgrade to the date storage in our server. During the upgrade users will not be able to access any of the Scratchpads sites as well as the Scratchpads portal, the Scratchpads wiki site and the scratchpads Issue queue.
 We are sorry for any inconvenience caused to our users.
 ","Tuesday, April 9, 2013 - 12:08"
-"Upgrade of Scratchpads v.1.0 sites started","After extended testing in order to minimize the volume of expected issues, we are entering the final phase of upgrading all Scratchpads sites still in the old version. The maintainers of these sites (c. 300) have already received an email explaining the process to be followed. For most of the sites the upgrade will be completed in the next few weeks. 
-Maintainers of the upgraded sites will be able to use in full extent the added functionality of Scratchpads v.2.0 and users will enjoy a more user friendly and intuitive interface. 
-Please note that sites already in the new version will not be affected by this upgrade. 
+"Upgrade of Scratchpads v.1.0 sites started","After extended testing in order to minimize the volume of expected issues, we are entering the final phase of upgrading all Scratchpads sites still in the old version. The maintainers of these sites (c. 300) have already received an email explaining the process to be followed. For most of the sites the upgrade will be completed in the next few weeks.
+Maintainers of the upgraded sites will be able to use in full extent the added functionality of Scratchpads v.2.0 and users will enjoy a more user friendly and intuitive interface.
+Please note that sites already in the new version will not be affected by this upgrade.
 ","Wednesday, March 27, 2013 - 16:53"
 "Meet our new Ambassador in California, USA","Eli Sarnat is our new Ambassador in the USA. His main area of research is Ant systematics. He is currently Manager at Antwork Consulting, LLC, and a research associate of California Academy of Sciences, San Francisco.
 We are more than happy to welcome Eli as a Scratchpads Ambassador. See his short profile here.
@@ -703,7 +703,7 @@ Issue closed: 2013-03-25 13:38
 Description
 Service degradation affecting all users.
 The issue regarding users experiencing Search and Indexing problems (including media and references lists) has now been resolved.
-The server is now behaving as expected. Scratchpads development team has made significant configuration changes to address the indexing and searching issues. 
+The server is now behaving as expected. Scratchpads development team has made significant configuration changes to address the indexing and searching issues.
 We are sorry for any inconvenience caused to our users.
 ","Monday, March 25, 2013 - 14:25"
 "Service bulletin","Issue status: Closed
@@ -715,12 +715,12 @@ Issue closed: 2013-03-15 08:28
 Description
 Service interruption affecting all users due to hardware failure.
 The problem was identified as a memory failure on one of the EXSi that host the Scratchpads virtual machines (VM) causing a global Scratchpads service shutdown.
-The problem prevented all users from accessing Scratchpads sites and Scratchpads portal for approximately 12 hours.  
-The Scratchpads VMs are now relocated and back to full operation. 
+The problem prevented all users from accessing Scratchpads sites and Scratchpads portal for approximately 12 hours.
+The Scratchpads VMs are now relocated and back to full operation.
 We are sorry for any inconvenience this may have caused to our users.
 ","Friday, March 15, 2013 - 12:40"
 "Ambassador Grants results ","We are pleased to announce that a total of four proposals are to be funded, pending final acceptance from our ambassadors.
-The list of proposed training courses can be found below: 
+The list of proposed training courses can be found below:
 Title: A step into the future: online taxonomy for Cameroon
 Location: Université de Yaoundé I, Département d'Informatique, Cameroon
 Ambassador: Thomas Couvreur
@@ -740,25 +740,25 @@ Please find more information and apply for the job exclusively athttps://nhm.ire
 ","Tuesday, February 26, 2013 - 15:24"
 "Meet our new Ambassador in the Netherlands","Thibaut De Meulemeester  is the newest member in our ambassadors network. Thibaut is a postdoctoral researcher at NBC-Naturalis. His Scratchpad is dedicated to the taxonomy and distribution of fossil bees. Find out more about Thibaut here,
 ","Monday, February 25, 2013 - 13:51"
-"Meet our new Ambassador in USA","John Friel is our new Ambassador in the USA. His main area of research is on the biodiversity of freshwater fishes, particularly catfishes (Order Siluriformes). He is currently serving as the curator for Fishes, Amphibians & Reptiles at the Cornell University Museum of Vertebrates. 
+"Meet our new Ambassador in USA","John Friel is our new Ambassador in the USA. His main area of research is on the biodiversity of freshwater fishes, particularly catfishes (Order Siluriformes). He is currently serving as the curator for Fishes, Amphibians & Reptiles at the Cornell University Museum of Vertebrates.
 We are more than happy to welcome John as a Scratchpads Ambassador. See his short profile here.
 If you also feel like you could help us, please apply to become an ambassador. Learn more  here.
 ","Friday, February 15, 2013 - 15:55"
-"35 participants in our training course in Leiden","Two sessions of training courses for Scratchpads were organised during the pro-iBiosphere meeting  in Leiden. The course attended 35 participants from all over the world (Europe, America, Africa, Asia and Australia). 
+"35 participants in our training course in Leiden","Two sessions of training courses for Scratchpads were organised during the pro-iBiosphere meeting  in Leiden. The course attended 35 participants from all over the world (Europe, America, Africa, Asia and Australia).
 The introductory presentation given during the workshop can be found here.
 Please keep an eye on our list of upcoming training courses in the Support > Training section of the scratchpads.eu site
 ","Friday, February 15, 2013 - 15:25"
 "Meet our new Ambassador in China","Wang Lisong is our new ambassador in China. Wang is a researcher at the Institute of Botany, Chinese Academy of Sciences. Wang is actively maintaining a Scratchpad on the higher plants of China and also contributes to the translation of the Scratchpads interface in Chinese.
-As all our ambassadors, Wang will promote the use of Scratchpads among selected research communities in China. 
+As all our ambassadors, Wang will promote the use of Scratchpads among selected research communities in China.
 If you also feel like you could help us, please apply to become an ambassador. Learn more  here.
 ","Wednesday, February 6, 2013 - 15:46"
 "New monthly visitors record!","During the last month (January 2013) Scratchpads sites had 54,462 unique visitors. That is an increase of 14.3% to our previous monthly record (Oct 2012)
 ","Friday, February 1, 2013 - 18:29"
-"Join the Scratchpads Translation Project for Chinese","In addition to the currently selected languages we would also like Scratchpads to start speaking Chinese. If you would like to contribute towards this translation please contact us at support@scratchpads.eu. 
+"Join the Scratchpads Translation Project for Chinese","In addition to the currently selected languages we would also like Scratchpads to start speaking Chinese. If you would like to contribute towards this translation please contact us at scratchpads@nhm.ac.uk.
 Scratchpads are already being used by research communities and individuals around the world. To facilitate wider use of Scratchpads we are commencing a project to translate the Scratchpads interface to multiple languages. This project will be primarily crowd-sourced to our extended user community, as they have the expertise to accurately translate used terms in their respective language.
-As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to support@scratchpads.eu. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.eu/w/Translating_scratchpad
+As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to scratchpads@nhm.ac.uk. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.org/w/Translating_scratchpad
 ","Thursday, January 31, 2013 - 18:27"
-"ViBRANT Researcher Evangelos Pafilis awarded EOL Rubenstein fellowship 2013","Evangelos Pafilis, Research fellow in the ViBRANT project partner Hellenic Center of Marine Research, Crete, Greece has been awarded the Encyclopedia of Life 2013 Rubenstein Research Fellowship. 
+"ViBRANT Researcher Evangelos Pafilis awarded EOL Rubenstein fellowship 2013","Evangelos Pafilis, Research fellow in the ViBRANT project partner Hellenic Center of Marine Research, Crete, Greece has been awarded the Encyclopedia of Life 2013 Rubenstein Research Fellowship.
 Evangelos along his collaborators:
 Christina Pavloudi, Hellenic Centre for Marine Research, Crete, Greece ;
 Julia Schnetzer, Bremen, Germany;
@@ -766,22 +766,22 @@ Lucia Fanini, Hellenic Centre for Marine Research, Crete, Greece;
 Lars Juhl Jensen, University of Copenhagen, Denmark;
 Sarah Faulwetter, Hellenic Centre for Marine Research, Crete, Greece;
 Sune Pletscher-Frankild, , University of Copenhagen, Denmark and
-Umer Zeeshan Ijaz, Aikaterini Vasileiadou, University of Glasgow, United Kingdom 
+Umer Zeeshan Ijaz, Aikaterini Vasileiadou, University of Glasgow, United Kingdom
 will work on the project called:
 ""ENVIRONMENTS: Discovering habitat terms in EOL Contents""
 In total seven teams of biologists, information scientists and software developers were selected to work on Big Data research through EOL.
 ","Wednesday, January 30, 2013 - 19:04"
 "New Features: Google Scholar, BHL, IUCN & NCBI widgets","We are pleased to announce four (4) new widgets that allow Scratchpads users to link their taxonomic terms to high profile external content providers.
-These widgets promote Scratchpads as an integrated biodiversity content management platform for research communities. 
-Add content to your taxon pages provided by the following services: 
+These widgets promote Scratchpads as an integrated biodiversity content management platform for research communities.
+Add content to your taxon pages provided by the following services:
 Google Scholar:
-Will return the most relevant to each taxon references and their full text links*.To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_Google_Scholar
+Will return the most relevant to each taxon references and their full text links*.To enable and for more info go to http://help.scratchpads.org/w/Linking_to_Google_Scholar
 Biodiversity Heritage Library (BHL):
-Will return the relevant to each taxon records from a 100,000+ volumes full text literature databaseTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_BHL
+Will return the relevant to each taxon records from a 100,000+ volumes full text literature databaseTo enable and for more info go to http://help.scratchpads.org/w/Linking_to_BHL
 IUCN:
-Will return taxonomic, conservation status and distribution information on each taxon that has been globally evaluated using the IUCN Red List Categories and CriteriaTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_IUCN_data
+Will return taxonomic, conservation status and distribution information on each taxon that has been globally evaluated using the IUCN Red List Categories and CriteriaTo enable and for more info go to http://help.scratchpads.org/w/Linking_to_IUCN_data
 NCBI:
-Will return associated information from the different datasets of one of the largest genomic data providersTo enable and for more info go to http://help.scratchpads.eu/w/Linking_to_NCBI
+Will return associated information from the different datasets of one of the largest genomic data providersTo enable and for more info go to http://help.scratchpads.org/w/Linking_to_NCBI
 * Subject to individual Institutions' full text access agreements
 ","Tuesday, January 22, 2013 - 15:23"
 "Invitation to our Ambassadors","To further strengthen our Ambassadors network, Scratchpads is providing grants to support Scratchpads training courses proposed by our ambassadors. If you are one of Ambassadors please check your emails for the invitation form. If you would like to join our Ambassadors network please check all relative information under Support > Ambassadors.
@@ -789,14 +789,14 @@ Will return associated information from the different datasets of one of the lar
 "New feature: WoRMS importer","Scratchpads are now using a new importer that allows users to build new classifications based on data from the World Register of Marine Species (http://www.marinespecies.org/about.php).
 You can find detailed documentation of this new tool in our wiki pages under Importing a WoRMS classification
 ","Tuesday, January 8, 2013 - 18:22"
-"Join the Scratchpads Translation Project","Scratchpads are already being used by research communities and individuals around the world. To facilitate wider use of Scratchpads we are commencing a project to translate the Scratchpads interface to multiple languages. This project will be primarily crowd-sourced to our extended user community, as they have the expertise to accurately translate used terms in their respective language. 
-As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to  support@scratchpads.eu. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.eu/w/Translating_scratchpad
+"Join the Scratchpads Translation Project","Scratchpads are already being used by research communities and individuals around the world. To facilitate wider use of Scratchpads we are commencing a project to translate the Scratchpads interface to multiple languages. This project will be primarily crowd-sourced to our extended user community, as they have the expertise to accurately translate used terms in their respective language.
+As we are relying in your contribution to achieve this goal, if you are interested in contributing to the translation of scratchpads to any of the following languages, please send us an e-mail titled ""Translation contribution"" to  scratchpads@nhm.ac.uk. You may find more information on the Scratchpads Translation Project in our wiki page at http://help.scratchpads.org/w/Translating_scratchpad
 At the moment we are undertaking the translation in the following languages:
 French
 German
 Portuguese
 Spanish
- The translation project is hosted by Google Translate Toolkit, so you will need to have an active Google account to use it 
+ The translation project is hosted by Google Translate Toolkit, so you will need to have an active Google account to use it
 ","Thursday, January 3, 2013 - 15:59"
 "New documentation pages available","We have recently added the following Scratchpads 2.0 documentation pages:
 Citing references in pages
@@ -808,7 +808,7 @@ Microsoft Office taxonomic dictionary based on you taxonomies
 Adding Twitter feeds in pages
 You can also search for documentation on other Scratchpads functions in our dedicated wiki.
 ","Wednesday, December 19, 2012 - 10:20"
-"More monthly visitors than ever before","During October 2012 Scratchpads sites had 47,661 unique visitors from 190 countries braking all previous monthly records. 
+"More monthly visitors than ever before","During October 2012 Scratchpads sites had 47,661 unique visitors from 190 countries braking all previous monthly records.
 For comparison reasons Scratchpads sites had 32,412 during Oct 2011 (a 47% relative increase) and 18,729 during Oct 2010 (a 154% relative increase).
 ","Monday, December 3, 2012 - 18:34"
 "New issues tracker","We have a new issues tracker which is part of our new project management system that now runs on Redmine.

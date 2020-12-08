@@ -8,4 +8,4 @@ We are sorry to announce that for reasons related to our current technical and s
 
 We will update you once this issue has been resolved.
 
-For more information on this issue, please email your query to support@scratchpads.eu
+For more information on this issue, please email your query to scratchpads@nhm.ac.uk

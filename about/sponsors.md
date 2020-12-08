@@ -9,7 +9,7 @@ The following projects are conceptually related to Scratchpads or are associated
 <div class="sp-media">
   <img src="{{ '/about/logos/vibrant.jpg' | relative_url }}" alt="">
   <p>
-    <a href="http://www.vbrant.eu">Virtual Biodiversity Research and Access Network for Taxonomy (ViBRANT)</a>
+    <a href="http://vbrant.scratchpads.org">Virtual Biodiversity Research and Access Network for Taxonomy (ViBRANT)</a>
   </p>
 </div>
 <div class="sp-media">

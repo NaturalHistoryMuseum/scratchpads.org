@@ -5,4 +5,4 @@ theme: home
 
 # Contact Us
 
-You can get in contact by emailing [support@scratchpads.eu](mailto:support@scratchpads.eu). You can also find us on [Twitter](http://twitter.com/scratchpads).
+You can get in contact by emailing [scratchpads@nhm.ac.uk](mailto:scratchpads@nhm.ac.uk). You can also find us on [Twitter](http://twitter.com/scratchpads).

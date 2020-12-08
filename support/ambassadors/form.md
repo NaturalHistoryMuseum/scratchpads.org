@@ -4,7 +4,7 @@ weight: 1
 
 # Ambassador Application
 
-**Please please email us at [support@scratchpads.eu](mailto:support@scratchpads.eu) with the following details to register your interest in becoming one of Scratchpads worldwide ambassadors.**
+**Please please email us at [scratchpads@nhm.ac.uk](mailto:scratchpads@nhm.ac.uk) with the following details to register your interest in becoming one of Scratchpads worldwide ambassadors.**
 
  - Full Name
  - Email

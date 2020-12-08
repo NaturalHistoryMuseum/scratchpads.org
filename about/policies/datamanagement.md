@@ -90,7 +90,7 @@ developed as part of the European Distributed Institute of Taxonomy (EDIT,
 [http://www.e-taxonomy.eu/index.php](http://www.e-taxonomy.eu/index.php)), an
 FP6 Network of Excellence programme. It was extended by major funding through
 the EU FP7 research infrastructures programme (ViBRANT,
-[http://vbrant.eu/](http://vbrant.eu/)) and UK research council funding
+[http://vbrant.scratchpads.org/](http://vbrant.scratchpads.org/)) and UK research council funding
 (e-Monocot, [http://e-monocot.org/](http://e-monocot.org/)) through to December
 2013\. Scratchpads have seen logarithmic growth in both the number of sites and
 the number of registered, active users since their inception in 2007

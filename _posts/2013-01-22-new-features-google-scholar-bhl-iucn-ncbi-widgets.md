@@ -11,18 +11,18 @@ Add content to your taxon pages provided by the following services:
 
 <strong>Google Scholar:</strong>
 Will return the most relevant to each taxon references and their full text links*.
-<em>To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_Google_Scholar</em>
+<em>To enable and for more info go to http://help.scratchpads.org/w/Linking_to_Google_Scholar</em>
 
 <strong>Biodiversity Heritage Library (BHL):</strong>
 Will return the relevant to each taxon records from a 100,000+ volumes full text literature database
-<em>To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_BHL</em>
+<em>To enable and for more info go to http://help.scratchpads.org/w/Linking_to_BHL</em>
 
 <strong>IUCN:</strong>
 Will return taxonomic, conservation status and distribution information on each taxon that has been globally evaluated using the IUCN Red List Categories and Criteria
-<em>To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_IUCN_data</em>
+<em>To enable and for more info go to http://help.scratchpads.org/w/Linking_to_IUCN_data</em>
 
 <strong>NCBI:</strong>
 Will return associated information from the different datasets of one of the largest genomic data providers
-<em>To enable and for more info go to http://help.scratchpads.eu/w/Linking_to_NCBI</em>
+<em>To enable and for more info go to http://help.scratchpads.org/w/Linking_to_NCBI</em>
 
 <em>* Subject to individual Institutions' full text access agreements</em>
