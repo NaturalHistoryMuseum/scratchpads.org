@@ -5,8 +5,8 @@
   border: 1px solid #ccc;
   background: #ccc;
   margin: 0 0 20px;
-  display: grid;
-  grid-template-columns: 1fr 31px;
+  display: inline-grid;
+  grid-template-columns: auto auto;
   grid-row-gap: 1px;
   line-height: 22px;
 

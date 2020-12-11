@@ -2,11 +2,15 @@
 layout: page
 title: Sites list
 weight: 3
+css: summary-stats
 ---
 
 <h1>Scratchpads</h1>
 
-Total Scratchpads: {{ site.data.sites | size }}
+<dl class="sp-summary-stats__table">
+	<dt>Data last collected</dt><dd>{{ site.data.stats.dateCollected | date_to_string }}</dd>
+	<dt>Total Scratchpads</dt><dd>{{ site.data.sites | size }}</dd>
+</dl>
 
 <table>
 	<thead>
