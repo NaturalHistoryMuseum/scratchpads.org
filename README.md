@@ -45,6 +45,11 @@ npm test
 
 ## Adding pages & resources
 
+### Updating site list
+
+The site list data is collected by the [scratchpads usage](https://github.com/NaturalHistoryMuseum/scratchpads-usage) project. Copy the sites-list json into _data/sites.json - don't
+forget to update the _data/stats.json with the collection date.
+
 ### Blog posts
 
 To add a new blog post/news item, add a markdown file to the _posts directory, with a date and a filename.
