@@ -9,7 +9,6 @@ scratchpads:
    url: http://ostracodaiceland.myspecies.info/
  - name: http://bioamba.myspecies.info/
    url: http://bioamba.myspecies.info/
-image: simone-nunes-brandao.jpg
 user_since: June 2013
 ---
 
