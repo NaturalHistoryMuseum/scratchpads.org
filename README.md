@@ -1,4 +1,12 @@
-# Scratchpads.eu
+# Scratchpads.org
+
+This is the code repository for the Scratchpads online promotional brochure site.
+
+The repository name was formerly scratchpads.eu which reflected the domain address of the site. Since leaving the EU/Brexit, this site has necessarily had to change its gTLD domain name ending from .eu to .org.
+
+For consistency this repo has been updated to be inline with the https://scratchpads.org/ web address URL.
+
+There is an issue to ensure that any future code update deployments from this repository continue to be successful under its new name: https://github.com/NaturalHistoryMuseum/scratchpads.org/issues/23
 
 This is a Jekyll/Github-pages project.
 
