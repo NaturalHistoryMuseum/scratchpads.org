@@ -2,7 +2,7 @@
 
 This is the code repository for the Scratchpads online promotional brochure site.
 
-The repository name was formerly scratchpads.eu which reflected the domain address of the site. Since leaving the EU/Brexit, this site has necessarily had to change its gTLD domain name ending from .eu to .org.
+The repository name was formerly scratchpads.eu which reflected the domain address of the site. Since the UK leaving the EU/Brexit, this UK-hosted site has necessarily had to change its gTLD domain name ending from .eu to .org.
 
 For consistency this repo has been updated to be inline with the https://scratchpads.org/ web address URL.
 
