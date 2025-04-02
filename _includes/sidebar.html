@@ -1,7 +1,0 @@
-{% assign image = site.static_files | where_exp: "img", "img.path contains 'assets/sidebar'" | sample %}
-<aside class="sp-sidebar {{ include.class }}">
-  <div class="sp-sidebar__content">
-    {{ include.content }}
-  </div>
-  <img src="{{ image.path | relative_url }}" alt="" role="presentation" class="sp-sidebar__decoration">
-</aside>

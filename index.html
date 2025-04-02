@@ -1,82 +1,90 @@
----
-layout: base
-title: Home
-css: index
-js:
- - why/accordion
- - index
-menu: Home
-weight: 1
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratchpads Legacy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            font-size: 0.8rem;
+            font-family: sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 1rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .logo img {
+            /* height: 50px; */
+        }
 
-<main class="sp-index" id="main">
-  {% include index/why.html class="sp-index__why" %}
+        .search{
+            padding-top: 40px;
+        }
 
-  <hr>
+        .search form {
+            display: flex;
+            gap: 0.5rem;           
+        }
+        .search input {
+            font-size: 0.8rem;
+            padding: 0.3rem;
+            width: 200px;
+        }
+        .search button {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search button i {
+            font-size: 1rem;
+        }
+        .content {
+            text-align: justify;
+            margin-top: 50px;
+        }
 
-  <section class="sp-index__section">
-    <h2 class="sp-index__heading">Join the community!</h2>
+        .content p{
+            font-size: 0.8rem;
+        }
 
-    <ul class="sp-index__join-list">
-      <li><img src="{{ '/assets/join/join-training.png' | relative_url }}" alt=""><a href="{{ '/support/training/events' | relative_url }}">Register for training</a></li>
-      <li><img src="{{ '/assets/join/join-sandbox.png' | relative_url }}" alt=""><a href="{{ '/support/sandbox' | relative_url }}">Try our sandbox</a></li>
-      <li><img src="{{ '/assets/join/join-ambassador.png' | relative_url }}" alt=""><a href="{{ '/support/ambassadors' | relative_url }}">Become a Scratchpads ambassador</a></li>
-      <li><img src="{{ '/assets/join/join-develop.png' | relative_url }}" alt=""><a href="{{ '/develop/hosting' | relative_url }}">Develop Scratchpads source code</a></li>
-      <li><img src="{{ '/assets/join/join-read.png' | relative_url }}" alt=""><a href="{{ '/about/policies' | relative_url }}">Read about our policies</a></li>
-      <li><img src="{{ '/assets/join/join-create.png' | relative_url }}" alt=""><a href="//get.scratchpads.org">Create a Scratchpad</a></li>
-      <!--<li><img src="{{ '/assets/join/join-join.png' | relative_url }}" alt=""><a href="{{ '/explore/sites-list' | relative_url }}">Join a Scratchpad</a></li>-->
-    </ul>
-  </section>
-
-  <hr>
-
-  {% include index/case-studies.html class="sp-index__section sp-index__section-case-studies" %}
-
-  <hr>
-
-  <section class="sp-index__section">
-    <h2 class="sp-index__heading">Feeds</h2>
-
-    <ul class="sp-index__tablist">
-      <li><a href="#sp-feed-atom"><img src="{{ '/assets/index/feed-icon.png' | relative_url }}" alt="">News</a></li>
-      <li><a href="#sp-feed-twitter"><img src="{{ '/assets/index/twitter.png' | relative_url }}" alt="">Twitter</a></li>
-    </ul>
-
-    <div class="sp-index__feed-box" data-slider>
-      <ul class="sp-index__feed" id="sp-feed-atom">
-      {% for post in site.posts limit: 5 %}
-        <li>
-          <h3 class="sp-index__post-title"><a href="{{ post.url | relative_url }}">{{post.title}}</a></h3>
-          <div class="sp-index__post-content">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</div>
-          <a class="sp-index__post-more" href="{{ post.url | relative_url }}">Read more</a>
-        </li>
-      {% endfor %}
-      </ul>
-      <div id="sp-feed-twitter">
-        <a class="twitter-timeline" href="https://twitter.com/scratchpads?ref_src=twsrc%5Etfw" data-tweet-limit=3>Tweets by scratchpads</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="assets/logo-green.png"  alt="Scratchpads Logo">
+            </div>
+            <div class="search">
+                <form action="https://www.google.com/search" method="get" onsubmit="this.q.value = 'site:myspecies.info ' + this.q.value;">
+                    <input type="text" name="q" placeholder="Search Scratchpads">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </header>
+        <main class="content">
+            <p>Scratchpads was conceived in 2010 as an open-source resource to build a virtual community of biodiversity researchers and foster new collaborations and ways of working.</p>
+            <p>After 15 years supporting the management of biodiversity data, Scratchpads has now been retired as a hosted platform, with active sites being read-only as of the 30th June 2024.</p>
+            <p>Scratchpads sites provided an online virtual research environment for biodiversity, allowing anyone to share their data with their research networks. Sites continue to be hosted at the Natural History Museum London.</p>
+            <p>Each individual Scratchpad remains accessible at its previous address with all its data in perpetuity, so Scratchpads can continue to be used and cited in ongoing research.</p>
+            <p>We wish to say a big thank you to all Scratchpads users over the years. Thanks to you and your peers, Scratchpads has been a huge success, outlasting more than ten years beyond the scope of the original funding.</p>
+        </main>
     </div>
-  </section>
-
-  <hr>
-
-  <section class="sp-index__section">
-    <h2 class="sp-index__heading">Scratchpads around the world</h2>
-
-    <!--p>
-      <b>{{ site.data.stats.scratchpads }}</b> Scratchpads by
-      <b>{{ site.data.stats.activeUsers }}</b> active users covering
-      <b>{{ site.data.stats.taxa }}</b> taxa in
-      <b>{{ site.data.stats.pages }}</b> pages.
-    </p-->
-
-    <p>
-      Our {{ site.data.stats.ambassadors }} Scratchpads ambassadors are located across the globe:
-    </p>
-
-    {% include ambassador-map.html class="sp-index__map" %}
-  </section>
-
-  <hr>
-</main>
+</body>
+</html>
